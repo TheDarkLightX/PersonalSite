@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 749 422" width="749" height="422" role="img" aria-label="Bounded proof search + counterexamples: real terminal output">
+  <title>Bounded proof search + counterexamples — real terminal output</title>
+  <style>
+    .term { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; }
+    .term text { fill: #d7e2dd; white-space: pre; }
+    .term .pr { fill: #44c7b5; font-weight: 700; }
+    .term .cm { fill: #80978d; }
+    .term .ok { fill: #46d39a; font-weight: 700; }
+    .term .no { fill: #e0a64e; font-weight: 700; }
+  </style>
+  <rect x="0" y="0" width="749" height="422" rx="12" fill="#0d1411" stroke="#22302b"/>
+  <rect x="0" y="0" width="749" height="34" rx="12" fill="#15211d"/>
+  <rect x="0" y="22" width="749" height="12" fill="#15211d"/>
+  <circle cx="20" cy="17" r="5" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="5" fill="#ffbd2e"/>
+  <circle cx="56" cy="17" r="5" fill="#27c93f"/>
+  <text x="374" y="21" text-anchor="middle" class="term" style="font-size:12px" fill="#7f9b91">Bounded proof search + counterexamples</text>
+  <clipPath id="reveal">
+    <rect x="0" y="34" width="749" height="0">
+      <animate attributeName="height" values="0;388;388" keyTimes="0;0.6939;1" dur="7.84s" repeatCount="indefinite"/>
+    </rect>
+  </clipPath>
+  <g class="term" clip-path="url(#reveal)">
+        <text x="18" y="67"><tspan class="pr">$</tspan> python3 demos/bounded_check_demo.py</text>
+    <text x="18" y="89"><tspan class="cm"># bounded exhaustive proof search   domain: x,y in [0,256)   65,536 cases</tspan></text>
+    <text x="18" y="111"></text>
+    <text x="18" y="133">  <tspan class="ok">[HOLDS]</tspan>   claim 1: XOR is involutive   (x ^ y) ^ y == x</text>
+    <text x="18" y="155">            checked 65,536 cases, no counterexample (bounded proof)</text>
+    <text x="18" y="177"></text>
+    <text x="18" y="199">  <tspan class="no">[FAILS]</tspan>   claim 2: modular add never wraps below   (x + y) % 256 &gt;= x</text>
+    <text x="18" y="221">            counterexample x=1, y=255  (found after 512 cases)</text>
+    <text x="18" y="243">            testing missed it; the search exposed the missing assumption:</text>
+    <text x="18" y="265">            (1 + 255) % 256 = 0, which is &lt; 1  (silent overflow)</text>
+    <text x="18" y="287"></text>
+    <text x="18" y="309">  <tspan class="ok">[HOLDS]</tspan>   claim 3 (repaired, assume x + y &lt; 256):   (x + y) % 256 &gt;= x</text>
+    <text x="18" y="331">            checked 32,896 cases, no counterexample (bounded proof)</text>
+    <text x="18" y="353"></text>
+    <text x="18" y="375"><tspan class="cm"># a passing test proves nothing universal; a bounded search proves it, or finds the</tspan></text>
+    <text x="18" y="397"><tspan class="cm"># counterexample that tells you which assumption your claim was missing.</tspan></text>
+    <rect x="18" y="386" width="9" height="16" fill="#44c7b5">
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

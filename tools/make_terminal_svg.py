@@ -31,10 +31,10 @@ def spans(line):
     if line.startswith("$ "):
         out.append('<tspan class="pr">$</tspan>')
         line = line[1:]
-    for part in re.split(r"(\[ACCEPT\]|\[REJECT\]|MATCHES|DIFFERS)", line):
-        if part in ("[ACCEPT]", "MATCHES"):
+    for part in re.split(r"(\[ACCEPT\]|\[REJECT\]|\[HOLDS\]|\[FAILS\]|MATCHES|DIFFERS)", line):
+        if part in ("[ACCEPT]", "MATCHES", "[HOLDS]"):
             out.append(f'<tspan class="ok">{esc(part)}</tspan>')
-        elif part in ("[REJECT]", "DIFFERS"):
+        elif part in ("[REJECT]", "DIFFERS", "[FAILS]"):
             out.append(f'<tspan class="no">{esc(part)}</tspan>')
         elif part:
             out.append(esc(part))
