@@ -1,30 +1,22 @@
-# Edit me first
+# Content Maintenance Checklist
 
-This prototype is intentionally opinionated. Personalize a few items before treating it as the final public site.
+Use this before making the site more public or sending it to reviewers.
 
-## Decide before publishing
+## Public Profile
 
-- Add a preferred email, LinkedIn, and CV link if those should be public.
-- Keep ESSO and ZAG labeled as private unless public demo extracts are published.
-- Add a real headshot if it increases trust. The current local image is the GitHub avatar.
+- Add a preferred email, LinkedIn, and CV link only if those should be public.
+- Keep unpublished tools out of the public portfolio unless a reviewer-safe public extract exists.
+- Replace the GitHub avatar with a headshot if that improves trust.
 - Decide whether the employer brief should stay public or serve as an interview/application packet.
 
-## Keep these ideas
+## Claim Hygiene
 
-- The homepage should stay organized around reviewer evidence.
-- Every selected project should have a reviewer path.
-- Every ambitious claim should have scope, evidence, assumptions, and limitations.
-- AI usage should be framed as "untrusted proposer, verified outputs only."
+- Keep the homepage organized around reviewer evidence.
+- Give every selected project a reviewer path.
+- Scope every ambitious claim with evidence, assumptions, and limitations.
+- Frame AI usage as untrusted proposer, verified outputs only.
 
-## Recommended next content files to create in flagship repositories
-
-- `REVIEWER_GUIDE.md`
-- `CLAIMS.md`
-- `THREAT_MODEL.md`
-- `LIMITATIONS.md`
-- `AI_USAGE.md`
-
-## Recommended next public repo
+## Recommended Next Public Repo
 
 Create:
 
