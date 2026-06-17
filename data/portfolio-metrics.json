@@ -1,0 +1,278 @@
+{
+  "generated_at": "2026-06-17T07:44:13+00:00",
+  "methodology": {
+    "line_count": "Nonblank lines in git-tracked UTF-8 text files.",
+    "curated_exclusions": [
+      ".csv",
+      ".db",
+      ".gif",
+      ".git",
+      ".jpeg",
+      ".jpg",
+      ".mypy_cache",
+      ".pdf",
+      ".pem",
+      ".png",
+      ".pytest_cache",
+      ".sqlite",
+      ".tsv",
+      ".venv",
+      ".zip",
+      "Cargo.lock",
+      "__pycache__",
+      "build",
+      "data",
+      "dist",
+      "env",
+      "generated",
+      "internal",
+      "node_modules",
+      "package-lock.json",
+      "pnpm-lock.yaml",
+      "poetry.lock",
+      "target",
+      "venv",
+      "yarn.lock"
+    ],
+    "economic_model": "COCOMO II nominal effort on curated source/proof KSLOC, converted to salary-only replacement cost using BLS software developer wages."
+  },
+  "repositories": [
+    {
+      "name": "MPRD",
+      "url": "https://github.com/TheDarkLightX/MPRD.git",
+      "commit": "f1a7e9d02e36",
+      "metrics": {
+        "tracked_files": 1611,
+        "artifact_nonblank_lines": 403449,
+        "curated_files": 869,
+        "curated_nonblank_lines": 164565,
+        "source_nonblank_lines": 151116,
+        "proof_nonblank_lines": 15788,
+        "documentation_nonblank_lines": 4709,
+        "test_files": 20,
+        "test_nonblank_lines": 5575,
+        "verification_files": 235,
+        "ci_workflows": 7,
+        "tau_related_files": 9,
+        "tau_related_nonblank_lines": 582
+      },
+      "top_languages_by_nonblank_lines": {
+        "Rust": 115086,
+        "Lean": 13016,
+        "Python": 7213,
+        "TSX": 7002,
+        "JSON": 5094,
+        "TypeScript": 4735,
+        "Markdown": 4635,
+        "TLA+": 2772
+      }
+    },
+    {
+      "name": "ZenoDEX",
+      "url": "https://github.com/TheDarkLightX/ZenoDEX.git",
+      "commit": "83566dd0d25c",
+      "metrics": {
+        "tracked_files": 4677,
+        "artifact_nonblank_lines": 1298176,
+        "curated_files": 4411,
+        "curated_nonblank_lines": 973052,
+        "source_nonblank_lines": 715901,
+        "proof_nonblank_lines": 56218,
+        "documentation_nonblank_lines": 65474,
+        "test_files": 1261,
+        "test_nonblank_lines": 235414,
+        "verification_files": 1637,
+        "ci_workflows": 13,
+        "tau_related_files": 638,
+        "tau_related_nonblank_lines": 77089
+      },
+      "top_languages_by_nonblank_lines": {
+        "Python": 582680,
+        "JSON": 94574,
+        "Markdown": 62133,
+        "YAML": 61819,
+        "Lean": 48487,
+        "Rust": 28792,
+        "JSX": 18447,
+        "Tau": 16874
+      }
+    },
+    {
+      "name": "Formal_Methods_Philosophy",
+      "url": "https://github.com/TheDarkLightX/Formal_Methods_Philosophy.git",
+      "commit": "a643ed7e9fb1",
+      "metrics": {
+        "tracked_files": 661,
+        "artifact_nonblank_lines": 138645,
+        "curated_files": 552,
+        "curated_nonblank_lines": 114170,
+        "source_nonblank_lines": 28902,
+        "proof_nonblank_lines": 1686,
+        "documentation_nonblank_lines": 51578,
+        "test_files": 93,
+        "test_nonblank_lines": 2847,
+        "verification_files": 72,
+        "ci_workflows": 1,
+        "tau_related_files": 21,
+        "tau_related_nonblank_lines": 2440
+      },
+      "top_languages_by_nonblank_lines": {
+        "Markdown": 51578,
+        "Python": 23579,
+        "SVG": 16320,
+        "HTML": 14021,
+        "JavaScript": 2299,
+        "Lean": 1686,
+        "PATCH": 1409,
+        "SCSS": 1265
+      }
+    }
+  ],
+  "aggregate": {
+    "tracked_files": 6949,
+    "artifact_nonblank_lines": 1840270,
+    "curated_files": 5832,
+    "curated_nonblank_lines": 1251787,
+    "source_nonblank_lines": 895919,
+    "proof_nonblank_lines": 73692,
+    "documentation_nonblank_lines": 121761,
+    "test_files": 1374,
+    "test_nonblank_lines": 243836,
+    "verification_files": 1944,
+    "ci_workflows": 21,
+    "tau_related_files": 668,
+    "tau_related_nonblank_lines": 80111
+  },
+  "economic_model": {
+    "ksloc": 895.919,
+    "cocomo_nominal_person_months": 5187.5,
+    "salary_only_reproduction_cost_usd_median": 57529264,
+    "salary_only_reproduction_cost_usd_p90": 91407896
+  },
+  "rarity_proxy": {
+    "source": "GitHub repository search counts checked on 2026-06-17.",
+    "counts": {
+      "language:Lean": 11100,
+      "language:TLA": 1385,
+      "language:Rust": 1216021,
+      "language:Python": 30357305
+    },
+    "ratios": {
+      "lean_as_percent_of_python": 0.0366,
+      "lean_python_repo_ratio": 2734.9,
+      "tla_as_percent_of_python": 0.0046,
+      "tla_python_repo_ratio": 21918.6,
+      "lean_as_percent_of_rust": 0.9128,
+      "tla_as_percent_of_rust": 0.1139
+    }
+  },
+  "tau_option_value_proxy": {
+    "source": "CoinGecko market-cap snapshots checked on 2026-06-17.",
+    "comparables": {
+      "uniswap_uni_market_cap_usd": 2243488243,
+      "aave_aave_market_cap_usd": 1152460097,
+      "curve_crv_market_cap_usd": 371705769
+    },
+    "combined_comparable_market_cap_usd": 3767654109,
+    "scenario_capture_values_usd": {
+      "0.1_percent": 3767654,
+      "1_percent": 37676541,
+      "5_percent": 188382705
+    },
+    "interpretation": "Scenario value for Tau if proof-oriented DEX and governance primitives help capture a small share of comparable DeFi protocol value. This is not a valuation of the current repos."
+  },
+  "protocol_benchmark_proxy": {
+    "source": "Public protocol source, funding, audit, and GitHub API snapshots checked on 2026-06-17.",
+    "benchmarks": {
+      "uniswap_v3": {
+        "public_build_cost_disclosed": false,
+        "core_repo_contributor_accounts": 15,
+        "periphery_repo_contributor_accounts": 16,
+        "distinct_contributor_accounts_across_core_and_periphery": 23,
+        "estimated_non_bot_contributor_accounts": 22,
+        "visible_public_repo_window_months": 12,
+        "sensitivity_window_months": 18,
+        "core_repo_created": "2020-04-29",
+        "public_launch_target": "2021-05-05",
+        "core_repo_stars": 5004,
+        "core_repo_forks": 3029,
+        "periphery_repo_stars": 1327,
+        "periphery_repo_forks": 1247,
+        "later_company_series_b_usd": 165000000,
+        "later_company_valuation_usd": 1660000000
+      },
+      "liquity_v1": {
+        "public_build_cost_disclosed": false,
+        "dev_repo_contributor_accounts": 15,
+        "estimated_non_bot_contributor_accounts": 14,
+        "documented_build_window_months": 18,
+        "seed_funding_usd": 2400000,
+        "series_a_funding_usd": 6000000,
+        "disclosed_funding_before_or_near_launch_usd": 8400000,
+        "launch_date": "2021-04-05",
+        "dev_repo_created": "2019-12-02",
+        "dev_repo_stars": 354,
+        "dev_repo_forks": 339
+      },
+      "liquid_loans": {
+        "public_build_cost_disclosed": false,
+        "public_repo_found": false,
+        "founded": 2021,
+        "linkedin_company_size": "11-50 employees",
+        "audit_window": "2023-06-20 to 2023-07-12",
+        "audit_full_time_security_engineers": 1,
+        "audit_duration_weeks": 3,
+        "protocol_lineage": "Liquity fork adapted for PulseChain.",
+        "public_usage_wallets_connected": 9325,
+        "public_usage_usdl_minted_usd": 6100000
+      }
+    },
+    "salary_only_team_cost_models": {
+      "uniswap_v3_22_non_bot_accounts_12_months": {
+        "headcount": 22,
+        "months": 12,
+        "person_months": 264,
+        "salary_only_cost_usd_median": 2927760,
+        "salary_only_cost_usd_p90": 4651900
+      },
+      "uniswap_v3_22_non_bot_accounts_18_months": {
+        "headcount": 22,
+        "months": 18,
+        "person_months": 396,
+        "salary_only_cost_usd_median": 4391640,
+        "salary_only_cost_usd_p90": 6977850
+      },
+      "liquity_v1_14_non_bot_accounts_18_months": {
+        "headcount": 14,
+        "months": 18,
+        "person_months": 252,
+        "salary_only_cost_usd_median": 2794680,
+        "salary_only_cost_usd_p90": 4440450
+      }
+    },
+    "interpretation": "These are benchmark and replacement-cost models, not verified historical build budgets. They exclude benefits, management, legal, audit vendor pricing, infrastructure, opportunity cost, token economics, and market value."
+  },
+  "sources": {
+    "bls_software_developers": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+    "cocomo_ii_manual": "https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf",
+    "stackoverflow_2025_survey": "https://survey.stackoverflow.co/2025",
+    "github_search_lean": "https://github.com/search?q=language%3ALean&type=repositories",
+    "github_search_tla": "https://github.com/search?q=language%3ATLA&type=repositories",
+    "github_search_python": "https://github.com/search?q=language%3APython&type=repositories",
+    "github_search_rust": "https://github.com/search?q=language%3ARust&type=repositories",
+    "coingecko_uniswap": "https://www.coingecko.com/en/coins/uniswap",
+    "coingecko_aave": "https://www.coingecko.com/en/coins/aave",
+    "coingecko_curve": "https://www.coingecko.com/en/coins/curve-dao-token",
+    "uniswap_v3_blog": "https://blog.uniswap.org/uniswap-v3",
+    "uniswap_v3_core_github": "https://github.com/Uniswap/v3-core",
+    "uniswap_v3_periphery_github": "https://github.com/Uniswap/v3-periphery",
+    "uniswap_labs_series_b": "https://techcrunch.com/2022/10/13/uniswap-labs-raises-165-million-in-new-funding/",
+    "liquity_launch_details": "https://www.liquity.org/blog/liquity-launch-details",
+    "liquity_seed_funding": "https://www.liquity.org/blog/liquity-protocol-raises-2-4m-in-seed-funding-led-by-polychain-capital",
+    "liquity_series_a_funding": "https://www.liquity.org/blog/liquity-raises-6m-in-series-a-funding",
+    "liquity_dev_github": "https://github.com/liquity/dev",
+    "liquid_loans_audit": "https://llprod-resource.s3.ap-southeast-2.amazonaws.com/Audit/Liquid_Loans_Protocol_Smart_Contract_Security_Assessment_Report_Halborn.pdf",
+    "liquid_loans_site": "https://www.liquidloans.io/",
+    "liquid_loans_linkedin": "https://www.linkedin.com/company/liquid-loans"
+  }
+}

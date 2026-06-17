@@ -420,6 +420,14 @@ h3 { font-size: 1.45rem; }
 .project-card p, .project-card li { color: var(--muted); }
 .project-card ul { padding-left: 1.1rem; margin: 1rem 0; }
 .project-card .note { margin-top: auto; color: var(--accent-2); }
+.value-note {
+  border-top: 1px solid var(--line);
+  padding-top: .85rem;
+  margin: .25rem 0 1rem;
+  color: var(--muted-2);
+  font-size: .92rem;
+  line-height: 1.45;
+}
 .card-actions { margin-top: auto; }
 .card-actions a {
   color: var(--accent);
@@ -456,6 +464,39 @@ h3 { font-size: 1.45rem; }
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+}
+.source-grid, .metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.metric-card {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 98%, transparent), color-mix(in srgb, var(--surface-2) 96%, transparent));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.05rem;
+  min-height: 210px;
+}
+.metric-card span {
+  color: var(--accent);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: .78rem;
+}
+.metric-card strong {
+  display: block;
+  margin: .6rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3.15rem);
+  line-height: 1;
+}
+.metric-card p, .method-note {
+  color: var(--muted);
+}
+.method-note {
+  margin: 1rem 0 0;
+  font-size: .94rem;
 }
 .packet-card {
   padding: 1.05rem;
@@ -574,7 +615,7 @@ h3 { font-size: 1.45rem; }
 
 @media (max-width: 980px) {
   .hero-grid, .two-col, .content-grid, .cta-card, .snapshot-grid, .timeline-grid { grid-template-columns: 1fr; }
-  .project-grid, .packet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid, .packet-grid, .source-grid, .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .side-nav { position: static; display: flex; flex-wrap: wrap; }
   .profile-panel { grid-template-columns: 140px 1fr; }
 }
@@ -597,11 +638,12 @@ h3 { font-size: 1.45rem; }
   .main-nav {
     order: 3;
     width: 100%;
-    overflow-x: auto;
-    gap: .85rem;
-    padding-bottom: .15rem;
+    flex-wrap: wrap;
+    overflow: visible;
+    gap: .35rem 1rem;
+    padding-bottom: 0;
   }
-  .main-nav a { flex: 0 0 auto; }
+  .main-nav a { flex: 0 1 auto; }
   .theme-toggle { min-width: 72px; }
   .section { padding: 54px 0; }
   .hero { padding-top: 54px; }
@@ -630,7 +672,32 @@ h3 { font-size: 1.45rem; }
     max-width: calc(100vw - 64px);
     text-align: center;
   }
-  .project-grid, .packet-grid { grid-template-columns: 1fr; }
+  .project-grid, .packet-grid, .source-grid, .metric-grid { grid-template-columns: 1fr; }
+  .matrix-card { overflow-x: visible; }
+  .matrix,
+  .matrix thead,
+  .matrix tbody,
+  .matrix tr,
+  .matrix th,
+  .matrix td {
+    display: block;
+    width: 100%;
+  }
+  .matrix thead { display: none; }
+  .matrix tr {
+    border-bottom: 1px solid var(--line);
+    padding: .45rem 0;
+  }
+  .matrix tr:last-child { border-bottom: 0; }
+  .matrix th,
+  .matrix td {
+    border-bottom: 0;
+    padding: .55rem .35rem;
+  }
+  .matrix td:first-child {
+    color: var(--accent);
+    font-weight: 900;
+  }
   .profile-panel { grid-template-columns: 1fr; }
   .avatar {
     width: 100%;
