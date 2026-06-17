@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employer Reviewer Brief - Dana Edwards</title>
+  <meta name="description" content="A general employer brief for Dana Edwards: formal methods, AI systems engineering, proof-carrying execution, and replayable assurance evidence." />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#proof">Evidence</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../packets/employer-brief.html">Employer brief</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../index.html">&lt;- Back to home</a>
+        <p class="eyebrow">General employer brief</p>
+        <h1>How to evaluate Dana Edwards quickly.</h1>
+        <p class="lede">A concise review path for teams hiring across formal methods, AI systems, security engineering, infrastructure reliability, and high-assurance software.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-grid">
+        <aside class="side-nav" aria-label="Brief sections">
+          <a href="#fit">Fit</a>
+          <a href="#evidence">Evidence</a>
+          <a href="#first30">First 30 days</a>
+          <a href="#risks">Risks</a>
+          <a href="#questions">Questions</a>
+        </aside>
+
+        <article class="prose">
+          <section id="fit">
+            <h2>Best-fit work</h2>
+            <p>Dana is strongest where software systems need explicit claims, bounded verification, replayable evidence, and careful communication. The work is useful for teams building AI automation, security-sensitive infrastructure, formal verification tooling, protocol logic, or complex systems that need reviewer trust.</p>
+            <div class="callout">
+              <strong>Positioning:</strong> Dana brings value by turning ambitious technical claims into artifacts that reviewers can inspect: specs, tests, proofs, threat models, limitation statements, and replay commands.
+            </div>
+          </section>
+
+          <section id="evidence">
+            <h2>Relevant artifacts</h2>
+            <table class="claim-table">
+              <thead><tr><th>Artifact</th><th>Employer signal</th><th>Reviewer path</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>MPRD</strong></td>
+                  <td>AI and optimizer proposals are routed through deterministic policy and proof-carrying execution gates.</td>
+                  <td><a href="../case-studies/mprd.html">Case study</a>   <a href="https://github.com/TheDarkLightX/MPRD">GitHub</a></td>
+                </tr>
+                <tr>
+                  <td><strong>ZenoDEX</strong></td>
+                  <td>Public assurance replay, bounded claim vocabulary, proof artifacts, and disaster-state witnesses.</td>
+                  <td><a href="../case-studies/zenodex.html">Case study</a>   <a href="https://github.com/TheDarkLightX/ZenoDEX">GitHub</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Formal Methods Philosophy</strong></td>
+                  <td>Tutorial writing that explains modeling, abstraction, counterexamples, and verification to technical readers.</td>
+                  <td><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">GitHub</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Private ESSO / ZAG tracks</strong></td>
+                  <td>Private finite-state verification and Lean-first algorithm discovery work can be distilled into small public demos for broader review.</td>
+                  <td>Inspect the roadmap on the homepage.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="first30">
+            <h2>Useful first 30 days</h2>
+            <ol>
+              <li><strong>Map claims:</strong> convert project promises into claim, evidence, assumption, and limitation tables.</li>
+              <li><strong>Find boundary gaps:</strong> identify weak links between specs, runtime code, tests, proofs, and deployment assumptions.</li>
+              <li><strong>Build reviewer paths:</strong> create compact demos, replay scripts, and documentation that make technical work easier to inspect.</li>
+              <li><strong>Raise implementation confidence:</strong> add checks around replay, tampering, invalid inputs, stale state, and failed authorization.</li>
+            </ol>
+          </section>
+
+          <section id="risks">
+            <h2>Risks Dana is trained to watch</h2>
+            <ul>
+              <li><strong>Spec mismatch:</strong> a proof or test suite targets a simplified property while the live system relies on a richer one.</li>
+              <li><strong>Hidden execution paths:</strong> an interface bypasses the intended policy gate or receipt check.</li>
+              <li><strong>Weak replay:</strong> evidence exists, yet lacks a binding to the critical path.</li>
+              <li><strong>Overbroad claims:</strong> documentation presents bounded evidence as a stronger guarantee.</li>
+            </ul>
+          </section>
+
+          <section id="questions">
+            <h2>Questions for a hiring team</h2>
+            <ul>
+              <li>Which claims about your system need to become explicit and reviewable?</li>
+              <li>Where do AI-generated artifacts meet production code, policy, data, or customer impact?</li>
+              <li>Which checks would give the team the most confidence in the next release?</li>
+              <li>Which assumptions are currently held in individual memory and should become documentation or tests?</li>
+            </ul>
+            <p><a class="button secondary" href="../index.html">Return to portfolio</a></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>General employer brief</p></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

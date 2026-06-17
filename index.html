@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dana Edwards - Formal Methods and AI Assurance</title>
+  <meta name="description" content="Evidence first portfolio for Dana Edwards: formal methods, AI assurance, proof-carrying execution, public replay, and verification-focused engineering." />
+  <meta name="theme-color" content="#f4f7f5" />
+  <meta property="og:title" content="Dana Edwards - Formal Methods and AI Assurance" />
+  <meta property="og:description" content="Evidence first portfolio and CV alternative for verification-focused systems work, proof-carrying execution, and public assurance replay." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-sticky>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Dana Edwards home">
+        <img src="assets/mark.svg" alt="" width="34" height="34" />
+        <span>Dana Edwards</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#proof">Evidence</a>
+        <a href="#writing">Writing</a>
+        <a href="packets/employer-brief.html">Employer brief</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Formal methods / AI assurance / verified execution</p>
+          <h1>Dana Edwards</h1>
+          <p class="lede">I build verification-centered systems for AI and optimizer proposals, using deterministic policy, formal models, tests, and replayable evidence to control execution.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">Review portfolio</a>
+            <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub: @TheDarkLightX</a>
+          </div>
+          <div class="signal-strip" aria-label="Core capabilities">
+            <span>Lean</span>
+            <span>Rust</span>
+            <span>SMT</span>
+            <span>TLA+</span>
+            <span>Policy gates</span>
+            <span>Agent safety</span>
+          </div>
+          <nav class="proof-links" aria-label="Start here">
+            <a href="case-studies/mprd.html"><span>MPRD</span><strong>Proof-carrying AI action governance</strong></a>
+            <a href="case-studies/zenodex.html"><span>ZenoDEX</span><strong>Replayable assurance case</strong></a>
+            <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy"><span>Writing</span><strong>Formal methods tutorials and labs</strong></a>
+            <a href="packets/employer-brief.html"><span>Brief</span><strong>General employer review path</strong></a>
+          </nav>
+        </div>
+        <aside class="profile-panel" aria-label="Dana Edwards profile summary">
+          <img class="avatar" src="assets/dana-github-avatar.png" alt="GitHub avatar for Dana Edwards" width="420" height="420" />
+          <div class="profile-copy">
+            <div class="card-topline">Core thesis</div>
+            <h2>Policy-gated AI execution.</h2>
+            <p>Trustworthy automation depends on clear specifications, verification gates, tests, rejection paths, and evidence that reviewers can replay.</p>
+          </div>
+          <dl class="quick-facts">
+            <div><dt>GitHub</dt><dd><a href="https://github.com/TheDarkLightX">@TheDarkLightX</a></dd></div>
+            <div><dt>Public repos</dt><dd>26 at last profile check</dd></div>
+            <div><dt>Focus</dt><dd>Proof-carrying, fail-closed systems</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section snapshot">
+      <div class="container snapshot-grid">
+        <div>
+          <p class="eyebrow">Evidence first portfolio</p>
+          <h2>Reviewer path in one screen.</h2>
+        </div>
+        <div class="snapshot-list">
+          <article>
+            <strong>High-assurance systems</strong>
+            <p>Small trusted cores, explicit execution boundaries, replayable receipts, threat models, and fail-closed gates.</p>
+          </article>
+          <article>
+            <strong>Formal and semi-formal evidence</strong>
+            <p>Lean theorem surfaces, SMT-backed checks, bounded model reasoning, counterexample-driven repair, and public replay scripts.</p>
+          </article>
+          <article>
+            <strong>AI-era engineering judgment</strong>
+            <p>LLMs are treated as untrusted proposers. Claims are scoped by exact artifacts, commands, assumptions, and limitations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>A few selected examples of my work, with evidence for each.</h2>
+          <p>Each project is framed by claim boundaries: implementation status, checked properties, replayable evidence, assumptions, and limitations.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-meta"><span>Public repo</span><span>Rust / Lean / ZK</span></div>
+            <h3>MPRD - Model Proposes, Rules Decide</h3>
+            <p>Proof-carrying AI action governance. An untrusted model proposes candidate actions; deterministic policy and verification gates decide whether a committed action may reach an executor.</p>
+            <ul>
+              <li>Typed execution boundary and proof-carrying transcript design.</li>
+              <li>Policy, state, action, and receipt commitments.</li>
+              <li>Explicit distinction between prototype, bounded claim, and production claim.</li>
+            </ul>
+            <div class="card-actions">
+              <a href="case-studies/mprd.html">Case study</a>
+              <a href="https://github.com/TheDarkLightX/MPRD">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Public repo</span><span>Python / Lean / Replay</span></div>
+            <h3>ZenoDEX - Replayable Assurance Case</h3>
+            <p>A formally constrained DEX/tokenomics stack organized around functional cores, replayable certificates, Lean proof artifacts, disaster-state witnesses, and public assurance replay.</p>
+            <ul>
+              <li>Claim registry vocabulary: release-backed, public replay, disputed, authorization-complete.</li>
+              <li>Public replay commands and bounded assurance posture.</li>
+              <li>Lean-backed canonical winner and settlement/routing theorem surfaces.</li>
+            </ul>
+            <div class="card-actions">
+              <a href="case-studies/zenodex.html">Case study</a>
+              <a href="https://github.com/TheDarkLightX/ZenoDEX">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Public repo</span><span>Writing / Education</span></div>
+            <h3>Formal Methods Philosophy</h3>
+            <p>A tutorial and lab site on modeling, abstraction, symbolic tools, counterexamples, verification, and what it means to justify a claim about software.</p>
+            <div class="card-actions">
+              <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Private track</span><span>Public demo candidate</span><span>SMT / CEGIS / Lean</span></div>
+            <h3>ESSO - Finite-State Verification / Evolution</h3>
+            <p>Private work on deterministic finite-state verification and evolution: canonical IR, SMT verification, CEGIS/SyGuS repair, proof artifacts, and Lean export.</p>
+            <p class="note">Suggested public extract: one machine, one invariant, one counterexample, one verified repair.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Private track</span><span>Public demo candidate</span><span>Lean / AI search</span></div>
+            <h3>ZAG - Lean-first Algorithm Discovery</h3>
+            <p>Private work on AI-assisted algorithm search where models are treated as untrusted proposers under compile, test, exhaustive, benchmark, archive, and proof gates.</p>
+            <p class="note">Suggested public extract: proposal to validation to proof/test labels.</p>
+          </article>
+
+          <article class="project-card new-build">
+            <div class="project-meta"><span>Recommended next build</span><span>TLA+ / Rust or Python</span></div>
+            <h3>proof-carrying-agent-gate</h3>
+            <p>A tiny reviewer-friendly demo: an agent proposes actions; a deterministic gate issues receipts; the executor rejects missing, tampered, stale, or replayed receipts.</p>
+            <p class="note">Small enough to audit, deep enough to demonstrate the central thesis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Evidence matrix</p>
+          <h2>A portfolio organized around reviewer evidence.</h2>
+          <p>Each selected project exposes a reviewer path from claim to evidence. The structure is artifact, claim, command, assumption, and limitation.</p>
+        </div>
+        <div class="matrix-card">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Signal</th>
+                <th>Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical taste</td>
+                <td>Small trusted core, explicit interfaces, bounded claims.</td>
+              </tr>
+              <tr>
+                <td>Formal methods</td>
+                <td>Lean, TLA+, and SMT artifacts with theorem statements and replay commands.</td>
+              </tr>
+              <tr>
+                <td>AI-era discipline</td>
+                <td>AI is an untrusted proposer; deterministic gates decide.</td>
+              </tr>
+              <tr>
+                <td>Security mindset</td>
+                <td>Threat model, fail-closed behavior, replay and tamper tests.</td>
+              </tr>
+              <tr>
+                <td>Communication</td>
+                <td>Case studies, claim tables, limitations, and technical essays.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container timeline-grid">
+        <div>
+          <p class="eyebrow">Current orientation</p>
+          <h2>What is public, what is private, and what to inspect first.</h2>
+        </div>
+        <div class="timeline-list">
+          <article>
+            <span>Now</span>
+            <strong>Evidence first portfolio for formal methods and AI assurance roles.</strong>
+            <p>The public surface is organized around selected examples, case studies, and reviewer paths.</p>
+          </article>
+          <article>
+            <span>Public</span>
+            <strong>MPRD, ZenoDEX, and Formal Methods Philosophy.</strong>
+            <p>These are the main public examples to inspect for architecture, assurance style, writing, and scope control.</p>
+          </article>
+          <article>
+            <span>Private</span>
+            <strong>ESSO and ZAG remain private tracks.</strong>
+            <p>They should be represented as public demo candidates until an extract is published.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Employer paths</p>
+          <h2>Same core work, different hiring contexts.</h2>
+        </div>
+        <div class="packet-grid">
+          <a class="packet-card" href="packets/employer-brief.html">
+            <span>General employer brief</span>
+            <strong>Fast path for hiring teams evaluating engineering depth, scope control, and communication.</strong>
+          </a>
+          <a class="packet-card" href="#work">
+            <span>AI systems engineering</span>
+            <strong>Agent gates, proof-carrying actions, reliable automation, and deployment boundaries.</strong>
+          </a>
+          <a class="packet-card" href="#work">
+            <span>Formal verification</span>
+            <strong>Lean, TLA+, SMT, claim/evidence mapping, and proof hygiene.</strong>
+          </a>
+          <a class="packet-card" href="#work">
+            <span>Security engineering</span>
+            <strong>Replay prevention, provenance, fail-closed execution, and tamper evidence.</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing" class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Writing and teaching</p>
+          <h2>Public examples that make the technical work legible.</h2>
+          <p>These pieces show how Dana explains modeling, verification, counterexamples, symbolic tools, and AI-assisted engineering to technical readers.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>01</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/approximate-state-tracking.md"><strong>Approximate state tracking</strong><p>State, abstraction, symbolic tools, and counterexamples.</p></a></li>
+          <li><span>02</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/concolic-testing-and-branch-exploration.md"><strong>Concolic testing and branch exploration</strong><p>Structured search for boundary-heavy software behavior.</p></a></li>
+          <li><span>03</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/counterexample-guided-requirements-discovery.md"><strong>Counterexample-guided requirements discovery</strong><p>Using failures to tighten claims and specifications.</p></a></li>
+          <li><span>04</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/microkernels-micro-models-and-compositional-correctness.md"><strong>Microkernels, micro-models, and compositional correctness</strong><p>Small trusted cores and reviewer-friendly decomposition.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Available for AI assurance, formal methods, verification, and high-assurance systems work.</h2>
+          <p>Use the GitHub profile as the current public contact and work index.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button primary" href="https://github.com/TheDarkLightX">GitHub profile</a>
+          <a class="button secondary" href="packets/employer-brief.html">Employer brief</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>&copy; <span data-year></span> Dana Edwards.</p>
+      <p>Static portfolio prototype. No build tools required.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

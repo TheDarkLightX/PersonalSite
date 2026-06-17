@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZenoDEX Case Study - Dana Edwards</title>
+  <meta name="description" content="Case study for ZenoDEX: replayable assurance, bounded formal claims, and proof-carrying optimizer certificates." />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#proof">Evidence</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../packets/employer-brief.html">Employer brief</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../index.html">&lt;- Back to home</a>
+        <p class="eyebrow">Case study</p>
+        <h1>ZenoDEX: Public Assurance Replay</h1>
+        <p class="lede">A formally constrained DEX/tokenomics stack organized around bounded claims, replayable evidence, theorem surfaces, disaster-state witnesses, and public regression gates.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-grid">
+        <aside class="side-nav" aria-label="Case study sections">
+          <a href="#summary">Summary</a>
+          <a href="#reviewer-path">Reviewer path</a>
+          <a href="#claims">Claims</a>
+          <a href="#limits">Limitations</a>
+          <a href="#next">Next steps</a>
+        </aside>
+
+        <article class="prose">
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>ZenoDEX is useful as a portfolio artifact because its assurance case is layered: functional core, verified kernels, replayable certificate layer, machine-checked proof layer, and public regression layer.</p>
+            <div class="callout">
+              <strong>Portfolio signal:</strong> ZenoDEX should demonstrate that you understand claim boundaries, public replay, negative evidence, and the difference between bounded assurance and production guarantee.
+            </div>
+          </section>
+
+          <section id="reviewer-path">
+            <h2>What a reviewer should inspect first</h2>
+            <ol>
+              <li><code>README.md</code> - public assurance snapshot and assurance shape.</li>
+              <li><code>docs/PUBLIC_ASSURANCE_REPLAY.md</code> - clean-checkout replay posture.</li>
+              <li><code>docs/claims_registry.yaml</code> - claim status vocabulary.</li>
+              <li><code>lean-mathlib/Proofs/</code> - theorem surfaces.</li>
+              <li><code>.github/workflows/</code> - ratchets, hygiene, and regression gates.</li>
+            </ol>
+          </section>
+
+          <section id="claims">
+            <h2>Claim / evidence map</h2>
+            <table class="claim-table">
+              <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Bounded public assurance claims can be replayed from a clean checkout.</td>
+                  <td>Public replay document, commands, generated receipts, and gate scripts.</td>
+                  <td class="status supported">Supported / bounded</td>
+                </tr>
+                <tr>
+                  <td>Canonical winner properties are represented in Lean theorem surfaces.</td>
+                  <td>Lean files around exact-in / exact-out / batch canonicality and uniqueness.</td>
+                  <td class="status partial">Partial / theorem-surface specific</td>
+                </tr>
+                <tr>
+                  <td>All future DEX behavior is safe.</td>
+                  <td>Would require unbounded proof, complete spec, deployment assumptions, and external review.</td>
+                  <td class="status open">Not claimed</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="limits">
+            <h2>Limitations to state clearly</h2>
+            <ul>
+              <li>Release-backed and public-replay claims have bounded scope.</li>
+              <li>Disaster-state witnesses strengthen fail-closed assurance within the tested boundary.</li>
+              <li>Financial/security systems need independent review before any production trust claim.</li>
+            </ul>
+          </section>
+
+          <section id="next">
+            <h2>Next portfolio step</h2>
+            <p>Turn the assurance shape into a visual one-page diagram: claim → artifact → command → assumptions → limitation. This will make ZenoDEX much easier for reviewers to evaluate.</p>
+            <p><a class="button secondary" href="https://github.com/TheDarkLightX/ZenoDEX">Open ZenoDEX on GitHub</a></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Static prototype</p></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MPRD Case Study - Dana Edwards</title>
+  <meta name="description" content="Case study for MPRD: proof-carrying AI action governance where models propose and rules decide." />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#proof">Evidence</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../packets/employer-brief.html">Employer brief</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../index.html">&lt;- Back to home</a>
+        <p class="eyebrow">Case study</p>
+        <h1>MPRD: Model Proposes, Rules Decide</h1>
+        <p class="lede">A proof-carrying architecture for AI-mediated execution. An untrusted proposer generates candidate actions, and the executor acts after deterministic policy and verification gates admit a committed action.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-grid">
+        <aside class="side-nav" aria-label="Case study sections">
+          <a href="#summary">Summary</a>
+          <a href="#reviewer-path">Reviewer path</a>
+          <a href="#claims">Claims</a>
+          <a href="#limits">Limitations</a>
+          <a href="#next">Next steps</a>
+        </aside>
+
+        <article class="prose">
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>MPRD is positioned around a simple control boundary. Models generate candidate actions. A deterministic rules layer issues the evidence required for execution. The model has no direct execution capability.</p>
+            <div class="callout">
+              <strong>Portfolio signal:</strong> MPRD should demonstrate architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
+            </div>
+          </section>
+
+          <section id="reviewer-path">
+            <h2>What a reviewer should inspect first</h2>
+            <ol>
+              <li><code>README.md</code> - high-level thesis and architecture.</li>
+              <li><code>crates/mprd-core/</code> - core types and execution-boundary language.</li>
+              <li><code>proofs/lean/</code> - proof artifacts and theorem surfaces.</li>
+              <li><code>docs/RC1_BLOCKERS.md</code> - honest remaining gaps before stronger release claims.</li>
+              <li><code>docs/PRODUCTION_READINESS.md</code> - implementation status and production-readiness posture.</li>
+            </ol>
+            <h3>Suggested 10-minute review script</h3>
+            <p>Open the README, then inspect the core execution token / proof bundle types. Finally, read the blocker board before evaluating any high-level safety claim.</p>
+          </section>
+
+          <section id="claims">
+            <h2>Claim / evidence map</h2>
+            <table class="claim-table">
+              <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Model output has no direct execution path in the architecture.</td>
+                  <td>Executor APIs should require verified token, receipt, or ready bundle inputs. Raw model output stays outside the execution API.</td>
+                  <td class="status partial">Partial / architecture-level</td>
+                </tr>
+                <tr>
+                  <td>Policy, state, candidate, and action commitments are part of the execution transcript.</td>
+                  <td>Core types, hashes, proof bundles, verifier checks, and tests.</td>
+                  <td class="status partial">Partial / bounded</td>
+                </tr>
+                <tr>
+                  <td>Production deployment is fully safe.</td>
+                  <td>Would require complete proof chain, deployment assumptions, operational controls, and external review.</td>
+                  <td class="status open">Not claimed</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="limits">
+            <h2>Limitations to state clearly</h2>
+            <ul>
+              <li>A formal gate is only as good as its policy, state provenance, implementation boundary, and deployment assumptions.</li>
+              <li>Architecture-level separation gives a bounded claim about the execution boundary.</li>
+              <li>Strong claims should be scoped to exact modes, exact toolchains, exact threat models, and exact replay/proof commands.</li>
+            </ul>
+          </section>
+
+          <section id="next">
+            <h2>Next portfolio step</h2>
+            <p>Create a small public companion repo: <code>proof-carrying-agent-gate</code>. It should be tiny, runnable, and use a simple invariant: <em>no side effect occurs without a valid policy receipt</em>.</p>
+            <p><a class="button secondary" href="https://github.com/TheDarkLightX/MPRD">Open MPRD on GitHub</a></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Static prototype</p></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
