@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T07:44:13+00:00",
+  "generated_at": "2026-06-17T07:58:07+00:00",
   "methodology": {
     "line_count": "Nonblank lines in git-tracked UTF-8 text files.",
     "curated_exclusions": [
@@ -169,15 +169,17 @@
   "tau_option_value_proxy": {
     "source": "CoinGecko market-cap snapshots checked on 2026-06-17.",
     "comparables": {
-      "uniswap_uni_market_cap_usd": 2243488243,
-      "aave_aave_market_cap_usd": 1152460097,
-      "curve_crv_market_cap_usd": 371705769
+      "uniswap_uni_market_cap_usd": 2277079631,
+      "aave_aave_market_cap_usd": 1160100084,
+      "sky_sky_market_cap_usd": 1344174374,
+      "curve_crv_market_cap_usd": 376987786,
+      "compound_comp_market_cap_usd": 179849112
     },
-    "combined_comparable_market_cap_usd": 3767654109,
+    "combined_comparable_market_cap_usd": 5338190987,
     "scenario_capture_values_usd": {
-      "0.1_percent": 3767654,
-      "1_percent": 37676541,
-      "5_percent": 188382705
+      "0.1_percent": 5338191,
+      "1_percent": 53381910,
+      "5_percent": 266909549
     },
     "interpretation": "Scenario value for Tau if proof-oriented DEX and governance primitives help capture a small share of comparable DeFi protocol value. This is not a valuation of the current repos."
   },
@@ -214,6 +216,45 @@
         "dev_repo_stars": 354,
         "dev_repo_forks": 339
       },
+      "aave_v3": {
+        "public_build_cost_disclosed": false,
+        "v3_core_repo_contributor_accounts": 24,
+        "v3_core_estimated_non_bot_contributor_accounts": 23,
+        "v3_core_repo_created": "2021-07-27",
+        "v3_core_repo_stars": 1110,
+        "v3_core_repo_forks": 738,
+        "v3_origin_repo_contributor_accounts": 19,
+        "v3_origin_estimated_non_bot_contributor_accounts": 18,
+        "historical_lend_token_sale_usd": 16000000,
+        "aave_will_win_primary_grant_stablecoins_usd": 25000000,
+        "aave_will_win_token_allocation_aave": 75000,
+        "aave_v3_annualized_dao_revenue_claim_usd_floor": 100000000
+      },
+      "compound": {
+        "public_build_cost_disclosed": false,
+        "compound_protocol_contributor_accounts": 19,
+        "compound_protocol_estimated_non_bot_contributor_accounts": 19,
+        "compound_protocol_repo_created": "2019-08-02",
+        "compound_protocol_repo_stars": 2040,
+        "compound_protocol_repo_forks": 1267,
+        "comet_contributor_accounts": 15,
+        "comet_estimated_non_bot_contributor_accounts": 15,
+        "comet_repo_created": "2021-11-01",
+        "comet_repo_stars": 309,
+        "comet_repo_forks": 195,
+        "seed_funding_usd": 8200000,
+        "series_a_funding_usd": 25000000,
+        "disclosed_seed_and_series_a_usd": 33200000
+      },
+      "maker_sky_dss": {
+        "public_build_cost_disclosed": false,
+        "dss_repo_contributor_accounts": 23,
+        "dss_estimated_non_bot_contributor_accounts": 23,
+        "dss_repo_created": "2018-05-28",
+        "dss_repo_stars": 832,
+        "dss_repo_forks": 448,
+        "mkr_sale_to_dragonfly_and_paradigm_usd": 27500000
+      },
       "liquid_loans": {
         "public_build_cost_disclosed": false,
         "public_repo_found": false,
@@ -248,6 +289,34 @@
         "person_months": 252,
         "salary_only_cost_usd_median": 2794680,
         "salary_only_cost_usd_p90": 4440450
+      },
+      "aave_v3_core_23_non_bot_accounts_12_months": {
+        "headcount": 23,
+        "months": 12,
+        "person_months": 276,
+        "salary_only_cost_usd_median": 3060840,
+        "salary_only_cost_usd_p90": 4863350
+      },
+      "compound_protocol_19_non_bot_accounts_12_months": {
+        "headcount": 19,
+        "months": 12,
+        "person_months": 228,
+        "salary_only_cost_usd_median": 2528520,
+        "salary_only_cost_usd_p90": 4017550
+      },
+      "compound_comet_15_non_bot_accounts_12_months": {
+        "headcount": 15,
+        "months": 12,
+        "person_months": 180,
+        "salary_only_cost_usd_median": 1996200,
+        "salary_only_cost_usd_p90": 3171750
+      },
+      "maker_sky_dss_23_non_bot_accounts_18_months": {
+        "headcount": 23,
+        "months": 18,
+        "person_months": 414,
+        "salary_only_cost_usd_median": 4591260,
+        "salary_only_cost_usd_p90": 7295025
       }
     },
     "interpretation": "These are benchmark and replacement-cost models, not verified historical build budgets. They exclude benefits, management, legal, audit vendor pricing, infrastructure, opportunity cost, token economics, and market value."
@@ -262,11 +331,24 @@
     "github_search_rust": "https://github.com/search?q=language%3ARust&type=repositories",
     "coingecko_uniswap": "https://www.coingecko.com/en/coins/uniswap",
     "coingecko_aave": "https://www.coingecko.com/en/coins/aave",
+    "coingecko_sky": "https://www.coingecko.com/en/coins/sky",
     "coingecko_curve": "https://www.coingecko.com/en/coins/curve-dao-token",
+    "coingecko_compound": "https://www.coingecko.com/en/coins/compound-governance-token",
     "uniswap_v3_blog": "https://blog.uniswap.org/uniswap-v3",
     "uniswap_v3_core_github": "https://github.com/Uniswap/v3-core",
     "uniswap_v3_periphery_github": "https://github.com/Uniswap/v3-periphery",
     "uniswap_labs_series_b": "https://techcrunch.com/2022/10/13/uniswap-labs-raises-165-million-in-new-funding/",
+    "aave_docs_smart_contracts": "https://aave.com/docs/aave-v3/smart-contracts",
+    "aave_v3_core_github": "https://github.com/aave/aave-v3-core",
+    "aave_v3_origin_github": "https://github.com/aave-dao/aave-v3-origin",
+    "aave_will_win_framework": "https://governance.aave.com/t/arfc-aave-will-win-framework/24352",
+    "aave_will_win_primary_funding": "https://vote.onaave.com/proposal/?ipfsHash=0x68403758d35bcffdb5f41df8fa9a0500f6bcc0c6eeae801e6627ab2fc8c64727&proposalId=469",
+    "compound_seed_funding": "https://medium.com/compound-finance/compound-raises-8-2-million-to-create-money-markets-for-crypto-assets-6dfa593f8e5e",
+    "compound_series_a_funding": "https://fortune.com/2019/11/14/crypto-interest-startup-compound-decentralized-finance/",
+    "compound_protocol_github": "https://github.com/compound-finance/compound-protocol",
+    "compound_comet_github": "https://github.com/compound-finance/comet",
+    "maker_mkr_sale": "https://www.prnewswire.com/news-releases/maker-foundation-announces-27-5-million-mkr-sale-to-dragonfly-capital-partners-and-paradigm-300977381.html",
+    "maker_sky_dss_github": "https://github.com/sky-ecosystem/dss",
     "liquity_launch_details": "https://www.liquity.org/blog/liquity-launch-details",
     "liquity_seed_funding": "https://www.liquity.org/blog/liquity-protocol-raises-2-4m-in-seed-funding-led-by-polychain-capital",
     "liquity_series_a_funding": "https://www.liquity.org/blog/liquity-raises-6m-in-series-a-funding",
