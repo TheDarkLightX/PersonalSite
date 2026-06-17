@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T07:58:07+00:00",
+  "generated_at": "2026-06-17T23:26:57+00:00",
   "methodology": {
     "line_count": "Nonblank lines in git-tracked UTF-8 text files.",
     "curated_exclusions": [
@@ -34,7 +34,22 @@
       "venv",
       "yarn.lock"
     ],
-    "economic_model": "COCOMO II nominal effort on curated source/proof KSLOC, converted to salary-only replacement cost using BLS software developer wages."
+    "economic_model": "COCOMO II nominal effort on curated source/proof KSLOC, converted to salary-only replacement cost using BLS software developer wages.",
+    "publish_footprint": "Conservative headline count over authored public source. It excludes vendored math/proof libraries, generated/data/internal bulk, deprecated archives, and derived runtime/ZK replay surfaces listed in publish_exclusions_by_repo.",
+    "publish_exclusions_by_repo": {
+      "MPRD": [
+        "vendor/"
+      ],
+      "ZenoDEX": [
+        "lean-mathlib/",
+        "vendor/",
+        "deprecated/",
+        "tests/runtime/",
+        "rust-runtime/",
+        "zk/"
+      ],
+      "Formal_Methods_Philosophy": []
+    }
   },
   "repositories": [
     {
@@ -55,6 +70,14 @@
         "ci_workflows": 7,
         "tau_related_files": 9,
         "tau_related_nonblank_lines": 582
+      },
+      "publish_metrics": {
+        "authored_source_files": 697,
+        "authored_source_nonblank_lines": 149110,
+        "authored_test_files": 20,
+        "authored_test_nonblank_lines": 5575,
+        "machine_checkable_lean_tla_files": 78,
+        "machine_checkable_lean_tla_nonblank_lines": 15788
       },
       "top_languages_by_nonblank_lines": {
         "Rust": 115086,
@@ -86,6 +109,14 @@
         "tau_related_files": 638,
         "tau_related_nonblank_lines": 77089
       },
+      "publish_metrics": {
+        "authored_source_files": 2852,
+        "authored_source_nonblank_lines": 619404,
+        "authored_test_files": 1138,
+        "authored_test_nonblank_lines": 212812,
+        "machine_checkable_lean_tla_files": 38,
+        "machine_checkable_lean_tla_nonblank_lines": 7875
+      },
       "top_languages_by_nonblank_lines": {
         "Python": 582680,
         "JSON": 94574,
@@ -116,6 +147,14 @@
         "tau_related_files": 21,
         "tau_related_nonblank_lines": 2440
       },
+      "publish_metrics": {
+        "authored_source_files": 239,
+        "authored_source_nonblank_lines": 28902,
+        "authored_test_files": 93,
+        "authored_test_nonblank_lines": 2847,
+        "machine_checkable_lean_tla_files": 2,
+        "machine_checkable_lean_tla_nonblank_lines": 1686
+      },
       "top_languages_by_nonblank_lines": {
         "Markdown": 51578,
         "Python": 23579,
@@ -143,11 +182,36 @@
     "tau_related_files": 668,
     "tau_related_nonblank_lines": 80111
   },
+  "publish_aggregate": {
+    "authored_source_files": 3788,
+    "authored_source_nonblank_lines": 797416,
+    "authored_test_files": 1251,
+    "authored_test_nonblank_lines": 221234,
+    "machine_checkable_lean_tla_files": 118,
+    "machine_checkable_lean_tla_nonblank_lines": 25349
+  },
   "economic_model": {
     "ksloc": 895.919,
     "cocomo_nominal_person_months": 5187.5,
     "salary_only_reproduction_cost_usd_median": 57529264,
     "salary_only_reproduction_cost_usd_p90": 91407896
+  },
+  "publish_economic_model": {
+    "ksloc": 797.416,
+    "cocomo_ii_nominal_person_months": 4563.8,
+    "cocomo_ii_nominal_engineer_years": 380.3,
+    "basic_cocomo_organic_person_months": 2672.9,
+    "basic_cocomo_organic_engineer_years": 222.7,
+    "basic_cocomo_semidetached_person_months": 5333.5,
+    "basic_cocomo_semidetached_engineer_years": 444.5,
+    "engineer_year_range_low": 223,
+    "engineer_year_range_high": 444,
+    "loaded_build_cost_equivalent_low_usd": 44463458,
+    "loaded_build_cost_equivalent_high_usd": 129692220,
+    "wheeler_style_midpoint_cost_usd": 111348531,
+    "loaded_labor_low_multiplier": 1.5,
+    "loaded_labor_high_multiplier": 1.38,
+    "wheeler_style_loaded_multiplier": 2.2
   },
   "rarity_proxy": {
     "source": "GitHub repository search counts checked on 2026-06-17.",
@@ -324,6 +388,9 @@
   "sources": {
     "bls_software_developers": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
     "cocomo_ii_manual": "https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf",
+    "wheeler_red_hat_71": "https://dwheeler.com/sloc/redhat71-v1/redhat71sloc.html",
+    "wheeler_linux_kernel_cost": "https://dwheeler.com/essays/linux-kernel-cost.html",
+    "linux_foundation_cost_study": "https://www.linuxfoundation.org/press/press-release/linux-foundation-publishes-study-estimating-the-value-of-linux",
     "stackoverflow_2025_survey": "https://survey.stackoverflow.co/2025",
     "github_search_lean": "https://github.com/search?q=language%3ALean&type=repositories",
     "github_search_tla": "https://github.com/search?q=language%3ATLA&type=repositories",

@@ -61,11 +61,26 @@ EXCLUDE_EXT = {
     ".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".sqlite", ".db",
     ".csv", ".tsv", ".pem",
 }
+PUBLISH_EXCLUDE_PREFIXES = {
+    "MPRD": ("vendor/",),
+    "ZenoDEX": (
+        "lean-mathlib/",
+        "vendor/",
+        "deprecated/",
+        "tests/runtime/",
+        "rust-runtime/",
+        "zk/",
+    ),
+    "Formal_Methods_Philosophy": (),
+}
 
 COCOMO_A = 2.94
 COCOMO_EXPONENT = 1.0997
 BLS_SOFTWARE_DEVELOPER_MEDIAN_ANNUAL_USD = 133_080
 BLS_SOFTWARE_DEVELOPER_P90_ANNUAL_USD = 211_450
+LOADED_LABOR_LOW_MULTIPLIER = 1.50
+LOADED_LABOR_HIGH_MULTIPLIER = 1.38
+WHEELER_STYLE_LOADED_MULTIPLIER = 2.20
 GITHUB_SEARCH_COUNTS_2026_06_17 = {
     "language:Lean": 11_100,
     "language:TLA": 1_385,
@@ -243,8 +258,30 @@ def empty_metrics() -> dict[str, int]:
     }
 
 
+def empty_publish_metrics() -> dict[str, int]:
+    return {
+        "authored_source_files": 0,
+        "authored_source_nonblank_lines": 0,
+        "authored_test_files": 0,
+        "authored_test_nonblank_lines": 0,
+        "machine_checkable_lean_tla_files": 0,
+        "machine_checkable_lean_tla_nonblank_lines": 0,
+    }
+
+
+def is_publish_headline_file(repo_name: str, rel: Path) -> bool:
+    if not is_curated(rel):
+        return False
+    text = str(rel)
+    return not any(
+        text.startswith(prefix)
+        for prefix in PUBLISH_EXCLUDE_PREFIXES.get(repo_name, ())
+    )
+
+
 def collect_repo(name: str, root: Path) -> dict:
     metrics = empty_metrics()
+    publish_metrics = empty_publish_metrics()
     languages: dict[str, int] = {}
 
     for path in git_files(root):
@@ -283,11 +320,23 @@ def collect_repo(name: str, root: Path) -> dict:
         if str(rel).startswith(".github/workflows/") and suffix in {".yml", ".yaml"}:
             metrics["ci_workflows"] += 1
 
+        if is_publish_headline_file(name, rel):
+            if suffix in SOURCE_EXT:
+                publish_metrics["authored_source_files"] += 1
+                publish_metrics["authored_source_nonblank_lines"] += count
+            if is_test(rel):
+                publish_metrics["authored_test_files"] += 1
+                publish_metrics["authored_test_nonblank_lines"] += count
+            if suffix in {".lean", ".tla"}:
+                publish_metrics["machine_checkable_lean_tla_files"] += 1
+                publish_metrics["machine_checkable_lean_tla_nonblank_lines"] += count
+
     return {
         "name": name,
         "url": git(root, "remote", "get-url", "origin").strip(),
         "commit": git(root, "rev-parse", "--short=12", "HEAD").strip(),
         "metrics": metrics,
+        "publish_metrics": publish_metrics,
         "top_languages_by_nonblank_lines": dict(
             sorted(languages.items(), key=lambda item: item[1], reverse=True)[:8]
         ),
@@ -296,6 +345,14 @@ def collect_repo(name: str, root: Path) -> dict:
 
 def add_dicts(items: list[dict[str, int]]) -> dict[str, int]:
     total = empty_metrics()
+    for item in items:
+        for key, value in item.items():
+            total[key] += value
+    return total
+
+
+def add_publish_dicts(items: list[dict[str, int]]) -> dict[str, int]:
+    total = empty_publish_metrics()
     for item in items:
         for key, value in item.items():
             total[key] += value
@@ -312,6 +369,47 @@ def economic_model(source_nonblank_lines: int) -> dict:
         "cocomo_nominal_person_months": round(person_months, 1),
         "salary_only_reproduction_cost_usd_median": round(median_cost),
         "salary_only_reproduction_cost_usd_p90": round(p90_cost),
+    }
+
+
+def publish_economic_model(source_nonblank_lines: int) -> dict:
+    ksloc = source_nonblank_lines / 1000
+    cocomo_ii_pm = COCOMO_A * (ksloc ** COCOMO_EXPONENT) if ksloc else 0
+    organic_pm = 2.4 * (ksloc ** 1.05) if ksloc else 0
+    semidetached_pm = 3.0 * (ksloc ** 1.12) if ksloc else 0
+    organic_years = organic_pm / 12
+    semidetached_years = semidetached_pm / 12
+    lower_cost = (
+        organic_years
+        * BLS_SOFTWARE_DEVELOPER_MEDIAN_ANNUAL_USD
+        * LOADED_LABOR_LOW_MULTIPLIER
+    )
+    upper_cost = (
+        semidetached_years
+        * BLS_SOFTWARE_DEVELOPER_P90_ANNUAL_USD
+        * LOADED_LABOR_HIGH_MULTIPLIER
+    )
+    wheeler_style_cost = (
+        (cocomo_ii_pm / 12)
+        * BLS_SOFTWARE_DEVELOPER_MEDIAN_ANNUAL_USD
+        * WHEELER_STYLE_LOADED_MULTIPLIER
+    )
+    return {
+        "ksloc": round(ksloc, 3),
+        "cocomo_ii_nominal_person_months": round(cocomo_ii_pm, 1),
+        "cocomo_ii_nominal_engineer_years": round(cocomo_ii_pm / 12, 1),
+        "basic_cocomo_organic_person_months": round(organic_pm, 1),
+        "basic_cocomo_organic_engineer_years": round(organic_years, 1),
+        "basic_cocomo_semidetached_person_months": round(semidetached_pm, 1),
+        "basic_cocomo_semidetached_engineer_years": round(semidetached_years, 1),
+        "engineer_year_range_low": round(organic_years),
+        "engineer_year_range_high": round(semidetached_years),
+        "loaded_build_cost_equivalent_low_usd": round(lower_cost),
+        "loaded_build_cost_equivalent_high_usd": round(upper_cost),
+        "wheeler_style_midpoint_cost_usd": round(wheeler_style_cost),
+        "loaded_labor_low_multiplier": LOADED_LABOR_LOW_MULTIPLIER,
+        "loaded_labor_high_multiplier": LOADED_LABOR_HIGH_MULTIPLIER,
+        "wheeler_style_loaded_multiplier": WHEELER_STYLE_LOADED_MULTIPLIER,
     }
 
 
@@ -418,22 +516,32 @@ def main() -> int:
         repos.append(collect_repo(name, Path(path).resolve()))
 
     aggregate = add_dicts([repo["metrics"] for repo in repos])
+    publish_aggregate = add_publish_dicts([repo["publish_metrics"] for repo in repos])
     data = {
         "generated_at": dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat(),
         "methodology": {
             "line_count": "Nonblank lines in git-tracked UTF-8 text files.",
             "curated_exclusions": sorted(EXCLUDE_PARTS | EXCLUDE_NAMES | EXCLUDE_EXT),
             "economic_model": "COCOMO II nominal effort on curated source/proof KSLOC, converted to salary-only replacement cost using BLS software developer wages.",
+            "publish_footprint": "Conservative headline count over authored public source. It excludes vendored math/proof libraries, generated/data/internal bulk, deprecated archives, and derived runtime/ZK replay surfaces listed in publish_exclusions_by_repo.",
+            "publish_exclusions_by_repo": PUBLISH_EXCLUDE_PREFIXES,
         },
         "repositories": repos,
         "aggregate": aggregate,
+        "publish_aggregate": publish_aggregate,
         "economic_model": economic_model(aggregate["source_nonblank_lines"]),
+        "publish_economic_model": publish_economic_model(
+            publish_aggregate["authored_source_nonblank_lines"]
+        ),
         "rarity_proxy": rarity_proxy(),
         "tau_option_value_proxy": tau_option_value_proxy(),
         "protocol_benchmark_proxy": protocol_benchmark_proxy(),
         "sources": {
             "bls_software_developers": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
             "cocomo_ii_manual": "https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf",
+            "wheeler_red_hat_71": "https://dwheeler.com/sloc/redhat71-v1/redhat71sloc.html",
+            "wheeler_linux_kernel_cost": "https://dwheeler.com/essays/linux-kernel-cost.html",
+            "linux_foundation_cost_study": "https://www.linuxfoundation.org/press/press-release/linux-foundation-publishes-study-estimating-the-value-of-linux",
             "stackoverflow_2025_survey": "https://survey.stackoverflow.co/2025",
             "github_search_lean": "https://github.com/search?q=language%3ALean&type=repositories",
             "github_search_tla": "https://github.com/search?q=language%3ATLA&type=repositories",

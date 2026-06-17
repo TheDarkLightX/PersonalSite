@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quantitative Value Case - Dana Edwards</title>
-  <meta name="description" content="A quantitative value case for Dana Edwards: one man development team, agentic development expert, costly signals, Tau community value, and cited economic estimates." />
+  <meta name="description" content="A quantitative value case for Dana Edwards: one man development team, verification-gated agentic development, costly signals, Tau community value, and cited economic estimates." />
   <link rel="canonical" href="https://www.danaedwards.info/metrics.html" />
   <meta property="og:title" content="Quantitative Value Case - Dana Edwards" />
-  <meta property="og:description" content="Measured public repo footprint, costly signals, agent-management method, Tau community value scenarios, and cited economic estimates." />
+  <meta property="og:description" content="Measured public repo footprint, verification-gated agentic development, agent-management method, Tau community value scenarios, and cited economic estimates." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/metrics.html" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
@@ -47,7 +47,7 @@
         <a class="breadcrumb" href="index.html">&lt;- Back to home</a>
         <p class="eyebrow">Quantitative value case</p>
         <h1>One man development team, measured.</h1>
-        <p class="lede">I do more, with less. I use evidence-gated agentic engineering to produce and manage public software artifacts at a scale that normally implies a team: source, tests, proofs, replay paths, and documentation tied to claims.</p>
+        <p class="lede">I do more, with less: delivered solo, in months, via verification-gated agentic development. The gap between 223-444 engineer-years of conventional build effort and one person is the value proposition.</p>
       </div>
     </section>
 
@@ -55,24 +55,24 @@
       <div class="container">
         <div class="metric-grid">
           <article class="metric-card">
-            <span>Curated source/proof LOC</span>
-            <strong>895,919</strong>
-            <p>After excluding vendor, generated, data, internal, and lockfile bulk.</p>
+            <span>Authored source LOC</span>
+            <strong>797,416</strong>
+            <p>Conservative publish footprint across three public repos, excluding vendored math/proof libraries, generated bulk, deprecated archives, and derived runtime/ZK surfaces.</p>
           </article>
           <article class="metric-card">
-            <span>Tests and verification files</span>
-            <strong>1,374 / 1,944</strong>
-            <p>Test files and verification-related files across the public portfolio snapshot.</p>
+            <span>Test LOC</span>
+            <strong>221,234</strong>
+            <p>Public test footprint inside the authored-source count, about 27.7% of the conservative source total.</p>
           </article>
           <article class="metric-card">
-            <span>Proof/model LOC</span>
-            <strong>73,692</strong>
-            <p>Lean, TLA+, SMT-style, and adjacent proof/model lines.</p>
+            <span>Lean + TLA LOC</span>
+            <strong>25,349</strong>
+            <p>Machine-checkable Lean proof files and TLA+ specifications after excluding vendored mathlib-style proof libraries.</p>
           </article>
           <article class="metric-card">
-            <span>Salary-only replacement estimate</span>
-            <strong>$57.5M-$91.4M</strong>
-            <p>COCOMO II effort converted with BLS software developer wages.</p>
+            <span>Build-cost equivalent</span>
+            <strong>$45M-$130M</strong>
+            <p>Basic COCOMO effort band converted with BLS software developer wages and conservative loaded-labor factors.</p>
           </article>
         </div>
       </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="matrix-card">
           <table class="matrix">
-            <thead><tr><th>Vibe coding</th><th>Evidence-gated agentic engineering</th></tr></thead>
+            <thead><tr><th>Vibe coding</th><th>Verification-gated agentic development</th></tr></thead>
             <tbody>
               <tr>
                 <td>Accepts generated code by feel.</td>
@@ -121,15 +121,15 @@
         <div class="snapshot-list">
           <article>
             <strong>Test density</strong>
-            <p>1,374 test files and 243,836 nonblank test lines, about 27.2% of curated source/proof LOC.</p>
+            <p>1,251 test files and 221,234 nonblank test lines, about 27.7% of the conservative authored-source footprint.</p>
           </article>
           <article>
             <strong>Formal evidence density</strong>
-            <p>73,692 proof/model lines, about 8.2% of curated source/proof LOC.</p>
+            <p>118 Lean/TLA files and 25,349 nonblank machine-checkable lines after excluding vendored mathlib-style proof libraries.</p>
           </article>
           <article>
             <strong>Documentation density</strong>
-            <p>121,761 nonblank documentation lines, about 13.6% of curated source/proof LOC.</p>
+            <p>121,761 nonblank documentation lines, about 15.3% of the conservative authored-source footprint.</p>
           </article>
           <article>
             <strong>Automation surface</strong>
@@ -144,19 +144,45 @@
         <div>
           <p class="eyebrow">Economic replacement value</p>
           <h2>What the artifact footprint implies.</h2>
-          <p>This is a replacement-effort model, not a company valuation. It asks what the public source/proof footprint would cost to reproduce using a conventional software-effort model and current wage benchmarks.</p>
+          <p>This is a replacement-effort model, not a company valuation. It applies the same SLOC/COCOMO family of methods used in the Red Hat Linux and Linux-kernel cost studies to the conservative public footprint.</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
-            <thead><tr><th>Artifact</th><th>COCOMO PM</th><th>Salary-only range</th></tr></thead>
+            <thead><tr><th>Artifact</th><th>Authored source LOC</th><th>Test LOC</th><th>Lean/TLA LOC</th></tr></thead>
             <tbody>
-              <tr><td>MPRD</td><td>732.7</td><td>$8.1M-$12.9M</td></tr>
-              <tr><td>ZenoDEX</td><td>4,053.5</td><td>$45.0M-$71.4M</td></tr>
-              <tr><td>Formal Methods Philosophy</td><td>118.8</td><td>$1.3M-$2.1M</td></tr>
-              <tr><td><strong>Total</strong></td><td><strong>5,187.5</strong></td><td><strong>$57.5M-$91.4M</strong></td></tr>
+              <tr><td>MPRD</td><td>149,110</td><td>5,575</td><td>15,788</td></tr>
+              <tr><td>ZenoDEX</td><td>619,404</td><td>212,812</td><td>7,875</td></tr>
+              <tr><td>Formal Methods Philosophy</td><td>28,902</td><td>2,847</td><td>1,686</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>797,416</strong></td><td><strong>221,234</strong></td><td><strong>25,349</strong></td></tr>
             </tbody>
           </table>
-          <p class="method-note">Formula: COCOMO II person-months = 2.94 x KSLOC^1.0997. Salary conversion uses BLS software developer median and 90th percentile wages. It excludes benefits, overhead, management, security review, market value, and IP value.</p>
+          <p class="method-note">The headline footprint excludes vendored proof libraries such as mathlib-style material, generated/data/internal bulk, deprecated archives, and derived runtime/ZK replay surfaces. The raw artifact count remains in the JSON for audit.</p>
+          <table class="matrix">
+            <thead><tr><th>Model</th><th>Effort</th><th>Cost interpretation</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Basic COCOMO organic</td>
+                <td>2,672.9 person-months, or 223 engineer-years</td>
+                <td>Lower effort bound for a conventional rebuild.</td>
+              </tr>
+              <tr>
+                <td>COCOMO II nominal</td>
+                <td>4,563.8 person-months, or 380 engineer-years</td>
+                <td>Wheeler-style loaded median midpoint: about $111.3M.</td>
+              </tr>
+              <tr>
+                <td>Basic COCOMO semidetached</td>
+                <td>5,333.5 person-months, or 444 engineer-years</td>
+                <td>Upper effort bound for a harder systems rebuild.</td>
+              </tr>
+              <tr>
+                <td><strong>Public headline</strong></td>
+                <td><strong>223-444 engineer-years</strong></td>
+                <td><strong>$45M-$130M conventional build-cost equivalent.</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="method-note">Cost conversion uses BLS software developer median and 90th percentile wage benchmarks with conservative loaded-labor factors. The $111.3M midpoint uses COCOMO II nominal effort, BLS median wage, and a Wheeler-style loaded-cost factor.</p>
         </div>
       </div>
     </section>
@@ -379,6 +405,9 @@
           <a class="packet-card" href="tools/collect_portfolio_metrics.py"><span>Collector</span><strong>tools/collect_portfolio_metrics.py</strong></a>
           <a class="packet-card" href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm"><span>BLS</span><strong>Software developer wage and growth benchmarks.</strong></a>
           <a class="packet-card" href="https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf"><span>COCOMO II</span><strong>Nominal effort model and person-month framing.</strong></a>
+          <a class="packet-card" href="https://dwheeler.com/sloc/redhat71-v1/redhat71sloc.html"><span>Wheeler</span><strong>Red Hat Linux SLOC/COCOMO cost precedent.</strong></a>
+          <a class="packet-card" href="https://dwheeler.com/essays/linux-kernel-cost.html"><span>Wheeler</span><strong>Linux kernel $612M redevelopment estimate.</strong></a>
+          <a class="packet-card" href="https://www.linuxfoundation.org/press/press-release/linux-foundation-publishes-study-estimating-the-value-of-linux"><span>Linux Foundation</span><strong>Fedora/Linux cost study built on Wheeler methodology.</strong></a>
           <a class="packet-card" href="https://www.coingecko.com/en/coins/uniswap"><span>CoinGecko</span><strong>Uniswap market-cap comparable.</strong></a>
           <a class="packet-card" href="https://www.coingecko.com/en/coins/aave"><span>CoinGecko</span><strong>Aave market-cap comparable.</strong></a>
           <a class="packet-card" href="https://www.coingecko.com/en/coins/sky"><span>CoinGecko</span><strong>Sky market-cap comparable.</strong></a>
