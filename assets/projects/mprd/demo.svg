@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 741 400" width="741" height="400" role="img" aria-label="MPRD proof-carrying gate: real terminal output">
+  <title>MPRD proof-carrying gate — real terminal output</title>
+  <style>
+    .term { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; }
+    .term text { fill: #d7e2dd; white-space: pre; }
+    .term .pr { fill: #44c7b5; font-weight: 700; }
+    .term .cm { fill: #80978d; }
+    .term .ok { fill: #46d39a; font-weight: 700; }
+    .term .no { fill: #e0a64e; font-weight: 700; }
+  </style>
+  <rect x="0" y="0" width="741" height="400" rx="12" fill="#0d1411" stroke="#22302b"/>
+  <rect x="0" y="0" width="741" height="34" rx="12" fill="#15211d"/>
+  <rect x="0" y="22" width="741" height="12" fill="#15211d"/>
+  <circle cx="20" cy="17" r="5" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="5" fill="#ffbd2e"/>
+  <circle cx="56" cy="17" r="5" fill="#27c93f"/>
+  <text x="370" y="21" text-anchor="middle" class="term" style="font-size:12px" fill="#7f9b91">MPRD proof-carrying gate</text>
+  <clipPath id="reveal">
+    <rect x="0" y="34" width="741" height="0">
+      <animate attributeName="height" values="0;366;366" keyTimes="0;0.68;1" dur="7.5s" repeatCount="indefinite"/>
+    </rect>
+  </clipPath>
+  <g class="term" clip-path="url(#reveal)">
+        <text x="18" y="67"><tspan class="pr">$</tspan> python3 demos/agent_gate_demo.py</text>
+    <text x="18" y="89"><tspan class="cm"># proof-carrying agent gate   policy=468b2b364fa0   allow: transfer&lt;=100</tspan></text>
+    <text x="18" y="111"><tspan class="cm"># model proposes  -&gt;  gate decides  -&gt;  executor acts only on a valid receipt</tspan></text>
+    <text x="18" y="133"></text>
+    <text x="18" y="155">  <tspan class="ok">[ACCEPT]</tspan>  valid transfer (50)                  policy + signature + freshness OK</text>
+    <text x="18" y="177">  <tspan class="no">[REJECT]</tspan>  over-limit transfer (500)            no receipt minted</text>
+    <text x="18" y="199">  <tspan class="no">[REJECT]</tspan>  disallowed action (selfdestruct)     no receipt minted</text>
+    <text x="18" y="221">  <tspan class="no">[REJECT]</tspan>  tampered amount 50 -&gt; 5000           tampered receipt</text>
+    <text x="18" y="243">  <tspan class="no">[REJECT]</tspan>  forged policy hash                   wrong policy hash</text>
+    <text x="18" y="265">  <tspan class="no">[REJECT]</tspan>  stale receipt (issued 60s ago)       stale receipt</text>
+    <text x="18" y="287">  <tspan class="ok">[ACCEPT]</tspan>  valid transfer (75), first use       policy + signature + freshness OK</text>
+    <text x="18" y="309">  <tspan class="no">[REJECT]</tspan>  same receipt, replayed               replayed receipt</text>
+    <text x="18" y="331"></text>
+    <text x="18" y="353"><tspan class="cm"># only the policy-admitted, signed, fresh, first-use actions executed.</tspan></text>
+    <text x="18" y="375"><tspan class="cm"># every other path failed closed: no side effect without a valid receipt.</tspan></text>
+    <rect x="18" y="364" width="9" height="16" fill="#44c7b5">
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

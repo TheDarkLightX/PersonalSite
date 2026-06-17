@@ -18,12 +18,19 @@ sitemap.xml                         Canonical public URLs
 CNAME                               GitHub Pages custom domain
 .nojekyll                           Disable Jekyll processing
 style.css                           Design system and responsive styling
-script.js                           Theme toggle and current year
+script.js                           Theme, mobile nav, scroll-spy, reveal, media autoplay, year
 assets/mark.svg                     Site mark
 assets/dana-github-avatar.png       Local GitHub avatar asset
 case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
+metrics.html                        Quantitative value case (rarity, costly signals, cost estimates)
 packets/employer-brief.html         General employer reviewer brief
+data/portfolio-metrics.json         Generated metrics consumed by metrics.html
+tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
+tools/make_terminal_svg.py          Renders a real command's output to an animated terminal SVG
+demos/agent_gate_demo.py            Runnable proof-carrying gate demo (the MPRD pattern)
+demos/zenodex_settlement_demo.py    Runnable deterministic settlement + replay demo (ZenoDEX pattern)
+assets/projects/<slug>/             Project media + generated demo.svg (see EDIT_ME_FIRST.md)
 EDIT_ME_FIRST.md                    Content maintenance checklist
 ```
 

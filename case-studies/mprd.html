@@ -11,19 +11,32 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/case-studies/mprd.html" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f4f7f5" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#111715":"#f4f7f5");}catch(e){}})();
+  </script>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
         <a href="../index.html#work">Work</a>
         <a href="../index.html#proof">Evidence</a>
+        <a href="../metrics.html">Metrics</a>
         <a href="../index.html#writing">Writing</a>
         <a href="../packets/employer-brief.html">Employer brief</a>
       </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -50,9 +63,55 @@
         <article class="prose">
           <section id="summary">
             <h2>Summary</h2>
-            <p>MPRD is positioned around a simple control boundary. Models generate candidate actions. A deterministic rules layer issues the evidence required for execution. The model has no direct execution capability.</p>
+            <p>MPRD is built around a simple control boundary. An untrusted model generates candidate actions. A deterministic rules layer issues the evidence required for execution. The model has no direct execution capability.</p>
+            <figure class="media-figure">
+              <svg class="diagram" viewBox="0 0 820 290" role="img" aria-labelledby="mprd-diagram-title">
+                <title id="mprd-diagram-title">MPRD control boundary: a model proposes, a deterministic gate decides, and the executor acts only on a verified receipt.</title>
+                <style>
+                  .diagram text { font-family: var(--font-body); }
+                  .diagram .box { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
+                  .diagram .gate { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+                  .diagram .reject { fill: color-mix(in srgb, var(--accent-2) 12%, var(--surface)); stroke: var(--accent-2); stroke-width: 1.5; }
+                  .diagram .t { fill: var(--text); font-weight: 800; font-size: 15px; }
+                  .diagram .s { fill: var(--muted); font-size: 12px; }
+                  .diagram .lbl { fill: var(--accent); font-size: 11px; font-weight: 800; }
+                  .diagram .rlbl { fill: var(--accent-2); font-size: 12px; font-weight: 800; }
+                  .diagram .ar { stroke: var(--muted); stroke-width: 2; fill: none; }
+                  .diagram .arr { stroke: var(--accent-2); stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+                  .diagram #mprd-ah path { fill: var(--muted); }
+                  .diagram #mprd-ahr path { fill: var(--accent-2); }
+                </style>
+                <defs>
+                  <marker id="mprd-ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
+                  <marker id="mprd-ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
+                </defs>
+                <rect class="box" x="20" y="44" width="200" height="86" rx="10"/>
+                <text class="t" x="120" y="80" text-anchor="middle">Untrusted model</text>
+                <text class="s" x="120" y="101" text-anchor="middle">proposes candidate actions</text>
+                <rect class="gate" x="310" y="32" width="210" height="110" rx="10"/>
+                <text class="t" x="415" y="68" text-anchor="middle">Deterministic gate</text>
+                <text class="s" x="415" y="90" text-anchor="middle">policy + state + proof</text>
+                <text class="s" x="415" y="107" text-anchor="middle">checks decide</text>
+                <rect class="box" x="610" y="44" width="190" height="86" rx="10"/>
+                <text class="t" x="705" y="80" text-anchor="middle">Executor</text>
+                <text class="s" x="705" y="101" text-anchor="middle">acts only on a verified receipt</text>
+                <path class="ar" d="M220,87 L304,87" marker-end="url(#mprd-ah)"/>
+                <text class="lbl" x="262" y="78" text-anchor="middle">proposes</text>
+                <path class="ar" d="M520,87 L604,87" marker-end="url(#mprd-ah)"/>
+                <text class="lbl" x="562" y="78" text-anchor="middle">valid receipt</text>
+                <path class="arr" d="M415,142 L415,212" marker-end="url(#mprd-ahr)"/>
+                <rect class="reject" x="300" y="214" width="230" height="60" rx="10"/>
+                <text class="rlbl" x="415" y="240" text-anchor="middle">Rejected — fail closed</text>
+                <text class="s" x="415" y="260" text-anchor="middle">missing · tampered · stale · replayed</text>
+              </svg>
+              <figcaption>The control boundary: the model proposes, the gate decides, and the executor acts only on a verified receipt. Every admitted action carries policy, state, action, and receipt commitments; missing, tampered, stale, or replayed receipts fail closed.</figcaption>
+            </figure>
+            <figure class="media-figure">
+              <img src="../assets/projects/mprd/demo.svg" alt="Real terminal output: the proof-carrying gate accepts a valid action and rejects missing, over-limit, tampered, forged, stale, and replayed receipts." loading="lazy" />
+              <figcaption>Real output from a minimal runnable proof-carrying gate (<a href="../demos/agent_gate_demo.py"><code>demos/agent_gate_demo.py</code></a>, standard library only) — the pattern MPRD implements at scale. Only the policy-admitted, signed, fresh, first-use action executes; every other path fails closed. Clone the repo and run it yourself.</figcaption>
+            </figure>
             <div class="callout">
-              <strong>Portfolio signal:</strong> MPRD should demonstrate architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
+              <strong>Portfolio signal:</strong> MPRD demonstrates architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
             </div>
           </section>
 
