@@ -27,10 +27,7 @@ metrics.html                        Quantitative value case (rarity, costly sign
 packets/employer-brief.html         General employer reviewer brief
 data/portfolio-metrics.json         Generated metrics consumed by metrics.html
 tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
-tools/make_terminal_svg.py          Renders a real command's output to an animated terminal SVG
-demos/agent_gate_demo.py            Runnable proof-carrying gate demo (the MPRD pattern)
-demos/zenodex_settlement_demo.py    Runnable deterministic settlement + replay demo (ZenoDEX pattern)
-assets/projects/<slug>/             Project media + generated demo.svg (see EDIT_ME_FIRST.md)
+assets/projects/<slug>/             Project screenshots (app.webp; see EDIT_ME_FIRST.md)
 EDIT_ME_FIRST.md                    Content maintenance checklist
 ```
 
