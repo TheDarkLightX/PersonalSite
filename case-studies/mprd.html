@@ -47,7 +47,7 @@
         <a class="breadcrumb" href="../index.html">&lt;- Back to home</a>
         <p class="eyebrow">Case study</p>
         <h1>MPRD: Model Proposes, Rules Decide</h1>
-        <p class="lede">Lets an AI agent act — without letting it act unsafely. A model proposes; a deterministic gate decides; the executor runs only what carries a valid, verified receipt. The unsafe path is not discouraged, it is unreachable.</p>
+        <p class="lede">Lets an AI agent act without letting it act unsafely. A model proposes, a deterministic gate decides, and the executor runs only what carries a valid, verified receipt. The unsafe path is not discouraged. It is unreachable.</p>
       </div>
     </section>
 
@@ -102,14 +102,14 @@
                 <text class="lbl" x="562" y="78" text-anchor="middle">valid receipt</text>
                 <path class="arr" d="M415,142 L415,212" marker-end="url(#mprd-ahr)"/>
                 <rect class="reject" x="300" y="214" width="230" height="60" rx="10"/>
-                <text class="rlbl" x="415" y="240" text-anchor="middle">Rejected — fail closed</text>
+                <text class="rlbl" x="415" y="240" text-anchor="middle">Rejected: fail closed</text>
                 <text class="s" x="415" y="260" text-anchor="middle">missing · tampered · stale · replayed</text>
               </svg>
               <figcaption>The control boundary: the model proposes, the gate decides, and the executor acts only on a verified receipt. Every admitted action carries policy, state, action, and receipt commitments; missing, tampered, stale, or replayed receipts fail closed.</figcaption>
             </figure>
             <figure class="media-figure">
               <img src="../assets/projects/mprd/demo.svg" alt="Real terminal output: the proof-carrying gate accepts a valid action and rejects missing, over-limit, tampered, forged, stale, and replayed receipts." loading="lazy" />
-              <figcaption>Real output from a minimal runnable proof-carrying gate (<a href="../demos/agent_gate_demo.py"><code>demos/agent_gate_demo.py</code></a>, standard library only) — the pattern MPRD implements at scale. Only the policy-admitted, signed, fresh, first-use action executes; every other path fails closed. Clone the repo and run it yourself.</figcaption>
+              <figcaption>Real output from a minimal runnable proof-carrying gate (<a href="../demos/agent_gate_demo.py"><code>demos/agent_gate_demo.py</code></a>, standard library only). It demonstrates the pattern MPRD implements at scale: only the policy-admitted, signed, fresh, first-use action executes, and every other path fails closed. Clone the repo and run it yourself.</figcaption>
             </figure>
             <div class="callout">
               <strong>Portfolio signal:</strong> MPRD demonstrates architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
