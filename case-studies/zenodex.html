@@ -103,8 +103,8 @@
               <figcaption>Each bounded claim resolves to an artifact, a public replay command, explicit assumptions, and a stated limitation. Release-backed claims replay from a clean checkout.</figcaption>
             </figure>
             <figure class="media-figure">
-              <img src="../assets/projects/zenodex/demo.svg" alt="Real terminal output: deterministic integer-only settlement producing a certificate that matches on replay and differs under tampering." loading="lazy" />
-              <figcaption>Real output from a minimal runnable settlement demo (<a href="../demos/zenodex_settlement_demo.py"><code>demos/zenodex_settlement_demo.py</code></a>, standard library only). It shows the replayable-assurance pattern ZenoDEX implements: integer-only math and canonical ordering yield a certificate that reproduces on replay and changes under tampering. Clone the repo and run it yourself.</figcaption>
+              <img src="../assets/projects/zenodex/app.webp" alt="ZenoDEX exchange UI: a swap panel beside an execution-proof verification panel." width="1280" height="860" loading="lazy" />
+              <figcaption>The ZenoDEX exchange UI, running locally on preview reserves with no live pool. Each quote is paired with an execution-proof panel that surfaces spec conformance and verification posture next to the trade. A minimal, standard-library settlement demo is in <a href="../demos/zenodex_settlement_demo.py"><code>demos/zenodex_settlement_demo.py</code></a>.</figcaption>
             </figure>
             <div class="callout">
               <strong>Portfolio signal:</strong> ZenoDEX demonstrates claim boundaries, public replay, negative evidence, and the difference between bounded assurance and a production guarantee.

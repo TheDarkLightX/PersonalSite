@@ -108,8 +108,8 @@
               <figcaption>The control boundary: the model proposes, the gate decides, and the executor acts only on a verified receipt. Every admitted action carries policy, state, action, and receipt commitments; missing, tampered, stale, or replayed receipts fail closed.</figcaption>
             </figure>
             <figure class="media-figure">
-              <img src="../assets/projects/mprd/demo.svg" alt="Real terminal output: the proof-carrying gate accepts a valid action and rejects missing, over-limit, tampered, forged, stale, and replayed receipts." loading="lazy" />
-              <figcaption>Real output from a minimal runnable proof-carrying gate (<a href="../demos/agent_gate_demo.py"><code>demos/agent_gate_demo.py</code></a>, standard library only). It demonstrates the pattern MPRD implements at scale: only the policy-admitted, signed, fresh, first-use action executes, and every other path fails closed. Clone the repo and run it yourself.</figcaption>
+              <img src="../assets/projects/mprd/app.webp" alt="MPRD operator UI: a decision audit log listing proposed actions with Allowed or Denied verdicts, a Verified proof status, and execution results." width="1280" height="800" loading="lazy" />
+              <figcaption>The MPRD operator UI, running locally on mock data with no backend attached. Every proposed action is recorded with a verdict (Allowed or Denied), a proof status (Verified), and an execution result. The gate's decisions are the audit trail. A minimal, standard-library version of the gate is in <a href="../demos/agent_gate_demo.py"><code>demos/agent_gate_demo.py</code></a>.</figcaption>
             </figure>
             <div class="callout">
               <strong>Portfolio signal:</strong> MPRD demonstrates architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
