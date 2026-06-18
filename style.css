@@ -22,6 +22,7 @@
   --container: 1140px;
   --font-body: "Aptos", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "SFMono-Regular", ui-monospace, "Cascadia Code", Consolas, monospace;
 }
 
 [data-theme="dark"] {
@@ -58,11 +59,10 @@ body {
   font-family: var(--font-body);
   color: var(--text);
   background:
-    linear-gradient(115deg, color-mix(in srgb, var(--accent-3) 8%, transparent) 0 18%, transparent 18% 100%),
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    radial-gradient(1100px 560px at 82% -8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
+    radial-gradient(900px 500px at -10% 0%, color-mix(in srgb, var(--accent-3) 7%, transparent), transparent 55%),
     linear-gradient(180deg, var(--bg), var(--bg-end));
-  background-size: auto, 28px 28px, 28px 28px, auto;
+  background-attachment: fixed;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -197,12 +197,13 @@ a:focus-visible, button:focus-visible {
 }
 
 .eyebrow {
-  margin: 0 0 .85rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0;
-  font-size: .78rem;
+  letter-spacing: .09em;
+  font-size: .72rem;
   color: var(--accent);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 h1, h2, h3 {
@@ -950,4 +951,103 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
   body { background: #fff; color: #000; }
   .section, .page-hero { padding: 24px 0; }
   .project-card, .profile-panel, .matrix-card, .packet-card, .cta-card { box-shadow: none; }
+}
+
+/* ===================================================================
+   Value-first redesign layer (signal theory: lead with costly proof)
+   =================================================================== */
+
+.hero .eyebrow { color: var(--muted); }
+.hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.6rem); max-width: 16ch; }
+
+/* The hook: a sharp statement of value, not a bio */
+.claim {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  line-height: 1.2;
+  margin: 1.1rem 0 0;
+  max-width: 30ch;
+  color: var(--text);
+}
+.claim b { color: var(--accent); font-weight: inherit; }
+
+/* Full-width value pillars: what I add, each with hard-to-fake proof */
+.hero-band { margin-top: clamp(2rem, 4vw, 3rem); }
+.value-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.pillar {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, transparent), color-mix(in srgb, var(--surface-2) 92%, transparent));
+  padding: 1.25rem 1.3rem;
+  position: relative;
+}
+.pillar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--accent);
+}
+.pillar:nth-child(2)::before { background: var(--accent-3); }
+.pillar:nth-child(3)::before { background: var(--accent-4); }
+.pillar h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: .15rem 0 .45rem;
+  color: var(--text);
+}
+.pillar p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.5; }
+.pillar .k { color: var(--accent); font-weight: 700; }
+
+/* Slim credibility line under the pillars */
+.hero-cred {
+  margin: 1rem 0 0;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .01em;
+  color: var(--muted-2);
+}
+.hero-cred strong { color: var(--accent); font-weight: 700; }
+
+/* Reviewer depths: 10 / 60 / 240-minute verification paths */
+.depths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.depths li {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.depths .t {
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent);
+}
+.depths b { display: block; font-family: var(--font-display); font-size: 1.2rem; margin: .35rem 0 .35rem; }
+.depths p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.45; }
+
+/* Numbers rendered as evidence read in monospace */
+.metric-card strong, .stat b, .matrix td:first-child { font-variant-numeric: tabular-nums; }
+.metric-card strong { font-family: var(--font-mono); font-weight: 700; letter-spacing: -.02em; }
+
+@media (max-width: 860px) {
+  .value-pillars { grid-template-columns: 1fr; }
+  .depths { grid-template-columns: 1fr; }
 }

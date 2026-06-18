@@ -48,10 +48,10 @@
       <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#proof">Evidence</a>
-        <a href="metrics.html">Value Case</a>
-        <a href="evidence-strategy.html">Evidence Strategy</a>
+        <a href="value.html">Value</a>
+        <a href="evidence-strategy.html">Verify</a>
         <a href="#writing">Writing</a>
-        <a href="packets/employer-brief.html">Reviewer Brief</a>
+        <a href="packets/employer-brief.html">Brief</a>
       </nav>
       <div class="nav-right">
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
@@ -69,68 +69,78 @@
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Formal methods / AI assurance / verified execution</p>
+          <p class="eyebrow">Formal methods · AI assurance · verification-gated engineering</p>
           <h1>Dana Edwards</h1>
-          <p class="lede">I am a one man development team and agentic development expert. I do more, with less: roughly 795,000 authored source lines delivered solo, in months, via verification-gated agentic development.</p>
+          <p class="claim">I make correctness <b>checkable</b> and AI action <b>governable</b>. The failures that cost organizations the most — silent bugs, unsafe automation — become provably impossible, not merely unlikely.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#work">Start review</a>
-            <a class="button secondary" href="metrics.html">Quantitative value</a>
-            <a class="button secondary" href="evidence-strategy.html">Evidence strategy</a>
-            <a class="button secondary" href="packets/employer-brief.html">Reviewer brief</a>
+            <a class="button primary" href="#work">See the work</a>
+            <a class="button secondary" href="evidence-strategy.html">Verify it yourself</a>
             <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub</a>
-          </div>
-          <div class="signal-strip" aria-label="Core capabilities">
-            <span>Lean theorem surfaces</span>
-            <span>Rust execution boundaries</span>
-            <span>SMT-backed checks</span>
-            <span>TLA+</span>
-            <span>Policy receipts</span>
-            <span>Verification-gated agents</span>
           </div>
           <nav class="proof-links" aria-label="Start here">
             <a href="case-studies/mprd.html"><span>MPRD</span><strong>Proof-carrying AI action governance</strong></a>
-            <a href="case-studies/zenodex.html"><span>ZenoDEX</span><strong>Replayable assurance case</strong></a>
-            <a href="evidence-strategy.html"><span>Evidence Strategy</span><strong>Hard-to-fake reviewer evidence</strong></a>
-            <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy"><span>Writing</span><strong>Formal methods tutorials and labs</strong></a>
-            <a href="packets/employer-brief.html"><span>Brief</span><strong>General employer review path</strong></a>
+            <a href="case-studies/zenodex.html"><span>ZenoDEX</span><strong>Formally verified exchange, replayable</strong></a>
+            <a href="evidence-strategy.html"><span>Verify</span><strong>How to check every claim</strong></a>
+            <a href="packets/employer-brief.html"><span>Brief</span><strong>The 10-minute hiring read</strong></a>
           </nav>
         </div>
         <aside class="profile-panel" aria-label="Dana Edwards profile summary">
-          <img class="avatar" src="assets/dana-github-avatar.png" alt="GitHub avatar for Dana Edwards" width="420" height="420" />
+          <img class="avatar" src="assets/dana-github-avatar.png" alt="Dana Edwards" width="420" height="420" />
           <div class="profile-copy">
-            <div class="card-topline">Core thesis</div>
-            <h2>Policy-gated AI execution.</h2>
-            <p>Trustworthy automation depends on clear specifications, verification gates, tests, rejection paths, and evidence that reviewers can replay.</p>
+            <div class="card-topline">What I'm best at</div>
+            <h2>High-assurance systems &amp; safe AI.</h2>
+            <p>Formal proofs, deterministic gates, and reproducible evidence — applied where failure is expensive and "probably fine" is not good enough.</p>
           </div>
           <dl class="quick-facts">
             <div><dt>GitHub</dt><dd><a href="https://github.com/TheDarkLightX">@TheDarkLightX</a></dd></div>
-            <div><dt>Best fit</dt><dd>Agentic development expert</dd></div>
-            <div><dt>Boundary</dt><dd>Model proposes; verifier decides</dd></div>
+            <div><dt>Best fit</dt><dd>AI assurance &amp; formal methods</dd></div>
+            <div><dt>Rule</dt><dd>Model proposes; verifier decides</dd></div>
           </dl>
         </aside>
+      </div>
+      <div class="container hero-band">
+        <div class="value-pillars">
+          <div class="pillar">
+            <h3>Correctness you can check</h3>
+            <p>Machine-checked <span class="k">Lean</span> proofs and <span class="k">TLA⁺</span> models that re-verify on any machine. Whole failure classes become unreachable, not merely untested — so the bugs that cost the most never ship.</p>
+          </div>
+          <div class="pillar">
+            <h3>AI you can let act</h3>
+            <p>Agent governance where the model proposes and <span class="k">deterministic gates decide</span>. Automation that cannot act without a valid, verified receipt — and fails closed when one is missing.</p>
+          </div>
+          <div class="pillar">
+            <h3>A team's reach, one hire</h3>
+            <p>Formal proofs, Rust systems, zero-knowledge, and protocol design from <span class="k">one engineer</span> — and every claim ships with a command that reproduces it.</p>
+          </div>
+        </div>
+        <p class="hero-cred">Rare combination — formal methods × AI assurance × shipping systems sits with <strong>a few hundred engineers worldwide</strong>. Every claim on this site is reproducible.</p>
       </div>
     </section>
 
     <section class="section snapshot">
-      <div class="container snapshot-grid">
-        <div>
-          <p class="eyebrow">Evidence first portfolio</p>
-          <h2>Start with claims, then inspect the artifacts.</h2>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why you can trust any of this</p>
+          <h2>Anyone can claim. Here, every claim is checkable.</h2>
+          <p>Hiring is a bet under uncertainty. I lower the risk by making the work observable and expensive to fake: public artifacts, runnable commands, machine-checked proofs, and stated limitations. Pick a depth and verify for yourself.</p>
         </div>
-        <div class="snapshot-list">
-          <article>
-            <strong>High-assurance systems</strong>
-            <p>Small trusted cores, explicit execution boundaries, replayable receipts, threat models, and fail-closed gates.</p>
-          </article>
-          <article>
-            <strong>Formal and semi-formal evidence</strong>
-            <p>Lean theorem surfaces, SMT-backed checks, bounded model reasoning, counterexample-driven repair, and public replay scripts.</p>
-          </article>
-          <article>
-            <strong>AI-era engineering judgment</strong>
-            <p>LLMs are treated as untrusted proposers. Claims are scoped by exact artifacts, commands, assumptions, and limitations.</p>
-          </article>
-        </div>
+        <ol class="depths">
+          <li>
+            <span class="t">10 minutes</span>
+            <b>Skim the evidence</b>
+            <p>Watch a live demo, read a claim-to-evidence table, and open one machine-checked proof. No setup required.</p>
+          </li>
+          <li>
+            <span class="t">60 minutes</span>
+            <b>Run it yourself</b>
+            <p>Clone a repo, run a focused replay command, and confirm the certificate matches. The claim reproduces, or it does not.</p>
+          </li>
+          <li>
+            <span class="t">4 hours</span>
+            <b>Put me to work</b>
+            <p>Assign a work sample: tighten a claim, add a failing test, or turn an agent-generated change into a receipt-bearing patch.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -138,8 +148,8 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Selected work</p>
-          <h2>Selected examples, with claim boundaries for each.</h2>
-          <p>Each project is framed by claim boundaries: implementation status, checked properties, replayable evidence, assumptions, and limitations.</p>
+          <h2>Three public systems. Each one runs in your browser, right now.</h2>
+          <p>Every card carries a live demo built from real program output, a machine-checked proof or spec, and a one-command path to reproduce it. Bugs in the targeted classes are not just tested for — they are ruled out.</p>
         </div>
 
         <div class="project-grid">
@@ -153,7 +163,7 @@
               <li>Policy, state, action, and receipt commitments.</li>
               <li>Explicit distinction between implementation status, bounded claim, and production claim.</li>
             </ul>
-            <p class="value-note">Dollar context: one-person public artifact with an $8.1M-$12.9M salary-only replacement estimate under the COCOMO/BLS model.</p>
+            <p class="value-note">Why it matters: a working blueprint for letting AI agents act without acting unsafely — a typed execution boundary, Lean-backed proof surfaces, and receipts the executor must verify before anything runs.</p>
             <div class="card-actions">
               <a href="case-studies/mprd.html">Case study</a>
               <a href="https://github.com/TheDarkLightX/MPRD">GitHub</a>
@@ -170,7 +180,7 @@
               <li>Public replay commands and bounded assurance posture.</li>
               <li>Lean-backed canonical winner and settlement/routing theorem surfaces.</li>
             </ul>
-            <p class="value-note">Dollar context: one-person public artifact inside a 797,416-line authored-source portfolio. Conventional build effort models this public footprint at 223-444 engineer-years and $45M-$130M. Public comparables include Uniswap v3, Aave v3, Compound, Maker/Sky, Liquity, and Liquid Loans. The current UNI/AAVE/SKY/CRV/COMP market-cap basket is about $5.34B. This is market context, not a token valuation.</p>
+            <p class="value-note">Why it matters: integer-exact settlement, TLA⁺ models, and replayable certificates rule out the bug classes — rounding, reentrancy, broken invariants — behind nine-figure DeFi losses. Build-cost economics and market comparables on the <a href="value.html">value page</a>.</p>
             <div class="card-actions">
               <a href="case-studies/zenodex.html">Case study</a>
               <a href="https://github.com/TheDarkLightX/ZenoDEX">GitHub</a>
@@ -182,7 +192,7 @@
             <div class="project-meta"><span>Public repo</span><span>Writing / Education</span></div>
             <h3>Formal Methods Philosophy</h3>
             <p>A tutorial and lab site on modeling, abstraction, symbolic tools, counterexamples, verification, and what it means to justify a claim about software.</p>
-            <p class="value-note">Dollar context: $1.3M-$2.1M replacement estimate, plus public teaching artifacts that make formal methods legible to a wider community.</p>
+            <p class="value-note">Why it matters: 57 tutorials and 20 interactive labs that teach the verification methods above — evidence I can explain the work clearly, not just do it.</p>
             <div class="card-actions">
               <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">GitHub</a>
             </div>
@@ -202,9 +212,9 @@
     <section id="proof" class="section">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">Evidence matrix</p>
-          <h2>A portfolio organized around reviewer evidence.</h2>
-          <p>Each selected project exposes a path from claim to evidence. The structure is artifact, command, assumption, and limitation.</p>
+          <p class="eyebrow">Capability → evidence</p>
+          <h2>What I claim, and how you check it.</h2>
+          <p>Each capability maps to a concrete artifact a reviewer can open: a theorem, a command, a tamper test, a limitation. Nothing here asks for the benefit of the doubt.</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
@@ -242,40 +252,20 @@
     </section>
 
     <section class="section alt">
-      <div class="container timeline-grid">
-        <div>
-          <p class="eyebrow">Current orientation</p>
-          <h2>What is public and what to inspect first.</h2>
-        </div>
-        <div class="timeline-list">
-          <article>
-            <span>Now</span>
-            <strong>Evidence first portfolio for formal methods and AI assurance roles.</strong>
-            <p>The public surface is organized around selected examples, case studies, and reviewer paths.</p>
-          </article>
-          <article>
-            <span>Public</span>
-            <strong>MPRD, ZenoDEX, and Formal Methods Philosophy.</strong>
-            <p>These are the main public examples to inspect for architecture, assurance style, writing, and scope control.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Employer paths</p>
-          <h2>Same core work, different hiring contexts.</h2>
+          <p class="eyebrow">Where I fit</p>
+          <h2>Roles where this work pays off.</h2>
+          <p>The same core — proofs, gates, and reproducible evidence — maps onto several teams that cannot afford to be wrong.</p>
         </div>
         <div class="packet-grid">
           <a class="packet-card" href="packets/employer-brief.html">
             <span>Reviewer brief</span>
-            <strong>Fast path for hiring teams evaluating engineering depth, scope control, and communication.</strong>
+            <strong>The fast hiring read: depth, scope control, and communication in ten minutes.</strong>
           </a>
           <a class="packet-card" href="evidence-strategy.html">
-            <span>Evidence strategy</span>
-            <strong>Research-backed review path for observable, hard-to-fake evidence.</strong>
+            <span>How to verify me</span>
+            <strong>The verification path: observable, reproducible, hard-to-fake evidence.</strong>
           </a>
           <a class="packet-card" href="#work">
             <span>AI systems engineering</span>
@@ -296,9 +286,9 @@
     <section id="writing" class="section">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">Writing and teaching</p>
-          <h2>Public examples that make the technical work legible.</h2>
-          <p>These pieces show how I explain modeling, verification, counterexamples, symbolic tools, and AI-assisted engineering to technical readers.</p>
+          <p class="eyebrow">Writing &amp; teaching</p>
+          <h2>Proof I can explain it, not just build it.</h2>
+          <p>These pieces show how I teach modeling, verification, counterexamples, and AI-assisted engineering — the same clarity I bring to a code review or a design doc.</p>
         </div>
         <ol class="writing-list">
           <li><span>01</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/approximate-state-tracking.md"><strong>Approximate state tracking</strong><p>State, abstraction, symbolic tools, and counterexamples.</p></a></li>
@@ -318,7 +308,7 @@
         </div>
         <div class="cta-actions">
           <a class="button primary" href="mailto:p33rl3ss1@gmail.com">Email me</a>
-          <a class="button secondary" href="metrics.html">Quantitative value</a>
+          <a class="button secondary" href="value.html">Quantitative value</a>
           <a class="button secondary" href="evidence-strategy.html">Evidence strategy</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub profile</a>
         </div>
