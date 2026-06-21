@@ -23,8 +23,8 @@ assets/mark.svg                     Site mark
 assets/dana-github-avatar.png       Local GitHub avatar asset
 case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
-metrics.html                        Quantitative value case (rarity, costly signals, cost estimates)
-packets/employer-brief.html         General employer reviewer brief
+value.html                          Quantitative value case (rarity, costly signals, cost estimates)
+writing.html                        Tutorial and lab index (61 tutorials, 12 interactive labs)
 data/portfolio-metrics.json         Generated metrics consumed by metrics.html
 tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
 assets/projects/<slug>/             Project screenshots (app.webp; see EDIT_ME_FIRST.md)
