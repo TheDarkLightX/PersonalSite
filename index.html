@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <section class="section pillars-section">
+    <section id="proof" class="section pillars-section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">What I add</p>
@@ -121,6 +121,38 @@
           </div>
         </div>
         <p class="hero-cred">Lean repositories on GitHub are about <strong>0.037%</strong> of Python repositories, and TLA⁺ about <strong>0.0046%</strong> (checked June 17, 2026; see the <a href="value.html">rarity table</a>). The combination with shipped Rust systems and ZK is rarer still, and every claim on this site is reproducible.</p>
+        <div class="matrix-card" style="margin-top: 2rem;">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical taste</td>
+                <td>Small trusted core, explicit interfaces, bounded claims.</td>
+              </tr>
+              <tr>
+                <td>Formal methods</td>
+                <td>Lean, TLA+, and SMT artifacts with theorem statements and replay commands.</td>
+              </tr>
+              <tr>
+                <td>AI-era discipline</td>
+                <td>AI is an untrusted proposer; deterministic gates decide.</td>
+              </tr>
+              <tr>
+                <td>Security mindset</td>
+                <td>Threat model, fail-closed behavior, replay and tamper tests.</td>
+              </tr>
+              <tr>
+                <td>Communication</td>
+                <td>Case studies, claim tables, limitations, and technical essays.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -146,7 +178,7 @@
         <div class="section-heading">
           <p class="eyebrow">Selected work</p>
           <h2>Three public systems. Each one you can clone, run, and re-verify.</h2>
-          <p>Each card links to the proofs, specs, and public repo behind it. The screenshots show real UI; the repos hold the runnable code and the machine-checked evidence. In the targeted classes, bugs are not just tested for. They are ruled out.</p>
+          <p>Each card links to the proofs, specs, and public repo behind it. The screenshots show real UI; the repos hold the runnable code and the machine-checked evidence. In the targeted classes, bugs are not just tested for. They are ruled out. The same core of proofs, gates, and reproducible evidence maps onto several roles where teams cannot afford to be wrong.</p>
         </div>
 
         <div class="project-grid">
@@ -195,59 +227,7 @@
             </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section id="proof" class="section">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Capability → evidence</p>
-          <h2>What I claim, and how you check it.</h2>
-          <p>Each capability maps to a concrete artifact a reviewer can open: a theorem, a command, a tamper test, a limitation. Nothing here asks for the benefit of the doubt.</p>
-        </div>
-        <div class="matrix-card">
-          <table class="matrix">
-            <thead>
-              <tr>
-                <th>Capability</th>
-                <th>Evidence</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Technical taste</td>
-                <td>Small trusted core, explicit interfaces, bounded claims.</td>
-              </tr>
-              <tr>
-                <td>Formal methods</td>
-                <td>Lean, TLA+, and SMT artifacts with theorem statements and replay commands.</td>
-              </tr>
-              <tr>
-                <td>AI-era discipline</td>
-                <td>AI is an untrusted proposer; deterministic gates decide.</td>
-              </tr>
-              <tr>
-                <td>Security mindset</td>
-                <td>Threat model, fail-closed behavior, replay and tamper tests.</td>
-              </tr>
-              <tr>
-                <td>Communication</td>
-                <td>Case studies, claim tables, limitations, and technical essays.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Where I fit</p>
-          <h2>Roles where this work pays off.</h2>
-          <p>The same core of proofs, gates, and reproducible evidence maps onto several teams that cannot afford to be wrong.</p>
-        </div>
-        <div class="packet-grid">
+        <div class="packet-grid" style="margin-top: 2rem;">
           <a class="packet-card" href="case-studies/mprd.html">
             <span>AI systems engineering</span>
             <strong>Agent gates, proof-carrying actions, reliable automation, and deployment boundaries.</strong>
@@ -286,12 +266,12 @@
         <div>
           <p class="eyebrow">Contact</p>
           <h2>Available for AI assurance, formal methods, verification, and high-assurance systems work.</h2>
-          <p>This site is my living CV: always current, evidence-linked, and more specific than a PDF. Email me directly, or start from the quantitative value case, employer brief, and GitHub.</p>
+          <p>This site is my living CV: always current, evidence-linked, and more specific than a PDF. Email me directly, or start from the quantitative value case, the evaluation page, and GitHub.</p>
         </div>
         <div class="cta-actions">
           <a class="button primary" href="mailto:p33rl3ss1@gmail.com">Email me</a>
           <a class="button secondary" href="value.html">Quantitative value</a>
-          <a class="button secondary" href="evidence-strategy.html">Evidence strategy</a>
+          <a class="button secondary" href="evidence-strategy.html">Evaluation</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub profile</a>
         </div>
       </div>
