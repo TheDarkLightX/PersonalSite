@@ -572,6 +572,31 @@ h3 { font-size: 1.45rem; }
   transform: translateX(2px);
 }
 
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.writing-card {
+  padding: 1.05rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+.writing-card span { color: var(--accent); font-weight: 900; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.writing-card strong { font-size: 1.04rem; line-height: 1.25; }
+.writing-card p { margin: .3rem 0 0; color: var(--muted); font-size: .9rem; line-height: 1.4; }
+.writing-card:hover {
+  color: inherit;
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-3) 44%, var(--line));
+}
+
 .cta-section { padding-top: 40px; }
 .cta-card {
   padding: 1.5rem;
@@ -959,6 +984,14 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
 
 .hero .eyebrow { color: var(--muted); }
 .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.6rem); max-width: 16ch; }
+
+.bio {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: .6rem 0 0;
+  max-width: 40ch;
+  color: var(--muted);
+}
 
 /* The hook: a sharp statement of value, not a bio */
 .claim {

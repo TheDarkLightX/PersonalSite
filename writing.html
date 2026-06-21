@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writing - Dana Edwards</title>
+  <meta name="description" content="Tutorials and interactive labs on formal methods, neuro-symbolic verification, proof-carrying systems, and the philosophy of software correctness." />
+  <link rel="canonical" href="https://www.danaedwards.info/writing.html" />
+  <meta property="og:title" content="Writing - Dana Edwards" />
+  <meta property="og:description" content="61 tutorials and 12 interactive labs on formal methods, neuro-symbolic verification, and the philosophy of software correctness." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.danaedwards.info/writing.html" />
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f4f7f5" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#111715":"#f4f7f5");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-sticky>
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Dana Edwards home">
+        <img src="assets/mark.svg" alt="" width="34" height="34" />
+        <span>Dana Edwards</span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#proof">Evidence</a>
+        <a href="value.html">Value</a>
+        <a href="evidence-strategy.html">Evaluation</a>
+        <a href="writing.html" aria-current="page">Writing</a>
+      </nav>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Writing</p>
+        <h1>61 tutorials. 12 interactive labs. One question: what does it mean to justify a claim about software?</h1>
+        <p class="lede">Each tutorial starts with a concrete picture, then tightens into a precise model that tools can manipulate. The labs turn abstract claims into something visible: a witness, a quotient, a bad state, a compiled controller. All public, all replayable.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Open the repo</a>
+          <a class="button secondary" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/tutorials/">Full index</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive labs</p>
+          <h2>Bounded, replayable teaching labs.</h2>
+          <p>Each lab turns an abstract claim into something you can see and replay. Small bounded models for teaching clarity, not full proofs of unrestricted systems.</p>
+        </div>
+        <div class="writing-grid">
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/concolic_branch_lab.html">
+            <span>Witness search</span>
+            <strong>Concolic Branch Lab</strong>
+            <p>Concrete run, path condition, branch flip, bounded solve, replay. Companion to Tutorial 35.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/grammar_witness_search_lab.html">
+            <span>Witness search</span>
+            <strong>Grammar Witness Search Lab</strong>
+            <p>Compare raw-byte search with grammar-guided generation on the same bad-state predicate.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/grammar_solver_handoff_lab.html">
+            <span>Witness search</span>
+            <strong>Grammar-to-Solver Handoff Lab</strong>
+            <p>Structured generation stays valid, then hands off to a bounded solver when the obstacle is semantic.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/witness_space_explorer.html">
+            <span>Witness search</span>
+            <strong>Witness Space Explorer</strong>
+            <p>Proposal distributions, acceptance regions, and found witnesses moving against each other.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/hybrid_loop_comparison_lab.html">
+            <span>Loop geometry</span>
+            <strong>Hybrid Loop Comparison Lab</strong>
+            <p>Compare direct control with two hybrid loops on the same bounded task.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/galois_loop_lab.html">
+            <span>Loop geometry</span>
+            <strong>Galois Loop Lab</strong>
+            <p>Watch obligation carving over a finite relation universe and see how the quotient changes repair.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/verifier_compiler_lab.html">
+            <span>Loop geometry</span>
+            <strong>Verifier-Compiler Lab</strong>
+            <p>See verifier labels collapse into a smaller symbolic controller, and inspect when compression is pure.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/temporal_label_basis_lab.html">
+            <span>Loop geometry</span>
+            <strong>Temporal Label Basis Lab</strong>
+            <p>Compare coarse and richer temporal label bases; see why the stronger basis becomes exact only after the right first carve.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/vending_machine_explorer.html">
+            <span>State and shape</span>
+            <strong>Vending Machine Explorer</strong>
+            <p>A small live state machine for learning states, transitions, and invariants before things get abstract.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/shape_evolution_explorer.html">
+            <span>State and shape</span>
+            <strong>Shape Evolution Explorer</strong>
+            <p>Move through shape choices and see how adding clauses changes reachable system behaviors.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/zenodex_shape_pruning_lab.html">
+            <span>State and shape</span>
+            <strong>ZenoDEX Shape Pruning Lab</strong>
+            <p>Treat clauses as structural blockers on disaster states and inspect what each strengthening step removes.</p>
+          </a>
+          <a class="writing-card" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/tau_energy_workbench_lab.html">
+            <span>Optimization</span>
+            <strong>TauEnergy Workbench</strong>
+            <p>Measured route ranking, verifier authority, license-aware JSON metrics, and local replay commands.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Foundations</p>
+          <h2>State, abstraction, and modeling.</h2>
+          <p>Start here if you are new to formal methods. Each tutorial builds intuition from a concrete picture before tightening into a model tools can manipulate.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>01</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/approximate-state-tracking.md"><strong>Approximate state tracking</strong><p>State machines, abstraction, counterexamples, CEGIS, and the boundaries between heuristics and proofs. Start inside a card counter's head, then zoom out.</p></a></li>
+          <li><span>02</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/isomorphism.md"><strong>Isomorphism</strong><p>Why some "different abstractions" are the same thing in different clothes, and how to move problems into better toolchains.</p></a></li>
+          <li><span>03</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/tau-language.md"><strong>Tau Language</strong><p>Read and write small executable specifications by listing invariants first, then letting a solver produce behaviors that satisfy them.</p></a></li>
+          <li><span>04</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/world-models.md"><strong>World models and continuous learning</strong><p>Why internal models are more than prediction, why test-time learning is powerful, and why invariants matter when the model can drift.</p></a></li>
+          <li><span>05</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/software-shapes-and-zenodex.md"><strong>Software shapes and ZenoDEX</strong><p>Start from arcade, ATM, and vending-machine intuition, then compress those shared shapes into states and invariants.</p></a></li>
+          <li><span>06</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/presburger-arithmetic.md"><strong>Presburger arithmetic, the decidable island</strong><p>Build Presburger arithmetic from zero and successor, and see why excluding multiplication makes every question decidable.</p></a></li>
+          <li><span>07</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/exhaustive-search-and-path-integrals.md"><strong>Exhaustive search and path integrals</strong><p>Compare proof by exhaustive search with sum-over-histories, then extend to action, weighted futures, and intelligent planning.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Neuro-symbolic AI</p>
+          <h2>LLMs as existential engines, formal tools as universal verifiers.</h2>
+          <p>The core thesis: a model proposes, a deterministic gate decides. These tutorials build the theory and the architecture behind proof-carrying AI governance.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>08</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/reformulation-and-gates.md"><strong>Reformulation and compression</strong><p>How changing representations creates leverage, and how neuro-symbolic gates turn model proposals into checkable evidence.</p></a></li>
+          <li><span>09</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/mprd-and-algorithmic-ceo.md"><strong>MPRD and the Algorithmic CEO</strong><p>The neuro-symbolic gate turned into production architecture. Models propose, rules decide, counterexamples drive refinement.</p></a></li>
+          <li><span>10</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/reasoning-connectionism-gofai.md"><strong>Reasoning, logic, and prediction</strong><p>Why statistical learning cannot in principle produce logical validity, and why approximate logic from a neural network cannot match a dedicated solver.</p></a></li>
+          <li><span>11</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/llms-not-agi-meaning-and-concepts.md"><strong>Why current LLMs are not yet AGI</strong><p>A scoped argument for the conceptual gap: strong language-pattern modeling is not yet stable meaning creation or meaning-preserving formalization.</p></a></li>
+          <li><span>12</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/what-is-reasoning-proof-search-and-justification.md"><strong>What reasoning is</strong><p>Separate guessing, search, explanation, and proof using a child arithmetic example, Peano arithmetic, and the difference between discovery and justification.</p></a></li>
+          <li><span>13</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/neuro-symbolic-witness-spaces.md"><strong>Neuro-symbolic reasoning and witness spaces</strong><p>Treat LLMs as existential engines and symbolic methods as universal verifiers. Map proof search, counterexample search, synthesis, and coverage limits.</p></a></li>
+          <li><span>14</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/perceptron-in-tau-language.md"><strong>A perceptron in Tau Language</strong><p>Build a perceptron from formulas, execute bounded classifier specs in Tau, and separate the replayable classifier lane from a host-side learning loop.</p></a></li>
+          <li><span>15</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/quantifier-factoring-and-neuro-symbolic-loops.md"><strong>Quantifier factoring and neuro-symbolic loop engineering</strong><p>Push from "LLM = existential engine, formal tool = universal verifier" into counterexample search, certificate compression, and fixed-point reasoning.</p></a></li>
+          <li><span>16</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/formal-neural-networks.md"><strong>Formal neural networks</strong><p>What would it take for a neural network to count as a computer in a strong sense, and what routes could get there?</p></a></li>
+          <li><span>17</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/prompt-engineering-precision-communication.md"><strong>Prompt engineering and precision communication</strong><p>Reduce ambiguity by making structure explicit. Connect reformulation to state explosion. Try a transpiler that turns controlled language into specs.</p></a></li>
+          <li><span>18</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/predictive-reading-scramble-invariants.md"><strong>Predictive reading, scrambling, invariants, and proof</strong><p>Build an interactive scrambler app, verify logic invariants, and separate formal proof from empirical proof-by-witness.</p></a></li>
+          <li><span>19</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/platonic-ai-applied-ai-and-replication-boundaries.md"><strong>Platonic AI, applied AI, and replication boundaries</strong><p>Where the idealized model of AI meets the applied one, and why replication boundaries matter for assurance claims.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Verification and proof</p>
+          <h2>How to justify a claim, and how to break one.</h2>
+          <p>The craft of formal verification: trusted cores, refutation, counterexamples, and the difference between proof in a closed formal world and corroboration in an open empirical one.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>20</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/microkernels-micro-models-and-compositional-correctness.md"><strong>Microkernels and micro-models</strong><p>Use seL4 as a case study for shrinking the trusted core, proving small local contracts, and widening assurance through checked composition.</p></a></li>
+          <li><span>21</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/resolution-refutation-and-falsification.md"><strong>Resolution, refutation, and falsification</strong><p>Put logical refutation and Popperian falsification side by side. Separate proof in a closed formal world from corroboration in an open empirical one.</p></a></li>
+          <li><span>22</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/rices-theorem-and-consciousness.md"><strong>Consciousness, computationalism, and Rice's theorem</strong><p>If consciousness is a nontrivial semantic property of computation, then no general Turing-machine detector can decide it from arbitrary encodings.</p></a></li>
+          <li><span>23</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/counterexample-guided-requirements-discovery.md"><strong>Counterexample-guided requirements discovery</strong><p>Recover missing requirements from witness structure, observation quotients, and minimal separator policies.</p></a></li>
+          <li><span>24</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/concolic-testing-and-branch-exploration.md"><strong>Concolic testing and branch exploration</strong><p>Learn branch exploration as witness search: concrete execution gives one real path, symbolic path constraints steer the next run.</p></a></li>
+          <li><span>25</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/grammar-based-fuzzing-and-structured-search.md"><strong>Grammar-based fuzzing and structured search</strong><p>Structured witness search over grammars. See why syntax preservation reallocates budget into semantic execution.</p></a></li>
+          <li><span>26</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/church-synthesis-problem.md"><strong>Attacking hard problems with Church's synthesis problem</strong><p>Define Church synthesis precisely, trace what is decidable, then use decomposition-plus-invariants against the complexity wall.</p></a></li>
+          <li><span>27</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/proof-quality-curation.md"><strong>Proof quality curation</strong><p>What separates a proof that checks from a proof that communicates, and how to curate a proof library for reviewer trust.</p></a></li>
+          <li><span>28</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/what-makes-a-proof-library-expert-grade.md"><strong>What makes a proof library expert-grade</strong><p>The difference between a collection of checking proofs and a library that an expert reviewer can navigate, trust, and extend.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">CEGIS and loop geometry</p>
+          <h2>The structure of verifier-proposer loops.</h2>
+          <p>When does a counterexample-guided loop converge? When can verifier behavior itself be compressed into a reusable controller? These tutorials map the geometry.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>29</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/galois-loops-and-obligation-carving.md"><strong>Galois loops and obligation carving</strong><p>Reframe CEGIS through a Galois and FCA lens, prove the bounded obligation-side policy-improvement loop, and show its measured power.</p></a></li>
+          <li><span>30</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/verifier-compiler-loops.md"><strong>Verifier-compiler loops</strong><p>When can verifier behavior be compressed into a reusable symbolic controller for routing, ranking, and fail-closed pre-screening?</p></a></li>
+          <li><span>31</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/loop-space-geometry.md"><strong>Loop-space geometry</strong><p>Factor neuro-symbolic loops into witness languages, quotients, separator policies, label bases, and compiled artifacts.</p></a></li>
+          <li><span>32</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/hybrid-geometry-changing-loops.md"><strong>Hybrid geometry-changing loops</strong><p>Compare direct control with loops that reshape ambiguity geometry first, then compile or control only the residue.</p></a></li>
+          <li><span>33</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/temporal-label-functions-and-staged-bases.md"><strong>Temporal label functions and staged bases</strong><p>Why a richer basis can be strictly finer on the whole family, yet become exact only after the right first carve.</p></a></li>
+          <li><span>34</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/how-counterexamples-become-fast-formal-recognizers.md"><strong>How counterexamples become fast formal recognizers</strong><p>Turn found counterexamples into compiled recognizers that pre-screen proposals before the expensive verifier runs.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Tau Language</p>
+          <h2>Executable specifications and their optimization.</h2>
+          <p>A deep dive into Tau Language: the decidable fragments, the optimizer stack, and the boundary between bounded prototypes and full theorem proving.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>35</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/countable-cantor-algebra-and-completion.md"><strong>The countable Cantor algebra and its completion</strong><p>Why the clopen algebra of Cantor space is the unique countable atomless Boolean algebra, and what its completion adds.</p></a></li>
+          <li><span>36</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/taba-formulas-and-guarded-successor.md"><strong>TABA, formula by formula</strong><p>The Boolean-algebra machinery behind TABA, read step by step: quantifier-elimination and guarded-successor formulas.</p></a></li>
+          <li><span>37</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/safe-infinite-tables-in-tau-language.md"><strong>Safe infinite-recursive tables in Tau Language</strong><p>Pointwise revision, fixed-point semantics, runnable demos, and the boundary between this prototype and full TABA tables.</p></a></li>
+          <li><span>38</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/optimizing-tau-language-part-i-qelim-fragment-dispatch.md"><strong>Optimizing Tau Language, Part I</strong><p>Why Tau qelim optimization is a fragment-dispatch problem, and how guarded BDD and CNF-native routes speed up scoped formulas.</p></a></li>
+          <li><span>39</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/temporal-tau-bounded-ltl-decidability.md"><strong>Temporal Tau, Part I</strong><p>How bounded LTL-style operators fit Tau, why finite-horizon temporal formulas are decidable, and the new optimizer layer this creates.</p></a></li>
+          <li><span>40</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/optimizing-tau-language-part-ii-certificate-carrying-optimizers.md"><strong>Optimizing Tau Language, Part II</strong><p>Certificate-carrying optimizers: search for aggressive rewrites while accepting only candidates whose certificates pass a trusted checker.</p></a></li>
+          <li><span>41</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/optimizing-tau-language-part-iii-blowup-detection.md"><strong>Optimizing Tau Language, Part III</strong><p>Detect blowup risk before solving, compress unused variables, and use route prediction without replacing proof certificates.</p></a></li>
+          <li><span>42</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/official-ltl-aba-in-tau-language.md"><strong>Official LTL(ABA) in Tau Language</strong><p>Ohad Asor's upstream Tau LTL(ABA) design, compared to the bounded Temporal Tau fragment.</p></a></li>
+          <li><span>43</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/controlled-english-opinion-maps-and-explanation-certificates.md"><strong>Controlled English and explanation certificates</strong><p>Turn one readable governance sentence into a checked two-variable counting formula, then prove the translation is sound.</p></a></li>
+          <li><span>44</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/bounded-game-tables-in-tau-language.md"><strong>Bounded game tables in Tau Language</strong><p>Model two-player bounded games as Tau tables, inspect winning regions, and see the boundary between bounded games and unbounded ones.</p></a></li>
+          <li><span>45</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/neuro-symbolic-boolean-algebras-in-tau-language.md"><strong>Neuro-symbolic Boolean algebras in Tau Language</strong><p>Bridge neural proposal distributions and Boolean-algebraic constraints inside Tau, and inspect where the bridge holds and where it breaks.</p></a></li>
+          <li><span>46</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/eml-trees-as-neuro-symbolic-hypotheses.md"><strong>EML trees as neuro-symbolic hypotheses</strong><p>Use EML trees to generate, rank, and test symbolic hypotheses with bounded guarantees, then separate the hypothesis lane from the proof lane.</p></a></li>
+          <li><span>47</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/symbolic-hypothesis-generation-with-eml-and-qns.md"><strong>Symbolic hypothesis generation with EML and QNs</strong><p>Generate symbolic hypotheses from EML trees and quotient networks, then verify them against bounded Tau specs.</p></a></li>
+          <li><span>48</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/optimizing-tau-language-part-iv-sparse-impact-factor-solving.md"><strong>Optimizing Tau Language, Part IV</strong><p>Sparse impact factor solving: identify which variables actually matter for a given query, and skip the rest.</p></a></li>
+          <li><span>49</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/optimizing-tau-language-part-v-energy-based-route-telemetry.md"><strong>Optimizing Tau Language, Part V</strong><p>Energy-based route telemetry: measure which optimizer routes work, and feed the measurements back into route selection.</p></a></li>
+          <li><span>50</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/energy-based-models-as-fast-optimizers.md"><strong>Energy-based models as fast optimizers</strong><p>A tiny energy scorer ranks bounded candidate sets for Tau and ZenoDEX. Verifier authority stays separate.</p></a></li>
+          <li><span>51</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/tau-energy-workbench-replayable-training.md"><strong>TauEnergy Workbench</strong><p>How Tau-checked formulas become measured route labels, how a small energy ranker improves checker order, and how the demo stays replayable.</p></a></li>
+          <li><span>52</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/tau-energy-chat-and-world-model-architecture.md"><strong>TauEnergy chat architecture</strong><p>Split a Tau-facing assistant into LLM interface, TauEnergy ranking, TauJEPA failure pressure, and Tau verification.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Applications</p>
+          <h2>Medical, DeFi, and post-AGI economics.</h2>
+          <p>Where the theory meets real domains: bounded medical workflows, exchange disaster-state defense, and toy economies for profit agents.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>53</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/medical-deciders-mprd-and-tau.md"><strong>Medical deciders, MPRD, and Tau</strong><p>Map bounded medical workflows into the MPRD shape, then use educational Tau policies to separate model proposals from execution authority.</p></a></li>
+          <li><span>54</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/decidable-medical-machines.md"><strong>Decidable medical machines, from formulas to Tau</strong><p>A calorie calculator and a kidney follow-up workflow, viewed as math, logic, a decision tree, a finite-state machine, code, and a Tau spec.</p></a></li>
+          <li><span>55</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/neuro-symbolic-defi-defense.md"><strong>Neuro-symbolic DeFi defense</strong><p>Use the USD 285M Drift Protocol exploit as a case study for compositional disaster-state analysis, then build the defense loop that catches multi-vector attacks.</p></a></li>
+          <li><span>56</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/zenodex-shape-transition.md"><strong>ZenoDEX shape transition</strong><p>Compare the old ZenoDEX shape with the achieved audited-domain Shape++, then track how exact formulas and proof-carrying boundaries make disaster states unreachable.</p></a></li>
+          <li><span>57</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/profit-agents-post-agi-economics.md"><strong>Profit agents, post-AGI economics, and mechanism design</strong><p>Study bounded toy economies for profit agents under explicit assumptions, then climb from platform incentives to routing, trust, and mechanism design.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Philosophy</p>
+          <h2>What it means to justify a claim about software.</h2>
+          <p>The philosophical core: entropy, consciousness, clean code in the agentic era, and the boundary between proof and corroboration.</p>
+        </div>
+        <ol class="writing-list">
+          <li><span>58</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/good-software-engineering-and-clean-code.md"><strong>What makes a good software engineer, and what clean code means</strong><p>A user-centered framework for the agentic era: provenance-agnostic quality, diamond-rule engineering, and best-practice rails for safe systems.</p></a></li>
+          <li><span>59</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/entropy-control-life-and-consciousness.md"><strong>Entropy control, life, and consciousness</strong><p>How entropy reduction connects living systems, computational systems, and the boundary where consciousness might enter.</p></a></li>
+          <li><span>60</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/software-hardening-as-entropy-reduction.md"><strong>Software hardening as entropy reduction</strong><p>Frame software hardening as a thermodynamic-style process: each gate, test, and proof reduces the reachable state space of failure.</p></a></li>
+          <li><span>61</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/training-data-survival-scripts-and-ai-safety-gates.md"><strong>Training data survival scripts and AI safety gates</strong><p>What survives into a trained model, what does not, and how safety gates at training time differ from gates at inference time.</p></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <p class="eyebrow">Full index</p>
+          <h2>61 tutorials, organized and searchable.</h2>
+          <p>The full tutorial index with suggested reading paths is on the repo's GitHub Pages site. The repo itself has every markdown file, every lab, and the scripts that generate them.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button primary" href="https://thedarklightx.github.io/Formal_Methods_Philosophy/tutorials/">Full tutorial index</a>
+          <a class="button secondary" href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">GitHub repo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>&copy; <span data-year></span> Dana Edwards.</p>
+      <p>Formal methods, AI assurance, and proof-carrying execution.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
