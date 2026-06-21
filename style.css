@@ -552,7 +552,11 @@ h3 { font-size: 1.45rem; }
   padding: 0;
   list-style: none;
   display: grid;
+  grid-template-columns: 1fr;
   gap: .8rem;
+}
+@media (min-width: 760px) {
+  .writing-list { grid-template-columns: 1fr 1fr; }
 }
 .writing-list li {
   display: grid;
