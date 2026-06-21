@@ -495,7 +495,7 @@ h3 { font-size: 1.45rem; }
 
 .packet-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
 .source-grid, .metric-grid {
