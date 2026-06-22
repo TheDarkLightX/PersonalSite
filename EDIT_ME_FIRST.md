@@ -15,6 +15,8 @@ Use this before making the site more public or sending it to reviewers.
 - Give every selected project a reviewer path.
 - Scope every ambitious claim with evidence, assumptions, and limitations.
 - Frame AI usage as untrusted proposer, verified outputs only.
+- Lead with who you are (engineer, philosopher, futurist), not a narrow specialty.
+  Formal methods is one expression of a broader systems-thinking practice.
 
 ## Recommended Next Public Repo
 

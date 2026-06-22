@@ -6,7 +6,7 @@
 
   function applyThemeColor() {
     var m = document.getElementById("meta-theme-color");
-    if (m) m.setAttribute("content", isDark() ? "#111715" : "#f4f7f5");
+    if (m) m.setAttribute("content", isDark() ? "#0a0a0a" : "#fafafa");
   }
 
   function syncToggle(btn) {

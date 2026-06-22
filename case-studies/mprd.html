@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MPRD Case Study - Dana Edwards</title>
+  <title>MPRD | Dana Edwards</title>
   <meta name="description" content="Case study for MPRD: proof-carrying AI action governance where models propose and rules decide." />
   <link rel="canonical" href="https://www.danaedwards.info/case-studies/mprd.html" />
   <meta property="og:title" content="MPRD Case Study - Dana Edwards" />
@@ -16,9 +16,9 @@
   <meta name="twitter:description" content="Proof-carrying AI action governance where models propose and deterministic rules decide." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/projects/mprd/app.webp" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
-  <meta name="theme-color" content="#f4f7f5" id="meta-theme-color" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
   <script>
-    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#111715":"#f4f7f5");}catch(e){}})();
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
   </script>
   <link rel="stylesheet" href="../style.css" />
 </head>
@@ -27,11 +27,11 @@
     <div class="container nav-wrap">
       <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
       <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#arc">Arc</a>
         <a href="../index.html#work">Work</a>
-        <a href="../index.html#proof">Evidence</a>
+        <a href="../writing.html">Writing</a>
         <a href="../value.html">Value</a>
         <a href="../evidence-strategy.html">Evaluation</a>
-        <a href="../writing.html">Writing</a>
       </nav>
       <div class="nav-right">
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
@@ -48,10 +48,10 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <a class="breadcrumb" href="../index.html">&lt;- Back to home</a>
+        <a class="breadcrumb" href="../index.html">Back to home</a>
         <p class="eyebrow">Case study</p>
         <h1>MPRD: Model Proposes, Rules Decide</h1>
-        <p class="lede">Lets an AI agent act without letting it act unsafely. A model proposes, a deterministic gate decides, and the executor runs only what carries a valid, verified receipt. The unsafe path is not discouraged. It is unreachable.</p>
+        <p class="lede">Lets an AI agent act without letting it act unsafely. A model proposes, a deterministic gate decides, and the executor runs only what carries a valid, verified receipt.</p>
       </div>
     </section>
 
@@ -115,7 +115,7 @@
               <figcaption>The MPRD operator UI, running locally on mock data with no backend attached. Every proposed action is recorded with a verdict (Allowed or Denied), a proof status (Verified), and an execution result. The gate's decisions are the audit trail.</figcaption>
             </figure>
             <div class="callout">
-              <strong>Portfolio signal:</strong> MPRD demonstrates architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
+              MPRD demonstrates architectural judgment: capability separation, typed execution boundaries, policy/state/action commitments, and fail-closed verifier behavior.
             </div>
           </section>
 
@@ -170,7 +170,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Formal methods, AI assurance, and proof-carrying execution.</p></div></footer>
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Engineer, philosopher, futurist.</p></div></footer>
   <script src="../script.js"></script>
 </body>
 </html>

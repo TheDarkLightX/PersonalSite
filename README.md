@@ -6,7 +6,7 @@ Static resume portfolio for Dana Edwards, hosted with GitHub Pages at:
 https://www.danaedwards.info/
 ```
 
-The site presents public work around formal methods, AI assurance, proof-carrying execution, deterministic policy gates, and replayable verification evidence.
+The site presents Dana Edwards as an engineer, philosopher, and futurist. Public work spans formal methods, AI governance, protocol design, proof-carrying execution, deterministic policy gates, and replayable verification evidence.
 
 ## Files
 
