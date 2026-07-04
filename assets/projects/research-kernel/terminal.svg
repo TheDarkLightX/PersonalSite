@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800" role="img" aria-labelledby="rk-title">
+  <title id="rk-title">Research Kernel MCP: terminal session showing claim promotion from UNKNOWN to SUPPORTED through the fail-closed gate</title>
+  <defs>
+    <linearGradient id="term-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0f0f1e"/>
+    </linearGradient>
+    <linearGradient id="titlebar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a3e"/>
+      <stop offset="100%" stop-color="#222238"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Terminal window -->
+  <rect x="0" y="0" width="1280" height="800" rx="12" fill="url(#term-bg)"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="1280" height="44" rx="12" fill="url(#titlebar)"/>
+  <rect x="0" y="32" width="1280" height="12" fill="url(#titlebar)"/>
+  <circle cx="24" cy="22" r="7" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="7" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="7" fill="#27c93f"/>
+  <text x="640" y="28" text-anchor="middle" fill="#888" font-family="-apple-system, 'SF Mono', 'Fira Code', monospace" font-size="14" font-weight="500">research-kernel — server.py --self-test</text>
+
+  <!-- Terminal content -->
+  <g font-family="'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace" font-size="13.5" fill="#c8c8d0">
+
+    <!-- Prompt line 1 -->
+    <text x="32" y="80" fill="#27c93f" font-weight="600">$</text>
+    <text x="52" y="80" fill="#e0e0e8">rk_start</text>
+    <text x="130" y="80" fill="#888">— begin research run</text>
+
+    <text x="52" y="104" fill="#5a9fd4">run_id:</text>
+    <text x="120" y="104" fill="#c8c8d0">"run_bfb9b5389fc54410"</text>
+    <text x="52" y="122" fill="#5a9fd4">goal:</text>
+    <text x="100" y="122" fill="#c8c8d0">"Verify: SQLite WAL mode is safe for concurrent reads"</text>
+    <text x="52" y="140" fill="#5a9fd4">status:</text>
+    <text x="120" y="140" fill="#27c93f">ACTIVE</text>
+
+    <!-- Prompt line 2 -->
+    <text x="32" y="176" fill="#27c93f" font-weight="600">$</text>
+    <text x="52" y="176" fill="#e0e0e8">rk_atom_add</text>
+    <text x="160" y="176" fill="#888">— propose a claim</text>
+
+    <text x="52" y="200" fill="#5a9fd4">type:</text>
+    <text x="100" y="200" fill="#e0e0e8">CLAIM</text>
+    <text x="52" y="218" fill="#5a9fd4">content:</text>
+    <text x="130" y="218" fill="#c8c8d0">"SQLite WAL mode is safe for concurrent readers..."</text>
+    <text x="52" y="236" fill="#5a9fd4">status:</text>
+    <text x="120" y="236" fill="#ffbd2e">UNKNOWN</text>
+    <text x="52" y="254" fill="#5a9fd4">hash:</text>
+    <text x="100" y="254" fill="#888">sha256:ee378f1224278a4ee10e...</text>
+
+    <!-- Prompt line 3 -->
+    <text x="32" y="290" fill="#27c93f" font-weight="600">$</text>
+    <text x="52" y="290" fill="#e0e0e8">rk_evidence_attach</text>
+    <text x="210" y="290" fill="#888">— supporting evidence + provenance</text>
+
+    <text x="52" y="314" fill="#5a9fd4">source_type:</text>
+    <text x="170" y="314" fill="#e0e0e8">support</text>
+    <text x="52" y="332" fill="#5a9fd4">source_uri:</text>
+    <text x="150" y="332" fill="#7ab8e0">"https://sqlite.org/wal.html"</text>
+    <text x="52" y="350" fill="#5a9fd4">reliability:</text>
+    <text x="160" y="350" fill="#e0e0e8">0.9</text>
+
+    <!-- Prompt line 4 -->
+    <text x="32" y="386" fill="#27c93f" font-weight="600">$</text>
+    <text x="52" y="386" fill="#e0e0e8">rk_evidence_attach</text>
+    <text x="210" y="386" fill="#888">— refutation attempt (contradiction search)</text>
+
+    <text x="52" y="410" fill="#5a9fd4">source_type:</text>
+    <text x="170" y="410" fill="#ff9a4c">contradiction_search</text>
+    <text x="52" y="428" fill="#5a9fd4">summary:</text>
+    <text x="140" y="428" fill="#c8c8d0">"Searched for counterexamples; found only extreme-edge cases"</text>
+
+    <!-- Divider -->
+    <line x1="32" y1="452" x2="1248" y2="452" stroke="#333" stroke-width="1"/>
+
+    <!-- Prompt line 5 — the key moment -->
+    <text x="32" y="478" fill="#27c93f" font-weight="600">$</text>
+    <text x="52" y="478" fill="#e0e0e8">rk_promote</text>
+    <text x="150" y="478" fill="#888">— promote claim to SUPPORTED</text>
+
+    <!-- Gate result box -->
+    <rect x="52" y="492" width="1196" height="210" rx="8" fill="#111122" stroke="#333" stroke-width="1"/>
+
+    <text x="72" y="516" fill="#5a9fd4">gate:</text>
+    <text x="72" y="540" fill="#888">  target:                    </text>
+    <text x="300" y="540" fill="#27c93f" font-weight="600">SUPPORTED</text>
+
+    <text x="72" y="562" fill="#888">  has_support_evidence:      </text>
+    <text x="300" y="562" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="584" fill="#888">  has_refutation_attempt:    </text>
+    <text x="300" y="584" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="606" fill="#888">  has_provenance:            </text>
+    <text x="300" y="606" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="628" fill="#888">  has_dependencies:          </text>
+    <text x="300" y="628" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="650" fill="#888">  has_contradiction_search:  </text>
+    <text x="300" y="650" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="672" fill="#888">  has_no_refuting_evidence:  </text>
+    <text x="300" y="672" fill="#27c93f" font-weight="600">✓ true</text>
+
+    <text x="72" y="694" fill="#888">  missing:                   </text>
+    <text x="300" y="694" fill="#27c93f" font-weight="600">[] (empty — gate passed)</text>
+
+    <!-- Result -->
+    <text x="72" y="722" fill="#5a9fd4">ok:</text>
+    <text x="120" y="722" fill="#27c93f" font-weight="600">true</text>
+    <text x="200" y="722" fill="#5a9fd4">from:</text>
+    <text x="260" y="722" fill="#ffbd2e">UNKNOWN</text>
+    <text x="360" y="722" fill="#888">→</text>
+    <text x="390" y="722" fill="#5a9fd4">to:</text>
+    <text x="430" y="722" fill="#27c93f" font-weight="600">SUPPORTED</text>
+
+    <!-- Footer -->
+    <text x="32" y="762" fill="#444" font-style="italic">Model proposes. Kernel decides. Fail-closed: no SUPPORTED without evidence + refutation + provenance.</text>
+
+  </g>
+</svg>
