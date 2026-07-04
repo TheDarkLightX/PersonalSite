@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Kernel MCP | Dana Edwards</title>
+  <meta name="description" content="Case study for Research Kernel MCP: a durable, evidence-first research substrate for MCP clients where the model stays creative and the kernel stays deterministic." />
+  <link rel="canonical" href="https://www.danaedwards.info/case-studies/research-kernel.html" />
+  <meta property="og:title" content="Research Kernel MCP Case Study - Dana Edwards" />
+  <meta property="og:description" content="A durable, evidence-first research substrate for MCP clients. Model stays creative, kernel stays deterministic: typed atoms, graph edges, fail-closed claim promotion." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.danaedwards.info/case-studies/research-kernel.html" />
+  <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Research Kernel MCP Case Study - Dana Edwards" />
+  <meta name="twitter:description" content="A durable, evidence-first research substrate for MCP clients. Model stays creative, kernel stays deterministic." />
+  <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#arc">Arc</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../value.html">Value</a>
+        <a href="../evidence-strategy.html">Evaluation</a>
+      </nav>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../index.html">Back to home</a>
+        <p class="eyebrow">Case study</p>
+        <h1>Research Kernel MCP: Model Stays Creative, Kernel Stays Deterministic</h1>
+        <p class="lede">A durable, evidence-first research substrate for MCP clients. The same thesis as MPRD, applied to research itself: an untrusted model generates claims, hypotheses, and reformulations, while a deterministic kernel decides what becomes <em>supported</em>. Hidden chain-of-thought stays outside the artifact store.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-grid">
+        <aside class="side-nav" aria-label="Case study sections">
+          <a href="#summary">Summary</a>
+          <a href="#reviewer-path">Reviewer path</a>
+          <a href="#claims">Claims</a>
+          <a href="#limits">Limitations</a>
+        </aside>
+
+        <article class="prose">
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>Research Kernel MCP is an MCP server that gives AI assistants a durable, evidence-first research memory. Instead of letting research vanish between sessions or hiding it inside a model's hidden reasoning traces, every claim, evidence record, refutation attempt, and reformulation is stored as a typed, queryable atom in a persistent graph. The model proposes; the kernel decides what is promoted.</p>
+            <figure class="media-figure">
+              <svg class="diagram" viewBox="0 0 820 290" role="img" aria-labelledby="rk-diagram-title">
+                <title id="rk-diagram-title">Research Kernel control boundary: a model proposes atoms, a deterministic kernel gates promotion, and only supported claims survive.</title>
+                <style>
+                  .diagram text { font-family: var(--font-body); }
+                  .diagram .box { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
+                  .diagram .gate { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+                  .diagram .reject { fill: color-mix(in srgb, var(--accent-2) 12%, var(--surface)); stroke: var(--accent-2); stroke-width: 1.5; }
+                  .diagram .t { fill: var(--text); font-weight: 800; font-size: 15px; }
+                  .diagram .s { fill: var(--muted); font-size: 12px; }
+                  .diagram .lbl { fill: var(--accent); font-size: 11px; font-weight: 800; }
+                  .diagram .rlbl { fill: var(--accent-2); font-size: 12px; font-weight: 800; }
+                  .diagram .ar { stroke: var(--muted); stroke-width: 2; fill: none; }
+                  .diagram .arr { stroke: var(--accent-2); stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+                  .diagram #rk-ah path { fill: var(--muted); }
+                  .diagram #rk-ahr path { fill: var(--accent-2); }
+                </style>
+                <defs>
+                  <marker id="rk-ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
+                  <marker id="rk-ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
+                </defs>
+                <rect class="box" x="20" y="44" width="200" height="86" rx="10"/>
+                <text class="t" x="120" y="80" text-anchor="middle">Untrusted model</text>
+                <text class="s" x="120" y="101" text-anchor="middle">claims · evidence · reformulations</text>
+                <rect class="gate" x="310" y="32" width="210" height="110" rx="10"/>
+                <text class="t" x="415" y="64" text-anchor="middle">Deterministic kernel</text>
+                <text class="s" x="415" y="86" text-anchor="middle">promotion gate</text>
+                <text class="s" x="415" y="103" text-anchor="middle">evidence + refutation</text>
+                <text class="s" x="415" y="120" text-anchor="middle">+ provenance required</text>
+                <rect class="box" x="610" y="44" width="190" height="86" rx="10"/>
+                <text class="t" x="705" y="80" text-anchor="middle">Supported claim</text>
+                <text class="s" x="705" y="101" text-anchor="middle">fail-closed · replayable</text>
+                <path class="ar" d="M220,87 L304,87" marker-end="url(#rk-ah)"/>
+                <text class="lbl" x="262" y="78" text-anchor="middle">proposes</text>
+                <path class="ar" d="M520,87 L604,87" marker-end="url(#rk-ah)"/>
+                <text class="lbl" x="562" y="78" text-anchor="middle">promoted</text>
+                <path class="arr" d="M415,142 L415,212" marker-end="url(#rk-ahr)"/>
+                <rect class="reject" x="300" y="214" width="230" height="60" rx="10"/>
+                <text class="rlbl" x="415" y="240" text-anchor="middle">Rejected: fail closed</text>
+                <text class="s" x="415" y="260" text-anchor="middle">no evidence · no refutation · no provenance</text>
+              </svg>
+              <figcaption>The control boundary: the model proposes atoms, the kernel gates promotion, and only claims that pass evidence, refutation, provenance, and contradiction checks become supported. Missing evidence, missing refutation attempts, or missing provenance fail closed.</figcaption>
+            </figure>
+            <div class="callout">
+              Research Kernel MCP applies the MPRD thesis to research itself: capability separation between creative generation and deterministic gating, typed atoms instead of free-form text, and fail-closed promotion that refuses to mark a claim supported without evidence, refutation, and provenance.
+            </div>
+          </section>
+
+          <section id="reviewer-path">
+            <h2>What a reviewer should inspect first</h2>
+            <ol>
+              <li><code>README.md</code> - design spec, tool surface, and boundaries.</li>
+              <li><code>internal/research_kernel_mcp/kernel.py</code> - the deterministic kernel: atom types, statuses, edge types, promotion gate, and SQLite persistence.</li>
+              <li><code>internal/research_kernel_mcp/server.py</code> - the MCP tool, resource, and prompt surface.</li>
+              <li><code>tests/internal/test_research_kernel_mcp.py</code> - the test suite covering start, atom add, link, retrieve, morph, refute, evidence, score, frontier, promote, and report.</li>
+              <li><code>pytest.ini</code> - focused test configuration.</li>
+            </ol>
+            <h3>Suggested 10-minute review script</h3>
+            <p>Read the README, then open <code>kernel.py</code> and inspect <code>ATOM_TYPES</code>, <code>STATUSES</code>, <code>EDGE_TYPES</code>, and the promotion gate logic. Finally, run the self-test: <code>.venv/bin/python internal/research_kernel_mcp/server.py --self-test</code>.</p>
+          </section>
+
+          <section id="claims">
+            <h2>Claim / evidence map</h2>
+            <table class="claim-table">
+              <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Claim promotion is fail-closed: a claim cannot become SUPPORTED without support evidence, a refutation attempt, dependencies, provenance, and a rationale.</td>
+                  <td>The <code>rk_promote</code> tool and the promotion gate in <code>kernel.py</code>; the test that confirms promotion fails when evidence is missing.</td>
+                  <td class="status supported">Supported / bounded</td>
+                </tr>
+                <tr>
+                  <td>Every state-changing operation is appended to an event log for replay and external ledger ingestion.</td>
+                  <td>The <code>events.jsonl</code> append path in <code>kernel.py</code>; the test that confirms events are recorded.</td>
+                  <td class="status supported">Supported / bounded</td>
+                </tr>
+                <tr>
+                  <td>Artifacts are content-addressed by SHA-256 and restricted to allowlisted paths unless explicitly overridden.</td>
+                  <td>The artifact storage logic in <code>kernel.py</code>; the <code>RK_ARTIFACT_ALLOWLIST</code> and <code>RK_ALLOW_OUTSIDE_ARTIFACTS</code> behavior.</td>
+                  <td class="status supported">Supported / bounded</td>
+                </tr>
+                <tr>
+                  <td>Actual counterexamples create a COUNTEREXAMPLE atom, add a REFUTES edge, and mark the target REFUTED.</td>
+                  <td>The <code>rk_refute</code> tool with <code>counterexample_is_actual=true</code>; the corresponding test.</td>
+                  <td class="status supported">Supported / bounded</td>
+                </tr>
+                <tr>
+                  <td>The kernel is a complete research automation system ready for production deployment.</td>
+                  <td>Would require deployment hardening, load testing, multi-user isolation, and external review.</td>
+                  <td class="status open">Not claimed</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="limits">
+            <h2>Limitations to state clearly</h2>
+            <ul>
+              <li><code>SUPPORTED</code> means the local gate passed. External publication or production posture still needs the relevant replay, review, and release gates.</li>
+              <li>Morph reformulations are candidate search objects until separately tested. They are not claims.</li>
+              <li>The kernel stores research artifacts, evidence, and graph state. Hidden chain-of-thought stays outside the artifact store by design.</li>
+              <li>SQLite persistence is durable for single-user and small-team use; multi-tenant deployment would need a different storage backend.</li>
+            </ul>
+            <p><a class="button secondary" href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Open Research Kernel MCP on GitHub</a></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Engineer, philosopher, futurist.</p></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -60,8 +60,8 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Sources</p>
-          <h2>Clone these.</h2>
-          <p>Four public repositories. The first three are the work; the last is this site, including the script that generates every number on the value page.</p>
+          <h2>Clone these. Read the blog.</h2>
+          <p>Four public repositories to clone and verify. The Formal Methods Philosophy site is a blog — read it on GitHub Pages, no need to clone. The last repo is this site, including the script that generates every number on the value page.</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
@@ -69,8 +69,9 @@
             <tbody>
               <tr><td><a href="https://github.com/TheDarkLightX/MPRD">TheDarkLightX/MPRD</a></td><td>Proof-carrying AI action governance. Rust core, Lean proofs, ZK.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/ZenoDEX">TheDarkLightX/ZenoDEX</a></td><td>Formally constrained exchange. Integer-exact settlement, Lean + TLA+, replay certificates.</td></tr>
-              <tr><td><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">TheDarkLightX/Formal_Methods_Philosophy</a></td><td>Tutorials and interactive labs on verification.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">TheDarkLightX/Research-Kernel-MCP</a></td><td>Evidence-first research substrate for MCP clients. Typed atoms, graph edges, fail-closed claim promotion, SQLite persistence, append-only event log.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/PersonalSite">TheDarkLightX/PersonalSite</a></td><td>This site, plus <code>tools/collect_portfolio_metrics.py</code>.</td></tr>
+              <tr><td><a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Formal Methods Philosophy (blog)</a></td><td>62 tutorials and 13 interactive labs on verification, neuro-symbolic AI, and the philosophy of software correctness. Read it online.</td></tr>
             </tbody>
           </table>
         </div>
@@ -107,6 +108,11 @@
                 <td>The value figures are reproducible.</td>
                 <td>PersonalSite <code>tools/collect_portfolio_metrics.py</code></td>
                 <td>Run it and diff the output against <code>data/portfolio-metrics.json</code>.</td>
+              </tr>
+              <tr>
+                <td>Claim promotion is fail-closed: no SUPPORTED claim without evidence, refutation, and provenance.</td>
+                <td>Research-Kernel-MCP <code>internal/research_kernel_mcp/kernel.py</code>, <code>tests/internal/test_research_kernel_mcp.py</code></td>
+                <td>Run <code>pytest -q tests/internal/test_research_kernel_mcp.py</code> and the server self-test (<code>--self-test</code>). Confirm promotion fails when evidence is missing.</td>
               </tr>
             </tbody>
           </table>
@@ -190,13 +196,17 @@
   "repos": {
     "mprd": "https://github.com/TheDarkLightX/MPRD",
     "zenodex": "https://github.com/TheDarkLightX/ZenoDEX",
-    "formal_methods_philosophy": "https://github.com/TheDarkLightX/Formal_Methods_Philosophy",
+    "research_kernel_mcp": "https://github.com/TheDarkLightX/Research-Kernel-MCP",
     "site": "https://github.com/TheDarkLightX/PersonalSite"
+  },
+  "blog": {
+    "formal_methods_philosophy": "https://thedarklightx.github.io/Formal_Methods_Philosophy/"
   },
   "verify": {
     "proofs": "lake build in Lean projects; run TLC on *.tla specs",
     "tests": "run each repo test suite; prioritize tamper/replay/fuzz cases",
-    "metrics": "python3 tools/collect_portfolio_metrics.py; diff data/portfolio-metrics.json"
+    "metrics": "python3 tools/collect_portfolio_metrics.py; diff data/portfolio-metrics.json",
+    "research_kernel": "pytest -q tests/internal/test_research_kernel_mcp.py; server.py --self-test"
   },
   "weight": {
     "machine_checked_proof": "highest",

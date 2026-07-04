@@ -34,7 +34,9 @@
       "Protocol design",
       "Verification",
       "Philosophy of computation",
-      "Network states"
+      "Network states",
+      "Model Context Protocol",
+      "Evidence-first research"
     ]
   }
   </script>
@@ -81,8 +83,9 @@
           <nav class="proof-links" aria-label="Start here">
             <a href="case-studies/mprd.html"><span>MPRD</span><strong>Proof-carrying AI action governance</strong></a>
             <a href="case-studies/zenodex.html"><span>ZenoDEX</span><strong>Formally verified exchange, replayable</strong></a>
+            <a href="case-studies/research-kernel.html"><span>Research Kernel</span><strong>Evidence-first research memory</strong></a>
             <a href="evidence-strategy.html"><span>Evaluation</span><strong>An automated evaluation path</strong></a>
-            <a href="writing.html"><span>Writing</span><strong>61 tutorials, 12 interactive labs</strong></a>
+            <a href="writing.html"><span>Writing</span><strong>62 tutorials, 13 interactive labs</strong></a>
           </nav>
         </div>
         <aside class="profile-panel" aria-label="Dana Edwards profile summary">
@@ -94,7 +97,7 @@
           </div>
           <dl class="quick-facts">
             <div><dt>GitHub</dt><dd><a href="https://github.com/TheDarkLightX">@TheDarkLightX</a></dd></div>
-            <div><dt>Writing</dt><dd><a href="writing.html">61 tutorials, 12 labs</a></dd></div>
+            <div><dt>Writing</dt><dd><a href="writing.html">62 tutorials, 13 labs</a></dd></div>
             <div><dt>Book</dt><dd><a href="https://www.amazon.com/dp/B0D6K15KHD">LUCY: AI Governance OS</a></dd></div>
           </dl>
         </aside>
@@ -125,7 +128,7 @@
           <article><span>2015</span><div><strong>Cyborgization and human decision-making</strong><p>Co-authored essay with Alexander J. Karran, published on Transpolitica. Argues that cognitive bias, bounded rationality, and information asymmetry cause involuntary errors in human decision-making, and that intelligence augmentation can mediate them. The motivation that runs through everything after. <a href="https://transpolitica.org/2015/07/07/cyborgization-a-possible-solution-to-errors-in-human-decision-making/">Read it</a>.</p></div></article>
           <article><span>2017</span><div><strong>Pangea Whitepaper: Lucy AI and the Exocortex</strong><p>Co-authored the <a href="https://github.com/Bit-Nation/BITNATION-Constitution/blob/master/BITNATION%20Pangea%20Whitepaper%202017.pdf">Pangea whitepaper</a> with Susanne Tarkowski Tempelhof and others. Credited in footnotes for developing the reputation distribution mechanism and initial thinking on Nomic Law integration. Section 2.3 introduced Lucy, an autonomous agent designed to evolve into an exocortex, an external cognitive augmentation system. Seven years before the AI agent boom.</p></div></article>
           <article><span>2024</span><div><strong>LUCY: Your AI Governance Operating System</strong><p>The Lucy concept from the 2017 whitepaper, evolved into a full AI governance operating system. Co-authored book with Susanne Tarkowski Tempelhof. <a href="https://www.amazon.com/dp/B0D6K15KHD">Available on Amazon</a>.</p></div></article>
-          <article><span>Now</span><div><strong>MPRD, ZenoDEX, Formal Methods Philosophy</strong><p>Proof-carrying AI action governance, formally verified exchange, and 61 tutorials on what it means to justify a claim about software.</p></div></article>
+          <article><span>Now</span><div><strong>MPRD, ZenoDEX, Research Kernel MCP, Formal Methods Philosophy</strong><p>Proof-carrying AI action governance, formally verified exchange, an evidence-first research substrate for MCP clients, and 62 tutorials on what it means to justify a claim about software.</p></div></article>
         </div>
       </div>
     </section>
@@ -134,8 +137,8 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Selected work</p>
-          <h2>Three public systems. Each one you can clone, run, and re-verify.</h2>
-          <p>Each card links to the proofs, specs, and public repo behind it. The screenshots show real UI. The repos hold the runnable code and the machine-checked evidence.</p>
+          <h2>Four public systems. Three you can clone and re-verify; one you can read.</h2>
+          <p>Each card links to the proofs, specs, and public repo behind it. The screenshots show real UI. The repos hold the runnable code and the machine-checked evidence. Formal Methods Philosophy is a blog — read it on GitHub Pages.</p>
         </div>
 
         <div class="project-grid">
@@ -175,13 +178,30 @@
 
           <article class="project-card">
             <div class="card-media"><img src="assets/projects/formal-methods-philosophy/app.webp" alt="Formal Methods Philosophy: the Witness Space Explorer lab, sampling an LLM proposal distribution while a checker accepts or rejects candidates" width="1280" height="800" loading="lazy" decoding="async" onerror="this.remove()" /></div>
-            <div class="project-meta"><span>Public repo</span><span>Writing / Education</span></div>
+            <div class="project-meta"><span>Blog</span><span>Writing / Education</span></div>
             <h3>Formal Methods Philosophy</h3>
             <p>A tutorial and lab site on modeling, abstraction, symbolic tools, counterexamples, verification, and what it means to justify a claim about software.</p>
-            <p class="value-note">61 tutorials and 12 interactive labs that teach the verification methods above. Evidence that I can explain the work, not just do it.</p>
+            <p class="value-note">62 tutorials and 13 interactive labs that teach the verification methods above. Evidence that I can explain the work, not just do it.</p>
 
             <div class="card-actions">
+              <a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Read the blog</a>
               <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Public repo</span><span>Python / MCP / SQLite</span></div>
+            <h3>Research Kernel MCP: Evidence-First Research Memory</h3>
+            <p>A durable, evidence-first research substrate for MCP clients. The model stays creative; the kernel stays deterministic. Typed research atoms, graph edges, fail-closed claim promotion, Morph-style reformulations, and an append-only event log for replay.</p>
+            <ul>
+              <li>Typed atoms (claim, evidence, question, result, risk, counterexample) and typed edges (supports, refutes, contradicts, reformulates).</li>
+              <li>Fail-closed promotion: a claim cannot become SUPPORTED without support evidence, a refutation attempt, dependencies, provenance, and a rationale.</li>
+              <li>Content-addressed artifacts (SHA-256), persistent SQLite state, and an append-only event log for external ledger ingestion.</li>
+            </ul>
+            <p class="value-note">The MPRD thesis applied to research itself: an untrusted model proposes, a deterministic kernel decides what is supported. Hidden chain-of-thought stays outside the artifact store.</p>
+            <div class="card-actions">
+              <a href="case-studies/research-kernel.html">Case study</a>
+              <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">GitHub</a>
             </div>
           </article>
         </div>
@@ -202,11 +222,54 @@
       </div>
     </section>
 
+    <section id="more-work" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">More public work</p>
+          <h2>Other repos worth a look.</h2>
+          <p>Not every project gets a case study. These are public, recent, and show the range: event-driven automation, witness-space preprints, Tau Language experiments, and code-quality tooling.</p>
+        </div>
+        <div class="writing-grid">
+          <a class="writing-card" href="https://github.com/TheDarkLightX/Helix-A-Next-Gen-Event-Driven-Multi-Agent-Platform">
+            <span>Rust · 3 stars</span>
+            <strong>Helix</strong>
+            <p>Self-hosted personal event-automation platform. Like Huginn or IFTTT, but smarter: a multi-agent, event-driven architecture in Rust.</p>
+          </a>
+          <a class="writing-card" href="https://github.com/TheDarkLightX/what-if-witness-spaces">
+            <span>Python · Apache-2.0</span>
+            <strong>What-If Witness Spaces</strong>
+            <p>Artifact-backed preprint and replication bundle for what-if witness spaces and neuro-symbolic disaster loops.</p>
+          </a>
+          <a class="writing-card" href="https://github.com/TheDarkLightX/TauLang-Experiments">
+            <span>Python</span>
+            <strong>TauLang Experiments</strong>
+            <p>Educational experiments with Tau Language: proven optimizations, math proofs, and code snippets produced with neuro-symbolic assistance.</p>
+          </a>
+          <a class="writing-card" href="https://github.com/TheDarkLightX/QualiaGuardian">
+            <span>Python</span>
+            <strong>QualiaGuardian</strong>
+            <p>Code quality optimizer for metric-based agentic workflows. Measures and enforces quality gates in automated development pipelines.</p>
+          </a>
+          <a class="writing-card" href="https://github.com/TheDarkLightX/Intelligent-Daemon-Interface">
+            <span>Python · MIT · 1 star</span>
+            <strong>Intelligent Daemon Interface</strong>
+            <p>Development toolkit for creating, training, and deploying intelligent Tau Language agents with Q-learning and zero-knowledge proofs.</p>
+          </a>
+          <a class="writing-card" href="https://github.com/TheDarkLightX/AlignmentTheorem">
+            <span>Python · MIT</span>
+            <strong>Alignment Theorem</strong>
+            <p>The Tau Alignment Theorem: economic incentives align to produce ethical transactions when utility is community-defined.</p>
+          </a>
+        </div>
+        <p style="margin-top: 1.5rem;"><a class="button secondary" href="https://github.com/TheDarkLightX?tab=repositories">All 29 public repos</a></p>
+      </div>
+    </section>
+
     <section id="writing" class="section">
       <div class="container two-col">
         <div>
           <p class="eyebrow">Writing</p>
-          <h2>61 tutorials. 12 interactive labs. One question.</h2>
+          <h2>62 tutorials. 13 interactive labs. One question.</h2>
           <p>What does it mean to justify a claim about software? Each tutorial starts with a concrete picture, then tightens into a model tools can manipulate. The labs turn abstract claims into something visible.</p>
           <p><a class="button secondary" href="writing.html">Browse all writing</a></p>
         </div>
@@ -215,6 +278,7 @@
           <li><span>02</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/mprd-and-algorithmic-ceo.md"><strong>MPRD and the Algorithmic CEO</strong><p>The neuro-symbolic gate turned into production architecture. Models propose, rules decide.</p></a></li>
           <li><span>03</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/resolution-refutation-and-falsification.md"><strong>Resolution, refutation, and falsification</strong><p>Proof in a closed formal world vs corroboration in an open empirical one.</p></a></li>
           <li><span>04</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/rices-theorem-and-consciousness.md"><strong>Consciousness, computationalism, and Rice's theorem</strong><p>If consciousness is a nontrivial semantic property, no general detector can decide it.</p></a></li>
+          <li><span>05</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/market-for-behaviors.md"><strong>A Market for Behaviors: What Learning Is</strong><p>Learning is adjusting behavior probabilities based on reward signals. Those signals are set by a market. Five layers from behavioral spectrum to alignment as market design, with an interactive lab.</p></a></li>
         </ol>
       </div>
     </section>
@@ -226,10 +290,12 @@
           <h2>I'm Dana. I work with people who want to build a better future with technology.</h2>
           <p>I've spent twelve years on governance, philosophy, and verification, but the throughline is broader than any one specialty. I work across formal methods, AI systems, protocol design, security engineering, education, and the philosophy of computation. If you're building something that matters and you want someone who can both think and ship, write to me.</p>
           <p>This site is my living CV: always current, evidence-linked, and more specific than a PDF. Email me, or start from the work, the writing, and GitHub.</p>
+          <p class="network-note">Open to professional networking. If you run a technical network where members build a permanent home for their expertise (like the <a href="https://blitzmetrics.com/partner/">BlitzMetrics</a> model of cross-promoting independent professionals), I'd like to hear about it. I'm also on <a href="https://www.linkedin.com/in/dana-edwards/">LinkedIn</a>.</p>
         </div>
         <div class="cta-actions">
           <a class="button primary" href="mailto:p33rl3ss1@gmail.com">Email me</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/dana-edwards/">LinkedIn</a>
           <a class="button secondary" href="writing.html">Writing</a>
           <a class="button secondary" href="value.html">Value case</a>
         </div>
