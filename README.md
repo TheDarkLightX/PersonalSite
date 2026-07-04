@@ -26,6 +26,7 @@ case-studies/zenodex.html           ZenoDEX case study page
 case-studies/research-kernel.html   Research Kernel MCP case study page
 value.html                          Quantitative value case (rarity, costly signals, cost estimates)
 writing.html                        Tutorial and lab index (62 tutorials, 13 interactive labs)
+network.html                        Professional network: people I work with, communities I contribute to
 metrics.html                        Redirect stub to value.html (legacy)
 data/portfolio-metrics.json         Generated metrics consumed by value.html
 tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
