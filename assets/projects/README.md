@@ -6,7 +6,7 @@ Drop per-project screenshots and recordings here. One folder per project slug:
 - `zenodex/`
 - `formal-methods-philosophy/`
 
-Filenames the site looks for (all optional — the site degrades gracefully without them):
+Filenames the site looks for (all optional; the site degrades gracefully without them):
 
 ```text
 cover.png    16:9 homepage card thumbnail (~1280x720, <=150KB). Appears automatically.
