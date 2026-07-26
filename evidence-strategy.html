@@ -63,7 +63,7 @@
         <div>
           <p class="eyebrow">Sources</p>
           <h2>Clone these. Read the blog.</h2>
-          <p>Four public repositories to clone and verify. The Formal Methods Philosophy site is a blog — read it on GitHub Pages, no need to clone. The last repo is this site, including the script that generates every number on the value page.</p>
+          <p>Public repositories to clone and verify are listed here. Formal Methods Philosophy is the readable tutorial and blog project; read it on GitHub Pages. The PersonalSite repository includes the script that generates the figures on the value page.</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
@@ -72,8 +72,10 @@
               <tr><td><a href="https://github.com/TheDarkLightX/MPRD">TheDarkLightX/MPRD</a></td><td>Proof-carrying AI action governance. Rust core, Lean proofs, ZK.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/ZenoDEX">TheDarkLightX/ZenoDEX</a></td><td>Formally constrained exchange. Integer-exact settlement, Lean + TLA+, replay certificates.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">TheDarkLightX/Research-Kernel-MCP</a></td><td>Evidence-first research substrate for MCP clients. Typed atoms, graph edges, fail-closed claim promotion, SQLite persistence, append-only event log.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/PopperPad">TheDarkLightX/PopperPad</a></td><td>Released falsification-first scientific memory. Content-addressed objects, a hash-chained log, replayable verifier evidence, and derived graph status.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/ZenoFCIS">TheDarkLightX/ZenoFCIS</a></td><td>Public Rust library for high-assurance functional-core and imperative-shell systems, with canonical boundaries, atomic commit, and replay evidence.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/PersonalSite">TheDarkLightX/PersonalSite</a></td><td>This site, plus <code>tools/collect_portfolio_metrics.py</code>.</td></tr>
-              <tr><td><a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Formal Methods Philosophy (blog)</a></td><td>62 tutorials and 13 interactive labs on verification, neuro-symbolic AI, and the philosophy of software correctness. Read it online.</td></tr>
+              <tr><td><a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Formal Methods Philosophy (blog)</a></td><td>Public tutorials and interactive labs on verification, functional architecture, neuro-symbolic AI, and the philosophy of software correctness. Read it online.</td></tr>
             </tbody>
           </table>
         </div>
@@ -115,6 +117,16 @@
                 <td>Claim promotion is fail-closed: no SUPPORTED claim without evidence, refutation, and provenance.</td>
                 <td>Research-Kernel-MCP <code>internal/research_kernel_mcp/kernel.py</code>, <code>tests/internal/test_research_kernel_mcp.py</code></td>
                 <td>Run <code>pytest -q tests/internal/test_research_kernel_mcp.py</code> and the server self-test (<code>--self-test</code>). Confirm promotion fails when evidence is missing.</td>
+              </tr>
+              <tr>
+                <td>Scientific status is derived from replayable evidence rather than asserted or purchased.</td>
+                <td>PopperPad <code>src/popperpad/</code>, <code>tests/</code></td>
+                <td>Run <code>pytest -q</code>. Inspect the status and strict doctor tests; confirm malformed evidence fails closed and changing stake alone cannot change scientific status.</td>
+              </tr>
+              <tr>
+                <td>Imperative effects are separated from a pure transition and bound to the exact candidate selected for commit.</td>
+                <td>ZenoFCIS <code>crates/</code>, <code>tools/check_assurance.py</code></td>
+                <td>Run <code>python3 tools/check_assurance.py --self-test</code> and <code>cargo test --workspace</code>. Inspect the candidate commit boundary and shell tests.</td>
               </tr>
             </tbody>
           </table>

@@ -25,7 +25,7 @@ case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
 case-studies/research-kernel.html   Research Kernel MCP case study page
 value.html                          Quantitative value case (rarity, costly signals, cost estimates)
-writing.html                        Tutorial and lab index (62 tutorials, 13 interactive labs)
+writing.html                        Tutorial and interactive lab index
 network.html                        Professional network: people I work with, communities I contribute to
 ideas.html                          Somewhat original ideas I helped popularize, with lineages
 metrics.html                        Redirect stub to value.html (legacy)

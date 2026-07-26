@@ -4,7 +4,7 @@ Use this before making the site more public or sending it to reviewers.
 
 ## Public Profile
 
-- Add a preferred email, LinkedIn, and CV link only if those should be public.
+- Add a preferred email and CV link only if those should be public.
 - Keep unpublished tools out of the public portfolio unless a reviewer-safe public extract exists.
 - Replace the GitHub avatar with a headshot if that improves trust.
 - Decide whether the employer brief should stay public or serve as an interview/application packet.
