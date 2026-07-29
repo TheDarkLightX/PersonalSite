@@ -363,7 +363,7 @@ It is institutional engineering at software scale.
 > gap between a correct proof and a destructive market, between a safe system
 > and a controlled user. I build in those gaps.
 
-## A line I can defend
+## The claim I can defend
 
 Here is the value proposition I want a reviewer to leave with:
 
