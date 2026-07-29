@@ -45,7 +45,7 @@ It is not a proof that a protocol can prevent a political system.
   <figcaption>The design goal is not passive access to output, but multiple ways to participate in producing, checking, and exchanging value.</figcaption>
 </figure>
 
-## My political thesis and the protocol's smaller contract
+## What I believe, and what the protocol can enforce
 
 I am motivated by life, liberty, the pursuit of happiness, free exchange, free
 speech, privacy, and democratic institutions. I do not believe those values can
@@ -93,7 +93,7 @@ The claim I am willing to defend is:
 > economy, with explicit mechanisms for checking the rules under which that
 > participation settles.
 
-## The intellectual lineage
+## The engineering question I inherited
 
 Dan Larimer's work helped shape how I think about this problem.
 
@@ -244,7 +244,7 @@ If one recipient receives 80% of payouts while 99 addresses split the rest, the
 raw recipient count is 100. The inverse-Herfindahl effective count is about
 1.56. Both numbers are true. Only one reveals the economic shape.
 
-## Why this is a contribution to capitalism
+## Keeping participation possible
 
 A capitalist institution is stronger when people can do more than consume its
 output.

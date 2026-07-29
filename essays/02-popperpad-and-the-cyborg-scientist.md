@@ -163,7 +163,7 @@ first-class work:
 | Artifact preservation | Durable availability of evidence bundles | Content hash and retrieval challenge |
 | Curation | Useful duplicate, refutation, and lineage relationships | Graph utility, not authority over truth |
 
-The atomic valuable object is a **knowledge patch**, not "content": a claim,
+The smallest valuable unit is a **knowledge patch**, not "content": a claim,
 context, recipe, evidence, artifacts, signatures, and a proof, replay, or
 counterexample that changes what a careful reader should believe.
 
@@ -246,7 +246,7 @@ human share nor the concentration is known.
 Current realized fees are zero in the model. Current modeled reward capacity is
 therefore zero.
 
-That sentence belongs in the marketing because it tells the reader exactly
+That sentence belongs on the front page because it tells the reader exactly
 where implementation ends and conditional economics begins.
 
 ## How to measure whether the opportunity is real
@@ -329,8 +329,8 @@ Question → Claim → Check → Evidence → Challenge → Memory → Reward
 ```
 
 It makes room for agents without pretending agents are accountable in the same
-way people are. It pays for being wrong to become cheaper to discover. It
-preserves refutation instead of treating it as failed content. It gives a future
+way people are. It makes being wrong cheaper to discover. It preserves
+refutation instead of treating it as failed content. It gives a future
 scientist a way to inherit not only an answer, but the exact path by which the
 answer survived.
 
