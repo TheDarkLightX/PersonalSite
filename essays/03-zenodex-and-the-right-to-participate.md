@@ -106,7 +106,7 @@ who captures value and how much control a user retains.[^larimer-frontrun]
 His later writing asks a broader question: how can a system mature toward
 decentralization rather than allowing temporary coordination to harden into
 permanent control?[^larimer-maturing] *More Equal Animals* develops the
-governance side of that inquiry, how people might govern themselves while
+governance side of that inquiry: how people might govern themselves while
 resisting capture, vote buying, and incumbency.[^larimer-book]
 
 I do not inherit every mechanism or conclusion.
@@ -161,24 +161,11 @@ emission "income."
 
 ## The measurable opportunity surface
 
-Let \(Q\) be processed notional and \(f\) the effective fee rate:
-
-\[
-F=fQ
-\]
-
-Let \(\theta\) be the share of fees routed to provider tasks and \(u\) the share
-actually settled:
-
-\[
-R=fQ\theta u
-\]
-
-At average payout \(r\):
-
-\[
-N=\frac{fQ\theta u}{r}
-\]
+Let \(Q\) be processed notional and \(f\) the effective fee rate, so \(F=fQ\)
+is gross fees. Let \(\theta\) be the share of fees routed to provider tasks
+and \(u\) the share actually settled, so \(R=fQ\theta u\) is the settled
+reward pool. At average payout \(r\), the number of paid task settlements is
+\(N=\frac{fQ\theta u}{r}\).
 
 Consider one explicitly illustrative scenario:
 
@@ -215,25 +202,9 @@ salary and inventing workers.
 It would be equally misleading to say that raising the fee always creates more
 tasks.
 
-Fee revenue is:
-
-\[
-F(f)=fQ(f)
-\]
-
-At an interior revenue maximum:
-
-\[
-\frac{dF}{df}=Q+fQ'=0
-\]
-
-or:
-
-\[
-\left|-\frac{fQ'}{Q}\right|=1
-\]
-
-The revenue-maximizing fee occurs where the absolute fee elasticity of activity
+Fee revenue is \(F(f)=fQ(f)\). At an interior revenue maximum,
+\(\frac{dF}{df}=Q+fQ'=0\), or \(\left|-\frac{fQ'}{Q}\right|=1\). The
+revenue-maximizing fee occurs where the absolute fee elasticity of activity
 equals one. Below that point, a higher rate may raise revenue. Above it, the
 lost activity dominates.
 

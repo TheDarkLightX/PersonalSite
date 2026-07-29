@@ -133,7 +133,7 @@
 
           <p>BitShares, Steem, and EOS were not merely token projects. They were repeated experiments in whether exchange, publishing, resource allocation, and governance could be moved into open protocols. Larimer's 2015 essay on BitShares front running examined how exchange timing and matching rules change who captures value and how much control a user retains.<sup><a href="#fn-larimer-frontrun">1</a></sup></p>
 
-          <p>His later writing asks a broader question: how can a system mature toward decentralization rather than allowing temporary coordination to harden into permanent control?<sup><a href="#fn-larimer-maturing">2</a></sup> <em>More Equal Animals</em> develops the governance side of that inquiry, how people might govern themselves while resisting capture, vote buying, and incumbency.<sup><a href="#fn-larimer-book">3</a></sup></p>
+          <p>His later writing asks a broader question: how can a system mature toward decentralization rather than allowing temporary coordination to harden into permanent control?<sup><a href="#fn-larimer-maturing">2</a></sup> <em>More Equal Animals</em> develops the governance side of that inquiry: how people might govern themselves while resisting capture, vote buying, and incumbency.<sup><a href="#fn-larimer-book">3</a></sup></p>
 
           <p>I do not inherit every mechanism or conclusion.</p>
 
@@ -176,14 +176,7 @@
 
           <h2>The measurable opportunity surface</h2>
 
-          <p>Let \(Q\) be processed notional and \(f\) the effective fee rate:</p>
-          <p>\[F=fQ\]</p>
-
-          <p>Let \(\theta\) be the share of fees routed to provider tasks and \(u\) the share actually settled:</p>
-          <p>\[R=fQ\theta u\]</p>
-
-          <p>At average payout \(r\):</p>
-          <p>\[N=\frac{fQ\theta u}{r}\]</p>
+          <p>Let \(Q\) be processed notional and \(f\) the effective fee rate, so \(F=fQ\) is gross fees. Let \(\theta\) be the share of fees routed to provider tasks and \(u\) the share actually settled, so \(R=fQ\theta u\) is the settled reward pool. At average payout \(r\), the number of paid task settlements is \(N=\frac{fQ\theta u}{r}\).</p>
 
           <p>Consider one explicitly illustrative scenario:</p>
 
@@ -216,16 +209,7 @@ average paid task r                        $1,000</code></pre>
 
           <p>It would be equally misleading to say that raising the fee always creates more tasks.</p>
 
-          <p>Fee revenue is:</p>
-          <p>\[F(f)=fQ(f)\]</p>
-
-          <p>At an interior revenue maximum:</p>
-          <p>\[\frac{dF}{df}=Q+fQ'=0\]</p>
-
-          <p>or:</p>
-          <p>\[\left|-\frac{fQ'}{Q}\right|=1\]</p>
-
-          <p>The revenue-maximizing fee occurs where the absolute fee elasticity of activity equals one. Below that point, a higher rate may raise revenue. Above it, the lost activity dominates.</p>
+          <p>Fee revenue is \(F(f)=fQ(f)\). At an interior revenue maximum, \(\frac{dF}{df}=Q+fQ'=0\), or \(\left|-\frac{fQ'}{Q}\right|=1\). The revenue-maximizing fee occurs where the absolute fee elasticity of activity equals one. Below that point, a higher rate may raise revenue. Above it, the lost activity dominates.</p>
 
           <p>The same economic discipline applies to a political project. A protocol that extracts too much can shrink the participation it was meant to enlarge. Revenue, user surplus, decentralization, solvency, and provider rewards are different objectives. A serious mechanism exposes the tradeoff instead of hiding it inside one "optimal" fee.</p>
 

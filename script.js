@@ -119,6 +119,77 @@
     vids.forEach(function (v) { vo.observe(v); });
   }
 
+  /* Figure click-to-zoom (essays) */
+  var figures = document.querySelectorAll(".essay-prose figure");
+  if (figures.length) {
+    var modal = document.createElement("div");
+    modal.className = "figure-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", "Enlarged figure");
+    modal.hidden = true;
+    var modalClose = document.createElement("button");
+    modalClose.type = "button";
+    modalClose.className = "figure-modal-close";
+    modalClose.setAttribute("aria-label", "Close figure");
+    modalClose.innerHTML = '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+    var modalInner = document.createElement("div");
+    modalInner.className = "figure-modal-inner";
+    modal.appendChild(modalClose);
+    modal.appendChild(modalInner);
+    document.body.appendChild(modal);
+
+    var closeModal = function () {
+      modal.hidden = true;
+      modalInner.innerHTML = "";
+      document.body.style.overflow = "";
+      if (lastTrigger) lastTrigger.focus();
+    };
+    var lastTrigger = null;
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    figures.forEach(function (fig) {
+      fig.classList.add("zoomable");
+      fig.setAttribute("tabindex", "0");
+      fig.setAttribute("role", "button");
+      var obj = fig.querySelector("object[data]");
+      if (obj) {
+        var label = obj.getAttribute("aria-label") || "Figure";
+        fig.setAttribute("aria-label", "Zoom: " + label);
+      }
+      var openModal = function () {
+        if (!obj) return;
+        lastTrigger = fig;
+        var clone = obj.cloneNode(true);
+        clone.removeAttribute("role");
+        clone.removeAttribute("aria-label");
+        modalInner.innerHTML = "";
+        modalInner.appendChild(clone);
+        var cap = fig.querySelector("figcaption");
+        if (cap) {
+          var capClone = document.createElement("p");
+          capClone.className = "figure-modal-caption";
+          capClone.textContent = cap.textContent;
+          modalInner.appendChild(capClone);
+        }
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        modalClose.focus();
+      };
+      fig.addEventListener("click", openModal);
+      fig.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(); }
+      });
+    });
+  }
+
   /* Footer year */
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();

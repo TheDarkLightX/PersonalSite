@@ -95,19 +95,8 @@ Let:
 - \(u\) be the fraction of that allocation actually settled;
 - \(r\) be the average payout per verified task.
 
-Then:
-
-\[
-R=F\theta u
-\]
-
-is the settled reward pool, and:
-
-\[
-N=\frac{R}{r}
-\]
-
-is the number of paid task settlements the pool can support.
+Then \(R=F\theta u\) is the settled reward pool, and \(N=\frac{R}{r}\) is the
+number of paid task settlements the pool can support.
 
 Those equations identify economic capacity. They do not identify people,
 jobs, livelihoods, adoption, welfare, or income distribution.
@@ -168,15 +157,10 @@ The same mechanism may apply to machine intelligence.
 
 Let \(g\) be the compute required per task and let task demand have absolute
 price elasticity \(\varepsilon\). Under a simple constant-elasticity model,
-aggregate compute use is proportional to:
-
-\[
-g^{1-\varepsilon}
-\]
-
-When efficiency improves, \(g\) falls. If \(\varepsilon>1\), demand expands by
-more than the efficiency gain and total compute use rises. That is the strict
-Jevons case.
+aggregate compute use is proportional to \(g^{1-\varepsilon}\). When
+efficiency improves, \(g\) falls. If \(\varepsilon>1\), demand expands by more
+than the efficiency gain and total compute use rises. That is the strict Jevons
+case.
 
 <figure>
   <object type="image/svg+xml" data="../assets/essays/jevons-task-expansion.svg" role="img" aria-label="As compute per task falls, the number of affordable tasks expands; total compute rises only when demand elasticity exceeds one.">

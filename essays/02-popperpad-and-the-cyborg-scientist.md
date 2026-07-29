@@ -208,18 +208,11 @@ payment
 → claim becomes true
 ```
 
-The repository expresses the incentive test for an autonomous worker as:
-
-\[
-EV(\text{task})
-=
-\Pr(\text{success})\cdot \text{reward}
--\text{cost}
--\Pr(\text{slash})\cdot \text{bond}
-\]
-
-An agent attempts PopperPad work when that expected value exceeds its best
-alternative use of compute, time, capital, and expertise.[^popperpad-game]
+The repository expresses the incentive test for an autonomous worker as
+\(EV(\text{task}) = \Pr(\text{success})\cdot \text{reward} -\text{cost}
+-\Pr(\text{slash})\cdot \text{bond}\). An agent attempts PopperPad work when
+that expected value exceeds its best alternative use of compute, time,
+capital, and expertise.[^popperpad-game]
 
 This is a market for epistemic labor, not a truth market.
 
@@ -229,17 +222,9 @@ There is no sponsor budget in my capacity model.
 
 The model starts only after real use produces real fees. Let \(F\) be realized
 gross fees, \(\theta\) the share allocated to epistemic tasks, and \(u\) the
-share actually settled:
-
-\[
-R=F\theta u
-\]
-
-If the average verified task pays \(r\):
-
-\[
-N=\frac{F\theta u}{r}
-\]
+share actually settled. Then \(R=F\theta u\) is the settled reward pool. If
+the average verified task pays \(r\), then \(N=\frac{F\theta u}{r}\) is the
+number of paid task settlements.
 
 Consider a visible scenario, not a forecast or launch recommendation:
 

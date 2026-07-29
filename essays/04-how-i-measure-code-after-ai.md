@@ -91,21 +91,8 @@ Let:
 - \(u\) be the share actually settled;
 - \(r\) be the average payout per valid task.
 
-Then:
-
-\[
-R=F\theta u
-\]
-
-is the settled reward value, and:
-
-\[
-N=\frac{R}{r}
-\]
-
-is the number of paid task settlements.
-
-Report both.
+Then \(R=F\theta u\) is the settled reward value, and \(N=\frac{R}{r}\) is the
+number of paid task settlements. Report both.
 
 Never report \(N\) without \(R\), because the same pool can be divided into an
 arbitrarily large number of tiny records. Never divide \(R\) by a salary and
@@ -286,7 +273,8 @@ E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
 where \(s_i\) is recipient \(i\)'s payout share.
 
 One hundred equal recipients produce an effective count of 100. If one receives
-80% and the other 99 split the rest, the effective count is about 1.56.
+80% and the other 99 recipients split the rest, the effective count is about
+1.56.
 
 Addresses are not automatically independent people, so the label must remain
 "effective recipients" unless identity evidence supports something stronger.
