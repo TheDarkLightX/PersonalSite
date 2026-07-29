@@ -40,7 +40,7 @@ responsibility to them.
   <figcaption>The human selects meaning and direction; agents search; verifiers decide scoped checks; PopperPad remembers.</figcaption>
 </figure>
 
-## Human judgment is not the leftover
+## Judgment is the scarce input
 
 There is a weak way to describe human-in-the-loop systems. The machine does the
 important work; a person remains nearby to approve it.
