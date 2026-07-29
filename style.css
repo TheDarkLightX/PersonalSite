@@ -1435,8 +1435,18 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
 }
 
 /* ===== Figure click-to-zoom ===== */
-.essay-prose figure.zoomable { cursor: zoom-in; }
+.essay-prose figure.zoomable { cursor: zoom-in; position: relative; }
 .essay-prose figure.zoomable:focus { outline: 2px solid var(--text); outline-offset: 4px; }
+.essay-prose figure.zoomable object { pointer-events: none; }
+.essay-prose figure.zoomable::after {
+  content: "Click to enlarge";
+  position: absolute; bottom: .5rem; right: .5rem;
+  font-size: .72rem; color: var(--muted-2);
+  background: var(--surface); border: 1px solid var(--line);
+  padding: .2rem .5rem; pointer-events: none;
+  opacity: 0; transition: opacity .2s;
+}
+.essay-prose figure.zoomable:hover::after { opacity: 1; }
 
 .figure-modal {
   position: fixed; inset: 0; z-index: 1000;
