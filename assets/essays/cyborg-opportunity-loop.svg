@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">The cyborg opportunity loop</title>
+  <desc id="desc">Useful fee-bearing activity produces realized fees. A visible allocation funds an actually settled reward pool. Machine-readable open tasks are attempted by humans, agents, or human-agent teams. Verifier-accepted results can return value to activity. The loop measures rewards and task settlements, not jobs or people.</desc>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    .bg { fill: #fafafa; }
+    .loop { fill: none; stroke: #d9d9d9; stroke-width: 2; }
+    .motion {
+      fill: none;
+      stroke: #111111;
+      stroke-width: 2;
+      stroke-dasharray: 3 12;
+      animation: dash 10s linear infinite;
+    }
+    .node { fill: #fafafa; stroke: #111111; stroke-width: 1.5; }
+    .node-soft { fill: #f0f0f0; stroke: #111111; stroke-width: 1.5; }
+    .packet { fill: #111111; }
+    .kicker {
+      font: 500 15px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 2px;
+      fill: #666666;
+    }
+    .label {
+      font: 500 22px "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -0.2px;
+      fill: #111111;
+    }
+    .small {
+      font: 400 15px "Helvetica Neue", Arial, sans-serif;
+      fill: #666666;
+    }
+    .formula {
+      font: 500 30px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      fill: #111111;
+    }
+    .center-rule { stroke: #d9d9d9; stroke-width: 1; }
+    @keyframes dash { to { stroke-dashoffset: -150; } }
+    @media (prefers-color-scheme: dark) {
+      .bg, .node { fill: #0a0a0a; }
+      .node-soft { fill: #151515; }
+      .loop, .center-rule { stroke: #333333; }
+      .motion, .node, .node-soft { stroke: #f2f2f2; }
+      .packet { fill: #f2f2f2; }
+      .kicker, .small { fill: #a0a0a0; }
+      .label, .formula { fill: #f2f2f2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .motion { animation: none; stroke-dasharray: none; }
+      .packet { display: none; }
+    }
+  </style>
+
+  <rect class="bg" width="1200" height="620"/>
+
+  <text class="kicker" x="600" y="55" text-anchor="middle">FEE-FUNDED OPPORTUNITY</text>
+
+  <path id="cycle" class="loop" d="M185,305 C185,125 365,92 600,92 C835,92 1015,125 1015,305 C1015,485 835,520 600,520 C365,520 185,485 185,305 Z"/>
+  <path class="motion" d="M185,305 C185,125 365,92 600,92 C835,92 1015,125 1015,305 C1015,485 835,520 600,520 C365,520 185,485 185,305 Z"/>
+
+  <g transform="translate(75 245)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">01</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Useful activity</text>
+    <text class="small" x="110" y="91" text-anchor="middle">fee-bearing demand</text>
+  </g>
+
+  <g transform="translate(255 68)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">02</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Realized fees</text>
+    <text class="small" x="110" y="91" text-anchor="middle">observed, not forecast</text>
+  </g>
+
+  <g transform="translate(725 68)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">03</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Reward pool</text>
+    <text class="small" x="110" y="91" text-anchor="middle">allocated and settled</text>
+  </g>
+
+  <g transform="translate(905 245)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">04</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Open task</text>
+    <text class="small" x="110" y="91" text-anchor="middle">typed rule + payout</text>
+  </g>
+
+  <g transform="translate(725 432)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">05</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Cyborg work</text>
+    <text class="small" x="110" y="91" text-anchor="middle">human + agent + tools</text>
+  </g>
+
+  <g transform="translate(255 432)">
+    <rect class="node" width="220" height="120"/>
+    <text class="kicker" x="110" y="31" text-anchor="middle">06</text>
+    <text class="label" x="110" y="65" text-anchor="middle">Verified result</text>
+    <text class="small" x="110" y="91" text-anchor="middle">evidence before payment</text>
+  </g>
+
+  <g transform="translate(405 225)">
+    <rect class="node-soft" width="390" height="165"/>
+    <text class="formula" x="195" y="58" text-anchor="middle">R = Fθu</text>
+    <line class="center-rule" x1="58" y1="82" x2="332" y2="82"/>
+    <text class="formula" x="195" y="121" text-anchor="middle">N = R / r</text>
+    <text class="small" x="195" y="148" text-anchor="middle">reward value + paid settlements ≠ jobs</text>
+  </g>
+</svg>

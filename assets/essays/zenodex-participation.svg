@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">ZenoDEX participation surface</title>
+  <desc id="desc">A person with agents enters a market governed by explicit rules and can participate as a trader, liquidity provider, solver, proof miner, challenger, or verifier. Candidate value flows outward through role-specific work, while verified evidence and fee-funded rewards return through a transparent settlement rail.</desc>
+  <style>
+    :root { color-scheme: light dark; }
+    .bg { fill: #fafafa; }
+    .box { fill: #fafafa; stroke: #111111; stroke-width: 1.5; }
+    .box-soft { fill: #f0f0f0; stroke: #111111; stroke-width: 1.5; }
+    .rail { fill: none; stroke: #d4d4d4; stroke-width: 2; }
+    .flow {
+      fill: none;
+      stroke: #111111;
+      stroke-width: 2;
+      stroke-dasharray: 3 11;
+      animation: flow 8s linear infinite;
+    }
+    .return {
+      fill: none;
+      stroke: #111111;
+      stroke-width: 3;
+      stroke-dasharray: 14 9;
+      animation: return 9s linear infinite;
+    }
+    .packet { fill: #111111; }
+    .kicker {
+      font: 500 14px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 1.7px;
+      fill: #666666;
+    }
+    .label {
+      font: 500 21px "Helvetica Neue", Arial, sans-serif;
+      fill: #111111;
+    }
+    .small {
+      font: 400 15px "Helvetica Neue", Arial, sans-serif;
+      fill: #666666;
+    }
+    .tiny {
+      font: 500 12px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 0.7px;
+      fill: #666666;
+    }
+    .rule { stroke: #d4d4d4; stroke-width: 1; }
+    @keyframes flow { to { stroke-dashoffset: -112; } }
+    @keyframes return { to { stroke-dashoffset: 161; } }
+    @media (prefers-color-scheme: dark) {
+      .bg, .box { fill: #0a0a0a; }
+      .box-soft { fill: #151515; }
+      .box, .box-soft, .flow, .return { stroke: #f2f2f2; }
+      .rail, .rule { stroke: #343434; }
+      .packet { fill: #f2f2f2; }
+      .kicker, .small, .tiny { fill: #a0a0a0; }
+      .label { fill: #f2f2f2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flow, .return { animation: none; }
+      .packet { display: none; }
+    }
+  </style>
+
+  <rect class="bg" width="1200" height="700"/>
+  <text class="kicker" x="54" y="47">PARTICIPATION, NOT PASSIVE ALLOCATION</text>
+  <text class="small" x="1146" y="47" text-anchor="end">roles remain distinct · evidence settles value</text>
+
+  <g transform="translate(48 235)">
+    <rect class="box" width="225" height="205"/>
+    <text class="kicker" x="27" y="35">PERSON + AGENTS</text>
+    <text class="label" x="27" y="79">Choose a role.</text>
+    <line class="rule" x1="27" y1="105" x2="198" y2="105"/>
+    <text class="small" x="27" y="137">own · exchange</text>
+    <text class="small" x="27" y="163">build · verify</text>
+    <text class="small" x="27" y="189">challenge · exit</text>
+  </g>
+
+  <g transform="translate(374 210)">
+    <rect class="box-soft" width="250" height="255"/>
+    <text class="kicker" x="125" y="38" text-anchor="middle">OPEN MARKET RULES</text>
+    <text class="label" x="125" y="83" text-anchor="middle">ZenoDEX</text>
+    <line class="rule" x1="35" y1="108" x2="215" y2="108"/>
+    <text class="small" x="125" y="142" text-anchor="middle">deterministic settlement</text>
+    <text class="small" x="125" y="170" text-anchor="middle">explicit fees + bounds</text>
+    <text class="small" x="125" y="198" text-anchor="middle">proof and replay gates</text>
+    <text class="tiny" x="125" y="228" text-anchor="middle">PROTOCOL ≠ POLITICAL GUARANTEE</text>
+  </g>
+
+  <path id="entry" class="rail" d="M273 337 L374 337"/>
+  <path class="flow" d="M273 337 L374 337"/>
+  <path class="rail" d="M624 337 L690 337 M690 125 L690 550"/>
+  <path class="flow" d="M624 337 L690 337 M690 125 L690 550"/>
+
+  <g transform="translate(760 88)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">01</text>
+    <text class="label" x="22" y="64">Trader</text>
+    <text class="small" x="22" y="88">exchange + custody</text>
+  </g>
+  <g transform="translate(965 88)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">02</text>
+    <text class="label" x="22" y="64">Liquidity</text>
+    <text class="small" x="22" y="88">capital under rules</text>
+  </g>
+  <g transform="translate(760 270)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">03</text>
+    <text class="label" x="22" y="64">Solver</text>
+    <text class="small" x="22" y="88">candidate clearing</text>
+  </g>
+  <g transform="translate(965 270)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">04</text>
+    <text class="label" x="22" y="64">Proof miner</text>
+    <text class="small" x="22" y="88">verified computation</text>
+  </g>
+  <g transform="translate(760 452)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">05</text>
+    <text class="label" x="22" y="64">Challenger</text>
+    <text class="small" x="22" y="88">fraud evidence</text>
+  </g>
+  <g transform="translate(965 452)">
+    <rect class="box" width="185" height="112"/>
+    <text class="kicker" x="22" y="31">06</text>
+    <text class="label" x="22" y="64">Verifier</text>
+    <text class="small" x="22" y="88">replay + attest</text>
+  </g>
+
+  <path id="branch1" class="rail" d="M690 145 L760 145"/>
+  <path id="branch2" class="rail" d="M690 165 C714 165 714 65 740 65 L1057 65 L1057 88"/>
+  <path id="branch3" class="rail" d="M690 325 L760 325"/>
+  <path id="branch4" class="rail" d="M690 345 C714 345 714 245 740 245 L1057 245 L1057 270"/>
+  <path id="branch5" class="rail" d="M690 507 L760 507"/>
+  <path id="branch6" class="rail" d="M690 527 C714 527 714 427 740 427 L1057 427 L1057 452"/>
+  <path class="flow" d="M690 145 L760 145 M690 165 C714 165 714 65 740 65 L1057 65 L1057 88 M690 325 L760 325 M690 345 C714 345 714 245 740 245 L1057 245 L1057 270 M690 507 L760 507 M690 527 C714 527 714 427 740 427 L1057 427 L1057 452"/>
+
+  <path id="returnRail" class="rail" d="M1120 588 L1120 635 L160 635 L160 440"/>
+  <path class="return" d="M1120 588 L1120 635 L160 635 L160 440"/>
+  <text class="kicker" x="650" y="621" text-anchor="middle">VERIFIED VALUE + FEE-FUNDED REWARD</text>
+</svg>

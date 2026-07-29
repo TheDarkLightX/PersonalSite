@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I Measure Code After AI | Dana Edwards</title>
+  <meta name="description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <link rel="canonical" href="https://www.danaedwards.info/essays/how-i-measure-code-after-ai.html" />
+  <meta property="og:title" content="How I Measure Code After AI | Dana Edwards" />
+  <meta property="og:description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.danaedwards.info/essays/how-i-measure-code-after-ai.html" />
+  <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How I Measure Code After AI | Dana Edwards" />
+  <meta name="twitter:description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-sticky>
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Dana Edwards home">
+        <img src="../assets/mark.svg" alt="" width="34" height="34" />
+        <span>Dana Edwards</span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#arc">Arc</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../value.html">Value</a>
+        <a href="../evidence-strategy.html">Evaluation</a>
+        <a href="../network.html">Network</a>
+        <a href="../ideas.html">Ideas</a>
+      </nav>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../writing.html">Back to Writing</a>
+        <p class="eyebrow">Essay</p>
+        <h1>How I Measure Code After AI</h1>
+        <p class="lede">Lines of code are becoming cheap. The valuable question is what new agency, evidence, and opportunity the system makes possible.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="essay-prose">
+
+          <p>"How much code did you write?" was never a good measure of software.</p>
+
+          <p>It is becoming an absurd one.</p>
+
+          <p>An AI system can generate thousands of lines before lunch. It can port a library, scaffold a service, write tests, produce documentation, and imitate the surface architecture of a mature product. The number is real. The implied value is not.</p>
+
+          <p>Time saved is better. Replacement cost is useful. Revenue is essential when it exists. Yet all three can miss the reason I build a particular system.</p>
+
+          <p>PopperPad is valuable if it makes a scientific claim easier to falsify, reproduce, and remember. ZenoDEX is valuable if it gives more actors a checkable way to participate in exchange, solving, proving, and verification. PulseTensor is valuable if funded inference can settle through visible rules to providers and challengers.</p>
+
+          <p>Those contributions are not captured by code volume.</p>
+
+          <p>They can still be measured.</p>
+
+          <p>My proposal is an <strong>agency ledger</strong>: a small vector of public measurements showing what opportunity the system funds, what decisions remain under an accountable principal, what results are verifiable, how easily a participant can enter or exit, and how concentrated the outcome becomes.</p>
+
+          <p>Not one score.</p>
+
+          <p>A ledger.</p>
+
+          <blockquote><p>I have been offered the single score my whole career. Lines, commits, tickets closed, story points burned. Every one of them was a way to avoid asking what the code actually let someone do.</p></blockquote>
+
+          <figure>
+            <object type="image/svg+xml" data="../assets/essays/agency-ledger.svg" role="img" aria-label="A multidimensional ledger reports opportunity, verifier coverage, principal control, openness, portability, and concentration separately, without collapsing them into one score.">
+              A six-dimensional agency ledger keeps opportunity, verification, control, openness, portability, and concentration as separate measurements.
+            </object>
+            <figcaption>A system can improve one dimension while weakening another. The ledger keeps the tradeoff visible.</figcaption>
+          </figure>
+
+          <h2>Why a single impact score would be dishonest</h2>
+
+          <p>I have a personal philosophy. It is broadly concerned with human flourishing, popular access to power, and the practical ability to pursue a life one has reason to value.</p>
+
+          <p>That philosophy should not be compiled into a universal platform score.</p>
+
+          <p>There is no neutral weight telling us how much privacy to trade for fraud detection, how much safety to trade for exit, or how much efficiency to trade for redundancy. A government could maximize one definition of safety through maximum control. A protocol could maximize permissionless access while externalizing risks onto people least able to bear them.</p>
+
+          <p>If I multiplied all of those variables into "82.4 agency points," the precision would be theatrical.</p>
+
+          <p>The measurements should remain separate so a user, reviewer, community, or governance process can apply its own values.</p>
+
+          <p>This is consistent with the architecture running through my work:</p>
+
+          <pre><code>Model proposes.
+Verifier decides a scoped claim.
+People decide what the claim is for.</code></pre>
+
+          <p>Formal methods can prove that an integer invariant holds. They cannot prove that a society selected the right objective.</p>
+
+          <blockquote><p>I will not pretend to have a number I do not have. I will give you six numbers that together tell the truth, and let you weigh them with your own values.</p></blockquote>
+
+          <h2>Dimension one: paid opportunity</h2>
+
+          <p>The first dimension is economic and intentionally simple.</p>
+
+          <p>Let:</p>
+          <ul>
+            <li>\(F\) be realized fees;</li>
+            <li>\(\theta\) be the share allocated to task or provider rewards;</li>
+            <li>\(u\) be the share actually settled;</li>
+            <li>\(r\) be the average payout per valid task.</li>
+          </ul>
+
+          <p>Then:</p>
+          <p>\[R=F\theta u\]</p>
+          <p>is the settled reward value, and:</p>
+          <p>\[N=\frac{R}{r}\]</p>
+          <p>is the number of paid task settlements.</p>
+
+          <p>Report both.</p>
+
+          <p>Never report \(N\) without \(R\), because the same pool can be divided into an arbitrarily large number of tiny records. Never divide \(R\) by a salary and call the result people. One human may run thousands of agents. One agent may serve many human principals. The operator count is not in the equation.</p>
+
+          <p>For current planning, my public-project scenarios at $1 million in realized fees are:</p>
+
+          <table>
+            <thead><tr><th>Project</th><th>Settled reward value</th><th>Paid settlements</th><th>Primary work surface</th></tr></thead>
+            <tbody>
+              <tr><td>PopperPad</td><td>$510,000</td><td>1,020 at $500</td><td>Proof, refutation, reproduction, maintenance, preservation</td></tr>
+              <tr><td>ZenoDEX / ZRPF</td><td>$360,000</td><td>360 at $1,000</td><td>Solving, routing, proving, challenging, verification</td></tr>
+              <tr><td>PulseTensor</td><td>$910,100</td><td>9,101 at $100</td><td>Inference mining, batch proposing, challenging</td></tr>
+            </tbody>
+          </table>
+
+          <p>These are conditional translations, not current results. Current modeled realized fees are zero. Parameters are illustrative except where a repository explicitly defines them.</p>
+
+          <p>The statement is therefore:</p>
+
+          <blockquote><p>I have designed codebases whose fee surfaces can be translated into auditable reward capacity if and when real use produces fees.</p></blockquote>
+
+          <p>That is stronger than a speculative employment number because the claim can be recomputed and later compared with reality.</p>
+
+          <h2>Dimension two: verifier coverage</h2>
+
+          <p>AI makes proposals cheap. Verification becomes the scarce boundary.</p>
+
+          <p>For task settlement, I would measure:</p>
+          <p>\[
+\text{VerifierCoverage}
+=
+\frac{
+\text{payout value backed by replayable verifier-accepted evidence}
+}{
+\text{total settled task payout value}
+}
+\]</p>
+
+          <p>The numerator is value-weighted. A platform should not claim 99% coverage by verifying thousands of one-cent tasks while one large payout remains discretionary.</p>
+
+          <p>"Verifier" is contextual. Lean may decide whether a proof term checks. A deterministic replay may decide whether a transaction produces a committed state. A benchmark harness may decide whether an output meets a stated threshold. A verifier cannot decide whether a theorem is important, an experiment is ethical, or a policy is legitimate.</p>
+
+          <p>The metric says: <em>the declared check ran and accepted this evidence under this context.</em></p>
+
+          <p>Nothing more.</p>
+
+          <h2>Dimension three: principal-control coverage</h2>
+
+          <p>Human-in-the-loop is a placement, not a power relationship.</p>
+
+          <p>A person can click "approve" after a system has hidden every meaningful alternative. Another system can automate ten thousand reversible microsteps while preserving a person's veto over the irreversible boundary.</p>
+
+          <p>The second system may provide more control with fewer approvals.</p>
+
+          <p>For each consequential workflow path \(j\), assign a transparent value or risk weight \(v_j\). Let \(control_j=1\) only if an accountable principal:</p>
+          <ol>
+            <li>sets or accepts the objective;</li>
+            <li>can inspect the evidence relevant to the boundary;</li>
+            <li>can veto the irreversible external effect.</li>
+          </ol>
+
+          <p>Then:</p>
+          <p>\[
+\text{PrincipalControlCoverage}
+=
+\frac{\sum_j v_j\,control_j}{\sum_j v_j}
+\]</p>
+
+          <p>The weighting policy must be published. The result measures an architecture property, not human wellbeing.</p>
+
+          <p>For the cyborg scientist, the relevant boundaries include claim scope, research context, trust policy, publication, and high-impact action. For a DEX participant, they include signing, custody, risk limits, governance delegation, and exit. For an autonomous service, they include spending limits, identity use, and irreversible communication.</p>
+
+          <p>The design goal is keeping the principal in control of what matters, not interrupting the agent continuously.</p>
+
+          <h2>Dimension four: machine-readable openness</h2>
+
+          <p>A GitHub issue is visible to a person. An open task market should also be legible to an agent.</p>
+
+          <p>I would count a task as machine-readable and open only when it has:</p>
+          <ul>
+            <li>public discovery or a documented open feed;</li>
+            <li>canonical input references;</li>
+            <li>a typed required output;</li>
+            <li>explicit eligibility constraints;</li>
+            <li>a completion rule declared before work begins;</li>
+            <li>a payout rule declared before work begins;</li>
+            <li>duplicate and challenge handling;</li>
+            <li>a settlement reference.</li>
+          </ul>
+
+          <p>Then report:</p>
+          <p>\[
+\text{OpenTaskValueShare}
+=
+\frac{
+\text{payout value from tasks meeting those conditions}
+}{
+\text{total task payout value}
+}
+\]</p>
+
+          <p>This metric is stricter than "anyone can participate." Some tasks require a bond, specialized hardware, licensed data, capital, or jurisdictional eligibility. Those constraints should be machine-readable too.</p>
+
+          <p>The aim is legibility, not a false promise of universal profit.</p>
+
+          <h2>Dimension five: exit and portability</h2>
+
+          <p>Agency includes the ability to say no and continue elsewhere.</p>
+
+          <p>Dan Larimer's writing on freedom repeatedly returns to dependence on a single provider and the practical importance of exit, redundancy, and local control.<sup><a href="#fn-larimer-freedom">1</a></sup> That question can be turned into a software measurement.</p>
+
+          <p>For stateful systems:</p>
+          <p>\[
+\text{PortableStateCoverage}
+=
+\frac{
+\text{value-weighted user state exportable in a documented independent format}
+}{
+\text{total value-weighted user state}
+}
+\]</p>
+
+          <p>For PopperPad, content-addressed local objects and an offline-first pad make portability part of the base architecture. For a DEX, self-custody and public state are necessary but not sufficient; frontend diversity, bridge dependence, oracle dependence, and governance keys still matter. For an agent platform, prompts, memory, identities, tool policies, and evidence should not become a private format that traps the principal.</p>
+
+          <p>Portability creates a credible threat of exit.</p>
+
+          <p>That threat disciplines power even when most users stay.</p>
+
+          <h2>Dimension six: concentration</h2>
+
+          <p>An open protocol can produce a concentrated economy.</p>
+
+          <p>Report distribution after settlement:</p>
+          <ul>
+            <li>top-one payout share;</li>
+            <li>top-ten payout share;</li>
+            <li>concentration of liquidity, stake, solving, proving, validation, and infrastructure;</li>
+            <li>inverse-Herfindahl effective recipients:</li>
+          </ul>
+          <p>\[
+E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
+\]</p>
+
+          <p>where \(s_i\) is recipient \(i\)'s payout share.</p>
+
+          <p>One hundred equal recipients produce an effective count of 100. If one receives 80% and the other 99 split the rest, the effective count is about 1.56.</p>
+
+          <p>Addresses are not automatically independent people, so the label must remain "effective recipients" unless identity evidence supports something stronger.</p>
+
+          <p>Concentration is not always a defect. Specialized proof systems may have large economies of scale. Emergency governance may be deliberately narrow. The ledger does not decide the acceptable threshold.</p>
+
+          <p>It makes the shape visible.</p>
+
+          <h2>What this says about my projects</h2>
+
+          <p>The same codebase can contribute along several dimensions.</p>
+
+          <h3>PopperPad</h3>
+          <ul>
+            <li><strong>Opportunity:</strong> machine-readable work orders for proofs, counterexamples, reproductions, boundary discovery, maintenance, storage, and curation.</li>
+            <li><strong>Verification:</strong> scoped results derived from replayable evidence rather than token voting or author assertion.</li>
+            <li><strong>Control:</strong> local trust policy and human choice over the question, context, and consequential use.</li>
+            <li><strong>Exit:</strong> offline-first, content-addressed pads that can be mirrored and replayed.</li>
+            <li><strong>World-improving mechanism:</strong> make errors cheaper to discover, correct results easier to reproduce, and scientific memory harder to erase.</li>
+          </ul>
+
+          <h3>ZenoDEX</h3>
+          <ul>
+            <li><strong>Opportunity:</strong> solver, router, proof-miner, challenger, reporter, watcher, and verification work funded from visible fee rails.</li>
+            <li><strong>Verification:</strong> integer-exact settlement, certificate checks, formal surfaces, and public replay.</li>
+            <li><strong>Control:</strong> explicit signing, custody, risk, fee, and governance boundaries.</li>
+            <li><strong>Exit:</strong> on-chain assets and state reduce one class of intermediary dependence, while remaining bridge, oracle, and frontend dependencies must be measured.</li>
+            <li><strong>World-improving mechanism:</strong> make direct participation in an automated capital economy more technically possible.</li>
+          </ul>
+
+          <h3>PulseTensor</h3>
+          <ul>
+            <li><strong>Opportunity:</strong> miner, validator, batch proposer, and challenger roles around funded inference.</li>
+            <li><strong>Verification:</strong> challenge windows, bonded batch roots, and fail-closed settlement policy.</li>
+            <li><strong>Control:</strong> timelocked, cancellable fee-policy changes snapshotted at batch commit.</li>
+            <li><strong>Economic boundary:</strong> usage fees fund providers and development rather than assuming a grant.</li>
+            <li><strong>World-improving mechanism:</strong> distribute parts of inference production and checking across an inspectable protocol.</li>
+          </ul>
+
+          <p>None of these bullets proves adoption or broad welfare.</p>
+
+          <p>They show the pathway by which a working system could produce an observable contribution.</p>
+
+          <h2>The value I bring</h2>
+
+          <p>My portfolio crosses engineering, formal methods, mechanism design, political philosophy, and economic modeling because the interesting failures happen at their boundaries.</p>
+
+          <p>A mathematically correct settlement rule can support a destructive incentive. A well-intentioned market can pay unverifiable output. A capable model can optimize the wrong claim. A decentralized protocol can concentrate in practice. A "safe" system can remove meaningful user control. A thousand generated features can leave no one better able to act.</p>
+
+          <p>The work I bring is to make those boundaries explicit:</p>
+          <ol>
+            <li>state the ambitious reason for building;</li>
+            <li>reduce it to a mechanism the software can enforce;</li>
+            <li>define the evidence that would support the mechanism's claim;</li>
+            <li>make AI-generated output an untrusted proposal;</li>
+            <li>make verification and settlement replayable;</li>
+            <li>model how real fees become paid task capacity;</li>
+            <li>report the dimensions that the mechanism does not solve.</li>
+          </ol>
+
+          <p>That is more than efficient code generation.</p>
+
+          <p>It is institutional engineering at software scale.</p>
+
+          <blockquote><p>The interesting failures are never inside one discipline. They live in the gap between a correct proof and a destructive market, between a safe system and a controlled user. I build in those gaps.</p></blockquote>
+
+          <h2>A line I can defend</h2>
+
+          <p>Here is the value proposition I want a reviewer to leave with:</p>
+
+          <blockquote><p>I build proof-carrying systems for the cyborg economy: people set direction, agents perform scalable work, deterministic gates decide what counts, and transparent fee rules can turn verified output into open paid opportunity.</p></blockquote>
+
+          <p>Every clause has evidence:</p>
+          <ul>
+            <li>public repositories;</li>
+            <li>formal specifications and proofs;</li>
+            <li>replayable tests and receipts;</li>
+            <li>machine-readable work objects;</li>
+            <li>explicit implementation-status boundaries;</li>
+            <li>a Julia model independently cross-checked in Python;</li>
+            <li>Lean proofs of the core fee algebra;</li>
+            <li>scenario workbooks that do not pretend tasks are people.</li>
+          </ul>
+
+          <p>The world-improving claim is equally bounded.</p>
+
+          <p>I cannot guarantee that advanced AI distributes wealth, preserves liberty, or produces a safe and free society. I can build more systems in which a person with an AI assistant can formulate a task, attempt useful work, verify a result, participate in a market, retain decision rights, and leave with their evidence or assets.</p>
+
+          <p>Those are capabilities.</p>
+
+          <p>Capabilities enlarge the space in which people can pursue their own ends.</p>
+
+          <p>That is the contribution I know how to measure, and the one I intend to keep building.</p>
+
+          <blockquote><p>Measure what lets people act, not what lets you report. The first builds capability. The second builds a slide.</p></blockquote>
+
+        </div>
+
+        <div class="essay-footnotes">
+          <p id="fn-larimer-freedom"><sup>1</sup> Daniel Larimer, "<a href="https://bytemaster.medium.com/how-to-find-freedom-in-a-unfree-world-59a416a0e8e0">How to Find Freedom in an Unfree World</a>," February 4, 2019.</p>
+        </div>
+
+        <div class="essay-nav">
+          <a href="zenodex-right-to-participate.html">&larr; ZenoDEX and the Right to Participate</a>
+          <a href="../writing.html">Back to Writing &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>&copy; <span data-year></span> Dana Edwards.</p>
+      <p>Engineer, philosopher, futurist.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

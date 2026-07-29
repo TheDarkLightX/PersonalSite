@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">The agency ledger</title>
+  <desc id="desc">Six separate rows report settled opportunity, verifier coverage, principal control, machine-readable openness, state portability, and economic concentration. The rows remain separate and do not collapse into a composite moral score.</desc>
+  <style>
+    :root { color-scheme: light dark; }
+    .bg { fill: #fafafa; }
+    .header { fill: #f0f0f0; stroke: #111111; stroke-width: 1.5; }
+    .row { fill: #fafafa; stroke: #d4d4d4; stroke-width: 1.2; }
+    .row-line { stroke: #111111; stroke-width: 2; }
+    .scan {
+      fill: #111111;
+      opacity: 0.08;
+      animation: scan 9s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .pulse {
+      fill: #fafafa;
+      stroke: #111111;
+      stroke-width: 2;
+      animation: pulse 3s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .kicker {
+      font: 500 14px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 1.8px;
+      fill: #666666;
+    }
+    .label {
+      font: 500 21px "Helvetica Neue", Arial, sans-serif;
+      fill: #111111;
+    }
+    .measure {
+      font: 500 17px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      fill: #111111;
+    }
+    .small {
+      font: 400 14px "Helvetica Neue", Arial, sans-serif;
+      fill: #666666;
+    }
+    .no-score {
+      font: 500 17px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 1.2px;
+      fill: #111111;
+    }
+    @keyframes scan {
+      0%, 8% { transform: translateY(0); }
+      16%, 24% { transform: translateY(82px); }
+      32%, 40% { transform: translateY(164px); }
+      48%, 56% { transform: translateY(246px); }
+      64%, 72% { transform: translateY(328px); }
+      80%, 88% { transform: translateY(410px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+    }
+    @media (prefers-color-scheme: dark) {
+      .bg, .row { fill: #0a0a0a; }
+      .header { fill: #151515; stroke: #f2f2f2; }
+      .row { stroke: #343434; }
+      .row-line { stroke: #f2f2f2; }
+      .scan { fill: #f2f2f2; }
+      .pulse { fill: #0a0a0a; stroke: #f2f2f2; }
+      .kicker, .small { fill: #a0a0a0; }
+      .label, .measure, .no-score { fill: #f2f2f2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scan, .pulse { animation: none; }
+    }
+  </style>
+
+  <rect class="bg" width="1200" height="720"/>
+
+  <g transform="translate(55 38)">
+    <rect class="header" width="1090" height="78"/>
+    <text class="kicker" x="28" y="31">PUBLIC IMPACT ACCOUNTING</text>
+    <text class="label" x="28" y="59">Agency ledger</text>
+    <text class="small" x="1062" y="48" text-anchor="end">measure each dimension · publish the tradeoffs</text>
+  </g>
+
+  <g transform="translate(55 142)">
+    <rect class="scan" x="0" y="0" width="1090" height="72"/>
+
+    <g transform="translate(0 0)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6"/>
+      <text class="kicker" x="62" y="29">01</text>
+      <text class="label" x="118" y="43">Opportunity</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">Σ settled payouts</text>
+      <text class="small" x="555" y="52">reward value + unique paid settlements</text>
+    </g>
+
+    <g transform="translate(0 82)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6" style="animation-delay:-.5s"/>
+      <text class="kicker" x="62" y="29">02</text>
+      <text class="label" x="118" y="43">Verification</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">% payout value backed</text>
+      <text class="small" x="555" y="52">replayable verifier-accepted evidence</text>
+    </g>
+
+    <g transform="translate(0 164)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6" style="animation-delay:-1s"/>
+      <text class="kicker" x="62" y="29">03</text>
+      <text class="label" x="118" y="43">Principal control</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">% weighted paths controlled</text>
+      <text class="small" x="555" y="52">objective + evidence + veto at the boundary</text>
+    </g>
+
+    <g transform="translate(0 246)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6" style="animation-delay:-1.5s"/>
+      <text class="kicker" x="62" y="29">04</text>
+      <text class="label" x="118" y="43">Openness</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">% machine-readable task value</text>
+      <text class="small" x="555" y="52">discovery + eligibility + check + payout rule</text>
+    </g>
+
+    <g transform="translate(0 328)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6" style="animation-delay:-2s"/>
+      <text class="kicker" x="62" y="29">05</text>
+      <text class="label" x="118" y="43">Portability</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">% independently exportable state</text>
+      <text class="small" x="555" y="52">documented format + credible exit</text>
+    </g>
+
+    <g transform="translate(0 410)">
+      <rect class="row" width="1090" height="72"/>
+      <circle class="pulse" cx="34" cy="36" r="6" style="animation-delay:-2.5s"/>
+      <text class="kicker" x="62" y="29">06</text>
+      <text class="label" x="118" y="43">Concentration</text>
+      <line class="row-line" x1="350" y1="36" x2="520" y2="36"/>
+      <text class="measure" x="555" y="31">top-1 · top-10 · inverse HHI</text>
+      <text class="small" x="555" y="52">recipients, providers, capital, infrastructure</text>
+    </g>
+  </g>
+
+  <g transform="translate(55 650)">
+    <line class="row-line" x1="0" y1="0" x2="325" y2="0"/>
+    <text class="no-score" x="350" y="7">NO COMPOSITE MORAL SCORE</text>
+    <line class="row-line" x1="765" y1="0" x2="1090" y2="0"/>
+  </g>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Jevons condition for AI task expansion</title>
+  <desc id="desc">As AI efficiency increases, compute required per task falls and the quantity of affordable tasks rises. Aggregate compute falls when demand elasticity is below one, remains flat at unit elasticity, and rises in the strict Jevons case when elasticity exceeds one.</desc>
+  <style>
+    :root { color-scheme: light dark; }
+    .bg { fill: #fafafa; }
+    .axis, .grid { fill: none; stroke: #d4d4d4; stroke-width: 1.5; }
+    .axis-strong { fill: none; stroke: #111111; stroke-width: 1.5; }
+    .curve-a { fill: none; stroke: #111111; stroke-width: 3; stroke-dasharray: 13 5; animation: curve-flow 7s linear infinite; }
+    .curve-b { fill: none; stroke: #666666; stroke-width: 2; stroke-dasharray: 9 7; animation: curve-flow 8s linear infinite reverse; }
+    .curve-c { fill: none; stroke: #111111; stroke-width: 2; stroke-dasharray: 2 8; animation: curve-flow 6s linear infinite; }
+    .marker-a { fill: #111111; }
+    .marker-b { fill: #fafafa; stroke: #666666; stroke-width: 2; }
+    .marker-c { fill: #fafafa; stroke: #111111; stroke-width: 2; }
+    .kicker {
+      font: 500 14px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      letter-spacing: 1.8px;
+      fill: #666666;
+    }
+    .label {
+      font: 500 20px "Helvetica Neue", Arial, sans-serif;
+      fill: #111111;
+    }
+    .small {
+      font: 400 15px "Helvetica Neue", Arial, sans-serif;
+      fill: #666666;
+    }
+    .formula {
+      font: 500 23px "SFMono-Regular", "SF Mono", Consolas, monospace;
+      fill: #111111;
+    }
+    .badge { fill: #f0f0f0; stroke: #111111; stroke-width: 1; }
+    @keyframes curve-flow { to { stroke-dashoffset: -180; } }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0a0a0a; }
+      .axis, .grid { stroke: #343434; }
+      .axis-strong, .curve-a, .curve-c { stroke: #f2f2f2; }
+      .curve-b { stroke: #a0a0a0; }
+      .marker-a { fill: #f2f2f2; }
+      .marker-b { fill: #0a0a0a; stroke: #a0a0a0; }
+      .marker-c { fill: #0a0a0a; stroke: #f2f2f2; }
+      .kicker, .small { fill: #a0a0a0; }
+      .label, .formula { fill: #f2f2f2; }
+      .badge { fill: #151515; stroke: #f2f2f2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .curve-a, .curve-b, .curve-c { animation: none; }
+    }
+  </style>
+
+  <rect class="bg" width="1200" height="650"/>
+  <text class="kicker" x="70" y="52">JEVONS, RESTATED FOR AI TASKS</text>
+
+  <g transform="translate(805 25)">
+    <rect class="badge" width="325" height="55"/>
+    <text class="formula" x="162.5" y="36" text-anchor="middle">C(g) ∝ g<tspan baseline-shift="super" font-size="14">1−ε</tspan></text>
+  </g>
+
+  <line class="grid" x1="150" y1="120" x2="1070" y2="120"/>
+  <line class="grid" x1="150" y1="320" x2="1070" y2="320"/>
+  <line class="grid" x1="150" y1="520" x2="1070" y2="520"/>
+  <line class="axis-strong" x1="150" y1="100" x2="150" y2="535"/>
+  <line class="axis-strong" x1="150" y1="520" x2="1090" y2="520"/>
+  <path class="axis-strong" d="M1090 520 l-13 -7 v14 z"/>
+
+  <text class="kicker" x="48" y="314" transform="rotate(-90 48 314)" text-anchor="middle">AGGREGATE COMPUTE C</text>
+  <text class="kicker" x="620" y="570" text-anchor="middle">EFFICIENCY INCREASES → COMPUTE PER TASK g FALLS</text>
+
+  <path id="elastic" class="curve-a" d="M170 470 C430 445 775 260 1050 125"/>
+  <path id="unit" class="curve-b" d="M170 320 L1050 320"/>
+  <path id="inelastic" class="curve-c" d="M170 175 C430 205 775 385 1050 480"/>
+
+  <g transform="translate(815 92)">
+    <text class="label" x="0" y="0">ε &gt; 1 · strict Jevons</text>
+    <text class="small" x="0" y="25">demand expands faster than efficiency</text>
+  </g>
+  <g transform="translate(815 289)">
+    <text class="label" x="0" y="0">ε = 1 · full rebound</text>
+    <text class="small" x="0" y="25">aggregate compute stays level</text>
+  </g>
+  <g transform="translate(815 445)">
+    <text class="label" x="0" y="0">ε &lt; 1 · partial rebound</text>
+    <text class="small" x="0" y="25">efficiency still reduces total compute</text>
+  </g>
+
+  <g transform="translate(150 600)">
+    <text class="small" x="0" y="0">Affordable task quantity can rise on every path.</text>
+    <text class="small" x="900" y="0" text-anchor="end">Paid opportunity still requires realized fees.</text>
+  </g>
+</svg>
