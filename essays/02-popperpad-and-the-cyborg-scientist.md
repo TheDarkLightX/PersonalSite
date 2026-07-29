@@ -279,6 +279,13 @@ activity statistics.
 
 ## Responsibility requires control over the boundary
 
+The boundary is the line between what an agent may do on its own and what
+requires the principal's decision. Inside the boundary, the agent searches,
+proposes, translates, and checks. At the boundary, the principal sets the
+objective, accepts the context, inspects the evidence, and can veto the
+irreversible. Responsibility tracks that line: a person who cannot control the
+boundary cannot be held accountable for what crosses it.
+
 "Human in the loop" is not enough.
 
 A person can be nominally present while the system makes every consequential
