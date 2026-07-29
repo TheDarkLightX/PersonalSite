@@ -1451,16 +1451,22 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
 .figure-modal {
   position: fixed; inset: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(0,0,0,0.82);
+  background: rgba(0,0,0,0.85);
   padding: 2rem;
 }
 .figure-modal[hidden] { display: none; }
 .figure-modal-inner {
-  max-width: 90vw; max-height: 85vh;
+  max-width: 94vw; max-height: 90vh;
   display: flex; flex-direction: column; align-items: center; gap: 1rem;
 }
-.figure-modal-inner object { max-width: 90vw; max-height: 75vh; width: auto; height: auto; }
+.figure-modal-inner img {
+  max-width: 94vw; max-height: 78vh;
+  width: auto; height: auto;
+  background: #fff; border: 1px solid rgba(255,255,255,0.15);
+}
 .figure-modal-caption { color: #ccc; font-size: .9rem; text-align: center; max-width: 600px; line-height: 1.5; }
+.figure-modal-link { color: #999; font-size: .82rem; text-decoration: underline; text-underline-offset: 2px; }
+.figure-modal-link:hover { color: #fff; }
 .figure-modal-close {
   position: absolute; top: 1rem; right: 1rem;
   background: transparent; border: none; color: #fff;

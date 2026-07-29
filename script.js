@@ -160,18 +160,19 @@
       fig.setAttribute("tabindex", "0");
       fig.setAttribute("role", "button");
       var obj = fig.querySelector("object[data]");
+      var srcUrl = obj ? obj.getAttribute("data") : null;
       if (obj) {
         var label = obj.getAttribute("aria-label") || "Figure";
         fig.setAttribute("aria-label", "Zoom: " + label);
       }
       var openModal = function () {
-        if (!obj) return;
+        if (!srcUrl) return;
         lastTrigger = fig;
-        var clone = obj.cloneNode(true);
-        clone.removeAttribute("role");
-        clone.removeAttribute("aria-label");
         modalInner.innerHTML = "";
-        modalInner.appendChild(clone);
+        var img = document.createElement("img");
+        img.src = srcUrl;
+        img.alt = obj ? (obj.getAttribute("aria-label") || "Figure") : "Figure";
+        modalInner.appendChild(img);
         var cap = fig.querySelector("figcaption");
         if (cap) {
           var capClone = document.createElement("p");
@@ -179,6 +180,13 @@
           capClone.textContent = cap.textContent;
           modalInner.appendChild(capClone);
         }
+        var link = document.createElement("a");
+        link.href = srcUrl;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "Open full-size SVG";
+        link.className = "figure-modal-link";
+        modalInner.appendChild(link);
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         modalClose.focus();
