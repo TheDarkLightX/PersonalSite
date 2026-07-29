@@ -256,7 +256,7 @@ That motivation does not make the outcome inevitable.
 
 It makes the work worth attempting.
 
-## No one is going to save you
+## No one is coming
 
 My first job was referral marketing. Later I earned from blogging, crypto
 mining, liquidity provision, and yield farming. None of those income streams
@@ -270,10 +270,12 @@ difficult to name in advance.
 
 The post-AGI economy may be similarly generative.
 
-My message is not that a platform will save everyone. It is:
+The airplane safety rule applies: secure your own oxygen mask before helping
+others. Use the productivity flywheel to build your own capability first, then
+use that capability to create opportunity for others.
 
-> No one is going to save you. Use the productivity as a force multiplier to
-> create new industries, new tasks, and new ways to protect what you value.
+> No one is coming. Use the productivity as a force multiplier to create new
+> industries, new tasks, and new ways to protect what you value.
 
 Some opportunities will be tiny. Some will be automated almost completely.
 Some will demand human judgment precisely because judgment has become the
