@@ -29,6 +29,25 @@
     });
   }
 
+  /* Capability ledger: surface the recruiter-facing path on older static pages. */
+  var primaryNav = document.getElementById("primary-nav");
+  if (primaryNav && !primaryNav.querySelector('a[href="capabilities.html"]')) {
+    var capabilitiesLink = document.createElement("a");
+    capabilitiesLink.href = "capabilities.html";
+    capabilitiesLink.textContent = "Capabilities";
+    var writingLink = primaryNav.querySelector('a[href="writing.html"]');
+    primaryNav.insertBefore(capabilitiesLink, writingLink || primaryNav.firstChild);
+  }
+
+  var proofLinks = document.querySelector(".proof-links");
+  if (proofLinks && !proofLinks.querySelector('a[href="capabilities.html"]')) {
+    var proofCapability = document.createElement("a");
+    proofCapability.href = "capabilities.html";
+    proofCapability.innerHTML = "<span>Capabilities</span><strong>Task evidence for remote work</strong>";
+    var evaluationLink = proofLinks.querySelector('a[href="evidence-strategy.html"]');
+    proofLinks.insertBefore(proofCapability, evaluationLink || null);
+  }
+
   /* Mobile navigation disclosure */
   var navToggle = document.querySelector("[data-nav-toggle]");
   var nav = document.getElementById("primary-nav");
