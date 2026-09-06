@@ -24,12 +24,12 @@ assets/dana-github-avatar.png       Local GitHub avatar asset
 case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
 case-studies/research-kernel.html   Research Kernel MCP case study page
-value.html                          Quantitative value case (rarity, costly signals, cost estimates)
+value.html                          Current value, curated capabilities, outcomes, and evidence paths
 writing.html                        Tutorial and interactive lab index
 network.html                        Professional network: people I work with, communities I contribute to
 ideas.html                          Somewhat original ideas I helped popularize, with lineages
 metrics.html                        Redirect stub to value.html (legacy)
-data/portfolio-metrics.json         Generated metrics consumed by value.html
+data/portfolio-metrics.json         Historical footprint and effort-model data (dated snapshot)
 tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
 assets/projects/<slug>/             Project screenshots (app.webp; see EDIT_ME_FIRST.md)
 EDIT_ME_FIRST.md                    Content maintenance checklist

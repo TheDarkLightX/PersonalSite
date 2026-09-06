@@ -1,0 +1,30 @@
+.value-offers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.value-offers article {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.value-offers h3 { margin: .5rem 0; }
+.value-offers p { font-size: .92rem; color: var(--muted); }
+.value-offers .eyebrow { margin: 0; font-size: .7rem; }
+.value-offers .card-actions { margin-top: auto; padding-top: .5rem; }
+.value-deliverable { border-top: 1px solid var(--line); padding-top: 1rem; }
+.value-deliverable strong { color: var(--text); }
+.value-figure { margin: 0; align-self: start; }
+.value-background { padding-top: 0; }
+.value-background details { border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.value-background summary { cursor: pointer; font-weight: 600; }
+.value-background summary:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
+.value-background p { color: var(--muted); font-size: .9rem; }
+#curated-value, #contribution, #compounding-value, #assess-value { scroll-margin-top: 84px; }
+@media (max-width: 680px) {
+  .value-offers { grid-template-columns: 1fr; }
+  .value-offers article { padding: 1.25rem; }
+}
