@@ -75,8 +75,8 @@
           <div class="card-actions"><a href="methodology.html#neuro-symbolic">How I work</a><a href="index.html#work">Projects and artifacts</a></div>
         </div>
         <figure class="workflow-figure value-figure">
-          <img src="assets/generated/candidate-spaces-workflow.webp" alt="Candidate hypotheses, witnesses, proofs, and designs connect to a checker and evidence artifacts." width="1536" height="1024" loading="lazy" decoding="async" />
-          <figcaption>LLMs explore and recombine candidates. Formal tools check specified claims. I choose the question, the representation, and the evidence standard. <a href="assets/generated/candidate-spaces-workflow.webp">View larger</a>.</figcaption>
+          <img src="assets/blender/checked-witness-maze.webp" alt="Blender maze illustration with a green route that passes the rules and a red move rejected for crossing a wall, beside a symbolic checker." width="1800" height="1125" loading="lazy" decoding="async" />
+          <figcaption>A witness-space example: a proposer suggests a route; the checker tests the maze rules. Green means valid under those rules. <a href="methodology.html#maze-witness">Try the moving maze</a> or <a href="assets/blender/checked-witness-maze.webp">view larger</a>.</figcaption>
         </figure>
       </div>
     </section>
@@ -147,8 +147,8 @@
           <p>A reusable abstraction, checker, or research tool can support many future tasks. Improving those capabilities can improve the process that produces the next result.</p>
         </div>
         <figure class="workflow-figure">
-          <img src="assets/generated/scaling-research-workflow.webp" alt="Human direction branches into coordinated agents whose proposals meet shared checks before producing artifacts." width="1536" height="1024" loading="lazy" decoding="async" />
-          <figcaption>Human direction → coordinated work → shared evidence standards → checked outputs. A conceptual scaling direction. <a href="assets/generated/scaling-research-workflow.webp">View larger</a>.</figcaption>
+          <img src="assets/blender/scaling-checked-workflows.webp" alt="Blender workflow illustration: human direction coordinates proposing, challenging, refining, and explaining; shared checks precede preserved artifacts and evidence." width="1800" height="1125" loading="lazy" decoding="async" />
+          <figcaption>Human direction → coordinated work → shared evidence standards → checked outputs. A conceptual scaling direction. <a href="assets/blender/scaling-checked-workflows.webp">View larger</a>.</figcaption>
         </figure>
         <div class="two-col">
           <div><h3>Current capability</h3><p>Human-guided neuro-symbolic workflows, public research tools, formal artifacts, software, and explanatory work. These are the foundation a collaborator can inspect today.</p></div>
@@ -158,6 +158,52 @@
         <div class="card-actions"><a href="capabilities.html#scaling">Scaling my workflow</a><a href="methodology.html#training-study">Current training research</a></div>
       </div>
     </section>
+
+    <!-- cost-estimates:start -->
+    <section class="section" id="cost-estimates" aria-labelledby="cost-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cost model · Updated September 6, 2026</p>
+          <h2 id="cost-heading">What would conventional development cost?</h2>
+          <p>A refreshed version of the earlier code-volume model, covering MPRD, ZenoDEX, and Formal Methods Philosophy. Other portfolio projects and unpublished work are outside this estimate.</p>
+        </div>
+        <div class="cost-summary">
+          <p class="eyebrow">Legacy pooled model · USD</p>
+          <p class="cost-range">$52.1M–$152.5M</p>
+          <p>Illustrative conventional rebuild-cost scenarios. These are model outputs, not a quote, measured savings, or my market value. The range is not a confidence interval.</p>
+        </div>
+        <p>The latest public commits contain <strong>909,096 selected nonblank lines</strong> across 4,175 files, up 14.0% from 797,416 in June. The count includes comments, tests, proofs, and examples within selected source files; it is a size proxy rather than physical source lines of code or verified authorship.</p>
+        <p class="cost-scroll-hint">Scroll the table horizontally to see each estimate.</p>
+        <div class="cost-table-wrap" role="region" aria-label="Repository cost scenarios; scroll horizontally on small screens" tabindex="0">
+          <table class="cost-table">
+            <caption>Per-repository cost scenarios</caption>
+            <thead><tr><th scope="col">Repository / pinned commit</th><th scope="col">Nonblank lines</th><th scope="col">Cost scenarios</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><a href="https://github.com/TheDarkLightX/MPRD/tree/f1a7e9d02e363efcf474c3c66d13d2951699707a">MPRD</a><small>f1a7e9d02e36</small></th><td>149,110</td><td>$7.8M–$20.1M</td></tr>
+              <tr><th scope="row"><a href="https://github.com/TheDarkLightX/ZenoDEX/tree/ee9f81a3164b63d63cdafef6e0ca409c9b38a265">ZenoDEX</a><small>ee9f81a3164b</small></th><td>702,843</td><td>$39.8M–$114.3M</td></tr>
+              <tr><th scope="row"><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/tree/ebe66495c7466707eb55bf30069f94937a9f0710">Formal Methods Philosophy</a><small>ebe66495c746</small></th><td>57,143</td><td>$2.9M–$6.9M</td></tr>
+            </tbody>
+            <tfoot><tr><th scope="row">Sum of separate estimates</th><td>909,096</td><td>$50.5M–$141.3M</td></tr></tfoot>
+          </table>
+        </div>
+        <p class="value-note">The headline retains the earlier method of pooling all three repositories before applying the formula. That produces a larger number than adding three separate estimates because effort scales nonlinearly. The original June pooled result was $44.5M–$129.7M under the older wage inputs.</p>
+        <details class="cost-assumptions">
+          <summary>Assumptions, sensitivity, and what the estimate can establish</summary>
+          <h3>Inputs and calculation</h3>
+          <p>Let K be selected nonblank lines divided by 1,000. The retained Basic COCOMO equations produce person-months: 2.4 × K<sup>1.05</sup> for the lower scenario and 3.0 × K<sup>1.12</sup> for the higher scenario. Cost equals person-months ÷ 12 × annual wage × labor multiplier. <a href="https://dwheeler.com/sloccount/sloccount.html">Formula reference</a>.</p>
+          <p>The <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">BLS May 2025 wage data</a>, checked September 6, 2026, supplies $135,980 at the median and $214,670 at the 90th-percentile threshold. The respective labor multipliers remain 1.50 and 1.38, giving assumed annual labor costs of $203,970 and $296,245. These multipliers are assumptions, not measured employer costs. No inflation forecast is added.</p>
+          <h3>How much the size assumption matters</h3>
+          <ul><li><strong>25% of the counted size:</strong> $12.2M–$32.3M</li><li><strong>50% of the counted size:</strong> $25.2M–$70.2M</li><li><strong>100% of the counted size:</strong> $52.1M–$152.5M</li></ul>
+          <p>The smaller-size cases are arbitrary sensitivity checks. They are not measured AI productivity discounts or estimates of how much work a rebuild would actually require.</p>
+          <h3>Limits of this model</h3>
+          <p>These older equations are extrapolated from a nonblank-line proxy and have not been calibrated for my repositories, AI-assisted development, formal proofs, or research artifacts. They do not establish equivalent human engineering years, production readiness, or the cost of reproducing the same functionality with a different design.</p>
+          <p>The collector retains the June source extensions and path exclusions for comparability. Known vendor, generated, data, internal, and specified derived-runtime paths are excluded; path filters cannot establish that every third-party or generated file is absent. Exact duplicate files remain in this comparison and are reported in the data. There is no semantic deduplication or authorship audit. Tests and proofs are counted within the footprint, without adding a second labor charge.</p>
+          <p>External audits, legal fees, deployment, and ongoing operations are not separately priced. A useful project quote would require a defined scope, acceptance criteria, a reuse plan, and measured delivery rates.</p>
+        </details>
+        <div class="card-actions"><a href="data/cost-estimates.json">Dated estimates and source commits</a><a href="data/cost-model-inputs.json">Wages and assumptions</a><a href="https://github.com/TheDarkLightX/PersonalSite/blob/main/docs/cost-estimates.md">Method and replay instructions</a></div>
+      </div>
+    </section>
+    <!-- cost-estimates:end -->
 
     <section class="section alt" id="assess-value">
       <div class="container two-col">
@@ -191,7 +237,7 @@
     <section class="section value-background">
       <div class="container">
         <details>
-          <summary>Earlier footprint and replacement-effort models</summary>
+          <summary>Archived June 2026 estimates and market comparisons</summary>
           <p>The earlier quantitative page used a June 17, 2026 data snapshot and conventional software-effort models. Those dated calculations remain available for inspection. They describe model assumptions and artifact volume; they do not establish my current market value, realized savings, or an equivalent number of human engineering years.</p>
           <div class="card-actions"><a href="https://github.com/TheDarkLightX/PersonalSite/blob/19e11260d86c389a6562d157b04bef7f0a1955d9/value.html">Earlier quantitative page</a><a href="https://github.com/TheDarkLightX/PersonalSite/blob/19e11260d86c389a6562d157b04bef7f0a1955d9/data/portfolio-metrics.json">June 2026 data snapshot</a><a href="https://github.com/TheDarkLightX/PersonalSite/blob/19e11260d86c389a6562d157b04bef7f0a1955d9/tools/collect_portfolio_metrics.py">Collector and assumptions</a></div>
         </details>

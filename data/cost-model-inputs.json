@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-06",
+  "scope": "The same three public repositories as the June 17, 2026 estimate; other portfolio projects and unpublished work are excluded.",
+  "repositories": [
+    {
+      "name": "MPRD",
+      "url": "https://github.com/TheDarkLightX/MPRD",
+      "commit": "f1a7e9d02e363efcf474c3c66d13d2951699707a",
+      "tree": "e8bcd421e4dfbd0a55747f25f4520e283c8933f3",
+      "commit_date": "2026-04-25T12:58:45Z"
+    },
+    {
+      "name": "ZenoDEX",
+      "url": "https://github.com/TheDarkLightX/ZenoDEX",
+      "commit": "ee9f81a3164b63d63cdafef6e0ca409c9b38a265",
+      "tree": "67d81c8d576602d97c7816ca31a0ced64554d172",
+      "commit_date": "2026-08-06T11:18:11Z"
+    },
+    {
+      "name": "Formal_Methods_Philosophy",
+      "url": "https://github.com/TheDarkLightX/Formal_Methods_Philosophy",
+      "commit": "ebe66495c7466707eb55bf30069f94937a9f0710",
+      "tree": "c2b2e5aec92f87003547509ac8af3af466c8a583",
+      "commit_date": "2026-08-10T03:50:59Z"
+    }
+  ],
+  "wages": {
+    "currency": "USD",
+    "observation_period": "May 2025",
+    "median_annual_usd": 135980,
+    "p90_annual_usd": 214670,
+    "source": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+    "source_last_modified": "2026-08-27",
+    "checked_on": "2026-09-06"
+  },
+  "scenarios": {
+    "low": {
+      "model": "Basic COCOMO organic",
+      "coefficient": 2.4,
+      "exponent": 1.05,
+      "annual_wage_usd": 135980,
+      "labor_multiplier": 1.5
+    },
+    "high": {
+      "model": "Basic COCOMO semidetached",
+      "coefficient": 3,
+      "exponent": 1.12,
+      "annual_wage_usd": 214670,
+      "labor_multiplier": 1.38
+    }
+  },
+  "model_source": "https://dwheeler.com/sloccount/sloccount.html",
+  "labor_multiplier_source": "Retained assumptions from the June 2026 site model; these are not measured employer overhead rates.",
+  "baseline": "data/portfolio-metrics.json"
+}

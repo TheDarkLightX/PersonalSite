@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-06",
+  "inputs": {
+    "schema_version": 1,
+    "as_of": "2026-09-06",
+    "scope": "The same three public repositories as the June 17, 2026 estimate; other portfolio projects and unpublished work are excluded.",
+    "repositories": [
+      {
+        "name": "MPRD",
+        "url": "https://github.com/TheDarkLightX/MPRD",
+        "commit": "f1a7e9d02e363efcf474c3c66d13d2951699707a",
+        "tree": "e8bcd421e4dfbd0a55747f25f4520e283c8933f3",
+        "commit_date": "2026-04-25T12:58:45Z"
+      },
+      {
+        "name": "ZenoDEX",
+        "url": "https://github.com/TheDarkLightX/ZenoDEX",
+        "commit": "ee9f81a3164b63d63cdafef6e0ca409c9b38a265",
+        "tree": "67d81c8d576602d97c7816ca31a0ced64554d172",
+        "commit_date": "2026-08-06T11:18:11Z"
+      },
+      {
+        "name": "Formal_Methods_Philosophy",
+        "url": "https://github.com/TheDarkLightX/Formal_Methods_Philosophy",
+        "commit": "ebe66495c7466707eb55bf30069f94937a9f0710",
+        "tree": "c2b2e5aec92f87003547509ac8af3af466c8a583",
+        "commit_date": "2026-08-10T03:50:59Z"
+      }
+    ],
+    "wages": {
+      "currency": "USD",
+      "observation_period": "May 2025",
+      "median_annual_usd": 135980,
+      "p90_annual_usd": 214670,
+      "source": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+      "source_last_modified": "2026-08-27",
+      "checked_on": "2026-09-06"
+    },
+    "scenarios": {
+      "low": {
+        "model": "Basic COCOMO organic",
+        "coefficient": 2.4,
+        "exponent": 1.05,
+        "annual_wage_usd": 135980,
+        "labor_multiplier": 1.5
+      },
+      "high": {
+        "model": "Basic COCOMO semidetached",
+        "coefficient": 3,
+        "exponent": 1.12,
+        "annual_wage_usd": 214670,
+        "labor_multiplier": 1.38
+      }
+    },
+    "model_source": "https://dwheeler.com/sloccount/sloccount.html",
+    "labor_multiplier_source": "Retained assumptions from the June 2026 site model; these are not measured employer overhead rates.",
+    "baseline": "data/portfolio-metrics.json"
+  },
+  "measure": "Nonblank lines in selected source/proof files; includes comments, tests and examples. Not physical SLOC or verified authorship.",
+  "method": "June 2026 source extensions and publication exclusions, replayed on pinned Git objects. Primary scenario pools the three repositories to preserve the prior formula. Duplicate files are reported, not removed from this comparison.",
+  "repositories": [
+    {
+      "name": "MPRD",
+      "url": "https://github.com/TheDarkLightX/MPRD",
+      "commit": "f1a7e9d02e363efcf474c3c66d13d2951699707a",
+      "tree": "e8bcd421e4dfbd0a55747f25f4520e283c8933f3",
+      "commit_date": "2026-04-25T12:58:45Z",
+      "selected_files": 697,
+      "selected_nonblank_lines": 149110,
+      "exact_duplicate_nonblank_lines_within_repo": 52,
+      "scenarios": {
+        "low": {
+          "person_months": 459.6141,
+          "cost_usd": 7812291
+        },
+        "high": {
+          "person_months": 815.5467,
+          "cost_usd": 20133442
+        }
+      }
+    },
+    {
+      "name": "ZenoDEX",
+      "url": "https://github.com/TheDarkLightX/ZenoDEX",
+      "commit": "ee9f81a3164b63d63cdafef6e0ca409c9b38a265",
+      "tree": "67d81c8d576602d97c7816ca31a0ced64554d172",
+      "commit_date": "2026-08-06T11:18:11Z",
+      "selected_files": 3108,
+      "selected_nonblank_lines": 702843,
+      "exact_duplicate_nonblank_lines_within_repo": 1925,
+      "scenarios": {
+        "low": {
+          "person_months": 2341.0597,
+          "cost_usd": 39792162
+        },
+        "high": {
+          "person_months": 4630.2301,
+          "cost_usd": 114306723
+        }
+      }
+    },
+    {
+      "name": "Formal_Methods_Philosophy",
+      "url": "https://github.com/TheDarkLightX/Formal_Methods_Philosophy",
+      "commit": "ebe66495c7466707eb55bf30069f94937a9f0710",
+      "tree": "c2b2e5aec92f87003547509ac8af3af466c8a583",
+      "commit_date": "2026-08-10T03:50:59Z",
+      "selected_files": 370,
+      "selected_nonblank_lines": 57143,
+      "exact_duplicate_nonblank_lines_within_repo": 0,
+      "scenarios": {
+        "low": {
+          "person_months": 167.8891,
+          "cost_usd": 2853695
+        },
+        "high": {
+          "person_months": 278.5607,
+          "cost_usd": 6876842
+        }
+      }
+    }
+  ],
+  "selected_nonblank_lines": 909096,
+  "selected_files": 4175,
+  "manifest_sha256": "b6abff958a762cc92aee62ba1441f93561c855811774367b9ac232716fe7e23d",
+  "pooled_scenarios": {
+    "low": {
+      "person_months": 3067.2662,
+      "cost_usd": 52135858
+    },
+    "high": {
+      "person_months": 6176.809,
+      "cost_usd": 152487192
+    }
+  },
+  "sum_of_repository_scenarios_usd": {
+    "low": 50458148,
+    "high": 141317007
+  },
+  "size_sensitivity": [
+    {
+      "input_fraction": 0.25,
+      "scenarios": {
+        "low": {
+          "person_months": 715.4652,
+          "cost_usd": 12161119
+        },
+        "high": {
+          "person_months": 1307.546,
+          "cost_usd": 32279454
+        }
+      }
+    },
+    {
+      "input_fraction": 0.5,
+      "scenarios": {
+        "low": {
+          "person_months": 1481.392,
+          "cost_usd": 25179960
+        },
+        "high": {
+          "person_months": 2841.9117,
+          "cost_usd": 70158416
+        }
+      }
+    },
+    {
+      "input_fraction": 1.0,
+      "scenarios": {
+        "low": {
+          "person_months": 3067.2662,
+          "cost_usd": 52135858
+        },
+        "high": {
+          "person_months": 6176.809,
+          "cost_usd": 152487192
+        }
+      }
+    }
+  ],
+  "baseline": {
+    "as_of": "2026-06-17T23:26:57+00:00",
+    "selected_nonblank_lines": 797416,
+    "low_cost_usd": 44463458,
+    "high_cost_usd": 129692220,
+    "line_change": 111680,
+    "line_change_percent": 14.01
+  },
+  "limits": [
+    "Scenario outputs, not confidence bounds, a rebuild quote, a measured cost, savings, or market value.",
+    "Legacy COCOMO equations are extrapolated using a nonblank-line proxy. They are not calibrated for these repositories, AI-assisted development, formal proofs, or mixed research artifacts.",
+    "Known vendor/generated/data/internal paths are excluded; the path filters do not prove all third-party or generated content is absent.",
+    "No semantic deduplication or contribution/authorship audit was performed. Tests and proofs are included once in the selected file footprint, not added as extra labor.",
+    "Pooling independent repositories increases the nonlinear model output; the sum of separate repository scenarios is also reported.",
+    "The 25% and 50% size cases are arbitrary input sensitivities, not measured AI productivity discounts.",
+    "Wages use May 2025 BLS data without an inflation forecast. Labor multipliers are retained assumptions; external audits, legal fees, deployment and ongoing operations are not separately priced."
+  ]
+}

@@ -76,8 +76,10 @@ itself on a 404). To turn a case-study "coming soon" box into a real clip, repla
 - [x] Public email set to `p33rl3ss1@gmail.com` (the `mailto:` in `index.html`). Change it there if
       you ever move to a domain address.
 - [ ] Optionally add a downloadable CV PDF. The site is the canonical CV either way.
-- [ ] Re-run `tools/collect_portfolio_metrics.py` before publishing so figures and market comparables
-      are current; market caps and exploit-loss totals move.
+- [ ] For current cost estimates, update `data/cost-model-inputs.json`, replay
+      `tools/collect_cost_estimates.py`, and render with `tools/render_cost_estimates.py`.
+      Follow `docs/cost-estimates.md`; keep the June snapshot unchanged for comparison.
+      Refresh and date market comparables separately if they are presented as current.
 - [ ] Keep every quantitative claim sourced and dated. Dollar figures are replacement-cost /
       conventional build-cost estimates and category benchmarks, not valuations. Do not restate them
       as market value.

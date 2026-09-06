@@ -25,12 +25,18 @@ case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
 case-studies/research-kernel.html   Research Kernel MCP case study page
 value.html                          Current value, curated capabilities, outcomes, and evidence paths
+data/cost-model-inputs.json          Dated public commits, wages, and cost-scenario assumptions
+data/cost-estimates.json             Current three-repository cost sensitivity and comparison
+tools/collect_cost_estimates.py      Replays the cost snapshot from pinned Git objects
+tools/render_cost_estimates.py       Renders the Value cost section from the computed snapshot
+docs/cost-estimates.md               Cost methodology, limitations, and replay instructions
+assets/blender/                     Original maze-checker and workflow-scaling illustrations
 writing.html                        Tutorial and interactive lab index
 network.html                        Professional network: people I work with, communities I contribute to
 ideas.html                          Somewhat original ideas I helped popularize, with lineages
 metrics.html                        Redirect stub to value.html (legacy)
 data/portfolio-metrics.json         Historical footprint and effort-model data (dated snapshot)
-tools/collect_portfolio_metrics.py  Regenerates portfolio-metrics.json from the public repos
+tools/collect_portfolio_metrics.py  Historical collector and shared footprint exclusions
 assets/projects/<slug>/             Project screenshots (app.webp; see EDIT_ME_FIRST.md)
 EDIT_ME_FIRST.md                    Content maintenance checklist
 ```

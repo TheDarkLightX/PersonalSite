@@ -24,7 +24,26 @@
 .value-background summary:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
 .value-background p { color: var(--muted); font-size: .9rem; }
 #curated-value, #contribution, #compounding-value, #assess-value { scroll-margin-top: 84px; }
+#cost-estimates { scroll-margin-top: 84px; }
+.cost-summary { border-block: 1px solid var(--line); padding: 1.5rem 0; margin-bottom: 1.5rem; }
+.cost-summary .cost-range { font-size: clamp(1.7rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.2; letter-spacing: -.04em; margin: .6rem 0 1rem; overflow-wrap: anywhere; }
+.cost-summary > p:last-child { max-width: 68ch; color: var(--muted); }
+.cost-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+.cost-scroll-hint { display: none; }
+.cost-table-wrap:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.cost-table { width: 100%; min-width: 570px; border-collapse: collapse; font-size: .86rem; }
+.cost-table caption { text-align: left; color: var(--muted); padding-bottom: .8rem; }
+.cost-table th, .cost-table td { padding: .85rem .5rem; text-align: left; border-bottom: 1px solid var(--line); }
+.cost-table th { font-weight: 600; }
+.cost-table th:first-child { padding-left: 0; }
+.cost-table td:last-child { white-space: nowrap; }
+.cost-table small { display: block; color: var(--muted); font: .7rem var(--font-mono); margin-top: .3rem; }
+.cost-assumptions { border-block: 1px solid var(--line); padding: 1.25rem 0; margin: 1.5rem 0; }
+.cost-assumptions summary { cursor: pointer; font-weight: 600; }
+.cost-assumptions p, .cost-assumptions li { color: var(--muted); font-size: .9rem; }
+.cost-assumptions li { margin: .5rem 0; }
 @media (max-width: 680px) {
+  .cost-scroll-hint { display: block; color: var(--muted); font-size: .8rem; margin-bottom: -.75rem; }
   .value-offers { grid-template-columns: 1fr; }
   .value-offers article { padding: 1.25rem; }
 }
