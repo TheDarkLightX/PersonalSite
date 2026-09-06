@@ -987,6 +987,45 @@ h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
 .bignum-row > div strong { display: block; font-size: .88rem; color: var(--muted); margin-top: .4rem; font-weight: 500; }
 
 /* ===== Method steps ===== */
+#research, #neuro-symbolic, #training-study, #neuro-symbolic-skills, #scaling, #maze-witness, #candidate-spaces, #scientific-method, #alignment-method {
+  scroll-margin-top: 84px;
+}
+.workflow-figure {
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+}
+.workflow-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fafafa;
+}
+.workflow-figure figcaption {
+  padding: .85rem 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+.candidate-spaces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  margin: 1.5rem 0 2rem;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.candidate-spaces > div {
+  padding: 1.25rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.candidate-spaces dt { font-weight: 600; }
+.candidate-spaces dd {
+  margin: .5rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
 .method-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1475,4 +1514,3 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
 }
 .figure-modal-close:hover { opacity: 1; }
 .figure-modal-close:focus { outline: 2px solid #fff; outline-offset: 2px; }
-

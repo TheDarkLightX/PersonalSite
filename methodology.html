@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Engineering Method | Dana Edwards</title>
-  <meta name="description" content="How Dana Edwards makes engineering decisions in AI-augmented work: start from system semantics, find established best practices, choose the right abstraction and verification method, and experimentally derive better practice when no reliable standard exists." />
+  <meta name="description" content="Dana Edwards' neuro-symbolic research and engineering method: LLM-assisted questions and hypotheses, Research Kernel Protocol MCP, symbolic checks, counterexamples, and reproducible experiments." />
   <link rel="canonical" href="https://www.danaedwards.info/methodology.html" />
   <meta property="og:title" content="Engineering Method | Dana Edwards" />
-  <meta property="og:description" content="Best practices first. Evidence when practice is unclear. Architecture, independent oracles, formal models, boundary tests, and explicit claim limits for AI-augmented engineering." />
+  <meta property="og:description" content="How I combine LLM-assisted discovery, my Research Kernel Protocol MCP, formal models, and independent evidence to develop and test research hypotheses." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/methodology.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Engineering Method | Dana Edwards" />
-  <meta name="twitter:description" content="How I decide what to build, which abstraction to use, and what evidence is sufficient to trust agent-written software." />
+  <meta name="twitter:description" content="Neuro-symbolic research: LLM-assisted questions and hypotheses, symbolic checks, counterexamples, and reproducible evidence." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
@@ -21,6 +21,7 @@
     (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
   </script>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/maze-witness.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -54,10 +55,127 @@
         <p class="eyebrow">Engineering method</p>
         <h1>Best practices first. Evidence when practice is unclear.</h1>
         <p class="lede">I use AI agents as implementation leverage, but I do not outsource the engineering model to them. My job is to understand what the system means, identify the strongest known way to build it, choose the abstraction and verification strategy, and decide what evidence is sufficient to accept the result.</p>
+        <p>My research also uses neuro-symbolic workflows: LLMs help me formulate questions and hypotheses, while explicit models and independent checks make those ideas testable. I guide the process and build tools to preserve its evidence.</p>
         <div class="hero-actions">
+          <a class="button secondary" href="#neuro-symbolic">Neuro-symbolic workflow</a>
           <a class="button primary" href="capabilities.html">Capability evidence</a>
           <a class="button secondary" href="evidence-strategy.html">Verification path</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="neuro-symbolic" class="section alt" aria-labelledby="neuro-symbolic-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Research method</p>
+          <h2 id="neuro-symbolic-heading">Neural search. Symbolic structure. Checkable evidence.</h2>
+          <p>I use LLMs to propose, predict, analyze, and recombine ideas. They help me arrive at research questions, competing hypotheses, and useful abstractions. Deterministic tools supply replayable checks of the mathematical and logical claims that emerge.</p>
+          <nav class="card-actions" aria-label="Research method topics"><a href="#candidate-spaces">Candidate spaces</a><a href="#maze-witness">Moving maze</a><a href="#alignment-method">Alignment</a><a href="#scientific-method">Scientific method</a><a href="#training-study">Training study</a></nav>
+        </div>
+        <figure class="workflow-figure">
+          <img src="assets/generated/candidate-spaces-workflow.webp" alt="Abstract illustration: candidate hypotheses, witnesses, proofs, and designs are explored and recombined before symbolic checks produce evidence; a return path represents refinement." width="1536" height="1024" loading="lazy" decoding="async" />
+          <figcaption>Neural proposers explore and recombine candidates. Deterministic tools check formal claims. Results and failures guide further search. Conceptual illustration. <a href="assets/generated/candidate-spaces-workflow.webp">View larger</a>.</figcaption>
+        </figure>
+        <div id="candidate-spaces" class="section-heading">
+          <h3>LLMs explore candidate spaces</h3>
+          <p>A space is a set of possible candidates for a question. LLMs are neural models that propose, predict, analyze, and recombine candidates across many such spaces. They can transfer a useful structure between problems or suggest a new representation after a failed check.</p>
+          <p>A search can be exhaustive within a finite, declared space when every candidate is enumerated and checked. Other searches are partial or heuristic. I distinguish complete coverage from sampled exploration: both can produce valuable witnesses, counterexamples, and new questions, but their conclusions have different scopes.</p>
+        </div>
+        <dl class="candidate-spaces">
+          <div><dt>Hypothesis spaces</dt><dd>Possible explanations and scientific models. Predictions and attempts at falsification help distinguish them using empirical observations.</dd></div>
+          <div><dt>Witness spaces</dt><dd>Candidate objects that could demonstrate a claim, such as a satisfying assignment, construction, or certificate. A verifier checks whether the proposed object satisfies the specified relation.</dd></div>
+          <div><dt>Proof spaces</dt><dd>Possible arguments, lemmas, and proof constructions. An LLM may propose the proof; a tool such as Lean checks the formal result under its stated assumptions.</dd></div>
+          <div><dt>Design and abstraction spaces</dt><dd>Alternative algorithms, representations, and decompositions. Invariant checks, equivalence checks, and experiments assess the properties that matter for the problem.</dd></div>
+        </dl>
+        <div id="maze-witness" class="maze-demo" data-maze-demo>
+          <div class="maze-demo-top">
+            <p class="eyebrow">An interactive analogy</p>
+            <h3>The proposer searches. The checker decides.</h3>
+            <p>Imagine an LLM proposing the trajectory of a red dot through a maze. The dot leaves a red trail as the proposal is inspected. The checker establishes whether its start, moves, and destination satisfy the rules. Only an accepted trajectory turns green.</p>
+          </div>
+          <svg viewBox="0 0 416 224" role="img" aria-labelledby="maze-title maze-desc">
+            <title id="maze-title">A finite maze with a proposed trajectory from S to G</title>
+            <desc id="maze-desc">Compare a legal route with a shortcut through a wall. The moving dot traces the proposed route; the separate checker determines acceptance. Deterministic exploration can also enumerate all reachable positions.</desc>
+          </svg>
+          <div class="maze-controls">
+            <label>Example proposal<select aria-label="Example proposed trajectory"><option value="valid">Route through corridors</option><option value="detour">Legal route with a detour</option><option value="wall">Shortcut through a wall</option></select></label>
+            <button type="button" data-maze-run="check">Check trajectory</button>
+            <button type="button" data-maze-run="explore">Explore finite maze</button>
+            <button type="button" data-maze-pause hidden>Pause</button>
+            <button type="button" data-maze-reset>Reset</button>
+          </div>
+          <div class="maze-result" role="status" aria-live="polite" aria-atomic="true"><strong data-maze-status>Example proposals are ready.</strong><p data-maze-detail>Enable JavaScript to animate and check a trajectory.</p></div>
+          <p class="maze-scope">This demo replays example proposals; it does not call a live LLM. The deterministic checker runs in your browser. In exploration mode, the dot marks the search cursor rather than an adjacent-step route. Reduced-motion preferences are respected.</p>
+        </div>
+        <p>A finite state space can permit exhaustive exploration, as this maze demonstrates. An unbounded maze may still have a finite solution trajectory that a checker can verify. A partial search that finds no solution does not, by itself, establish that no solution exists.</p>
+        <div class="two-col">
+          <div><h3>First establish admissibility</h3><p>Agentic behavior is a trajectory of actions, observations, and consequences. Reaching a goal does not excuse a forbidden intermediate action. A constitution can define hard constraints that every accepted trajectory must satisfy, including permissions and evidence requirements.</p></div>
+          <div><h3>Then compare value</h3><p>Accepted trajectories can still differ in cost, usefulness, and effects on people. In this maze, the legal detour costs more moves. In a real system, preferences and heuristics guide search among admissible options. Mathematical optimality requires a specified objective and sufficient evidence about the alternatives; a passing check alone does not establish it.</p></div>
+        </div>
+        <div id="alignment-method" class="section-heading">
+          <h3>From maze trajectories to alignment</h3>
+          <p>The maze walls stand for specified constraints; the goal and route costs stand for objectives and preferences. Neuro-symbolic alignment combines learning better proposals with explicit checks on what a system may do. Human values determine the requirements, and the adequacy of that specification remains open to scrutiny.</p>
+        </div>
+        <dl class="candidate-spaces">
+          <div><dt>Training shapes proposals</dt><dd>Use a constitution and checked examples to reward useful, permitted trajectories, honest uncertainty, and justified stopping. Counterexamples can reveal when a reward favors a shortcut through a wall.</dd></div>
+          <div><dt>Monitor models raise concerns</dt><dd>A learned monitor can analyze proposed actions, observed effects, and longer histories for anomalies or emerging failure patterns. Its flags can trigger a pause or review under a defined policy. Its reassurance is not a proof of safety.</dd></div>
+          <div><dt>Checkers enforce specified boundaries</dt><dd>Before a consequential action, check the relevant permissions, scope, and other encoded obligations. An action is accepted because those checks pass. Suggestions from another agent do not create new authority.</dd></div>
+          <div><dt>Evidence improves the next iteration</dt><dd>Preserve failures and their causes in Research Kernel. Revise the specification, training examples, or enforcement boundary as appropriate, then evaluate again. Measure unsafe proposals and prevented effects separately.</dd></div>
+        </dl>
+        <div class="two-col">
+          <div><h3>Can monitors prevent incidents?</h3><p>They can help, but prevention is not established by retrospective detection. <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI's July 2026 incident account</a> reports earlier warning signs and monitoring improvements made with hindsight. The <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR and Redwood investigation</a> describes limitations of AI-assisted analysis. Detection, timely intervention, and effective containment each need evidence.</p></div>
+          <div><h3>What a symbolic incident model adds</h3><p>Represent authority, task scope, actions, and observed effects as states and transitions. A forbidden transition becomes a counterexample that can inform a regression check. Prevention still requires a faithful abstraction and enforcement over every relevant action channel: a checker cannot rule out effects its model or observations omit.</p></div>
+        </div>
+        <ol class="method-steps">
+          <li><b>1. Develop the candidates</b><p>I bring the objective, domain context, and judgment. LLMs help explore explanations, alternative representations, predictions, and edge cases. I select questions that can be meaningfully tested against prior work and evidence.</p></li>
+          <li><b>2. Check and challenge</b><p>I choose representations and tools suited to the claim: Lean for checked proofs, Z3 for encoded constraints, Tau for formal specifications and logical reasoning, and other checkers as needed. In empirical work, I seek observations and experiments that could falsify the hypothesis.</p></li>
+          <li><b>3. Preserve what the evidence supports</b><p>My custom Research Kernel Protocol MCP connects hypotheses with sources, artifacts, dependencies, and refutation attempts. I preserve failures, narrow conclusions to what was checked, and use the result to guide the next investigation.</p></li>
+        </ol>
+        <div class="two-col">
+          <div>
+            <h3>My role and my tools</h3>
+            <p>Today I guide the research and judge the scope of a conclusion. Alongside Lean, Z3, and Tau, I use LEAP to investigate abstractions, my <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel Protocol MCP</a> to organize the investigation, and <a href="https://github.com/TheDarkLightX/PopperPad">PopperPad</a> to preserve hypotheses and falsification evidence.</p>
+          </div>
+          <div>
+            <h3>What the checks establish</h3>
+            <p>In mathematics, evidence quality comes from the proof and the checker, under stated definitions and assumptions. Solvers establish results about the constraints they receive. Research Kernel records evidence and enforces promotion requirements; the attached check or experiment supplies the substantive support.</p>
+            <div class="card-actions"><a href="capabilities.html#neuro-symbolic-skills">Skills and evidence</a><a href="capabilities.html#scaling">How I plan to scale this workflow</a></div>
+          </div>
+        </div>
+        <figure id="scientific-method" class="workflow-figure">
+          <img src="assets/generated/hypothesis-selection.webp" alt="Abstract illustration: competing hypothesis paths pass through successive tests; some stop or return for revision, while two continue with different amounts of supporting evidence." width="1536" height="1024" loading="lazy" decoding="async" />
+          <figcaption>Candidates → predictions and attempted refutations → provisional support. Surviving paths remain open to further testing. Conceptual illustration of my Popper-inspired method. <a href="assets/generated/hypothesis-selection.webp">View larger</a>.</figcaption>
+        </figure>
+        <div class="two-col">
+          <div>
+            <h3>Science: survival of the strongest hypothesis</h3>
+            <p>My scientific method is inspired by Karl Popper: seek demanding attempts to falsify competing hypotheses. The hypothesis that best survives those tests earns the strongest provisional support. A useful test must be capable of exposing a failure; repeated easy tests or agreement among models add little.</p>
+          </div>
+          <div>
+            <h3>Successful predictions count as evidence</h3>
+            <p>A scientific model earns support when it makes a prediction and the predicted outcome is independently observed. Evidence is stronger when the prediction is specific, recorded before the outcome, and distinguishes that scientific model from plausible alternatives. LLMs help develop and analyze these models; the observations provide the empirical evidence. I weigh predictive success alongside attempts at falsification.</p>
+            <p>Support remains provisional: new evidence can overturn a conclusion, several hypotheses may remain viable, and a test may be flawed. I preserve counterevidence and unresolved alternatives so later work can challenge the result.</p>
+          </div>
+        </div>
+        <p class="value-note">This public overview shows the principles, responsibilities, and evidence standards. Detailed prompts, orchestration settings, training recipes, and selection heuristics remain private.</p>
+      </div>
+    </section>
+
+    <section id="training-study" class="section" aria-labelledby="training-study-heading">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Current research question</p>
+          <h2 id="training-study-heading">Can checked examples improve learned behavior?</h2>
+          <blockquote class="pull-quote"><p>At a fixed training budget, does symbolically checked, counterexample-directed training improve constitutional behavior compared with ordinary LLM-generated training data?</p></blockquote>
+          <p>My <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/market-for-behaviors.md">Market for Behaviors</a> essay motivates the incentive question: what behavior does a training process actually reward? My <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">formal methods work</a> supplies a way to express and check some of those requirements before expensive training.</p>
+          <p>The proposed loop is: specify a behavioral constitution, generate candidate examples, check the modeled obligations, use counterexamples to revise the training set, train, and evaluate on unseen scenario families. The constitution includes useful task completion alongside permissions, evidence, uncertainty, and appropriate stopping.</p>
+        </div>
+        <div class="snapshot-list">
+          <article><strong>Comparison</strong><p>Use the same base model, training budget, and evaluation protocol for ordinary LLM-generated data and data improved through symbolic checks and counterexamples. Report data preparation and teacher-model costs separately. Include an untrained baseline and a prompt-only control.</p></article>
+          <article><strong>Measures</strong><p>Track rule violations, useful task completion, unsupported claims, appropriate uncertainty, unnecessary refusals, and compute cost. Measure the learned policy's proposals separately from runtime blocking so enforcement is not mistaken for improved training. Keep evaluation labels independently reviewed and reserve unseen scenario families for the final comparison.</p></article>
+          <article><strong>Current evidence</strong><p>The initial demonstrator uses a finite behavior contract and a tabular learner to inspect reward choices. LLM assistance currently operates in the design loop. Neural weight updates and a demonstrated improvement on held-out neural-model behavior remain future milestones.</p></article>
+          <article><strong>Research context</strong><p><a href="https://arxiv.org/abs/2212.08073">Constitutional AI</a> informs principle-guided feedback; <a href="https://proceedings.mlr.press/v80/icarte18a.html">reward machines</a> inform explicit reward structure; <a href="https://arxiv.org/abs/2411.01111">rule-based rewards</a> inform rule-guided feedback. These are starting points for the experiment, not evidence that this particular method succeeds.</p></article>
         </div>
       </div>
     </section>
@@ -229,5 +347,7 @@ formal / behavioral model
   </footer>
 
   <script src="script.js"></script>
+  <script src="assets/js/maze-witness-core.js"></script>
+  <script src="assets/js/maze-witness.js"></script>
 </body>
 </html>
