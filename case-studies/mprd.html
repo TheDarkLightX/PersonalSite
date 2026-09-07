@@ -122,20 +122,20 @@
           </section>
 
           <section id="reviewer-path">
-            <h2>What a reviewer should inspect first</h2>
+            <h2>Start here</h2>
             <ol>
               <li><code>README.md</code> - high-level thesis and architecture.</li>
               <li><code>crates/mprd-core/</code> - core types and execution-boundary language.</li>
-              <li><code>proofs/lean/</code> - proof artifacts and theorem surfaces.</li>
+              <li><code>proofs/lean/</code> - proofs and theorem statements.</li>
               <li><code>docs/RC1_BLOCKERS.md</code> - honest remaining gaps before stronger release claims.</li>
-              <li><code>docs/PRODUCTION_READINESS.md</code> - implementation status and production-readiness posture.</li>
+              <li><code>docs/PRODUCTION_READINESS.md</code> - implementation status and requirements before deployment.</li>
             </ol>
-            <h3>Suggested 10-minute review script</h3>
+            <h3>A 10-minute review</h3>
             <p>Open the README, then inspect the core execution token / proof bundle types. Finally, read the blocker board before evaluating any high-level safety claim.</p>
           </section>
 
           <section id="claims">
-            <h2>Claim / evidence map</h2>
+            <h2>Claims and evidence</h2>
             <table class="claim-table">
               <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
               <tbody>
@@ -159,7 +159,7 @@
           </section>
 
           <section id="limits">
-            <h2>Limitations to state clearly</h2>
+            <h2>What this does and doesn't establish</h2>
             <ul>
               <li>A formal gate is only as good as its policy, state provenance, implementation boundary, and deployment assumptions.</li>
               <li>Architecture-level separation gives a bounded claim about the execution boundary.</li>

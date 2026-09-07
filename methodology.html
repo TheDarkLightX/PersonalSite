@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Engineering Method | Dana Edwards</title>
-  <meta name="description" content="Dana Edwards' neuro-symbolic research and engineering method: LLM-assisted questions and hypotheses, Research Kernel Protocol MCP, symbolic checks, counterexamples, and reproducible experiments." />
+  <meta name="description" content="How I use LLMs, Research Kernel Protocol MCP, symbolic checks, counterexamples, and reproducible experiments to develop and test research ideas." />
   <link rel="canonical" href="https://www.danaedwards.info/methodology.html" />
   <meta property="og:title" content="Engineering Method | Dana Edwards" />
   <meta property="og:description" content="How I combine LLM-assisted discovery, my Research Kernel Protocol MCP, formal models, and independent evidence to develop and test research hypotheses." />
@@ -53,8 +53,8 @@
       <div class="container">
         <a class="breadcrumb" href="index.html">Back to home</a>
         <p class="eyebrow">Engineering method</p>
-        <h1>Best practices first. Evidence when practice is unclear.</h1>
-        <p class="lede">I use AI agents as implementation leverage, but I do not outsource the engineering model to them. My job is to understand what the system means, identify the strongest known way to build it, choose the abstraction and verification strategy, and decide what evidence is sufficient to accept the result.</p>
+        <h1>Start with what works. Test the rest.</h1>
+        <p class="lede">I use AI agents to help build systems. I decide what the system needs to do, look for methods that have worked before, and choose how to represent and check the problem. I remain responsible for deciding whether the result meets those requirements.</p>
         <p>My research also uses neuro-symbolic workflows: LLMs help me formulate questions and hypotheses, while explicit models and independent checks make those ideas testable. I guide the process and build tools to preserve its evidence.</p>
         <div class="hero-actions">
           <a class="button secondary" href="#neuro-symbolic">Neuro-symbolic workflow</a>
@@ -69,7 +69,7 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Research method</p>
-          <h2 id="neuro-symbolic-heading">Neural search. Symbolic structure. Checkable evidence.</h2>
+          <h2 id="neuro-symbolic-heading">Explore ideas, then check them.</h2>
           <p>I use LLMs to propose, predict, analyze, and recombine ideas. They help me arrive at research questions, competing hypotheses, and useful abstractions. Deterministic tools supply replayable checks of the mathematical and logical claims that emerge.</p>
           <nav class="card-actions" aria-label="Research method topics"><a href="#candidate-spaces">Candidate spaces</a><a href="#maze-witness">Moving maze</a><a href="#alignment-method">Alignment</a><a href="#scientific-method">Scientific method</a><a href="#training-study">Training study</a></nav>
         </div>
@@ -110,8 +110,8 @@
         </div>
         <p>A finite state space can permit exhaustive exploration, as this maze demonstrates. An unbounded maze may still have a finite solution trajectory that a checker can verify. A partial search that finds no solution does not, by itself, establish that no solution exists.</p>
         <div class="two-col">
-          <div><h3>First establish admissibility</h3><p>Agentic behavior is a trajectory of actions, observations, and consequences. Reaching a goal does not excuse a forbidden intermediate action. A constitution can define hard constraints that every accepted trajectory must satisfy, including permissions and evidence requirements.</p></div>
-          <div><h3>Then compare value</h3><p>Accepted trajectories can still differ in cost, usefulness, and effects on people. In this maze, the legal detour costs more moves. In a real system, preferences and heuristics guide search among admissible options. Mathematical optimality requires a specified objective and sufficient evidence about the alternatives; a passing check alone does not establish it.</p></div>
+          <div><h3>First, check the rules</h3><p>Agentic behavior is a trajectory of actions, observations, and consequences. Reaching a goal does not excuse a forbidden intermediate action. A constitution can define hard constraints that every accepted trajectory must satisfy, including permissions and evidence requirements.</p></div>
+          <div><h3>Then compare the options</h3><p>Accepted trajectories can still differ in cost, usefulness, and effects on people. In this maze, the legal detour costs more moves. In a real system, preferences and heuristics guide search among admissible options. Mathematical optimality requires a specified objective and sufficient evidence about the alternatives; a passing check alone does not establish it.</p></div>
         </div>
         <div id="alignment-method" class="section-heading">
           <h3>From maze trajectories to alignment</h3>
@@ -184,9 +184,9 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">The distinction</p>
-          <h2>This is not vibe coding. It is architecture with autonomous implementation.</h2>
-          <p>Generated code is not the source of truth. The source of truth is the system model, the expected behavior, and the evidence required to justify a claim about the implementation.</p>
-          <p>The implementation can be highly automated. The high-value decisions are upstream: what the system is for, what must remain invariant, which representation makes those requirements tractable, and which independent checks can distinguish a correct implementation from a plausible wrong one.</p>
+          <h2>Think it through before you build.</h2>
+          <p>Before generating code, I describe the system, its expected behavior, and the evidence I will need to accept the implementation.</p>
+          <p>I can automate much of the implementation once I have answered the basic questions: what is the system for, which rules must always hold, how should I represent them, and which independent checks will catch mistakes?</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
@@ -207,17 +207,17 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Decision loop</p>
-          <h2>How I arrive at a technical decision.</h2>
-          <p>The process is deliberately evidence-seeking. Established practice gets the first hearing; novelty has to earn its place.</p>
+          <h2>How I make technical decisions.</h2>
+          <p>I start with methods that have worked before. If I try something new, I test whether it helps.</p>
         </div>
         <ol class="method-steps">
-          <li><b>1. Understand the system semantically</b><p>Start with what the product means in practice: user expectations, economic behavior, failure modes, operational constraints, and the domain experience that a specification may omit. A DEX, for example, is not merely swap math. It includes quoting, slippage, approvals, transaction state, failure recovery, liquidity behavior, routing, wallet state, gas, and UX that makes those states intelligible.</p></li>
-          <li><b>2. Find the best-known practice</b><p>Before inventing a method, look for mature architecture, testing, UX, security, and verification practice. Ask what experienced practitioners already know, which failure modes motivated the practice, and whether it actually applies to this problem.</p></li>
+          <li><b>1. Understand the problem</b><p>Start with what the product means in practice: user expectations, economic behavior, failure modes, operational constraints, and the domain experience that a specification may omit. A DEX, for example, is not merely swap math. It includes quoting, slippage, approvals, transaction state, failure recovery, liquidity behavior, routing, wallet state, gas, and UX that makes those states intelligible.</p></li>
+          <li><b>2. Don't reinvent the wheel</b><p>Before inventing a method, look for mature architecture, testing, UX, security, and verification practice. Ask what experienced practitioners already know, which failure modes motivated the practice, and whether it actually applies to this problem.</p></li>
           <li><b>3. Choose the right abstraction</b><p>Represent the risky part in the form that makes its behavior easiest to reason about: equations for deterministic transformations, finite-state machines for lifecycle logic, invariants for safety properties, schemas for structured boundaries, or another model when it fits better.</p></li>
           <li><b>4. Choose the cheapest sufficient evidence</b><p>Formal proof is not automatically better than testing, and testing is not automatically sufficient. I choose among exhaustive enumeration, model checking, theorem proving, differential oracles, property tests, boundary-value analysis, integration tests, replay, and other methods according to the claim and the risk.</p></li>
           <li><b>5. Build independent checks</b><p>Where possible, expected behavior is derived through a different path than the implementation. A spreadsheet can act as a differential oracle for deterministic financial logic; a finite-state model can expose invalid transitions; a brute-force reference can audit an optimized algorithm. Agreement is more useful when the failure modes are not perfectly correlated.</p></li>
           <li><b>6. When practice is missing, run the experiment</b><p>If no reliable best practice exists, or competing practices make incompatible claims, convert the uncertainty into a comparison: define success criteria, build alternatives, construct adversarial cases, measure what works and what fails, preserve negative results, and narrow the claim to the evidence.</p></li>
-          <li><b>7. Promote what survives</b><p>A successful experiment becomes a reusable local practice only after its assumptions and failure boundaries are understood. The goal is not novelty. The goal is to make the next decision better, faster, and more defensible.</p></li>
+          <li><b>7. Keep what holds up</b><p>A successful experiment becomes a reusable local practice only after its assumptions and failure boundaries are understood. I keep what helps me make better decisions next time.</p></li>
         </ol>
       </div>
     </section>
@@ -226,7 +226,7 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Reviewing agent-written code</p>
-          <h2>Review the semantics before the syntax.</h2>
+          <h2>Check what the code does.</h2>
           <p>For a deterministic pure core, I often do not need to establish trust by reading every generated line. I can make the behavioral contract smaller than the implementation and verify the implementation against it.</p>
           <p>If an algorithm implements a deterministic function, the useful question is whether the implementation agrees with the independently derived expected function on the cases that matter, not whether the source merely looks reasonable.</p>
         </div>
@@ -295,9 +295,9 @@ formal / behavioral model
       <div class="container two-col">
         <div>
           <p class="eyebrow">Best practice as a hypothesis</p>
-          <h2>Practice should inherit the strength of the evidence behind it.</h2>
-          <p>I treat a best practice as a compressed engineering claim: under a known class of conditions, this method has repeatedly reduced particular failure modes at acceptable cost. When the conditions change, the practice should be re-tested rather than followed ceremonially.</p>
-          <p>This also means preserving negative knowledge. An approach that failed under a documented condition is useful evidence; rediscovering the same failure repeatedly is wasted cognition.</p>
+          <h2>Good practice should stand up to testing.</h2>
+          <p>I ask what makes a practice worth following: which problems has it prevented, under what conditions, and at what cost? When those conditions change, I test it again.</p>
+          <p>I also learn from what goes wrong. Recording how an approach failed helps me avoid repeating the same mistake.</p>
         </div>
         <div class="snapshot-list">
           <article><strong>Established</strong><p>Use mature practice when its assumptions match the problem.</p></article>
@@ -312,9 +312,9 @@ formal / behavioral model
       <div class="container two-col">
         <div>
           <p class="eyebrow">Human + agents</p>
-          <h2>The implementation is scalable. Accountability stays explicit.</h2>
-          <p>Agents can research, scaffold, implement, refactor, generate cases, and search large design spaces. I use that leverage aggressively. But the work product should still make clear who selected the objective, which practices and abstractions governed the work, how independent evidence was constructed, what was personally reviewed, and what claim is actually justified.</p>
-          <p>The useful distinction is not human-written code versus AI-written code. It is <strong>unverified generation versus governed engineering</strong>.</p>
+          <h2>I can delegate the task, but I still answer for it.</h2>
+          <p>Agents help me research, build, refactor, generate test cases, and explore possible designs. I record what I asked them to do, which methods and models I chose, how I checked the results, and what I personally reviewed.</p>
+          <p>I disclose how AI was used and explain why I accepted the result. <strong>The design and the checks matter as much as the code.</strong></p>
         </div>
         <blockquote class="pull-quote">
           <p>Architecture is choosing the right abstraction and the right evidence before the code exists.</p>
@@ -327,7 +327,7 @@ formal / behavioral model
       <div class="container">
         <div>
           <p class="eyebrow">Evidence</p>
-          <h2>The method is only interesting if the artifacts support it.</h2>
+          <h2>Put the method to the test.</h2>
           <p>The capability ledger maps these ideas to bounded work samples. The evaluation page points to repositories, tests, proofs, replay commands, and explicit limitations.</p>
         </div>
         <div class="cta-actions">
@@ -342,7 +342,7 @@ formal / behavioral model
   <footer class="site-footer">
     <div class="container footer-grid">
       <p>&copy; <span data-year></span> Dana Edwards.</p>
-      <p>Best practices first. Evidence when practice is unclear.</p>
+      <p>Start with what works. Test the rest.</p>
     </div>
   </footer>
 

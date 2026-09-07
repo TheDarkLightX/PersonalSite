@@ -802,7 +802,7 @@ h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
   color: var(--text);
   border-color: transparent;
 }
-.prose { max-width: 720px; }
+.prose { max-width: 720px; min-width: 0; overflow-wrap: anywhere; }
 .prose h2 { font-size: 1.5rem; margin: 2.5rem 0 .85rem; font-weight: 500; }
 .prose h3 { margin: 1.75rem 0 .5rem; font-size: 1.05rem; font-weight: 600; }
 .prose p, .prose li { color: var(--muted); font-size: .98rem; line-height: 1.7; }
@@ -987,7 +987,7 @@ h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
 .bignum-row > div strong { display: block; font-size: .88rem; color: var(--muted); margin-top: .4rem; font-weight: 500; }
 
 /* ===== Method steps ===== */
-#research, #neuro-symbolic, #training-study, #neuro-symbolic-skills, #scaling, #maze-witness, #candidate-spaces, #scientific-method, #alignment-method {
+#research, #human-machine, #neuro-symbolic, #training-study, #neuro-symbolic-skills, #scaling, #maze-witness, #candidate-spaces, #scientific-method, #alignment-method {
   scroll-margin-top: 84px;
 }
 .workflow-figure {

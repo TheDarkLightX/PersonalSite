@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research Kernel MCP | Dana Edwards</title>
-  <meta name="description" content="Case study for Research Kernel MCP: a durable, evidence-first research substrate for MCP clients where the model stays creative and the kernel stays deterministic." />
+  <meta name="description" content="How I use Research Kernel MCP to keep questions, evidence, and failed approaches connected across AI-assisted research sessions." />
   <link rel="canonical" href="https://www.danaedwards.info/case-studies/research-kernel.html" />
   <meta property="og:title" content="Research Kernel MCP Case Study - Dana Edwards" />
-  <meta property="og:description" content="A durable, evidence-first research substrate for MCP clients. Model stays creative, kernel stays deterministic: typed atoms, graph edges, fail-closed claim promotion." />
+  <meta property="og:description" content="Research memory for AI assistants, with connected claims and evidence and explicit rules for marking a claim supported." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/case-studies/research-kernel.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Research Kernel MCP Case Study - Dana Edwards" />
-  <meta name="twitter:description" content="A durable, evidence-first research substrate for MCP clients. Model stays creative, kernel stays deterministic." />
+  <meta name="twitter:description" content="Research memory for AI assistants, with connected claims and evidence and explicit rules for marking a claim supported." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
@@ -52,8 +52,8 @@
       <div class="container">
         <a class="breadcrumb" href="../index.html">Back to home</a>
         <p class="eyebrow">Case study</p>
-        <h1>Research Kernel MCP: Model Stays Creative, Kernel Stays Deterministic</h1>
-        <p class="lede">A durable, evidence-first research substrate for MCP clients. The same thesis as MPRD, applied to research itself: an untrusted model generates claims, hypotheses, and reformulations, while a deterministic kernel decides what becomes <em>supported</em>. Hidden chain-of-thought stays outside the artifact store.</p>
+        <h1>Research Kernel MCP: Keeping track of the research</h1>
+        <p class="lede">I built Research Kernel MCP to keep questions, evidence, and failed approaches connected across research sessions. Models suggest ideas. The kernel enforces explicit requirements before a claim can be marked <em>supported</em>; an attached check or experiment supplies the evidence for the claim.</p>
       </div>
     </section>
 
@@ -69,7 +69,7 @@
         <article class="prose">
           <section id="summary">
             <h2>Summary</h2>
-            <p>Research Kernel MCP is an MCP server that gives AI assistants a durable, evidence-first research memory. Instead of letting research vanish between sessions or hiding it inside a model's hidden reasoning traces, every claim, evidence record, refutation attempt, and reformulation is stored as a typed, queryable atom in a persistent graph. The model proposes; the kernel decides what is promoted.</p>
+            <p>Research Kernel MCP stores claims, evidence records, refutation attempts, and alternative formulations as typed records in a persistent graph. I can query those records and resume an investigation in a later session. The kernel checks the requirements for claim promotion and keeps an append-only history of changes.</p>
             <figure class="media-figure">
               <svg class="diagram" viewBox="0 0 820 290" role="img" aria-labelledby="rk-diagram-title">
                 <title id="rk-diagram-title">Research Kernel control boundary: a model proposes atoms, a deterministic kernel gates promotion, and only supported claims survive.</title>
@@ -119,7 +119,7 @@
           </section>
 
           <section id="reviewer-path">
-            <h2>What a reviewer should inspect first</h2>
+            <h2>Start here</h2>
             <ol>
               <li><code>README.md</code> - design spec, tool surface, and boundaries.</li>
               <li><code>internal/research_kernel_mcp/kernel.py</code> - the deterministic kernel: atom types, statuses, edge types, promotion gate, and SQLite persistence.</li>
@@ -127,12 +127,12 @@
               <li><code>tests/internal/test_research_kernel_mcp.py</code> - the test suite covering start, atom add, link, retrieve, morph, refute, evidence, score, frontier, promote, and report.</li>
               <li><code>pytest.ini</code> - focused test configuration.</li>
             </ol>
-            <h3>Suggested 10-minute review script</h3>
+            <h3>A 10-minute review</h3>
             <p>Read the README, then open <code>kernel.py</code> and inspect <code>ATOM_TYPES</code>, <code>STATUSES</code>, <code>EDGE_TYPES</code>, and the promotion gate logic. Finally, run the self-test: <code>.venv/bin/python internal/research_kernel_mcp/server.py --self-test</code>.</p>
           </section>
 
           <section id="claims">
-            <h2>Claim / evidence map</h2>
+            <h2>Claims and evidence</h2>
             <table class="claim-table">
               <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
               <tbody>
@@ -166,9 +166,9 @@
           </section>
 
           <section id="limits">
-            <h2>Limitations to state clearly</h2>
+            <h2>What this does and doesn't establish</h2>
             <ul>
-              <li><code>SUPPORTED</code> means the local gate passed. External publication or production posture still needs the relevant replay, review, and release gates.</li>
+              <li><code>SUPPORTED</code> means the local gate passed. Publication and deployment still require the relevant replay, review, and release checks.</li>
               <li>Reformulations are candidate search objects until separately tested. They are not claims.</li>
               <li>The kernel stores research artifacts, evidence, and graph state. Hidden chain-of-thought stays outside the artifact store by design.</li>
               <li>SQLite persistence is durable for single-user and small-team use; multi-tenant deployment would need a different storage backend.</li>

@@ -7,13 +7,13 @@
   <meta name="description" content="Case study for ZenoDEX: replayable assurance, bounded formal claims, and proof-carrying optimizer certificates." />
   <link rel="canonical" href="https://www.danaedwards.info/case-studies/zenodex.html" />
   <meta property="og:title" content="ZenoDEX Case Study - Dana Edwards" />
-  <meta property="og:description" content="Replayable assurance, bounded formal claims, theorem surfaces, and public regression gates." />
+  <meta property="og:description" content="Replayable assurance, bounded formal claims, theorem statements, and public regression gates." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/case-studies/zenodex.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/projects/zenodex/app.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ZenoDEX Case Study - Dana Edwards" />
-  <meta name="twitter:description" content="Replayable assurance, bounded formal claims, theorem surfaces, and public regression gates." />
+  <meta name="twitter:description" content="Replayable assurance, bounded formal claims, theorem statements, and public regression gates." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/projects/zenodex/app.webp" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
@@ -109,7 +109,7 @@
             </figure>
             <figure class="media-figure">
               <img src="../assets/projects/zenodex/app.webp" alt="ZenoDEX exchange UI: a swap panel beside an execution-proof verification panel." width="1280" height="860" loading="lazy" />
-              <figcaption>The ZenoDEX exchange UI, running locally on preview reserves with no live pool. Each quote is paired with an execution-proof panel that surfaces spec conformance and verification posture next to the trade.</figcaption>
+              <figcaption>The ZenoDEX exchange UI, running locally on preview reserves with no live pool. The panel beside each quote shows the available specification and verification checks for the trade.</figcaption>
             </figure>
             <div class="callout">
               ZenoDEX demonstrates claim boundaries, public replay, negative evidence, and the difference between bounded assurance and a production guarantee.
@@ -117,18 +117,18 @@
           </section>
 
           <section id="reviewer-path">
-            <h2>What a reviewer should inspect first</h2>
+            <h2>Start here</h2>
             <ol>
               <li><code>README.md</code> - public assurance snapshot and assurance shape.</li>
-              <li><code>docs/PUBLIC_ASSURANCE_REPLAY.md</code> - clean-checkout replay posture.</li>
+              <li><code>docs/PUBLIC_ASSURANCE_REPLAY.md</code> - instructions for replaying from a clean checkout.</li>
               <li><code>docs/claims_registry.yaml</code> - claim status vocabulary.</li>
-              <li><code>lean-mathlib/Proofs/</code> - theorem surfaces.</li>
+              <li><code>lean-mathlib/Proofs/</code> - theorem statements.</li>
               <li><code>.github/workflows/</code> - ratchets, hygiene, and regression gates.</li>
             </ol>
           </section>
 
           <section id="claims">
-            <h2>Claim / evidence map</h2>
+            <h2>Claims and evidence</h2>
             <table class="claim-table">
               <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
               <tbody>
@@ -138,7 +138,7 @@
                   <td class="status supported">Supported / bounded</td>
                 </tr>
                 <tr>
-                  <td>Canonical winner properties are represented in Lean theorem surfaces.</td>
+                  <td>Canonical winner properties are represented in Lean theorem statements.</td>
                   <td>Lean files around exact-in / exact-out / batch canonicality and uniqueness.</td>
                   <td class="status partial">Partial / theorem-surface specific</td>
                 </tr>
@@ -152,7 +152,7 @@
           </section>
 
           <section id="limits">
-            <h2>Limitations to state clearly</h2>
+            <h2>What this does and doesn't establish</h2>
             <ul>
               <li>Release-backed and public-replay claims have bounded scope.</li>
               <li>Disaster-state witnesses strengthen fail-closed assurance within the tested boundary.</li>

@@ -3,7 +3,7 @@
 The Value page refreshes the June 2026 **conventional rebuild-cost sensitivity**
 for the same three public repositories: MPRD, ZenoDEX, and Formal Methods
 Philosophy. Other portfolio projects and unpublished work are outside the scope.
-It does not estimate the market value of Dana Edwards, an actual project quote,
+It does not estimate my market value, an actual project quote,
 measured savings, or equivalent human engineering years.
 
 ## Source of truth

@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Capabilities | Dana Edwards</title>
-  <meta name="description" content="Dana Edwards' curated capabilities: combining human judgment, AI, formal methods, and custom tools into workflows that produce useful, checkable results, with evidence and development status." />
+  <meta name="description" content="How I combine human judgment, AI, prompting, agents, formal methods, and custom tools to learn, create, explore, and solve problems." />
   <link rel="canonical" href="https://www.danaedwards.info/capabilities.html" />
   <meta property="og:title" content="Capabilities | Dana Edwards" />
-  <meta property="og:description" content="Curated capabilities: human judgment, AI, formal methods, and custom tools assembled into useful, checkable workflows. Explore the evidence and development status." />
+  <meta property="og:description" content="More than I could do alone. Human judgment, AI, prompting, agents, and tools brought together to learn, create, explore, and solve problems." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.danaedwards.info/capabilities.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capabilities | Dana Edwards" />
-  <meta name="twitter:description" content="Curated capabilities, supporting evidence, and the capacity to develop new combinations of judgment, AI, formal methods, and tools." />
+  <meta name="twitter:description" content="More than I could do alone: extending human capabilities through AI, prompting, agents, formal methods, and custom tools." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
@@ -54,32 +54,32 @@
       <div class="container">
         <a class="breadcrumb" href="index.html">Back to home</a>
         <p class="eyebrow">Curated capabilities</p>
-        <h1>Give me the work. Judge the output.</h1>
+        <h1>More than I could do alone.</h1>
         <p class="lede">I curate and develop capabilities by combining human judgment, AI, formal methods, and custom tools into workflows that produce useful, checkable results.</p>
-        <p>My skills are inputs; public projects show capabilities in use. This page also describes capabilities I am developing and combinations I can assemble for new problems, with their evidence and status made explicit.</p>
+        <p>These are human and machine capabilities: ways to think, learn, create, explore, and act with the help of AI and other tools. Prompting, research, software, and visual explanation all play a part. My projects show some of these combinations in use; others are still taking shape.</p>
         <div class="hero-actions">
-          <a class="button primary" href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger">Open capability ledger</a>
-          <a class="button secondary" href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/blob/main/CURRENT.md">Current training goal</a>
-          <a class="button secondary" href="evidence-strategy.html">Deep verification path</a>
+          <a class="button primary" href="#human-machine">Human + machine</a>
+          <a class="button secondary" href="methodology.html">How I work</a>
+          <a class="button secondary" href="#scaling">Where this could go</a>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt" id="human-machine">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">30-second evaluator</p>
-          <h2>Start with the outcome you need.</h2>
-          <p>Pick the capability closest to the job. Inspect one relevant artifact. If a benchmark result exists, read its rubric, score, failure analysis, and replay command. Then ask me to reproduce or defend a representative part live.</p>
-          <p>The work portfolio supplies examples and evidence. Curated capabilities extend to the methods, tools, and combinations I can bring together for another investigation or task.</p>
+          <p class="eyebrow">Intelligence augmentation</p>
+          <h2>Human and machine, working together.</h2>
+          <p>I think of this as a practical form of cyborgization: extending my thinking and my ability to act through machines. I bring purpose, context, and judgment. Models help me explore possibilities, and tools help me calculate, build, remember, and check.</p>
+          <p>The question is broader than what job I can do. What can I understand, discover, create, or change with the right combination of people, models, and tools? That matters even more when thinking about life after AGI.</p>
         </div>
         <div class="matrix-card">
           <table class="matrix">
-            <thead><tr><th>Mode</th><th>Meaning</th></tr></thead>
+            <thead><tr><th>Part</th><th>What it brings</th></tr></thead>
             <tbody>
-              <tr><td><strong>U</strong></td><td>Unaided work. Candidate-attested unless an external proctor is named.</td></tr>
-              <tr><td><strong>A</strong></td><td>AI-augmented work with tools and workflow disclosed.</td></tr>
-              <tr><td><strong>V</strong></td><td>AI verification: finding, explaining, and repairing errors in AI-produced work.</td></tr>
+              <tr><td><strong>Human</strong></td><td>Purpose, judgment, context, and responsibility.</td></tr>
+              <tr><td><strong>Machine</strong></td><td>Generation, search, memory, calculation, and execution.</td></tr>
+              <tr><td><strong>Together</strong></td><td>New ways to think, learn, create, and act, with checks suited to the task.</td></tr>
             </tbody>
           </table>
         </div>
@@ -90,43 +90,76 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Capability map</p>
-          <h2>What I can show rather than merely claim.</h2>
-          <p>Labels are deliberately conservative. Existing repositories count as evidence; benchmark scores appear only after a benchmark is actually completed and replayed.</p>
+          <h2>Showing is better than telling.</h2>
+          <p>Here are some of those capabilities in practice, with examples you can explore. The labels distinguish current use, public evidence, and experiments still to be completed.</p>
+          <p class="value-note"><strong>U:</strong> unaided, based on my account unless independently proctored. <strong>A:</strong> assisted by AI, with the tools and process disclosed. <strong>V:</strong> finding and correcting errors in AI-generated results. Benchmark scores are reported only after a completed run has been reproduced.</p>
         </div>
         <div class="project-grid">
           <article class="project-card featured">
-            <div class="project-meta"><span>Active benchmark</span><span>U / A / V</span></div>
-            <h3>AI evaluation &amp; model QA</h3>
-            <p>Turn ambiguous quality requirements into testable criteria; find hallucinations, regressions, instruction failures, brittle scoring, and evaluator mistakes.</p>
-            <p class="value-note"><strong>EVAL-001:</strong> build an LLM Regression Sentinel with human-reviewed gold labels, deterministic checks, failure taxonomy, adversarial tests, and a ship/no-ship decision memo.</p>
-            <div class="card-actions">
-              <a href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/blob/main/CURRENT.md">Active goal</a>
-              <a href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/tree/main/benchmarks/EVAL-001">EVAL-001</a>
-              <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel</a>
-              <a href="https://github.com/TheDarkLightX/MPRD">MPRD</a>
-            </div>
+            <div class="project-meta"><span>Current practice</span><span>A / V</span></div>
+            <h3>Prompting and steering AI</h3>
+            <p>I turn an intention into clear questions, instructions, and constraints. I give a model the context it needs, challenge its assumptions, and refine the approach when it misses the point.</p>
+            <div class="card-actions"><a href="methodology.html#neuro-symbolic">My approach</a><a href="methodology.html#training-study">Training research</a></div>
           </article>
 
           <article class="project-card featured">
-            <div class="project-meta"><span>Existing evidence</span><span>A / V</span></div>
-            <h3>Research verification &amp; fact checking</h3>
-            <p>Structure claims, evidence, counterevidence, provenance, dependencies, and explicit claim boundaries instead of treating generated prose as evidence.</p>
+            <div class="project-meta"><span>Current practice</span><span>A / V</span></div>
+            <h3>Learning and connecting ideas</h3>
+            <p>I explore unfamiliar subjects, compare explanations, and connect ideas across philosophy, computation, governance, and economics. Questions and independent checks help me find out where an explanation holds up.</p>
+            <div class="card-actions"><a href="ideas.html">Ideas and influences</a><a href="writing.html">Tutorials and essays</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Existing evidence</span><span>U / A</span></div>
+            <h3>Creating and explaining</h3>
+            <p>I use writing, diagrams, interactive examples, and software to make difficult ideas easier to understand. I show how an idea works, what supports it, and where it falls short.</p>
             <div class="card-actions">
-              <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel MCP</a>
-              <a href="https://github.com/TheDarkLightX/PopperPad">PopperPad</a>
+              <a href="writing.html">Writing</a>
+              <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Formal Methods Philosophy</a>
             </div>
           </article>
 
           <article id="neuro-symbolic-skills" class="project-card featured">
             <div class="project-meta"><span>Current practice</span><span>A / V</span></div>
             <h3>Neuro-symbolic research workflows</h3>
-            <p>Develop research questions with LLM assistance. Use neural proposers to explore and recombine candidates across hypothesis, witness, proof, and design spaces, then connect the claims to symbolic checks and reproducible experiments.</p>
+            <p>I develop research questions with LLM assistance. Models help me explore and recombine possible hypotheses, witnesses, proofs, and designs. I then test the resulting claims with symbolic tools and reproducible experiments.</p>
             <p class="value-note">I guide the investigation using my custom <strong>Research Kernel Protocol MCP</strong>, LEAP, and PopperPad. Lean, Z3, Tau, and other deterministic tools check formal claims. My scientific practice emphasizes attempts to falsify competing hypotheses. Skills include hypothesis development, abstraction design, experiment design, and evaluation of AI-generated results.</p>
             <div class="card-actions">
               <a href="methodology.html#neuro-symbolic">Workflow and responsibilities</a>
               <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel</a>
               <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Formal Methods Philosophy</a>
               <a href="methodology.html#training-study">Current training study</a>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Existing evidence</span><span>A / V</span></div>
+            <h3>Research verification &amp; fact checking</h3>
+            <p>I trace claims back to their sources, look for evidence against them, and record what they depend on. Research Kernel and PopperPad help me keep that record so I can revisit the conclusions.</p>
+            <div class="card-actions">
+              <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel MCP</a>
+              <a href="https://github.com/TheDarkLightX/PopperPad">PopperPad</a>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Strong existing evidence</span><span>A / V</span></div>
+            <h3>Formal verification</h3>
+            <p>I use Lean, TLA+, deterministic verifiers, and replay to check precisely stated properties. I explain the assumptions and what those results establish about the system.</p>
+            <div class="card-actions">
+              <a href="evidence-strategy.html">Verification commands</a>
+              <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Teaching artifacts</a>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Strong existing evidence</span><span>A / V</span></div>
+            <h3>AI workflow &amp; agent engineering</h3>
+            <p>I build systems that let models suggest actions, with explicit rules and checks controlling what can run.</p>
+            <div class="card-actions">
+              <a href="https://github.com/TheDarkLightX/MPRD">MPRD</a>
+              <a href="https://github.com/TheDarkLightX/Helix-A-Next-Gen-Event-Driven-Multi-Agent-Platform">Helix</a>
+              <a href="https://github.com/TheDarkLightX/Orchestration-Unit">Orchestration Unit</a>
             </div>
           </article>
 
@@ -142,33 +175,15 @@
           </article>
 
           <article class="project-card featured">
-            <div class="project-meta"><span>Strong existing evidence</span><span>A / V</span></div>
-            <h3>Formal verification</h3>
-            <p>Use formal specifications and machine-checked artifacts to narrow what a system can legitimately claim: Lean, TLA+, deterministic verifiers, and replay evidence.</p>
+            <div class="project-meta"><span>Active benchmark</span><span>U / A / V</span></div>
+            <h3>AI evaluation &amp; model QA</h3>
+            <p>Turn ambiguous quality requirements into testable criteria; find hallucinations, regressions, instruction failures, brittle scoring, and evaluator mistakes.</p>
+            <p class="value-note"><strong>EVAL-001:</strong> build an LLM Regression Sentinel with human-reviewed gold labels, deterministic checks, failure taxonomy, adversarial tests, and a ship/no-ship decision memo.</p>
             <div class="card-actions">
-              <a href="evidence-strategy.html">Verification commands</a>
-              <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Teaching artifacts</a>
-            </div>
-          </article>
-
-          <article class="project-card featured">
-            <div class="project-meta"><span>Strong existing evidence</span><span>A / V</span></div>
-            <h3>AI workflow &amp; agent engineering</h3>
-            <p>Build systems where models propose work while explicit policy, validation, orchestration, and execution boundaries decide what is allowed to happen.</p>
-            <div class="card-actions">
+              <a href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/blob/main/CURRENT.md">Active goal</a>
+              <a href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/tree/main/benchmarks/EVAL-001">EVAL-001</a>
+              <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel</a>
               <a href="https://github.com/TheDarkLightX/MPRD">MPRD</a>
-              <a href="https://github.com/TheDarkLightX/Helix-A-Next-Gen-Event-Driven-Multi-Agent-Platform">Helix</a>
-              <a href="https://github.com/TheDarkLightX/Orchestration-Unit">Orchestration Unit</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-meta"><span>Existing evidence</span><span>U / A</span></div>
-            <h3>Technical writing &amp; explanation</h3>
-            <p>Translate difficult technical ideas into tutorials, claim/evidence maps, interactive explanations, and documentation without erasing the limitations.</p>
-            <div class="card-actions">
-              <a href="writing.html">Writing</a>
-              <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Formal Methods Philosophy</a>
             </div>
           </article>
 
@@ -191,9 +206,9 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Scaling · Development direction</p>
-          <h2 id="scaling-heading">Scaling Dana Edwards' research and engineering outputs.</h2>
-          <p>I see scaling my productivity as essential to remaining economically useful in a future with AGI. Today I guide this workflow as a human. My next direction is to transfer the same research process to a coordinated swarm of agents through prompting, tools, and eventually training.</p>
-          <p>I expect stronger models, more compute, and successive iterations to make more of this process transferable. The ambition is to scale my ability to turn questions into checked artifacts, while measuring whether the agents preserve the quality of the work.</p>
+          <h2 id="scaling-heading">How far can this go?</h2>
+          <p>As AI becomes more capable, I want to expand what I can understand, create, and act on. Today I guide the process. Next I want to teach more of it to a coordinated swarm of agents through prompting, tools, and eventually training.</p>
+          <p>Stronger models and more compute may let me explore more ideas at once. I want to find out which parts of my approach can be passed on to agents, and whether the results hold up when I do.</p>
         </div>
         <figure class="workflow-figure">
           <img src="assets/generated/scaling-research-workflow.webp" alt="Abstract illustration: one source of human direction branches into coordinated agents, whose proposals converge on shared checks before producing evidence artifacts." width="1536" height="1024" loading="lazy" decoding="async" />
@@ -207,15 +222,15 @@
         <div class="two-col">
           <div>
             <h3>What successful scaling would mean</h3>
-            <p>More independently accepted, reproducible outputs per hour of my review time, at a measured compute cost. Track defect rates, unsupported claims, duplicated work, and useful negative results as well as throughput. An increase in generated text or agreement among agents is insufficient evidence of improvement.</p>
+            <p>More useful discoveries, creations, and solutions that stand up to independent checks, for the time and compute spent. I also track mistakes, unsupported claims, repeated effort, and what I learn from failed attempts. More text, or more agents agreeing, doesn't tell me that the process is better.</p>
           </div>
           <div>
             <h3>Current status</h3>
-            <p>The human-guided workflow and supporting tools exist. Transferring the full process to an agent swarm, or training it into a model, is a development and research goal. The degree of reliable automation and its timeline still need to be established experimentally.</p>
+            <p>I already use the tools and guide the process myself. Passing the whole process to an agent swarm, or training it into a model, is a research goal. I still need to test how much can be automated reliably and what it costs.</p>
             <div class="card-actions"><a href="methodology.html#neuro-symbolic">The workflow to be scaled</a><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel MCP</a><a href="https://github.com/TheDarkLightX/Helix-A-Next-Gen-Event-Driven-Multi-Agent-Platform">Helix</a></div>
           </div>
         </div>
-        <p class="value-note">The portfolio exposes the method's principles and evidence. Detailed orchestration and training recipes remain private.</p>
+        <p class="value-note">I share the principles and the evidence here. I keep the detailed orchestration and training recipes private.</p>
       </div>
     </section>
 
@@ -223,8 +238,8 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Evidence standard</p>
-          <h2>Completed is not the same as verified.</h2>
-          <p>The ledger records what can actually be established. A Git commit can timestamp an artifact; it cannot prove that no AI was used. A benchmark can reproduce a result; it cannot prove that an employer's interview process will recognize it.</p>
+          <h2>Check your work.</h2>
+          <p>Each kind of evidence answers a different question. A Git commit records a version; it doesn't establish whether AI was used. Repeating an experiment checks whether a result can be reproduced. Independent review asks whether the result supports the conclusion.</p>
           <p>Where possible, the evidence chain is: <strong>task → submission → rubric → verifier → receipt → live defense.</strong></p>
         </div>
         <div class="snapshot-list">
@@ -239,16 +254,16 @@
     <section class="section">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">Career training</p>
-          <h2>One active goal. Train backward from the market.</h2>
-          <p>The capability ledger is also a standing training system. There is one active benchmark at a time. If it is unfinished when another week arrives, it carries forward. Only after its definition of done is met does the system research the market and select the next highest-value capability gap.</p>
-          <p>There is no day-by-day schedule. The objective is sustainable skill accumulation and maximum employability signal per unit of attention and AI/Codex usage.</p>
+          <p class="eyebrow">Benchmarks and practice</p>
+          <h2>One step at a time.</h2>
+          <p>I also use a capability ledger to practice and test specific abilities. Its career-oriented benchmarks are one application of this broader approach. It keeps one benchmark active until the result meets its completion criteria and can be reproduced.</p>
+          <p>For that career-training track, the next benchmark is chosen by looking at current demand and gaps in my evidence. Other questions, experiments, and creative projects serve different purposes. Employment is one use for these capabilities, not their definition.</p>
         </div>
         <ol class="method-steps">
-          <li><b>1. Observe</b><p>When a new project is needed, inspect current remote roles and extract recurring work primitives.</p></li>
-          <li><b>2. Build</b><p>Use AI as leverage to create one bounded artifact that exercises several valuable primitives.</p></li>
-          <li><b>3. Verify</b><p>Human-review the important judgments, score, replay, disclose AI use, attack the evaluator, and defend the result live.</p></li>
-          <li><b>4. Graduate</b><p>Publish only strong evidence; otherwise keep improving the same active goal.</p></li>
+          <li><b>1. Observe</b><p>For career benchmarks, look at current roles and the tasks they have in common.</p></li>
+          <li><b>2. Build</b><p>Use AI and other tools to make something small enough to finish and substantial enough to test the relevant abilities.</p></li>
+          <li><b>3. Verify</b><p>I review the important judgments, check the scoring, repeat the experiment, and disclose how AI was used. I test the evaluator itself and explain my decisions in a live review.</p></li>
+          <li><b>4. Graduate</b><p>I publish the result when it meets the evidence requirements. If it falls short, I keep working on the same benchmark.</p></li>
         </ol>
       </div>
     </section>
@@ -256,13 +271,13 @@
     <section class="section cta-section">
       <div class="container">
         <div>
-          <p class="eyebrow">Evaluation challenge</p>
-          <h2>Pick a relevant artifact and try to break it.</h2>
-          <p>If a role requires something not represented here, the useful response is a representative task with a clear rubric. I prefer demonstrating the work to arguing from prestige signals.</p>
+          <p class="eyebrow">Explore together</p>
+          <h2>What could we do together?</h2>
+          <p>A question to investigate, an idea to make tangible, a tool to build, or a new way to combine human and machine abilities. Start with something worth exploring and a way to tell whether we're making progress.</p>
         </div>
         <div class="cta-actions">
-          <a class="button primary" href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger">Capability ledger</a>
-          <a class="button secondary" href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger/blob/main/CURRENT.md">Active goal</a>
+          <a class="button primary" href="mailto:p33rl3ss1@gmail.com">Get in touch</a>
+          <a class="button secondary" href="https://github.com/TheDarkLightX/Remote-Work-Compatibility-Ledger">Benchmark ledger</a>
           <a class="button secondary" href="evidence-strategy.html">Deep evaluation</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub</a>
         </div>
@@ -273,7 +288,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <p>&copy; <span data-year></span> Dana Edwards.</p>
-      <p>Candidate claims. Work decides.</p>
+      <p>Engineer, philosopher, futurist.</p>
     </div>
   </footer>
 
