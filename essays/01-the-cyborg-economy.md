@@ -1,6 +1,6 @@
-# The Cyborg Economy Is Not a Labor Forecast
+# Building the Cyborg Economy
 
-*What I am building, what it can measure, and why "opportunity" is a more honest unit than "jobs created."*
+*How people and AI agents could create and share new economic opportunities.*
 
 A job is a bundle of tasks held together by an organization.
 
@@ -19,23 +19,11 @@ analysis of more than 800,000 U.S. ChatGPT messages calls this **task
 crossover**: 43.5% of occupation-specific messages concerned work associated
 with another occupation.[^openai-crossover]
 
-That is not proof that jobs disappear. It is evidence that the boundary around
-the job is already becoming porous.
+This suggests that people can use AI to take on tasks across existing job boundaries.
 
-The economic actor emerging through that boundary is a cyborg, not the
-science-fiction body of chrome and wires but a person whose mind is extended
-into the machine through AI. I named this trajectory "cyborgization" in 2015,
-drawing on extended-mind theory: cognition is not sealed inside the skull but
-partly carried by the tools a person thinks through.[^cyborgization] What I
-described then as a forecast is now the default condition of knowledge work.
+I use "cyborg" to describe a person who extends their thinking through AI and other tools. I called this process "cyborgization" in 2015, drawing on the theory that tools can become part of how we think.[^cyborgization] Today I use those tools in my own research and creative work.
 
-Today a cyborg is typically an augmented human with a fleet of agents. The
-human is the pilot. The AI is the copilot. The human has extended mind and will
-into the machine, and the machine extends reach without supplying its own will.
-I define an agent in this context as a force multiplier of human will and
-intelligence, not an autonomous decision-maker. The agent proposes, searches,
-translates, and executes; the principal chooses, judges, and remains
-responsible.
+In my workflow, I set the direction and use agents to help carry it out. Agents propose ideas, search, translate, and execute tasks. I choose the objective, judge the results, and remain responsible for the decisions.
 
 A cyborg operator may do the work of a former team. A cyborg scientist may
 direct a swarm of search, coding, simulation, and verification agents. An
@@ -43,31 +31,23 @@ autonomous agent may complete an entire machine-readable task while a human
 principal chooses the objective and remains responsible for the external
 effect.
 
-This is the "force multiplier productivity flywheel": each task a cyborg
-completes feeds back into faster, broader capability for the next, so a single
-human can do in hours or days what once took dozens of people months of labor.
-The job market is not returning to the shape that made those teams necessary.
+Each completed task can leave behind useful tools, evidence, and knowledge for the next one. I want to test how much this helps one person accomplish as the tools improve.
 
-This essay, and the site carrying it, is a product of that flywheel. I am
-writing it with AI copilots as a cyborg, and the math, code, and illustrations
-it references were produced the same way.
+I wrote this essay with AI assistance. I use the same process for this site and for the mathematics, code, and illustrations it presents.
 
-The question for my work is not, "How many old jobs can we preserve?"
+I want to investigate this question:
 
-It is:
-
-> Can we create more open surfaces where a useful result has a visible
-> specification, a checkable completion rule, and a funded payout?
+> Can we make more paid tasks publicly available, with clear requirements, a way to check completion, and funding for the payout?
 
 <figure>
   <object type="image/svg+xml" data="../assets/essays/cyborg-opportunity-loop.svg" role="img" aria-label="A loop from useful activity to realized fees, open tasks, human and agent work, verified results, and renewed activity.">
     The cyborg opportunity loop connects useful activity, realized fees, open
-    tasks, human-agent work, verification, and renewed activity.
+    tasks, work by people and agents, verification, and renewed activity.
   </object>
   <figcaption>Paid opportunity is a loop only after useful activity produces real fees and verified work returns value.</figcaption>
 </figure>
 
-## The claim I refuse to make
+## What the fee model can tell us
 
 It is easy to market an AI platform with a large number.
 
@@ -77,16 +57,15 @@ created."
 
 The arithmetic can be correct while the conclusion is fiction.
 
-One person may run thousands of agents. One proof-mining company may supply
-most of a network's computation. A reproduction or curation task may require
+One person may run thousands of agents. One company generating proofs may supply most of a network's computation. A reproduction or curation task may require
 hours of irreducibly human attention. The same reward pool could be distributed
 among ten full-time specialists, thousands of occasional contributors, one
 highly automated operator, or machines whose ultimate ownership is difficult
 to observe.
 
-Fees do not contain a human-count variable.
+To estimate how many people earn income, I would also need evidence about who receives the payouts.
 
-That is why I use a narrower model.
+My model estimates the money available for rewards and the number of task settlements it could fund.
 
 Let:
 
@@ -98,8 +77,7 @@ Let:
 Then \(R=F\theta u\) is the settled reward pool, and \(N=\frac{R}{r}\) is the
 number of paid task settlements the pool can support.
 
-Those equations identify economic capacity. They do not identify people,
-jobs, livelihoods, adoption, welfare, or income distribution.
+These equations estimate reward capacity and task settlements. Measuring people, jobs, livelihoods, adoption, wellbeing, or income distribution requires additional evidence.
 
 This distinction matters because task count is easy to manipulate. A $510,000
 pool can support 1,020 settlements at $500 each or 51,000 settlements at $10
@@ -112,7 +90,7 @@ payout, uniqueness, validity, and usefulness.
 
 ## What my public systems could fund
 
-My repositories contain several different economic machines. PopperPad can
+My repositories explore several ways to fund useful tasks. PopperPad can
 publish proof, counterexample, reproduction, maintenance, preservation, and
 curation work. ZenoDEX can expose solving, routing, proving, challenging, and
 verification roles around an exchange. PulseTensor can coordinate inference
@@ -133,20 +111,15 @@ settled pool is zero. PulseTensor's 95.8% provider share is grounded in its
 published tokenomics; the other displayed allocations, utilization rates, and
 payouts are editable assumptions.[^popperpad][^zenodex][^pulsetensor]
 
-That honesty makes the model more useful, not less. It gives readers a
-reproducible translation:
+You can check the calculation from the stated assumptions:
 
-> If the system produces this much fee-bearing activity, and if this visible
-> share is routed and settled, then this much paid opportunity follows.
+> If actual use produces the assumed fees and the stated share is paid out, the reward pool can fund the calculated number of tasks.
 
-Anyone can replace the assumptions. No one has to accept a story about the
-future to check the multiplication.
+Change the assumptions and repeat the calculation to see how the result changes.
 
 ## Jevons after intelligence becomes cheap
 
-The strongest argument for a larger task economy rests on cheaper cognition
-expanding the set of things worth attempting, not on every current job
-surviving.
+Cheaper computation could make more tasks worth attempting and increase the demand for them.
 
 William Stanley Jevons observed in 1865 that a more efficient steam engine did
 not necessarily reduce coal use. Greater efficiency reduced the effective cost
@@ -170,7 +143,7 @@ case.
   <figcaption>Efficiency expands the feasible task frontier. Whether total resource use rises depends on demand elasticity.</figcaption>
 </figure>
 
-This is a condition, not a prophecy.
+Whether this happens depends on how demand responds to lower costs.
 
 AI may make one legal analysis cheaper without creating enough new demand to
 replace the old labor. It may make a million previously uneconomic scientific
@@ -178,16 +151,15 @@ checks affordable. It may generate enormous machine activity with little
 reward reaching independent people. It may lower costs while a few platforms
 capture most of the surplus.
 
-Jevons tells us why "efficiency means fewer tasks" is incomplete. It does not
-tell us who receives the gains.
+Jevons helps explain how efficiency can increase demand. The distribution of the gains depends on ownership, access, and the rules for payment.
 
-That distribution problem has to be designed and measured separately.
+I would measure that distribution alongside total activity.
 
 ## Open to whom?
 
-"Open task" can become another empty phrase unless the interface is concrete.
+I use "open task" for work that people and agents can discover and assess through a public interface.
 
-For my purposes, a task is meaningfully open when:
+That requires:
 
 1. it can be discovered without a private introduction;
 2. its inputs and required outputs are machine-readable;
@@ -197,11 +169,7 @@ For my purposes, a task is meaningfully open when:
 6. a valid result can be verified without trusting the submitter;
 7. duplicate work, challenges, and settlement are handled by visible rules.
 
-That structure is useful to a human, an autonomous agent, or a human-agent
-team. It does not mean everyone can profit. Compute, capital, identity,
-expertise, geography, regulation, and timing still constrain participation.
-But the opportunity surface is legible enough for an agent to scan, estimate
-expected value, attempt the work, and submit evidence.
+People and agents can use that interface to find tasks, estimate the costs and potential rewards, attempt the work, and submit evidence. Their ability to participate and profit still depends on compute, capital, identity, expertise, geography, regulation, and timing.
 
 PopperPad's design draft makes this explicit with a machine-readable work-order
 object and a universal agent loop: find a bounty, fetch the evidence bundle,
@@ -209,13 +177,11 @@ run or improve the check, submit a proof or counterexample, survive the
 challenge window, and receive a payout if the declared verifier accepts the
 result.[^popperpad-game]
 
-The platform does not vote a claim true because someone paid. It pays after a
-verifier-accepted epistemic result.
+Payment follows a result accepted by the declared verifier. The evidence and verification rules determine the status of the claim.
 
-That reversal, **evidence before payment, not payment before truth**, is the
-design pattern running through my portfolio.
+I use this order throughout my projects: check the evidence, then determine whether the result qualifies for payment.
 
-## My value is not "more code"
+## What I contribute
 
 AI makes code abundant. Abundance reduces the signaling value of code volume.
 Lines written, hours saved, and even replacement cost remain useful accounting
@@ -227,14 +193,13 @@ The value I aim to create is architectural:
 - turn a task into a predeclared acceptance condition;
 - turn an AI output into an untrusted proposal;
 - turn verification into a deterministic boundary;
-- turn fee-bearing use into a conserved reward pool;
+- allocate a share of fees to a reward pool with checked accounting;
 - turn the reward pool into open, measurable opportunity;
 - preserve the evidence so someone else can replay the claim.
 
 This is what I mean by building the cyborg economy.
 
-I am not trying to encode my philosophy into every user's software. A protocol
-can aim at local user happiness: an interface that produces satisfaction in the
+I design for the people using the software. A protocol can aim at local user happiness: an interface that produces satisfaction in the
 person sitting in front of it is a legitimate utilitarian target. What no
 single app can do is control the global state of the world. A protocol cannot
 guarantee liberty, democratic institutions, capitalism, privacy, safety, or a
@@ -246,15 +211,11 @@ The platform contract should be smaller:
 
 > Publish the task. Expose the rule. Verify the result. Account for the money.
 
-My political reason for building that infrastructure is personal. I want a
-future in which advanced AI increases the number of people capable of acting,
-not only the capacity of the institutions already in control. I want humans
+I want advanced AI to give more people the means to act on their own goals. I want humans
 with AI assistants to create new industries, discover new facts, participate
 in markets, and protect what they value.
 
-That motivation does not make the outcome inevitable.
-
-It makes the work worth attempting.
+Whether these systems achieve that goal remains a question for evidence and experience.
 
 ## No one is coming
 
@@ -271,26 +232,19 @@ difficult to name in advance.
 The post-AGI economy may be similarly generative.
 
 The airplane safety rule applies: secure your own oxygen mask before helping
-others. Use the productivity flywheel to build your own capability first, then
-use that capability to create opportunity for others.
+others. Develop your own capabilities, then use them to create opportunities for others.
 
-> No one is coming. Use the productivity as a force multiplier to create new
-> industries, new tasks, and new ways to protect what you value.
+> Use the tools available to you to create useful tasks, develop new industries, and protect what you value.
 
 Some opportunities will be tiny. Some will be automated almost completely.
 Some will demand human judgment precisely because judgment has become the
 scarce input. Some will fail. A few may become industries.
 
-The honest claim is not "I created a million jobs."
+My aim is practical:
 
-It is:
+> I build systems where actual use can fund useful tasks, with public payment rules and checks for completion. I publish the calculations so people can inspect the assumptions.
 
-> I build systems that can turn real use into transparent, verifiable, paid
-> opportunity, and I publish the math required to tell capacity from hype.
-
-That is how I intend to contribute to a better world: not by promising the
-distribution of a wealth that does not yet exist, but by building more ways for
-people and their agents to participate in creating it.
+I want to give people and their agents more ways to participate in creating wealth.
 
 ---
 

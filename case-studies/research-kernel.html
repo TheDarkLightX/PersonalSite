@@ -114,16 +114,16 @@
               <figcaption>The control boundary: the model proposes atoms, the kernel gates promotion, and only claims that pass evidence, refutation, provenance, and contradiction checks become supported. Missing evidence, missing refutation attempts, or missing provenance fail closed.</figcaption>
             </figure>
             <div class="callout">
-              Research Kernel MCP applies the MPRD thesis to research itself: capability separation between creative generation and deterministic gating, typed atoms instead of free-form text, and fail-closed promotion that refuses to mark a claim supported without evidence, refutation, and provenance.
+              Research Kernel stores claims as structured records. Before marking a claim supported, it checks for evidence, a refutation attempt, and provenance. This makes the requirements for accepting a research record explicit.
             </div>
           </section>
 
           <section id="reviewer-path">
             <h2>Start here</h2>
             <ol>
-              <li><code>README.md</code> - design spec, tool surface, and boundaries.</li>
+              <li><code>README.md</code> - design specification, available tools, and scope.</li>
               <li><code>internal/research_kernel_mcp/kernel.py</code> - the deterministic kernel: atom types, statuses, edge types, promotion gate, and SQLite persistence.</li>
-              <li><code>internal/research_kernel_mcp/server.py</code> - the MCP tool, resource, and prompt surface.</li>
+              <li><code>internal/research_kernel_mcp/server.py</code> - the tools, resources, and prompts available through MCP.</li>
               <li><code>tests/internal/test_research_kernel_mcp.py</code> - the test suite covering start, atom add, link, retrieve, morph, refute, evidence, score, frontier, promote, and report.</li>
               <li><code>pytest.ini</code> - focused test configuration.</li>
             </ol>
@@ -169,7 +169,7 @@
             <h2>What this does and doesn't establish</h2>
             <ul>
               <li><code>SUPPORTED</code> means the local gate passed. Publication and deployment still require the relevant replay, review, and release checks.</li>
-              <li>Reformulations are candidate search objects until separately tested. They are not claims.</li>
+              <li>Reformulations are suggestions for further investigation. Each needs its own tests.</li>
               <li>The kernel stores research artifacts, evidence, and graph state. Hidden chain-of-thought stays outside the artifact store by design.</li>
               <li>SQLite persistence is durable for single-user and small-team use; multi-tenant deployment would need a different storage backend.</li>
             </ul>

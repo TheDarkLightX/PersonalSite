@@ -55,9 +55,9 @@
         <p class="eyebrow">Engineering method</p>
         <h1>Start with what works. Test the rest.</h1>
         <p class="lede">I use AI agents to help build systems. I decide what the system needs to do, look for methods that have worked before, and choose how to represent and check the problem. I remain responsible for deciding whether the result meets those requirements.</p>
-        <p>My research also uses neuro-symbolic workflows: LLMs help me formulate questions and hypotheses, while explicit models and independent checks make those ideas testable. I guide the process and build tools to preserve its evidence.</p>
+        <p>My research also uses neurosymbolic workflows: LLMs help me formulate questions and hypotheses, while explicit models and independent checks make those ideas testable. I guide the process and build tools to preserve its evidence.</p>
         <div class="hero-actions">
-          <a class="button secondary" href="#neuro-symbolic">Neuro-symbolic workflow</a>
+          <a class="button secondary" href="#neuro-symbolic">Neurosymbolic workflow</a>
           <a class="button primary" href="capabilities.html">Capability evidence</a>
           <a class="button secondary" href="evidence-strategy.html">Verification path</a>
           <a class="button secondary" href="https://github.com/TheDarkLightX">GitHub</a>
@@ -106,16 +106,16 @@
             <button type="button" data-maze-reset>Reset</button>
           </div>
           <div class="maze-result" role="status" aria-live="polite" aria-atomic="true"><strong data-maze-status>Example proposals are ready.</strong><p data-maze-detail>Enable JavaScript to animate and check a trajectory.</p></div>
-          <p class="maze-scope">This demo replays example proposals; it does not call a live LLM. The deterministic checker runs in your browser. In exploration mode, the dot marks the search cursor rather than an adjacent-step route. Reduced-motion preferences are respected.</p>
+          <p class="maze-scope">This demo replays recorded example proposals. A deterministic checker runs in your browser. In exploration mode, the dot marks the position currently being inspected. Animation follows your motion preferences.</p>
         </div>
         <p>A finite state space can permit exhaustive exploration, as this maze demonstrates. An unbounded maze may still have a finite solution trajectory that a checker can verify. A partial search that finds no solution does not, by itself, establish that no solution exists.</p>
         <div class="two-col">
-          <div><h3>First, check the rules</h3><p>Agentic behavior is a trajectory of actions, observations, and consequences. Reaching a goal does not excuse a forbidden intermediate action. A constitution can define hard constraints that every accepted trajectory must satisfy, including permissions and evidence requirements.</p></div>
+          <div><h3>First, check the rules</h3><p>An agent acts through a sequence of actions, observations, and consequences. A constitution can require every step to satisfy specified permissions and evidence requirements, including the steps before it reaches the goal.</p></div>
           <div><h3>Then compare the options</h3><p>Accepted trajectories can still differ in cost, usefulness, and effects on people. In this maze, the legal detour costs more moves. In a real system, preferences and heuristics guide search among admissible options. Mathematical optimality requires a specified objective and sufficient evidence about the alternatives; a passing check alone does not establish it.</p></div>
         </div>
         <div id="alignment-method" class="section-heading">
           <h3>From maze trajectories to alignment</h3>
-          <p>The maze walls stand for specified constraints; the goal and route costs stand for objectives and preferences. Neuro-symbolic alignment combines learning better proposals with explicit checks on what a system may do. Human values determine the requirements, and the adequacy of that specification remains open to scrutiny.</p>
+          <p>The maze walls stand for specified constraints; the goal and route costs stand for objectives and preferences. Neurosymbolic alignment combines learning better proposals with explicit checks on what a system may do. Human values determine the requirements, and the adequacy of that specification remains open to scrutiny.</p>
         </div>
         <dl class="candidate-spaces">
           <div><dt>Training shapes proposals</dt><dd>Use a constitution and checked examples to reward useful, permitted trajectories, honest uncertainty, and justified stopping. Counterexamples can reveal when a reward favors a shortcut through a wall.</dd></div>
@@ -124,7 +124,7 @@
           <div><dt>Evidence improves the next iteration</dt><dd>Preserve failures and their causes in Research Kernel. Revise the specification, training examples, or enforcement boundary as appropriate, then evaluate again. Measure unsafe proposals and prevented effects separately.</dd></div>
         </dl>
         <div class="two-col">
-          <div><h3>Can monitors prevent incidents?</h3><p>They can help, but prevention is not established by retrospective detection. <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI's July 2026 incident account</a> reports earlier warning signs and monitoring improvements made with hindsight. The <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR and Redwood investigation</a> describes limitations of AI-assisted analysis. Detection, timely intervention, and effective containment each need evidence.</p></div>
+          <div><h3>Monitoring and incident prevention</h3><p>Prevention requires detecting a problem in time to intervene and contain its effects. <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI's July 2026 incident account</a> reports earlier warning signs and monitoring improvements made with hindsight. The <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR and Redwood investigation</a> describes limitations of analysis assisted by AI. Detection, timely intervention, and effective containment each need evidence.</p></div>
           <div><h3>What a symbolic incident model adds</h3><p>Represent authority, task scope, actions, and observed effects as states and transitions. A forbidden transition becomes a counterexample that can inform a regression check. Prevention still requires a faithful abstraction and enforcement over every relevant action channel: a checker cannot rule out effects its model or observations omit.</p></div>
         </div>
         <ol class="method-steps">
@@ -211,10 +211,10 @@
           <p>I start with methods that have worked before. If I try something new, I test whether it helps.</p>
         </div>
         <ol class="method-steps">
-          <li><b>1. Understand the problem</b><p>Start with what the product means in practice: user expectations, economic behavior, failure modes, operational constraints, and the domain experience that a specification may omit. A DEX, for example, is not merely swap math. It includes quoting, slippage, approvals, transaction state, failure recovery, liquidity behavior, routing, wallet state, gas, and UX that makes those states intelligible.</p></li>
+          <li><b>1. Understand the problem</b><p>Start with what people need the system to do and what can go wrong. For a DEX, that includes quotes, slippage, approvals, transaction status, recovery after failure, liquidity, routing, wallets, fees, and an interface that explains what is happening.</p></li>
           <li><b>2. Don't reinvent the wheel</b><p>Before inventing a method, look for mature architecture, testing, UX, security, and verification practice. Ask what experienced practitioners already know, which failure modes motivated the practice, and whether it actually applies to this problem.</p></li>
           <li><b>3. Choose the right abstraction</b><p>Represent the risky part in the form that makes its behavior easiest to reason about: equations for deterministic transformations, finite-state machines for lifecycle logic, invariants for safety properties, schemas for structured boundaries, or another model when it fits better.</p></li>
-          <li><b>4. Choose the cheapest sufficient evidence</b><p>Formal proof is not automatically better than testing, and testing is not automatically sufficient. I choose among exhaustive enumeration, model checking, theorem proving, differential oracles, property tests, boundary-value analysis, integration tests, replay, and other methods according to the claim and the risk.</p></li>
+          <li><b>4. Choose checks that fit the claim</b><p>I choose checks according to the claim, the risk of error, and the cost. These may include exhaustive enumeration, model checking, theorem proving, independent reference calculations, property tests, boundary value analysis, integration tests, or replay.</p></li>
           <li><b>5. Build independent checks</b><p>Where possible, expected behavior is derived through a different path than the implementation. A spreadsheet can act as a differential oracle for deterministic financial logic; a finite-state model can expose invalid transitions; a brute-force reference can audit an optimized algorithm. Agreement is more useful when the failure modes are not perfectly correlated.</p></li>
           <li><b>6. When practice is missing, run the experiment</b><p>If no reliable best practice exists, or competing practices make incompatible claims, convert the uncertainty into a comparison: define success criteria, build alternatives, construct adversarial cases, measure what works and what fails, preserve negative results, and narrow the claim to the evidence.</p></li>
           <li><b>7. Keep what holds up</b><p>A successful experiment becomes a reusable local practice only after its assumptions and failure boundaries are understood. I keep what helps me make better decisions next time.</p></li>
@@ -227,8 +227,8 @@
         <div>
           <p class="eyebrow">Reviewing agent-written code</p>
           <h2>Check what the code does.</h2>
-          <p>For a deterministic pure core, I often do not need to establish trust by reading every generated line. I can make the behavioral contract smaller than the implementation and verify the implementation against it.</p>
-          <p>If an algorithm implements a deterministic function, the useful question is whether the implementation agrees with the independently derived expected function on the cases that matter, not whether the source merely looks reasonable.</p>
+          <p>For a deterministic pure core, I can write a compact description of the expected behavior and verify the implementation against it. That gives me a focused way to review code generated by agents.</p>
+          <p>For a deterministic function, I compare the implementation with an independently derived description of the expected result on the cases that matter.</p>
         </div>
         <div class="matrix-card">
           <pre style="overflow:auto; margin:0; padding:1.25rem; font-family:var(--font-mono); line-height:1.7; color:var(--text);">domain meaning
@@ -265,27 +265,27 @@ formal / behavioral model
           <article class="project-card featured">
             <div class="project-meta"><span>Behavior model</span><span>FSM</span></div>
             <h3>Finite-state review</h3>
-            <p>When correctness depends on permitted transitions, inspect the state set and transition relation rather than mentally simulating a large codebase. The model makes impossible and missing transitions visible.</p>
+            <p>Model the possible states and the transitions between them. Check which transitions are allowed, which are missing, and which should be impossible.</p>
           </article>
           <article class="project-card featured">
             <div class="project-meta"><span>Independent oracle</span><span>Spreadsheet</span></div>
             <h3>Differential financial audit</h3>
-            <p>For deterministic algorithms, independently encode the expected equations in a spreadsheet or reference model and compare implementation outputs at discriminating inputs. The oracle is useful precisely because it is derived through a different path.</p>
+            <p>Write the expected equations independently in a spreadsheet or reference model. Compare its results with the implementation using inputs that could reveal a disagreement.</p>
           </article>
           <article class="project-card">
             <div class="project-meta"><span>Test design</span><span>BVA</span></div>
             <h3>Boundary value analysis</h3>
-            <p>Test around meaningful discontinuities, limits, thresholds, empty/full states, minimums, maximums, and just-inside/just-outside values where plausible implementations most often diverge.</p>
+            <p>Test empty and full states, minimums and maximums, and values just below or above a limit. Small changes at these points can reveal mistakes.</p>
           </article>
           <article class="project-card">
             <div class="project-meta"><span>Test structure</span><span>AAA</span></div>
             <h3>Arrange, Act, Assert</h3>
-            <p>Keep the behavioral claim visible in each test: establish the precondition, perform one meaningful action, and assert the property that should follow. Structure helps prevent generated tests from becoming opaque implementation mirrors.</p>
+            <p>Set up the starting conditions, perform an action, and check the expected result. Each test should make clear which behavior it checks.</p>
           </article>
           <article class="project-card">
             <div class="project-meta"><span>Discovery</span><span>Experiment</span></div>
             <h3>When there is no best practice</h3>
-            <p>Make competing approaches falsifiable. Define what success means, build a bounded comparison, record failures as well as wins, and turn the surviving result into a reusable practice with explicit scope rather than a universal rule.</p>
+            <p>Define success, compare the approaches on a stated problem, and record the failures and successes. Keep the approach that holds up, along with the conditions under which it worked.</p>
           </article>
         </div>
       </div>
@@ -312,7 +312,7 @@ formal / behavioral model
       <div class="container two-col">
         <div>
           <p class="eyebrow">Human + agents</p>
-          <h2>I can delegate the task, but I still answer for it.</h2>
+          <h2>I remain responsible for the tasks I delegate.</h2>
           <p>Agents help me research, build, refactor, generate test cases, and explore possible designs. I record what I asked them to do, which methods and models I chose, how I checked the results, and what I personally reviewed.</p>
           <p>I disclose how AI was used and explain why I accepted the result. <strong>The design and the checks matter as much as the code.</strong></p>
         </div>

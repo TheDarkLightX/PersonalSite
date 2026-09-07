@@ -69,10 +69,10 @@
           <table class="matrix">
             <thead><tr><th>Repository</th><th>What it is</th></tr></thead>
             <tbody>
-              <tr><td><a href="https://github.com/TheDarkLightX/MPRD">TheDarkLightX/MPRD</a></td><td>Proof-carrying AI action governance. Rust core, Lean proofs, ZK.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/MPRD">TheDarkLightX/MPRD</a></td><td>AI actions checked against specified rules. Rust core, Lean proofs, and zero-knowledge proofs.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/ZenoDEX">TheDarkLightX/ZenoDEX</a></td><td>Formally constrained exchange. Integer-exact settlement, Lean + TLA+, replay certificates.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">TheDarkLightX/Research-Kernel-MCP</a></td><td>Research memory for AI assistants. Connected claims and evidence, explicit promotion rules, SQLite persistence, and an append-only event log.</td></tr>
-              <tr><td><a href="https://github.com/TheDarkLightX/PopperPad">TheDarkLightX/PopperPad</a></td><td>Released falsification-first scientific memory. Content-addressed objects, a hash-chained log, replayable verifier evidence, and derived graph status.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/PopperPad">TheDarkLightX/PopperPad</a></td><td>Scientific memory that records attempts to refute claims. Objects identified by content hashes, a linked event log, and evidence you can replay.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/ZenoFCIS">TheDarkLightX/ZenoFCIS</a></td><td>Public Rust library for high-assurance functional-core and imperative-shell systems, with canonical boundaries, atomic commit, and replay evidence.</td></tr>
               <tr><td><a href="https://github.com/TheDarkLightX/PersonalSite">TheDarkLightX/PersonalSite</a></td><td>This site, plus the <a href="docs/cost-estimates.md">cost-model inputs and replay instructions</a>.</td></tr>
               <tr><td><a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Formal Methods Philosophy (blog)</a></td><td>Public tutorials and interactive labs on verification, functional architecture, neuro-symbolic AI, and the philosophy of software correctness. Read it online.</td></tr>
@@ -119,7 +119,7 @@
                 <td>Run <code>pytest -q tests/internal/test_research_kernel_mcp.py</code> and the server self-test (<code>--self-test</code>). Confirm promotion fails when evidence is missing.</td>
               </tr>
               <tr>
-                <td>Scientific status is derived from replayable evidence rather than asserted or purchased.</td>
+                <td>Scientific status follows the recorded evidence and verification rules.</td>
                 <td>PopperPad <code>src/popperpad/</code>, <code>tests/</code></td>
                 <td>Run <code>pytest -q</code>. Inspect the status and strict doctor tests; confirm malformed evidence fails closed and changing stake alone cannot change scientific status.</td>
               </tr>
@@ -173,8 +173,8 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Adversarial</p>
-          <h2>Try to break it. That is the point.</h2>
-          <p>A claim you can't break is worth more than one nobody tested. I'd rather you surface a real weakness than miss it. Here's where to push.</p>
+          <h2>Look for mistakes.</h2>
+          <p>Testing a claim helps establish where it holds. Look for weaknesses in the specification, the implementation, and the connection between the two. I use those findings to improve the system.</p>
         </div>
         <div class="snapshot-list">
           <article>

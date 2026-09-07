@@ -78,8 +78,8 @@
         <div class="hero-copy">
           <p class="eyebrow">Engineer · philosopher · futurist</p>
           <h1>Dana Edwards</h1>
-          <p class="bio">My work follows one question: how do you use computation to reduce involuntary ignorance and improve the quality of governance? The answer started with intelligence augmentation, moved through network states, and landed on proof-carrying systems.</p>
-          <p class="claim">I build proof-carrying systems for the cyborg economy: people set direction, agents perform scalable work, deterministic gates decide what counts, and transparent fee rules can turn verified output into open paid opportunity.</p>
+          <p class="bio">I use computation to help people make informed decisions and shape the systems they depend on. My work brings together intelligence augmentation, governance, and formal verification.</p>
+          <p class="claim">I build systems that let people and AI agents research, create, and participate in markets. Checkers enforce specified rules, and fees from actual use can fund tasks with clear payment terms.</p>
           <div class="hero-actions">
             <a class="button primary" href="#work">See the work</a>
             <a class="button secondary" href="#research">Current research</a>
@@ -88,7 +88,7 @@
           <nav class="proof-links" aria-label="Start here">
             <a href="case-studies/mprd.html"><span>MPRD</span><strong>Proof-carrying AI action governance</strong></a>
             <a href="case-studies/zenodex.html"><span>ZenoDEX</span><strong>Formally verified exchange, replayable</strong></a>
-            <a href="case-studies/research-kernel.html"><span>Research Kernel</span><strong>Evidence-first research memory</strong></a>
+            <a href="case-studies/research-kernel.html"><span>Research Kernel</span><strong>Research memory and evidence</strong></a>
             <a href="evidence-strategy.html"><span>Evaluation</span><strong>An automated evaluation path</strong></a>
             <a href="writing.html"><span>Writing</span><strong>Tutorials and interactive labs</strong></a>
           </nav>
@@ -113,7 +113,7 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Current research · September 2026</p>
-          <h2 id="research-heading">Neuro-symbolic training for constitutional behavior.</h2>
+          <h2 id="research-heading">Neurosymbolic training for constitutional behavior.</h2>
           <blockquote class="pull-quote">
             <p>At a fixed training budget, does symbolically checked, counterexample-directed training improve constitutional behavior compared with ordinary LLM-generated training data?</p>
           </blockquote>
@@ -121,11 +121,11 @@
         </div>
         <div>
           <h3>How I develop the question</h3>
-          <p>I use neuro-symbolic workflows to connect creative search with explicit checks. LLMs help me arrive at new research questions, propose hypotheses, explore abstractions, and search for counterexamples. My custom Research Kernel Protocol MCP records the questions, evidence, dependencies, and failures so the investigation can be inspected and continued.</p>
+          <p>I use neurosymbolic workflows to connect creative search with explicit checks. LLMs help me arrive at new research questions, propose hypotheses, explore abstractions, and search for counterexamples. My custom Research Kernel Protocol MCP records the questions, evidence, dependencies, and failures so the investigation can be inspected and continued.</p>
           <p>This connects my <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy">Formal Methods Philosophy</a> work with <a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/market-for-behaviors.md">A Market for Behaviors</a>: make the incentive structure explicit, then test which behaviors it selects for.</p>
           <p class="value-note"><strong>Status:</strong> study in development. The current demonstrator uses finite-state models and tabular learning. The neural fine-tuning comparison remains to be run.</p>
           <div class="card-actions">
-            <a href="methodology.html#neuro-symbolic">My neuro-symbolic method</a>
+            <a href="methodology.html#neuro-symbolic">My neurosymbolic method</a>
             <a href="methodology.html#maze-witness">Try the moving maze example</a>
             <a href="methodology.html#training-study">Study design</a>
             <a href="capabilities.html#scaling">Scaling my workflow</a>
@@ -139,8 +139,8 @@
         <div>
           <p class="eyebrow">Background</p>
           <h2>How I got here.</h2>
-          <p>The same question runs through all of it: how do you use computation to reduce involuntary ignorance and improve the quality of governance? It starts in intelligence augmentation, moves through network states and autonomous agents, and arrives at proof-carrying systems where rules are enforced by construction, not by trust.</p>
-          <p>In 2015, I argued that cognitive bias, bounded rationality, and information asymmetry cause involuntary errors in human decision-making, and that intelligence augmentation could mediate them. In 2017, the Pangea whitepaper introduced Lucy, an autonomous agent designed to evolve into an exocortex. The thread from there to MPRD is direct: a model proposes, deterministic gates decide. The rules are the constitution, and the proof is the check. I build systems you can check, not just trust. Formal methods is one way I do that. It's not the only way.</p>
+          <p>I began with a question about involuntary ignorance: how can technology help people get the information they need to decide well? That led me to intelligence augmentation, network states, autonomous agents, and systems that check actions against explicit rules.</p>
+          <p>In 2015, I argued that cognitive bias, bounded rationality, and information asymmetry cause involuntary errors in human decision-making, and that intelligence augmentation could mediate them. In 2017, the Pangea whitepaper introduced Lucy, an autonomous agent designed to evolve into an exocortex. MPRD applies that thinking to AI actions: models propose actions, and deterministic checks enforce the rules. I use formal methods, experiments, and practical tests to assess whether the systems behave as intended.</p>
           <blockquote class="pull-quote">
             <p>The exocortex concept evolved from Ray Kurzweil's work on brain augmentation. I took that idea and built on it: a wisdom engine, a search engine but for decision support. The problem it was designed to solve was involuntary ignorance. For democracy to produce better governance, you need a wiser, more informed voter, a wiser lawmaker, and smarter institutions. Lucy was a prototype for what we now see with modern AI assistants, but its role was to empower each network citizen, not unlike what Sam Altman later described as "building a brain for the world" that is "extremely personalized and easy for everyone to use."</p>
             <cite><a href="https://blog.samaltman.com/the-gentle-singularity">Sam Altman, "The Gentle Singularity"</a>, the parallel to Lucy, seven years later.</cite>
@@ -176,9 +176,9 @@
             <div class="card-media"><img src="assets/projects/mprd/app.webp" alt="MPRD operator UI: a decision audit log with Allowed and Denied verdicts and Verified proofs" width="1280" height="800" loading="lazy" decoding="async" onerror="this.remove()" /></div>
             <div class="project-meta"><span>Public repo</span><span>Rust / Lean / ZK</span></div>
             <h3>MPRD: Model Proposes, Rules Decide</h3>
-            <p>Proof-carrying AI action governance. An untrusted model proposes candidate actions; deterministic policy and verification gates decide whether a committed action may reach an executor.</p>
+            <p>An AI model proposes an action. The executor requires a verified receipt showing that the proposed action passed the specified policy checks.</p>
             <ul>
-              <li>Typed execution boundary and proof-carrying transcript design.</li>
+              <li>Typed execution interfaces and transcripts that carry proof evidence.</li>
               <li>Policy, state, action, and receipt commitments.</li>
               <li>Explicit distinction between implementation status, bounded claim, and production claim.</li>
             </ul>
@@ -221,7 +221,7 @@
             </div>
             <div class="project-meta"><span>Released</span><span>Python / Lean / CLI</span></div>
             <h3>PopperPad: Scientific Memory</h3>
-            <p>An offline-first, falsification-first ledger for recording hypotheses, evidence, counterexamples, and reproducible checks without rewriting history.</p>
+            <p>A ledger that works offline and records hypotheses, evidence, counterexamples, and reproducible checks. It keeps the history of attempts to refute each claim.</p>
             <ul>
               <li>Content-addressed objects and a hash-chained log preserve provenance.</li>
               <li>Supported, falsified, and disputed states are derived from replayable verifier evidence.</li>
@@ -265,7 +265,7 @@
             <div class="project-meta"><span>Blog</span><span>Writing / Education</span></div>
             <h3>Formal Methods Philosophy</h3>
             <p>A tutorial and lab site on modeling, abstraction, symbolic tools, counterexamples, verification, and what it means to justify a claim about software.</p>
-            <p class="value-note">Public tutorials and interactive labs teach the verification methods above. Evidence that I can explain the work, not just do it.</p>
+            <p class="value-note">Public tutorials and interactive labs teach the verification methods above. You can follow the explanation and try the checks yourself.</p>
 
             <div class="card-actions">
               <a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Read the blog</a>
@@ -276,7 +276,7 @@
           <article class="project-card featured">
             <div class="card-media"><img src="assets/projects/research-kernel/terminal.svg" alt="Research Kernel MCP: terminal session showing a claim promoted from UNKNOWN to SUPPORTED through the fail-closed gate, with evidence, refutation, provenance, and dependencies verified" width="1280" height="800" loading="lazy" decoding="async" onerror="this.remove()" /></div>
             <div class="project-meta"><span>Public repo</span><span>Python / MCP / SQLite</span></div>
-            <h3>Research Kernel MCP: Evidence-First Research Memory</h3>
+            <h3>Research Kernel MCP: Research Memory</h3>
             <p>Research memory for AI assistants: questions, hypotheses, evidence, and failed approaches stay connected across sessions. The kernel records changes and enforces explicit evidence requirements before a claim can be marked supported.</p>
             <ul>
               <li>Typed atoms (claim, evidence, question, result, risk, counterexample) and typed edges (supports, refutes, contradicts, reformulates).</li>
@@ -293,7 +293,7 @@
         <div class="packet-grid" style="margin-top: 0;">
           <a class="packet-card" href="case-studies/mprd.html">
             <span>AI systems engineering</span>
-            <strong>Agent gates, proof-carrying actions, reliable automation, and deployment boundaries.</strong>
+            <strong>Rules for AI actions, verification before execution, and reliable automation.</strong>
           </a>
           <a class="packet-card" href="case-studies/zenodex.html">
             <span>Formal verification</span>
@@ -312,23 +312,23 @@
         <div class="section-heading">
           <p class="eyebrow">More public work</p>
           <h2>Other repos worth a look.</h2>
-          <p>Not every project gets a case study. These are public and show the range: event-driven automation, witness-space preprints, Tau Language experiments, and code-quality tooling.</p>
+          <p>Explore more of my projects: automation that responds to events, research on witness spaces, Tau Language experiments, and tools for reviewing code.</p>
         </div>
         <div class="writing-grid">
           <a class="writing-card" href="https://github.com/TheDarkLightX/Helix-A-Next-Gen-Event-Driven-Multi-Agent-Platform">
             <span>Rust</span>
             <strong>Helix</strong>
-            <p>Self-hosted personal event-automation platform. Like Huginn or IFTTT, but smarter: a multi-agent, event-driven architecture in Rust.</p>
+            <p>A platform I can host myself to automate tasks in response to events. It coordinates agents through an architecture written in Rust.</p>
           </a>
           <a class="writing-card" href="https://github.com/TheDarkLightX/what-if-witness-spaces">
             <span>Python · Apache-2.0</span>
             <strong>What-If Witness Spaces</strong>
-            <p>Artifact-backed preprint and replication bundle for what-if witness spaces and neuro-symbolic disaster loops.</p>
+            <p>A preprint on what-if witness spaces and neurosymbolic disaster loops, with artifacts and instructions for reproducing the results.</p>
           </a>
           <a class="writing-card" href="https://github.com/TheDarkLightX/TauLang-Experiments">
             <span>Python</span>
             <strong>TauLang Experiments</strong>
-            <p>Educational experiments with Tau Language: proven optimizations, math proofs, and code snippets produced with neuro-symbolic assistance.</p>
+            <p>Educational experiments with Tau Language: proven optimizations, math proofs, and code snippets produced with neurosymbolic assistance.</p>
           </a>
           <a class="writing-card" href="https://github.com/TheDarkLightX/QualiaGuardian">
             <span>Python</span>
@@ -360,7 +360,7 @@
         </div>
         <ol class="writing-list">
           <li><span>01</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/approximate-state-tracking.md"><strong>Approximate state tracking</strong><p>State machines, abstraction, counterexamples, CEGIS, and the boundary between heuristics and proofs.</p></a></li>
-          <li><span>02</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/mprd-and-algorithmic-ceo.md"><strong>MPRD and the Algorithmic CEO</strong><p>The neuro-symbolic gate turned into production architecture. Models propose, rules decide.</p></a></li>
+          <li><span>02</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/mprd-and-algorithmic-ceo.md"><strong>MPRD and the Algorithmic CEO</strong><p>The neurosymbolic gate turned into production architecture. Models propose, rules decide.</p></a></li>
           <li><span>03</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/resolution-refutation-and-falsification.md"><strong>Resolution, refutation, and falsification</strong><p>Proof in a closed formal world vs corroboration in an open empirical one.</p></a></li>
           <li><span>04</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/rices-theorem-and-consciousness.md"><strong>Consciousness, computationalism, and Rice's theorem</strong><p>If consciousness is a nontrivial semantic property, no general detector can decide it.</p></a></li>
           <li><span>05</span><a href="https://github.com/TheDarkLightX/Formal_Methods_Philosophy/blob/main/tutorials/market-for-behaviors.md"><strong>A Market for Behaviors: What Learning Is</strong><p>Learning is adjusting behavior probabilities based on reward signals. Those signals are set by a market. Five layers from behavioral spectrum to alignment as market design, with an interactive lab.</p></a></li>

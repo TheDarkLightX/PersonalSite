@@ -68,21 +68,21 @@
       <div class="container">
         <div class="essay-prose">
 
-          <p>Imagine a scientist beginning the day with a question rather than a queue.</p>
+          <p>Imagine a scientist beginning the day with a question she wants to test.</p>
 
           <p>She describes a hypothesis to an AI research partner. The agent searches papers across fields, translates unfamiliar notation, writes code, proposes a simulation, calls a theorem prover, and finds three results that appear to support the claim.</p>
 
           <p>It also finds a counterexample.</p>
 
-          <p>The counterexample is small, ugly, and decisive. One assumption in the original hypothesis was too broad. The scientist narrows the claim, reruns the experiment, and asks another agent to reproduce the result from a clean environment. A verifier checks the formal fragment. A replay harness checks the empirical artifact. The failed version, corrected version, recipes, logs, contexts, and attestations remain connected in an append-only graph.</p>
+          <p>The counterexample reveals a flaw in the hypothesis. One assumption in the original hypothesis was too broad. The scientist narrows the claim, reruns the experiment, and asks another agent to reproduce the result from a clean environment. A verifier checks the formal fragment. A replay harness checks the empirical artifact. The failed version, corrected version, recipes, logs, contexts, and attestations remain connected in an append-only graph.</p>
 
-          <p>The scientist did not personally read every paper, write every line of code, or execute every check.</p>
+          <p>The agents helped her read, write code, and run checks.</p>
 
-          <p>She still did the science.</p>
+          <p>She directed the investigation.</p>
 
           <p>She chose the question. She decided which assumptions mattered. She determined whether the model's translation preserved the meaning of the claim. She chose what evidence was relevant, what risk justified another experiment, and what result was responsible to publish.</p>
 
-          <p>That is the PopperPad user I have in mind: the <strong>cyborg scientist</strong>, a person whose reach is multiplied by agents without surrendering judgment or responsibility to them.</p>
+          <p>I am building PopperPad for this kind of scientist: someone who uses agents to investigate more questions while retaining judgment and responsibility.</p>
 
           <figure>
             <object type="image/svg+xml" data="../assets/essays/cyborg-scientist.svg" role="img" aria-label="A human scientist sets direction, AI agents search broadly, formal and empirical verifiers filter results, and PopperPad preserves the accepted evidence and refutations.">
@@ -93,11 +93,11 @@
 
           <h2>Judgment is the scarce input</h2>
 
-          <p>There is a weak way to describe human-in-the-loop systems. The machine does the important work; a person remains nearby to approve it.</p>
+          <p>When I guide a research system, I choose the question, the methods, and the evidence needed to assess the result.</p>
 
-          <p>That makes the human sound like a temporary compatibility layer.</p>
+          <p>My role begins when I decide what is worth investigating.</p>
 
-          <p>OpenAI's recent writing makes a stronger claim. In April, Sam Altman wrote that AI "will give people more capability and agency."<sup><a href="#fn-altman-principles">1</a></sup> In June, Altman and Jakub Pachocki wrote:</p>
+          <p>OpenAI's recent writing also emphasizes human judgment. In April, Sam Altman wrote that AI "will give people more capability and agency."<sup><a href="#fn-altman-principles">1</a></sup> In June, Altman and Jakub Pachocki wrote:</p>
 
           <blockquote><p>As AI systems become more capable, the human role becomes more important.</p></blockquote>
 
@@ -114,7 +114,7 @@ AI agents:        propose, search, translate, simulate, minimize, reproduce
 Verifiers:        check declared predicates over declared artifacts
 PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code></pre>
 
-          <p>This is a boundary, not a hierarchy: machine-scale work can expand while an accountable principal retains control over consequential meaning and action.</p>
+          <p>Agents can take on more tasks while a person retains control over the objective, interpretation, and consequential actions.</p>
 
           <p>That boundary follows the line between syntax and semantics.</p>
 
@@ -122,7 +122,7 @@ PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code
 
           <p>A human supplies semantics: meaning, intent, reference, and purpose. An agent can write a Given/When/Then story, but the human decides which behavior matters, who the user is, and what experience the system serves. The syntactic scaffolding is the easy part. The semantic question, what is this for and who is it for, is the part that cannot be delegated without also delegating responsibility.</p>
 
-          <p>Any agent can be a user of a system in the operational sense: it reads inputs, produces outputs, and consumes the interface. But when I design, I prioritize the human user, human sensibilities, and human concerns. The agent is a tool that extends the human's reach toward an experience; it is not the party whose experience is being served. The human is the pilot. The agent is the copilot. That framing from the cyborg economy holds here too: the agent is a force multiplier of human will, not a substitute for it.</p>
+          <p>An agent can use an interface, read inputs, and produce outputs. I design the system around the person directing it: what they want to accomplish, what they need to understand, and which decisions they must control.</p>
 
           <p>The ultimate concern behind that priority is human happiness. I think that concern can be described by the utilitarian calculus: arrangements are better when they produce more wellbeing for more people, and worse when they produce less. At the local level of a single user sitting at a single interface, a platform can and should attempt to create an experience that produces satisfaction and happiness in that user. User satisfaction is a utilitarian target, and it is one a piece of software can legitimately aim at.</p>
 
@@ -132,21 +132,17 @@ PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code
 
           <h2>Scientific memory for humans and agents</h2>
 
-          <p>PopperPad is an offline-first, falsification-first ledger for hypotheses, recipes, evidence, counterexamples, artifacts, and typed relationships between claims.<sup><a href="#fn-popperpad-readme">3</a></sup></p>
+          <p>PopperPad is a ledger that works offline and records hypotheses, recipes, evidence, counterexamples, artifacts, and relationships between claims. Attempts to refute a claim are part of the research record.<sup><a href="#fn-popperpad-readme">3</a></sup></p>
 
-          <p>Its core proposition is easy to state:</p>
+          <blockquote><p>PopperPad records each claim, how it was checked, the supporting and conflicting evidence, and the context of the result. The check or experiment supplies the evidence for the claim.</p></blockquote>
 
-          <blockquote><p>PopperPad does not make claims true. It preserves what was claimed, how it was checked, what supported or refuted it, and which context produced the result.</p></blockquote>
+          <p>Objects are content-addressed. Events are append-only. A newer result can supersede or narrow an older one without erasing the path that led there. The recorded verifier evidence determines whether a claim is marked supported, falsified, or disputed.</p>
 
-          <p>Objects are content-addressed. Events are append-only. A newer result can supersede or narrow an older one without erasing the path that led there. Supported, falsified, and disputed statuses are derived from verifier evidence rather than asserted by a popular author, wealthy token holder, or confident model.</p>
+          <p>As AI produces more hypotheses, summaries, experiments, and proof sketches, I need better ways to choose what to test, trace its sources, reproduce the results, and remember what failed.</p>
 
-          <p>This matters more when scientific output accelerates.</p>
+          <p>More claims create more work for independent checking.</p>
 
-          <p>If AI can produce ten times as many hypotheses, summaries, experiments, and proof sketches, the bottleneck moves. The problem is no longer merely generation. It is provenance, selection, adversarial checking, reproduction, and memory.</p>
-
-          <p>Abundant claims increase the value of organized doubt.</p>
-
-          <p>PopperPad's falsification-market design therefore treats the following as first-class work:</p>
+          <p>PopperPad's proposed market would pay for these contributions:</p>
 
           <table>
             <thead><tr><th>Work product</th><th>What an agent or cyborg contributes</th><th>What must be checked</th></tr></thead>
@@ -157,21 +153,21 @@ PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code
               <tr><td>Boundary discovery</td><td>A narrower claim that survives after failure</td><td>Counterexample to the old scope and evidence for the new</td></tr>
               <tr><td>Recipe maintenance</td><td>A working check after tools or dependencies change</td><td>Semantics preserved across the update</td></tr>
               <tr><td>Artifact preservation</td><td>Durable availability of evidence bundles</td><td>Content hash and retrieval challenge</td></tr>
-              <tr><td>Curation</td><td>Useful duplicate, refutation, and lineage relationships</td><td>Graph utility, not authority over truth</td></tr>
+              <tr><td>Curation</td><td>Useful duplicate, refutation, and lineage relationships</td><td>Useful links that preserve the recorded evidence and status</td></tr>
             </tbody>
           </table>
 
-          <p>The smallest valuable unit is a <strong>knowledge patch</strong>, not "content": a claim, context, recipe, evidence, artifacts, signatures, and a proof, replay, or counterexample that changes what a careful reader should believe.</p>
+          <p>A <strong>knowledge patch</strong> contains a claim, context, recipe, evidence, artifacts, signatures, and a proof, replay, or counterexample that changes what a careful reader should believe.</p>
 
-          <p>That patch can be produced by a human, an agent, or a team. Its eligibility for payment depends on the evidence, not the biography of the producer.</p>
+          <p>That patch can be produced by a human, an agent, or a team. Its eligibility for payment depends on the evidence and the declared task rules.</p>
 
           <h2>A market that buys criticism</h2>
 
-          <p>Most knowledge platforms overpay novelty.</p>
+          <p>New findings often attract more attention than attempts to reproduce them.</p>
 
-          <p>They reward the first dramatic claim, the clean result, the confident summary, and the shareable conclusion. Corrections arrive later, if they arrive at all. The person who discovers that a result fails under one compiler version or one subpopulation often receives less attention than the person who made the original general claim.</p>
+          <p>A dramatic claim can attract attention before anyone has reproduced it. A correction may receive less attention, even when it reveals a failure under a different compiler or in a different population.</p>
 
-          <p>PopperPad's market design reverses the incentive.</p>
+          <p>I want PopperPad to make careful criticism worth doing.</p>
 
           <p>It can create open work orders for:</p>
 
@@ -184,7 +180,7 @@ PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code
             <li>a sharper boundary around an overbroad result.</li>
           </ul>
 
-          <p>Payment still cannot decide truth. The sequence must be:</p>
+          <p>Payment follows the evidence checks and challenge period:</p>
 
           <pre><code>declared task
 &rarr; submitted evidence
@@ -199,15 +195,15 @@ PopperPad:        preserve claims, evidence, lineage, disputes, and replay</code
 
           <p>The repository expresses the incentive test for an autonomous worker as \(EV(\text{task}) = \Pr(\text{success})\cdot \text{reward} -\text{cost} -\Pr(\text{slash})\cdot \text{bond}\). An agent attempts PopperPad work when that expected value exceeds its best alternative use of compute, time, capital, and expertise.<sup><a href="#fn-popperpad-game">4</a></sup></p>
 
-          <p>This is a market for epistemic labor, not a truth market.</p>
+          <p>The market would pay for research tasks whose results meet the declared checks.</p>
 
           <h2>What the fee math says</h2>
 
-          <p>There is no sponsor budget in my capacity model.</p>
+          <p>My capacity model funds rewards from fees earned through actual use.</p>
 
           <p>The model starts only after real use produces real fees. Let \(F\) be realized gross fees, \(\theta\) the share allocated to epistemic tasks, and \(u\) the share actually settled. Then \(R=F\theta u\) is the settled reward pool. If the average verified task pays \(r\), then \(N=\frac{F\theta u}{r}\) is the number of paid task settlements.</p>
 
-          <p>Consider a visible scenario, not a forecast or launch recommendation:</p>
+          <p>Here is a hypothetical scenario for inspecting the calculation:</p>
 
           <pre><code>realized annual fees             $1,000,000
 task allocation &theta;                       60%
@@ -216,11 +212,11 @@ settled reward pool R              $510,000
 average verified payout r              $500
 paid task settlements N               1,020</code></pre>
 
-          <p>That could mean 1,020 proof, refutation, reproduction, maintenance, preservation, and curation settlements in some mixture. It does not mean 1,020 people. One operator might manage many agents. An attention-heavy reproduction market might distribute work more broadly. Until payouts exist, neither the human share nor the concentration is known.</p>
+          <p>That could mean 1,020 proof, refutation, reproduction, maintenance, preservation, and curation settlements in some mixture. It does not mean 1,020 people. One operator might manage many agents. Reproductions that need considerable human attention might distribute work more broadly. Until payouts exist, neither the human share nor the concentration is known.</p>
 
           <p>Current realized fees are zero in the model. Current modeled reward capacity is therefore zero.</p>
 
-          <p>That sentence belongs on the front page because it tells the reader exactly where implementation ends and conditional economics begins.</p>
+          <p>The calculation shows what the system could fund if fees were earned.</p>
 
           <h2>How to measure whether the opportunity is real</h2>
 
@@ -232,19 +228,19 @@ paid task settlements N               1,020</code></pre>
             <li><strong>Settled epistemic reward value.</strong> How much was actually paid for verified work?</li>
             <li><strong>Unique verified settlements.</strong> How many non-duplicate knowledge patches passed the declared rule?</li>
             <li><strong>Verifier coverage.</strong> What share of payout value is backed by replayable verifier-accepted evidence?</li>
-            <li><strong>Reproduction depth.</strong> How many important results have independent, context-aware replay?</li>
-            <li><strong>Boundary yield.</strong> How often did refutation produce a sharper surviving claim rather than a dead end?</li>
+            <li><strong>Reproduction depth.</strong> How many important results have independent replay that checks the stated context?</li>
+            <li><strong>Claims improved after refutation.</strong> How often did a counterexample help define a narrower claim that survived testing?</li>
             <li><strong>Payout concentration.</strong> What shares went to the top one and top ten recipients, and what is the inverse-Herfindahl effective recipient count?</li>
-            <li><strong>Open-task value share.</strong> What share of payout value came from tasks with public discovery, machine-readable inputs, explicit eligibility, declared verification, and predeclared payout rules?</li>
+            <li><strong>Share paid for open tasks.</strong> What share of payout value came from tasks with public discovery, machine-readable inputs, explicit eligibility, declared verification, and predeclared payout rules?</li>
           </ol>
 
-          <p>No item measures happiness or scientific importance by itself. Together they show whether the system is buying auditable epistemic work or manufacturing activity statistics.</p>
+          <p>These measures help assess the funding, verification, and distribution of research tasks. Judging scientific importance and effects on wellbeing requires further evidence.</p>
 
           <h2>Responsibility requires control over the boundary</h2>
 
           <p>The boundary is the line between what an agent may do on its own and what requires the principal's decision. Inside the boundary, the agent searches, proposes, translates, and checks. At the boundary, the principal sets the objective, accepts the context, inspects the evidence, and can veto the irreversible. Responsibility tracks that line: a person who cannot control the boundary cannot be held accountable for what crosses it.</p>
 
-          <p>"Human in the loop" is not enough.</p>
+          <p>The person directing the system needs practical control over its consequential decisions.</p>
 
           <p>A person can be nominally present while the system makes every consequential choice, presents one default, hides alternatives, and makes reversal expensive. Conversely, a person can retain meaningful control without approving every tool call.</p>
 
@@ -259,31 +255,29 @@ paid task settlements N               1,020</code></pre>
             <li>can export the pad and continue without the platform operator.</li>
           </ul>
 
-          <p>I call the value-weighted share of consequential paths with those properties <strong>principal-control coverage</strong>. It is a measurable architecture property, not a philosophical guarantee.</p>
+          <p>I call the value-weighted share of consequential paths with those properties <strong>control coverage</strong>. It measures the stated controls. Their practical effect depends on how the system is used.</p>
 
-          <p>This also answers a deeper question about advanced AI research.</p>
+          <p>These controls also matter when agents help develop new AI systems.</p>
 
-          <p>If an AI system can generate a future model, the human researcher's moat cannot be "I can type the implementation faster." The durable contribution is choosing what to build, defining what must remain true, designing the evidence boundary, recognizing when the model solved the wrong problem, and accepting responsibility for deployment.</p>
+          <p>As agents take on more implementation, I expect research judgment to remain valuable: choosing what to build, defining the requirements, designing checks, recognizing when a model solves the wrong problem, and taking responsibility for deployment.</p>
 
           <p>PopperPad is infrastructure for that role.</p>
 
           <h2>What I am contributing</h2>
 
-          <p>The code is useful: a content-addressed object store, append-only history, replayable recipes, evidence capture, formal-tool integration, graph-native claim status, and designs for machine-readable work orders.</p>
+          <p>I built storage that identifies objects by content hashes, a history that retains earlier records, recipes for repeating checks, evidence capture, and connections to formal tools. The project also derives claim status from the graph and includes designs for structured work orders.</p>
 
-          <p>The larger contribution is a market grammar for cyborg science:</p>
+          <p>The proposed research and payment process is:</p>
 
           <pre><code>Question &rarr; Claim &rarr; Check &rarr; Evidence &rarr; Challenge &rarr; Memory &rarr; Reward</code></pre>
 
-          <p>It makes room for agents without pretending agents are accountable in the same way people are. It makes being wrong cheaper to discover. It preserves refutation instead of treating it as failed content. It gives a future scientist a way to inherit not only an answer, but the exact path by which the answer survived.</p>
+          <p>This process lets agents contribute while people direct the investigation. It preserves errors and corrections so the next scientist can inspect how a result was reached and which tests it survived.</p>
 
-          <p>PopperPad is still a public alpha. The repository explicitly warns that recipe execution is not an operating-system sandbox and automated bounty settlement is not yet a production security boundary.<sup><a href="#fn-popperpad-readme">3</a></sup> That boundary is part of the value proposition: ambitious direction with precise nonclaims.</p>
+          <p>PopperPad is still a public alpha. The repository explicitly warns that recipe execution is not an operating-system sandbox and automated bounty settlement is not yet a production security boundary.<sup><a href="#fn-popperpad-readme">3</a></sup> Those limits determine what the current release can safely support.</p>
 
-          <p>The cyborg scientist does not need a machine that is never wrong.</p>
+          <p>The scientist needs a record she can question and check.</p>
 
-          <p>She needs a system in which errors can be found, paid for, replayed, narrowed, and remembered.</p>
-
-          <p>That is what I am building.</p>
+          <p>I want to make errors easier to find and reproduce, pay for useful corrections, and preserve what the investigation teaches us.</p>
 
         </div>
 
@@ -295,7 +289,7 @@ paid task settlements N               1,020</code></pre>
         </div>
 
         <div class="essay-nav">
-          <a href="the-cyborg-economy.html">&larr; Previous: The Cyborg Economy Is Not a Labor Forecast</a>
+          <a href="the-cyborg-economy.html">&larr; Previous: Building the Cyborg Economy</a>
           <a href="zenodex-right-to-participate.html">Next: ZenoDEX and the Right to Participate &rarr;</a>
         </div>
       </div>

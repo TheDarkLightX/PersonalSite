@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How I Measure Code After AI | Dana Edwards</title>
-  <meta name="description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <meta name="description" content="How I assess software through paid opportunity, verification, user control, openness, portability, and concentration." />
   <link rel="canonical" href="https://www.danaedwards.info/essays/how-i-measure-code-after-ai.html" />
   <meta property="og:title" content="How I Measure Code After AI | Dana Edwards" />
-  <meta property="og:description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <meta property="og:description" content="How I assess software through paid opportunity, verification, user control, openness, portability, and concentration." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/essays/how-i-measure-code-after-ai.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="How I Measure Code After AI | Dana Edwards" />
-  <meta name="twitter:description" content="A portfolio framework for measuring software by paid opportunity, verifier coverage, principal control, openness, portability, and concentration, not lines of code." />
+  <meta name="twitter:description" content="How I assess software through paid opportunity, verification, user control, openness, portability, and concentration." />
   <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
@@ -68,27 +68,21 @@
       <div class="container">
         <div class="essay-prose">
 
-          <p>"How much code did you write?" was never a good measure of software.</p>
+          <p>I measure software by what it helps people do.</p>
 
-          <p>It is becoming an absurd one.</p>
+          <p>AI makes the limits of counting lines especially clear.</p>
 
-          <p>An AI system can generate thousands of lines before lunch. It can port a library, scaffold a service, write tests, produce documentation, and imitate the surface architecture of a mature product. The number is real. The implied value is not.</p>
+          <p>AI can generate code, tests, and documentation quickly. To assess the result, I need to know whether it works, how it was checked, and who can use it.</p>
 
-          <p>Time saved is better. Replacement cost is useful. Revenue is essential when it exists. Yet all three can miss the reason I build a particular system.</p>
+          <p>I also track time saved, estimated replacement cost, and revenue when it exists. To assess the wider benefits, I need to ask what each system is meant to accomplish.</p>
 
           <p>PopperPad is valuable if it makes a scientific claim easier to falsify, reproduce, and remember. ZenoDEX is valuable if it gives more actors a checkable way to participate in exchange, solving, proving, and verification. PulseTensor is valuable if funded inference can settle through visible rules to providers and challengers.</p>
 
-          <p>Those contributions are not captured by code volume.</p>
+          <p>Each contribution needs a measurement that reflects its purpose.</p>
 
-          <p>They can still be measured.</p>
+          <p>My proposal is an <strong>agency ledger</strong>: a set of public measurements showing what opportunity the system funds, what decisions remain under an accountable principal, what results are verifiable, how easily a participant can enter or exit, and how concentrated the outcome becomes.</p>
 
-          <p>My proposal is an <strong>agency ledger</strong>: a small vector of public measurements showing what opportunity the system funds, what decisions remain under an accountable principal, what results are verifiable, how easily a participant can enter or exit, and how concentrated the outcome becomes.</p>
-
-          <p>Not one score.</p>
-
-          <p>A ledger.</p>
-
-          <blockquote><p>I have been offered the single score my whole career. Lines, commits, tickets closed, story points burned. Every one of them was a way to avoid asking what the code actually let someone do.</p></blockquote>
+          <blockquote><p>My main question is what the code lets someone do. Counts of lines, commits, and completed tickets can provide context, but they tell me little about that on their own.</p></blockquote>
 
           <figure>
             <object type="image/svg+xml" data="../assets/essays/agency-ledger.svg" role="img" aria-label="A multidimensional ledger reports opportunity, verifier coverage, principal control, openness, portability, and concentration separately, without collapsing them into one score.">
@@ -97,15 +91,15 @@
             <figcaption>A system can improve one dimension while weakening another. The ledger keeps the tradeoff visible.</figcaption>
           </figure>
 
-          <h2>Why a single impact score would be misleading</h2>
+          <h2>Choosing how much each measure counts</h2>
 
           <p>I have a personal philosophy. It is broadly concerned with human flourishing, popular access to power, and the practical ability to pursue a life one has reason to value.</p>
 
-          <p>That philosophy should not be compiled into a universal platform score.</p>
+          <p>People using the platform should be able to judge the measurements according to their own values.</p>
 
           <p>There is no neutral weight telling us how much privacy to trade for fraud detection, how much safety to trade for exit, or how much efficiency to trade for redundancy. A government could maximize one definition of safety through maximum control. A protocol could maximize permissionless access while externalizing risks onto people least able to bear them.</p>
 
-          <p>If I multiplied all of those variables into "82.4 agency points," the precision would be theatrical.</p>
+          <p>Combining those variables into one score would require choices about how much each should count. Those choices need an explanation.</p>
 
           <p>The measurements should remain separate so a user, reviewer, community, or governance process can apply its own values.</p>
 
@@ -117,11 +111,9 @@ People decide what the claim is for.</code></pre>
 
           <p>Formal methods can prove that an integer invariant holds. They cannot prove that a society selected the right objective.</p>
 
-          <blockquote><p>I will not pretend to have a number I do not have. I will give you six numbers that together tell the truth, and let you weigh them with your own values.</p></blockquote>
+          <blockquote><p>I report six measurements, explain how each was calculated, and let you decide how much weight to give them.</p></blockquote>
 
           <h2>Dimension one: paid opportunity</h2>
-
-          <p>The first dimension is economic and intentionally simple.</p>
 
           <p>Let:</p>
           <ul>
@@ -138,7 +130,7 @@ People decide what the claim is for.</code></pre>
           <p>For current planning, my public-project scenarios at $1 million in realized fees are:</p>
 
           <table>
-            <thead><tr><th>Project</th><th>Settled reward value</th><th>Paid settlements</th><th>Primary work surface</th></tr></thead>
+            <thead><tr><th>Project</th><th>Settled reward value</th><th>Paid settlements</th><th>Main tasks</th></tr></thead>
             <tbody>
               <tr><td>PopperPad</td><td>$510,000</td><td>1,020 at $500</td><td>Proof, refutation, reproduction, maintenance, preservation</td></tr>
               <tr><td>ZenoDEX / ZRPF</td><td>$360,000</td><td>360 at $1,000</td><td>Solving, routing, proving, challenging, verification</td></tr>
@@ -148,9 +140,7 @@ People decide what the claim is for.</code></pre>
 
           <p>These are conditional translations, not current results. Current modeled realized fees are zero. Parameters are illustrative except where a repository explicitly defines them.</p>
 
-          <p>The statement is therefore:</p>
-
-          <blockquote><p>I have designed codebases whose fee surfaces can be translated into auditable reward capacity if and when real use produces fees.</p></blockquote>
+          <blockquote><p>I have designed systems whose fees could fund rewards for useful tasks. The calculations show what those rewards could be if actual use produces the assumed fees.</p></blockquote>
 
           <p>That is stronger than a speculative employment number because the claim can be recomputed and later compared with reality.</p>
 
@@ -175,11 +165,9 @@ People decide what the claim is for.</code></pre>
 
           <p>The metric says: <em>the declared check ran and accepted this evidence under this context.</em></p>
 
-          <p>Nothing more.</p>
+          <h2>Dimension three: control coverage</h2>
 
-          <h2>Dimension three: principal-control coverage</h2>
-
-          <p>Human-in-the-loop is a placement, not a power relationship.</p>
+          <p>Human control depends on which decisions a person can understand, change, or stop.</p>
 
           <p>A person can click "approve" after a system has hidden every meaningful alternative. Another system can automate ten thousand reversible microsteps while preserving a person's veto over the irreversible boundary.</p>
 
@@ -199,11 +187,11 @@ People decide what the claim is for.</code></pre>
 \frac{\sum_j v_j\,control_j}{\sum_j v_j}
 \]</p>
 
-          <p>The weighting policy must be published. The result measures an architecture property, not human wellbeing.</p>
+          <p>The weighting policy must be published. The result measures the specified controls. Measuring effects on wellbeing requires further evidence.</p>
 
           <p>For the cyborg scientist, the relevant boundaries include claim scope, research context, trust policy, publication, and high-impact action. For a DEX participant, they include signing, custody, risk limits, governance delegation, and exit. For an autonomous service, they include spending limits, identity use, and irreversible communication.</p>
 
-          <p>The design goal is keeping the principal in control of what matters, not interrupting the agent continuously.</p>
+          <p>The design should preserve the person's control over consequential actions while allowing routine steps to run automatically.</p>
 
           <h2>Dimension four: machine-readable openness</h2>
 
@@ -234,7 +222,7 @@ People decide what the claim is for.</code></pre>
 
           <p>This metric is stricter than "anyone can participate." Some tasks require a bond, specialized hardware, licensed data, capital, or jurisdictional eligibility. Those constraints should be machine-readable too.</p>
 
-          <p>The aim is legibility, not a false promise of universal profit.</p>
+          <p>Clear task rules help people and agents assess eligibility, costs, and possible rewards.</p>
 
           <h2>Dimension five: exit and portability</h2>
 
@@ -253,7 +241,7 @@ People decide what the claim is for.</code></pre>
 }
 \]</p>
 
-          <p>For PopperPad, content-addressed local objects and an offline-first pad make portability part of the base architecture. For a DEX, self-custody and public state are necessary but not sufficient; frontend diversity, bridge dependence, oracle dependence, and governance keys still matter. For an agent platform, prompts, memory, identities, tool policies, and evidence should not become a private format that traps the principal.</p>
+          <p>PopperPad stores objects locally, identifies them by content hashes, and works offline, which helps make the research record portable. For a DEX, self-custody and public state are necessary but not sufficient; frontend diversity, bridge dependence, oracle dependence, and governance keys still matter. For an agent platform, prompts, memory, identities, tool policies, and evidence should not become a private format that traps the principal.</p>
 
           <p>Portability creates a credible threat of exit.</p>
 
@@ -282,7 +270,7 @@ E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
 
           <p>Concentration is not always a defect. Specialized proof systems may have large economies of scale. Emergency governance may be deliberately narrow. The ledger does not decide the acceptable threshold.</p>
 
-          <p>It makes the shape visible.</p>
+          <p>It shows how concentrated the payouts are.</p>
 
           <h2>What this says about my projects</h2>
 
@@ -291,19 +279,19 @@ E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
           <h3>PopperPad</h3>
           <ul>
             <li><strong>Opportunity:</strong> machine-readable work orders for proofs, counterexamples, reproductions, boundary discovery, maintenance, storage, and curation.</li>
-            <li><strong>Verification:</strong> scoped results derived from replayable evidence rather than token voting or author assertion.</li>
+            <li><strong>Verification:</strong> results whose stated scope is supported by evidence that can be replayed.</li>
             <li><strong>Control:</strong> local trust policy and human choice over the question, context, and consequential use.</li>
-            <li><strong>Exit:</strong> offline-first, content-addressed pads that can be mirrored and replayed.</li>
-            <li><strong>World-improving mechanism:</strong> make errors cheaper to discover, correct results easier to reproduce, and scientific memory harder to erase.</li>
+            <li><strong>Exit:</strong> pads that work offline, identify objects by content hashes, and can be copied and replayed.</li>
+            <li><strong>Intended benefit:</strong> make errors cheaper to discover, correct results easier to reproduce, and scientific memory harder to erase.</li>
           </ul>
 
           <h3>ZenoDEX</h3>
           <ul>
-            <li><strong>Opportunity:</strong> solver, router, proof-miner, challenger, reporter, watcher, and verification work funded from visible fee rails.</li>
-            <li><strong>Verification:</strong> integer-exact settlement, certificate checks, formal surfaces, and public replay.</li>
+            <li><strong>Opportunity:</strong> solver, router, proof-miner, challenger, reporter, watcher, and verification work funded from public fee rules.</li>
+            <li><strong>Verification:</strong> integer-exact settlement, certificate checks, formal checks, and public replay.</li>
             <li><strong>Control:</strong> explicit signing, custody, risk, fee, and governance boundaries.</li>
             <li><strong>Exit:</strong> on-chain assets and state reduce one class of intermediary dependence, while remaining bridge, oracle, and frontend dependencies must be measured.</li>
-            <li><strong>World-improving mechanism:</strong> make direct participation in an automated capital economy more technically possible.</li>
+            <li><strong>Intended benefit:</strong> make direct participation in an automated capital economy more technically possible.</li>
           </ul>
 
           <h3>PulseTensor</h3>
@@ -311,13 +299,13 @@ E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
             <li><strong>Opportunity:</strong> miner, validator, batch proposer, and challenger roles around funded inference.</li>
             <li><strong>Verification:</strong> challenge windows, bonded batch roots, and fail-closed settlement policy.</li>
             <li><strong>Control:</strong> timelocked, cancellable fee-policy changes snapshotted at batch commit.</li>
-            <li><strong>Economic boundary:</strong> usage fees fund providers and development rather than assuming a grant.</li>
-            <li><strong>World-improving mechanism:</strong> distribute parts of inference production and checking across an inspectable protocol.</li>
+            <li><strong>Economic boundary:</strong> usage fees provide the funding for providers and development.</li>
+            <li><strong>Intended benefit:</strong> distribute parts of inference production and checking across an inspectable protocol.</li>
           </ul>
 
-          <p>None of these bullets proves adoption or broad welfare.</p>
+          <p>Adoption and effects on wellbeing still need to be measured.</p>
 
-          <p>They show the pathway by which a working system could produce an observable contribution.</p>
+          <p>These are the contributions I would look for as the systems develop.</p>
 
           <h2>The value I bring</h2>
 
@@ -336,41 +324,39 @@ E_{\text{effective}}=\frac{1}{\sum_i s_i^2}
             <li>report the dimensions that the mechanism does not solve.</li>
           </ol>
 
-          <p>That is more than efficient code generation.</p>
+          <p>I use software to make rules, responsibilities, and consequences explicit.</p>
 
-          <p>It is institutional engineering at software scale.</p>
+          <p>The design includes the institutions and incentives around the code.</p>
 
-          <blockquote><p>The interesting failures are never inside one discipline. They live in the gap between a correct proof and a destructive market, between a safe system and a controlled user. I build in those gaps.</p></blockquote>
+          <blockquote><p>I study how technical choices affect incentives and user control. A correct calculation can still reward harmful behavior, and a security measure can still restrict a user. Those interactions shape what I build.</p></blockquote>
 
-          <h2>The claim I can defend</h2>
+          <h2>What I build</h2>
 
-          <p>Here is the value proposition I want a reviewer to leave with:</p>
+          <p>My projects bring together people, agents, verification, and rules for payment.</p>
 
-          <blockquote><p>I build proof-carrying systems for the cyborg economy: people set direction, agents perform scalable work, deterministic gates decide what counts, and transparent fee rules can turn verified output into open paid opportunity.</p></blockquote>
+          <blockquote><p>I build systems that let people and AI agents research, create, and participate in markets. Checkers enforce specified rules, and fees from actual use can fund tasks with clear payment terms.</p></blockquote>
 
-          <p>Every clause has evidence:</p>
+          <p>The supporting material includes:</p>
           <ul>
             <li>public repositories;</li>
             <li>formal specifications and proofs;</li>
             <li>replayable tests and receipts;</li>
             <li>machine-readable work objects;</li>
-            <li>explicit implementation-status boundaries;</li>
+            <li>records of what is implemented and what remains to be done;</li>
             <li>a Julia model independently cross-checked in Python;</li>
             <li>Lean proofs of the core fee algebra;</li>
-            <li>scenario workbooks that do not pretend tasks are people.</li>
+            <li>scenario workbooks that calculate task settlements and state the limits of those estimates.</li>
           </ul>
 
-          <p>The world-improving claim is equally bounded.</p>
+          <p>I would also assess what people can do with these systems.</p>
 
-          <p>I cannot guarantee that advanced AI distributes wealth, preserves liberty, or produces a safe and free society. I can build more systems in which a person with an AI assistant can formulate a task, attempt useful work, verify a result, participate in a market, retain decision rights, and leave with their evidence or assets.</p>
+          <p>I want a person with an AI assistant to be able to formulate a task, attempt useful work, verify a result, participate in a market, control consequential decisions, and leave with their evidence or assets. The wider effects on wealth, liberty, and safety will require evidence beyond the software itself.</p>
 
-          <p>Those are capabilities.</p>
-
-          <p>Capabilities enlarge the space in which people can pursue their own ends.</p>
+          <p>These capabilities give people more ways to pursue their own goals.</p>
 
           <p>That is the contribution I know how to measure, and the one I intend to keep building.</p>
 
-          <blockquote><p>Measure what lets people act, not what lets you report. The first builds capability. The second builds a slide.</p></blockquote>
+          <blockquote><p>Measure what people can do with the system, and show how you checked it.</p></blockquote>
 
         </div>
 

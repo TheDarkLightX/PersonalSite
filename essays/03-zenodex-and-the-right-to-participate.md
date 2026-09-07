@@ -2,13 +2,9 @@
 
 *A decentralized exchange cannot save capitalism. It can make economic participation less dependent on permission.*
 
-The political risk of advanced AI is not only unemployment.
+Advanced AI could make people more dependent on a few powerful institutions.
 
-It is dependence.
-
-> I have lived inside networks that gave me income no employer would have
-> offered. I would rather build one that gives people standing, not just
-> access.
+> Networks have given me ways to earn through publishing, mining, and providing liquidity. I want to build systems where more people can participate and have a say in the rules.
 
 Imagine an economy in which a small number of institutions own the most capable
 models, the data centers, the payment rails, and the productive agents. Output
@@ -21,28 +17,25 @@ communist depending on who is describing it. The label matters less to me than
 the structure: ownership and productive agency are concentrated; everyone else
 depends on decisions made elsewhere.
 
-My reason for building ZenoDEX is to enlarge the alternative.
+I am building ZenoDEX to give people more ways to participate directly in an automated economy.
 
-Capitalism is not preserved merely because prices or corporations still exist.
-Its participatory case is stronger: people can own assets, exchange them,
-supply capital, take risk, build services, discover prices, and receive the
-gains or losses from their decisions.
+I value an economy in which people can own and exchange assets, supply capital, take risks, build services, discover prices, and receive the gains or losses from their decisions.
 
 A decentralized exchange can support that participation without requiring a
 central broker to approve every actor or hold every position. It can also create
 machine-readable work for solvers, routers, provers, challengers, oracle
 reporters, and operators.
 
-That is a meaningful contribution.
+An exchange can make those forms of participation possible.
 
-It is not a proof that a protocol can prevent a political system.
+The wider political outcome also depends on laws, ownership, institutions, and public choices.
 
 <figure>
   <object type="image/svg+xml" data="../assets/essays/zenodex-participation.svg" role="img" aria-label="A participant enters an open market and can choose roles as trader, liquidity provider, solver, prover, challenger, or verifier, with value and evidence returning through transparent rules.">
     ZenoDEX expands one participant into several permissionless economic roles,
     linked by transparent settlement and verification.
   </object>
-  <figcaption>The design goal is not passive access to output, but multiple ways to participate in producing, checking, and exchanging value.</figcaption>
+  <figcaption>I want people to have several ways to produce, check, and exchange value.</figcaption>
 </figure>
 
 ## What I believe, and what the protocol can enforce
@@ -64,10 +57,9 @@ can distribute power. It can also enlarge the attack surface. Efficiency can
 raise living standards. It can also remove redundancy and make people more
 dependent on a single provider.
 
-The tradeoffs are real.
+The design needs to account for these competing effects.
 
-ZenoDEX should therefore not encode "maximize capitalism" or
-"minimize communism." Its enforceable contract is narrower:
+ZenoDEX can enforce specific rules for participation and settlement:
 
 - represent assets and obligations with explicit integer arithmetic;
 - make settlement rules deterministic;
@@ -97,9 +89,7 @@ The claim I am willing to defend is:
 
 Dan Larimer's work helped shape how I think about this problem.
 
-BitShares, Steem, and EOS were not merely token projects. They were repeated
-experiments in whether exchange, publishing, resource allocation, and
-governance could be moved into open protocols. Larimer's 2015 essay on
+BitShares, Steem, and EOS tested whether open protocols could support exchange, publishing, resource allocation, and governance. Larimer's 2015 essay on
 BitShares front running examined how exchange timing and matching rules change
 who captures value and how much control a user retains.[^larimer-frontrun]
 
@@ -129,7 +119,7 @@ swap one asset for another, perhaps provide liquidity.
 
 An agent economy has more roles.
 
-| Role | Work product | Verification surface |
+| Role | Work product | How it is checked |
 |---|---|---|
 | Solver | Candidate batch clearing or allocation | Deterministic feasibility and objective checks |
 | Router | Candidate path with improved quoted execution | Replay against committed market state |
@@ -139,10 +129,9 @@ An agent economy has more roles.
 | Liquidity provider | Capital made available under pool rules | Ledger conservation and share accounting |
 | Watcher or verifier | Independent replay and attestation | Header, root, certificate, and policy checks |
 
-Some roles are compute-heavy and mining-like. One human may manage thousands of
+Some roles require substantial compute, much like mining. One human may manage thousands of
 agents. Some depend on scarce capital. Some may be performed by independent
-operators in many jurisdictions. Some could concentrate in a few low-cost
-providers.
+operators in many jurisdictions. Some could concentrate in a few providers with low costs.
 
 The protocol does not know the number of humans.
 
@@ -154,12 +143,11 @@ can be paid from a pre-funded pool routed from fees without requiring new token
 minting. A valid, unique proof authorizes a transfer from the conserved pool;
 when the pool is empty, rewards stop.[^zenodex-proof]
 
-That is the right accounting primitive for this thesis.
+This accounting ties the rewards to an available pool of fees.
 
-Paid opportunity follows realized use. It is not manufactured by calling token
-emission "income."
+Actual use supplies the fees that fund the tasks.
 
-## The measurable opportunity surface
+## What we can measure
 
 Let \(Q\) be processed notional and \(f\) the effective fee rate, so \(F=fQ\)
 is gross fees. Let \(\theta\) be the share of fees routed to provider tasks
@@ -185,14 +173,11 @@ The translation is:
 | $300B | $150.0M | $54.0M | 54,000 |
 | $1T | $500.0M | $180.0M | 180,000 |
 
-No row is a volume forecast. Five basis points is not presented as a launch
-recommendation. Forty percent is not a promise. One thousand dollars is not an
-income estimate. Current modeled realized fees are zero.
+The volumes, fee rate, allocation, and average task payout are hypothetical inputs for exploring the calculation. Current modeled realized fees are zero. Forecasts, launch settings, and income estimates would each need further evidence.
 
 The table does one thing:
 
-> At a stated level of fee-bearing activity, it shows how much verified
-> provider reward capacity a visible allocation rule could finance.
+> For each assumed level of activity, it shows the rewards available under the stated fee and allocation rules.
 
 This is a better measure of opportunity than dividing the pool by an annual
 salary and inventing workers.
@@ -211,8 +196,7 @@ lost activity dominates.
 The same economic discipline applies to a political project. A protocol that
 extracts too much can shrink the participation it was meant to enlarge.
 Revenue, user surplus, decentralization, solvency, and provider rewards are
-different objectives. A serious mechanism exposes the tradeoff instead of
-hiding it inside one "optimal" fee.
+different objectives. The fee model should show how each choice affects those objectives.
 
 ## Participation can still concentrate
 
@@ -242,7 +226,7 @@ The target is not a cosmetic count of addresses.
 
 If one recipient receives 80% of payouts while 99 addresses split the rest, the
 raw recipient count is 100. The inverse-Herfindahl effective count is about
-1.56. Both numbers are true. Only one reveals the economic shape.
+1.56. The effective count makes the concentration easier to see.
 
 ## Keeping participation possible
 
@@ -260,39 +244,31 @@ They should be able to:
 - exit with their assets and records;
 - receive a share of the value their work produces.
 
-ZenoDEX cannot ensure that everyone does these things. It can make the roles
-explicit and reduce the number of places where participation depends on one
-company's discretion.
+ZenoDEX can define these roles and reduce dependence on a single company for access. Actual participation will also depend on costs, resources, and the risks people are willing to take.
 
-That matters in a post-AGI economy. If one person with agents can perform the
-work of a firm, then access to capital, markets, settlement, and verification
-becomes a constitutional layer for personal agency. A personal AI without an
-economic interface is a brilliant adviser standing outside a locked market.
+That matters in a post-AGI economy. A person using agents still needs access to capital, markets, settlement, and verification to put those capabilities to economic use.
 
 DeFi is one way to keep the door open.
 
-It is not the only way. It is not inherently good. It carries smart-contract,
-oracle, governance, liquidity, privacy, regulatory, and user-error risks.
+DeFi carries risks involving smart contracts, oracles, governance, liquidity, privacy, regulation, and user error.
 ZenoDEX's own repository describes a high-assurance public-testnet candidate
 whose production readiness remains gated by network hardening and live-value
 deployment.[^zenodex-readme]
 
-The honest case survives those caveats.
+I assess the potential benefits alongside those risks.
 
 ## What I am building toward
 
-My work argues that software can create credible options. It does not replace
-politics.
+I build software that gives people practical choices about how they participate.
 
 ZenoDEX is an option to exchange without a central custodian. Proof mining is an
-option to be paid for verified computation. Public replay is an option to check
-the protocol's claim instead of trusting its author. A batch solver market is an
+option to be paid for verified computation. Public replay lets anyone repeat the checks behind the protocol's claim. A batch solver market is an
 option for agents to compete on a declared objective. Exportable state is an
 option to leave.
 
-Options are not outcomes.
+The effect of these options depends on how people use them.
 
-But a person cannot exercise agency through an option that was never built.
+Building them gives people choices they can try and assess.
 
 The world after advanced AI may choose larger transfers, public provision, new
 ownership models, stronger states, decentralized markets, or a mixture we do
@@ -301,9 +277,7 @@ infrastructure that keeps direct economic participation technically possible.
 
 That is what ZenoDEX means in my portfolio:
 
-> A market should not merely produce for people. It should give people, and
-> the agents they direct, more ways to participate in producing, checking,
-> and exchanging value.
+> A market should give people and the agents they direct more ways to produce, check, and exchange value.
 
 ---
 

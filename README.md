@@ -1,12 +1,12 @@
 # Dana Edwards Personal Site
 
-Static resume portfolio for Dana Edwards, hosted with GitHub Pages at:
+My personal site, hosted with GitHub Pages at:
 
 ```text
 https://www.danaedwards.info/
 ```
 
-The site presents Dana Edwards as an engineer, philosopher, and futurist. Public work spans formal methods, AI governance, protocol design, proof-carrying execution, deterministic policy gates, and replayable verification evidence.
+I am an engineer, philosopher, and futurist. This site brings together my projects, writing, research methods, and capabilities with AI and other tools.
 
 ## Files
 
