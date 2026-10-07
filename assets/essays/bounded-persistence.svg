@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="744" viewBox="0 0 720 744" role="img" aria-labelledby="title desc">
+<title id="title">Three reasons a search can end</title><desc id="desc">Solved: a legal route reaches the flag. Exhausted: after closing one passage, every reachable cell is checked and the flag is outside that component. Paused: only a route prefix was explored when the budget expired; the goal is still reachable.</desc>
+<rect width="720" height="744" fill="#faf9f5"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#58615e"/></marker></defs>
+<text x="36" y="45" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" fill="#242b2b" text-anchor="start">Three reasons a search can end</text>
+<rect x="40" y="90" width="156" height="156" rx="0" fill="none" stroke="#242b2b" stroke-width="2"/>
+<line x1="40" y1="142" x2="92" y2="142" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="142" x2="144" y2="142" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="142" x2="92" y2="194" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="144" y1="194" x2="196" y2="194" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<polyline points="66.00,116.00 118.00,116.00 170.00,116.00 170.00,168.00 118.00,168.00 118.00,220.00 170.00,220.00" fill="none" stroke="#086451" stroke-width="3.90" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="66.0" cy="116.0" r="10.92" fill="#242b2b" stroke="#faf9f5" stroke-width="2"/>
+<text x="66.0" y="120.16" font-family="Arial, Helvetica, sans-serif" font-size="12.48" font-weight="700" fill="#faf9f5" text-anchor="middle">S</text>
+<rect x="158.04" y="207.0" width="23.92" height="26.0" rx="0" fill="#faf9f5" stroke="#faf9f5" stroke-width="2"/>
+<line x1="163.76" y1="230.4" x2="163.76" y2="209.08" stroke="#242b2b" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M163.76,209.08 h18.72 l-3.6400000000000006,6.24 l3.6400000000000006,6.24 h-18.72 Z" fill="#086451"/>
+<text x="230" y="114" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#086451" text-anchor="start">SOLVED</text>
+<text x="230" y="157" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">A checked route reaches the flag.</text>
+<text x="230" y="195" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">Keep the route as evidence.</text>
+<text x="230" y="226" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">The task is complete.</text>
+<line x1="36" y1="274" x2="684" y2="274" stroke="#e4e7e1" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="43" y="359" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="95" y="411" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="147" y="359" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="43" y="307" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="95" y="359" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="147" y="307" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="43" y="411" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="95" y="307" width="46" height="46" rx="0" fill="#e2eee8" stroke="#e2eee8" stroke-width="2"/>
+<rect x="40" y="304" width="156" height="156" rx="0" fill="none" stroke="#242b2b" stroke-width="2"/>
+<line x1="40" y1="356" x2="92" y2="356" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="356" x2="144" y2="356" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="356" x2="92" y2="408" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="144" y1="408" x2="196" y2="408" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="144" y1="408" x2="144" y2="460" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<circle cx="66.0" cy="330.0" r="10.92" fill="#242b2b" stroke="#faf9f5" stroke-width="2"/>
+<text x="66.0" y="334.16" font-family="Arial, Helvetica, sans-serif" font-size="12.48" font-weight="700" fill="#faf9f5" text-anchor="middle">S</text>
+<rect x="158.04" y="421.0" width="23.92" height="26.0" rx="0" fill="#faf9f5" stroke="#faf9f5" stroke-width="2"/>
+<line x1="163.76" y1="444.4" x2="163.76" y2="423.08" stroke="#242b2b" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M163.76,423.08 h18.72 l-3.6400000000000006,6.24 l3.6400000000000006,6.24 h-18.72 Z" fill="#086451"/>
+<line x1="144.0" y1="408.0" x2="144.0" y2="460.0" stroke="#965800" stroke-width="5" stroke-linecap="round"/>
+<text x="230" y="328" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#242b2b" text-anchor="start">EXHAUSTED</text>
+<text x="230" y="371" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">Every reachable cell was checked.</text>
+<text x="230" y="409" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">The added wall disconnects the flag.</text>
+<text x="230" y="440" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">No route exists in this fixed maze.</text>
+<line x1="36" y1="488" x2="684" y2="488" stroke="#e4e7e1" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="40" y="518" width="156" height="156" rx="0" fill="none" stroke="#242b2b" stroke-width="2"/>
+<line x1="40" y1="570" x2="92" y2="570" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="570" x2="144" y2="570" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="570" x2="92" y2="622" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<line x1="144" y1="622" x2="196" y2="622" stroke="#242b2b" stroke-width="3" stroke-linecap="round"/>
+<polyline points="66.00,544.00 118.00,544.00 170.00,544.00" fill="none" stroke="#086451" stroke-width="3.90" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="170.0" cy="544.0" r="5.72" fill="#086451" stroke="#faf9f5" stroke-width="2"/>
+<circle cx="66.0" cy="544.0" r="10.92" fill="#242b2b" stroke="#faf9f5" stroke-width="2"/>
+<text x="66.0" y="548.16" font-family="Arial, Helvetica, sans-serif" font-size="12.48" font-weight="700" fill="#faf9f5" text-anchor="middle">S</text>
+<rect x="158.04" y="635.0" width="23.92" height="26.0" rx="0" fill="#faf9f5" stroke="#faf9f5" stroke-width="2"/>
+<line x1="163.76" y1="658.4" x2="163.76" y2="637.08" stroke="#242b2b" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M163.76,637.08 h18.72 l-3.6400000000000006,6.24 l3.6400000000000006,6.24 h-18.72 Z" fill="#086451"/>
+<text x="230" y="542" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#242b2b" text-anchor="start">PAUSED</text>
+<text x="230" y="585" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">The run used up its budget.</text>
+<text x="230" y="623" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">The frontier is still open.</text>
+<text x="230" y="654" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">Save it and ask whether to resume.</text>
+<text x="40" y="714" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#242b2b" text-anchor="start">A timeout is evidence about the run, not proof about the maze.</text>
+</svg>

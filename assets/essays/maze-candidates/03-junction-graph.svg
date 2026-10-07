@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="680" viewBox="0 0 720 680" role="img" aria-labelledby="title desc">
+<title id="title">Remember the branch. Keep the junction.</title><desc id="desc">An exact 7 by 5 maze. A solid teal route connects S to the flag through open passages. A dashed ochre branch ends at a cross. The two routes share one junction; rejecting that whole junction would discard the solution.</desc>
+<rect width="720" height="680" fill="#faf9f5"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#58615e"/></marker></defs>
+<text x="40" y="48" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#242b2b" text-anchor="start">Remember the branch. Keep the junction.</text>
+<text x="40" y="81" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#58615e" text-anchor="start">One checked failure does not close every route through a fork.</text>
+<line x1="120.0" y1="155.0" x2="200.0" y2="155.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="235.0" x2="120.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="315.0" x2="120.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="395.0" x2="120.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="395.0" x2="200.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="475.0" x2="200.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="200.0" y1="155.0" x2="200.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="200.0" y1="235.0" x2="200.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="200.0" y1="315.0" x2="280.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="200.0" y1="395.0" x2="280.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="200.0" y1="475.0" x2="280.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="155.0" x2="280.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="155.0" x2="360.0" y2="155.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="235.0" x2="360.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="315.0" x2="360.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="395.0" x2="360.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="280.0" y1="475.0" x2="360.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="360.0" y1="155.0" x2="440.0" y2="155.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="360.0" y1="315.0" x2="440.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="360.0" y1="395.0" x2="440.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="155.0" x2="440.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="155.0" x2="520.0" y2="155.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="235.0" x2="440.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="395.0" x2="440.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="475.0" x2="520.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="155.0" x2="520.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="235.0" x2="600.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="315.0" x2="520.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="395.0" x2="520.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="395.0" x2="600.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="520.0" y1="475.0" x2="600.0" y2="475.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="600.0" y1="155.0" x2="600.0" y2="235.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="600.0" y1="235.0" x2="600.0" y2="315.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<line x1="600.0" y1="315.0" x2="600.0" y2="395.0" stroke="#bbc3bd" stroke-width="4" stroke-linecap="round"/>
+<circle cx="120.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="200.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="280.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="360.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="440.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="520.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="600.0" cy="155.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="120.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="200.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="280.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="360.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="440.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="520.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="600.0" cy="235.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="120.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="200.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="280.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="360.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="440.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="520.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="600.0" cy="315.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="120.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="200.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="280.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="360.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="440.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="520.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="600.0" cy="395.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="120.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="200.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="280.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="360.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="440.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="520.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<circle cx="600.0" cy="475.0" r="4" fill="#58615e" stroke="#58615e" stroke-width="2"/>
+<polyline points="440.00,155.00 360.00,155.00 280.00,155.00 280.00,235.00 360.00,235.00" fill="none" stroke="#965800" stroke-width="6.00" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6.40 10.40"/>
+<polyline points="120.00,155.00 200.00,155.00 200.00,235.00 200.00,315.00 280.00,315.00 360.00,315.00 440.00,315.00 440.00,235.00 440.00,155.00 520.00,155.00 520.00,235.00 600.00,235.00 600.00,315.00 600.00,395.00 520.00,395.00 520.00,475.00 600.00,475.00" fill="none" stroke="#086451" stroke-width="6.00" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="440.0" cy="155.0" r="9.6" fill="#faf9f5" stroke="#242b2b" stroke-width="2"/>
+<circle cx="360.0" cy="235.0" r="15.2" fill="#faf9f5" stroke="#faf9f5" stroke-width="2"/>
+<line x1="350.4" y1="244.6" x2="369.6" y2="225.4" stroke="#965800" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="350.4" y1="225.4" x2="369.6" y2="244.6" stroke="#965800" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="120.0" cy="155.0" r="16.8" fill="#242b2b" stroke="#faf9f5" stroke-width="2"/>
+<text x="120.0" y="161.4" font-family="Arial, Helvetica, sans-serif" font-size="19.2" font-weight="700" fill="#faf9f5" text-anchor="middle">S</text>
+<rect x="581.6" y="455.0" width="36.800000000000004" height="40.0" rx="0" fill="#faf9f5" stroke="#faf9f5" stroke-width="2"/>
+<line x1="590.4" y1="491.0" x2="590.4" y2="458.2" stroke="#242b2b" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M590.4,458.2 h28.799999999999997 l-5.6000000000000005,9.6 l5.6000000000000005,9.6 h-28.799999999999997 Z" fill="#086451"/>
+<line x1="42" y1="556" x2="83" y2="556" stroke="#086451" stroke-width="5" stroke-linecap="round"/>
+<text x="98" y="563" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">Checked route from S to the flag</text>
+<line x1="42" y1="596" x2="83" y2="596" stroke="#965800" stroke-width="5" stroke-linecap="round" stroke-dasharray="5 9"/>
+<text x="98" y="603" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">Explored dead-end branch; × records its limit</text>
+<circle cx="62" cy="638" r="8" fill="#faf9f5" stroke="#242b2b" stroke-width="2"/>
+<text x="98" y="645" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#242b2b" text-anchor="start">Shared junction stays open</text>
+</svg>

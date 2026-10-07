@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three views of a checked maze | Dana Edwards</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; padding: 2rem 1.2rem 4rem; background: #faf9f5; color: #242b2b; font: 17px/1.6 system-ui, sans-serif; }
+    main { max-width: 760px; margin: auto; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; }
+    h2 { margin-top: 3rem; font-size: 1.4rem; }
+    a { color: #086451; text-underline-offset: .2em; }
+    img { display: block; width: 100%; height: auto; border: 1px solid #cbd0c8; }
+    figure { margin: 1.3rem 0; }
+    figcaption { margin-top: .7rem; color: #58615e; }
+  </style>
+</head>
+<body><main>
+  <a href="../../../essays/the-maze-that-remembers.html">← The Maze That Remembers</a>
+  <h1>One maze, three views</h1>
+  <p>All three drawings use the same 35 cells and 34 open passages. The checked route reaches the flag in 16 steps. The recorded branch runs four steps from the marked junction to a dead end. Each line follows an open passage.</p>
+  <h2>1. Overhead map · selected</h2>
+  <p>This version keeps the walls, the route, and the remembered failure visible at a useful size. It makes the key distinction easy to inspect: the dead branch can be rejected while the shared junction remains available.</p>
+  <figure><a href="../maze-memory.svg"><img src="../maze-memory.svg" width="720" height="680" alt="The selected overhead maze, with a solid route to the flag and a dashed dead-end branch sharing one junction." /></a><figcaption>Selected for the essay. Walls and passages remain explicit.</figcaption></figure>
+  <h2>2. Before and after</h2>
+  <p>Repeating the maze makes the sequence clear, but uses more space and shrinks both drawings. It is accurate, though the single map lets the reader inspect the geometry more easily.</p>
+  <figure><a href="02-before-after.svg"><img src="02-before-after.svg" width="720" height="775" alt="Two views of the same maze: first the recorded failure, then the failure alongside a checked route to the flag." /></a><figcaption>A useful sequence when the order of events matters most.</figcaption></figure>
+  <h2>3. Junction graph</h2>
+  <p>This shows every cell connection directly. It is the same topology, with walls removed from the drawing. That makes the graph easier to inspect, but less recognizable as a physical maze.</p>
+  <figure><a href="03-junction-graph.svg"><img src="03-junction-graph.svg" width="720" height="680" alt="The exact graph underlying the maze, with all passages represented as edges and the same highlighted routes." /></a><figcaption>Useful for comparing the illustration with its graph model.</figcaption></figure>
+  <p>The <a href="../maze-validation.json">validation record</a> includes the paths and reachability checks. Reproduce the diagrams with <a href="../../../tools/render_search_concepts.py">the Python generator</a>. These are executable graph checks, not a formal verification of the renderer.</p>
+</main></body>
+</html>

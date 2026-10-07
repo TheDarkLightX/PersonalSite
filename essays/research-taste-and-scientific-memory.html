@@ -60,7 +60,7 @@
         <h1>Research Taste and the Value of Memory</h1>
         <p class="lede">Better AI researchers can make shared scientific memory more valuable to the people and agents coordinating their work.</p>
         <p class="search-meta">Dana Edwards · <time datetime="2026-10-07">October 7, 2026</time> · A follow-up to <a href="the-maze-that-remembers.html">The Maze That Remembers</a></p>
-        <nav class="search-toc" aria-label="In this essay"><a href="#tasteval">The evidence</a><a href="#memory">Why memory matters</a><a href="#value-model">The conditional argument</a><a href="#evaluation">How to test it</a></nav>
+        <nav class="search-toc" aria-label="In this essay"><a href="#tasteval">The evidence</a><a href="#memory">Why memory matters</a><a href="#value-model">The conditional argument</a><a href="#stopping">Knowing when to stop</a><a href="#evaluation">How to test it</a></nav>
       </div>
     </section>
     <section class="section">
@@ -97,16 +97,16 @@
           <p><a href="https://github.com/TheDarkLightX/PopperPad/tree/c345655ae841648d500ed06d22ad334ede46b95a">PopperPad</a> extends this idea into a broader research ledger, with immutable objects, instructions for replaying checks, counterexamples, and connections between claims.<sup><a href="#source-popper">6</a></sup> I am building both projects around evidence that can outlast a conversation or a model version.</p>
           <p>A model upgrade should give the investigation a better researcher. I don't want it to mean starting over with whatever survived in a summary of the last conversation.</p>
 
-          <h2 id="value-model">When rising taste increases memory's value</h2>
+          <h2 id="value-model">The memory dividend</h2>
           <p>The first question is how much compute memory saves after we pay for retrieval and checking. We can work through that with a simple planning model. Its quantities are assumptions, not measured Research Kernel results or a fitted TasteVal scaling law.</p>
           <p>Let C be a fixed compute budget. Let d₀ be the fraction wasted on avoidable duplication without shared memory, and d₁ the corresponding fraction after memory is added. Let h be memory's overhead, expressed in the same compute units, with 0 ≤ h ≤ C. Assume 0 ≤ d₀, d₁ ≤ 1.</p>
           <p>The net usable compute recovered is:</p>
           <div class="search-formula" role="math" aria-label="G equals C minus h, times one minus d one, minus C times one minus d zero">G = (C − h)(1 − d₁) − C(1 − d₀)</div>
-          <p>Now let q ≥ 0 describe the researcher's experimental efficiency on this fixed task regime. We assume that multiplying usable compute by q gives a reference-equivalent capacity: how much work that compute could support at the reference level of efficiency. This is a linear model, and it assumes memory's additional effect can be separated from q. The extra capacity supplied by memory is then:</p>
+          <p>Now let q ≥ 0 describe the researcher's experimental efficiency on this fixed task regime. We assume that multiplying usable compute by q gives a reference-equivalent capacity: how much work that compute could support at the reference level of efficiency. This is a linear model, and it assumes memory's additional effect can be separated from q. I will call the extra capacity supplied by memory the <strong>memory dividend</strong>:</p>
           <div class="search-formula" role="math" aria-label="Delta A equals q times G">ΔA(q) = qG</div>
           <p>For q₂ ≥ q₁ and G ≥ 0:</p>
           <div class="search-formula" role="math" aria-label="Delta A at q two minus Delta A at q one equals q two minus q one times G, which is nonnegative">ΔA(q₂) − ΔA(q₁) = (q₂ − q₁)G ≥ 0</div>
-          <p>So, under these assumptions, increasing experimental efficiency cannot reduce the extra capacity supplied by memory. The benefit grows strictly when q₂ &gt; q₁ and G &gt; 0. This proves a relationship within the capacity model. Whether it produces more discoveries, more scientific value, or more revenue needs evidence of its own. The <a href="../proofs/finite-search/FiniteSearch.lean">finite-search Lean proofs</a> cover the separate scheduling argument.</p>
+          <p>Under these assumptions, a more efficient researcher gets at least as much memory dividend from the same recovered compute. The benefit grows strictly when q₂ &gt; q₁ and G &gt; 0. This proves a relationship within the capacity model. Whether it produces more discoveries, more scientific value, or more revenue needs evidence of its own. The <a href="../proofs/finite-search/FiniteSearch.lean">finite-search Lean proofs</a> cover the separate scheduling argument.</p>
           <figure class="search-figure">
             <img src="../assets/essays/memory-capacity.svg" width="720" height="530" loading="lazy" decoding="async" alt="Calculated illustration of the capacity model. At q equals 1, memory adds 15.5 to a baseline of 70; at q equals 2, it adds 31 to 140; at q equals 4, it adds 62 to 280. The percentage gain stays 22.1 percent." />
             <figcaption>Grey shows capacity without memory; teal shows the extra capacity supplied by memory. These are calculated scenarios from the model above, not TasteVal measurements.</figcaption>
@@ -123,7 +123,7 @@
             </tbody>
           </table></div>
           </details>
-          <p>The same memory system saves more reference-equivalent capacity as q rises, even though the percentage gain stays about 22.1%. That is the specific sense in which better agents can make memory more valuable.</p>
+          <p>The same memory system saves more reference-equivalent capacity as q rises, even though the percentage gain stays about 22.1%. That is the claim behind the label: saved compute can support more work when the researcher uses it better.</p>
 
           <h2>If the observed rate continues</h2>
           <p>A continuation of a three-month doubling would imply q(t) = q(0) × 2<sup>t/3</sup>, where t is months. With a positive constant G, the capacity benefit q(t)G would double on the same schedule. Six months would mean four times the starting benefit in this model.</p>
@@ -132,10 +132,17 @@
           <p>Take the table above and cap useful output at 100 units. At q = 1, memory adds 15.5 units. At q = 2, both versions reach the cap, so memory adds zero output. Better taste alone is therefore not enough to prove that realized value will keep increasing.</p>
           <p>I expect the strongest case for Research Kernel to be in continuing investigations, where there are worthwhile problems left, evidence that can be reused, repeated work to avoid, and enough checking capacity to handle the results.</p>
 
+          <h2 id="stopping">Better taste includes knowing when to stop</h2>
+          <p>Choosing experiments also means deciding when another attempt is worth its cost. I want an agent to distinguish a promising route from one that needs a missing tool, a human answer, or more compute than we have. TasteVal's score does not by itself establish that an agent makes those decisions safely.</p>
+          <p>The <a href="the-maze-that-remembers.html#stopping">Hugging Face capture-the-flag incident</a> shows why I care about this. OpenAI reported that agents persisted on apparently impossible tasks and moved into unauthorized activity. Shared messages then helped other agents continue that work.<sup><a href="#source-stopping">8</a></sup> A record can make agents more effective at pursuing the wrong goal as well as the right one.</p>
+          <p>In the companion essay I use <strong>bounded persistence</strong> for a controller that keeps the search inside its permissions and budget, with explicit outcomes for success, exhaustion, and a pause or request for help. The <a href="the-maze-that-remembers.html#neurosymbolic">neurosymbolic loop</a> supplies checked feedback during that search. Scientific memory should also preserve the reason it stopped.</p>
+          <p>Suppose an agent spends its last hour on an approach and leaves an unfinished derivation. “Failed” is a poor handoff. I want the next researcher to see which step remains open, which assumptions were checked, and why another attempt might now be worthwhile. A stronger model could finish it. If the environment is still missing a required tool, it should be able to spot that before paying for the same failure again.</p>
+          <p>This is another possible source of value for Research Kernel: carrying the stopping decision and its evidence between operators. I would test whether that record reduces wasted restarts, improves questions sent to humans, and helps newer models reopen the right investigations. Memory alone cannot enforce the stop or authorize a wider task.</p>
+
           <h2 id="evaluation">The experiment I would run next</h2>
           <p>TasteVal did not test Research Kernel MCP or PopperPad. I would test the claim by comparing weaker and stronger researcher models with and without Research Kernel, while holding the Coder, task distribution, seed policy, budget, and verifier fixed. I would also include an ordinary experiment log with the same historical evidence, so the comparison tests what Research Kernel adds beyond access to the record.</p>
           <p>Then I would compare the gain at each model level. If the stronger researcher benefits more from the same memory, that would support the argument. It would also help distinguish the value of the model, the evidence it can retrieve, and the way the memory system presents it.</p>
-          <p>I would measure cost and time to a target chosen in advance and held out from development. I would also track avoidable repeats, retrieval and verification costs, reuse of earlier evidence, and useful candidates wrongly ruled out by old rejections. Repeated runs and uncertainty intervals would help us tell a consistent benefit from a lucky run. The record has to earn its place by improving the research.</p>
+          <p>I would measure cost and time to a target chosen in advance and held out from development. I would also track avoidable repeats, retrieval and verification costs, reuse of earlier evidence, and useful candidates wrongly ruled out by old rejections. Repeated runs and uncertainty intervals would help us tell a consistent benefit from a lucky run. I would also include blocked tasks and budget-limited runs, measuring useful handoffs, unnecessary restarts, and attempts to exceed scope. That would test bounded persistence alongside the memory dividend. The record has to earn its place by improving the research.</p>
           <p>Costs need the same treatment on both sides. TasteVal counts model API and GPU costs, and researcher wages for the human baseline.<sup><a href="#source-cost">7</a></sup> Its cost ratio and compute multiplier measure different things; multiplying them would not establish an overall productivity gain.</p>
 
           <h2>What this changes for me</h2>
@@ -153,6 +160,7 @@
           <p id="source-kernel"><sup>5</sup> <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP/blob/2410eb5e9d93435d9098ccb79d43482dee8f38ce/README.md">Research Kernel MCP README</a>, frozen revision. A local promotion status is an evidence-policy result, not a universal truth guarantee.</p>
           <p id="source-popper"><sup>6</sup> <a href="https://github.com/TheDarkLightX/PopperPad/blob/c345655ae841648d500ed06d22ad334ede46b95a/README.md">PopperPad README</a>, frozen revision, including its public-alpha limits.</p>
           <p id="source-cost"><sup>7</sup> TasteVal v1, <a href="https://arxiv.org/html/2610.06824v1#S4.SS1">§4.1</a>; reported per-run cost accounting.</p>
+          <p id="source-stopping"><sup>8</sup> OpenAI, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">The Hugging Face incident and the road ahead</a>, August 26, 2026; METR and Redwood Research, <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">independent investigation</a>, August 26, 2026. These are incident reports, not evaluations of Research Kernel.</p>
         </div>
         <div class="essay-nav"><a href="the-maze-that-remembers.html">← The Maze That Remembers</a><a href="../case-studies/research-kernel.html">Research Kernel MCP case study →</a></div>
       </div>

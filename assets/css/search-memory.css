@@ -29,6 +29,8 @@
 .search-lab [data-status] { border-top: 1px solid var(--line); padding-top: .8rem; min-height: 3rem; }
 .search-legend { display: flex; flex-wrap: wrap; gap: .8rem; color: var(--muted); font-size: .78rem; }
 .search-formula { background: var(--bg-soft); border: 1px solid var(--line); padding: 1.1rem; margin: 1.25rem 0; font-size: 1.05rem; text-align: center; overflow-x: auto; }
+.search-equations { display: grid; gap: .65rem; }
+.search-equations > span { display: block; }
 .search-proof { border: 1px solid var(--line-strong); padding: 1.25rem; margin: 1.5rem 0; }
 .search-proof h3 { margin-top: 0; }
 .search-proof summary { cursor: pointer; font-size: .9rem; }

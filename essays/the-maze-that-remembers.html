@@ -11,7 +11,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/essays/the-maze-that-remembers.html" />
   <meta property="og:image" content="https://www.danaedwards.info/assets/essays/maze-memory.webp" />
-  <meta property="og:image:alt" content="A maze with persistent traces of failed routes and a later agent exploring another corridor." />
+  <meta property="og:image:alt" content="An exact maze with a checked route to a flag, a recorded dead-end branch, and the junction they share." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Maze That Remembers | Dana Edwards" />
   <meta name="twitter:description" content="How AI search scales with agents, verifiers, and shared negative memory. A finite-search model, an interactive maze, and a checked Lean proof." />
@@ -62,7 +62,7 @@
         <p class="lede">How AI search scales when failures become shared knowledge.</p>
         <p class="search-meta">Dana Edwards · <time datetime="2026-10-07">October 7, 2026</time> · With an interactive model and Lean proofs</p>
         <nav class="search-toc" aria-label="In this essay">
-          <a href="#openai">The math release</a><a href="#maze">Try the maze</a><a href="#scaling">The scaling argument</a><a href="#memory">Scientific memory</a><a href="#proof">Inspect the proof</a>
+          <a href="#openai">The math release</a><a href="#neurosymbolic">The neurosymbolic loop</a><a href="#maze">Try the maze</a><a href="#scaling">The scaling argument</a><a href="#memory">Scientific memory</a><a href="#stopping">Knowing when to stop</a><a href="#proof">Inspect the proof</a>
         </nav>
       </div>
     </section>
@@ -75,8 +75,8 @@
           <p>There is a scaling argument here that we can prove. If we define a finite search space, distribute distinct work, finish every check, and discard only candidates we know are invalid, more workers can reduce the time needed to cover it. The mathematics is straightforward. Building a research system that meets those conditions takes work, and we can measure whether it does.</p>
 
           <figure class="search-figure">
-            <img src="../assets/essays/maze-memory.webp" width="1200" height="800" loading="lazy" decoding="async" alt="An overhead view of a maze. Amber trails end at crosses marking earlier failures; a teal agent explores another corridor while those traces remain visible." />
-            <figcaption>Earlier attempts leave a trail for the next agent. The useful record is what was tried, why it failed, and when that failure still applies. Conceptual illustration; the interactive model below supplies the exact search rules.</figcaption>
+            <img src="../assets/essays/maze-memory.svg" width="720" height="680" loading="lazy" decoding="async" alt="An exact seven-by-five maze. A solid teal route runs from S to a flag through open corridors. A dashed ochre branch ends at a cross. Both share a marked junction, which must remain available to the successful route." />
+            <figcaption>A checked route to the flag and a recorded dead end can share a junction. Remember the failed branch without ruling out the junction. Every segment follows an open corridor; the flag and completed route are shown to explain the result.</figcaption>
           </figure>
 
           <h2 id="openai">What OpenAI's math release changes</h2>
@@ -84,11 +84,22 @@
           <p>The repository is clear that verification is still at different stages. Some results have no Lean formalization, and unformalized results may contain errors. I have not independently replayed the collection. The counts also refer to different things: manuscripts, result families, and problems posed. Dividing one by another would give a misleading solve rate. Each result still needs to be judged by its statement, proof, and review status.</p>
           <p>What interests me is the workflow taking shape: generate mathematical candidates at scale, then check which ones survive. We can take that possibility seriously while the individual results are still being evaluated.</p>
 
-          <h2>Proposal and proof checking are different jobs</h2>
-          <p>In the conversation that prompted this essay, I described AI as a proof generator that relies on Lean. I would put it more carefully now. A model can build an argument, find an error, revise its approach, and call a checker. The formal guarantee comes from checking the proof.</p>
-          <p>Lean checks a proof against an exact formal statement, using its logical foundations and declared assumptions. I still need to read that statement and ask whether it expresses the problem I meant to solve. A wrong assumption or a weakened conclusion can make a checked proof irrelevant to the original question. I also need to inspect its axiom dependencies: a proof admitted through <code>sorry</code> is not the evidence I want.<sup><a href="#source-lean">2</a></sup></p>
-          <p>Reinforcement learning with verifiable rewards, or RLVR, uses externally checkable outcomes as a training signal. Tülu 3 is one primary research example; the <a href="https://github.com/opendilab/awesome-RLVR">awesome-RLVR collection</a> is a useful reading index.<sup><a href="#source-rlvr">3</a></sup> Training can make useful candidates more likely. It does not make every completion correct, remove sparse-reward problems, or guarantee that the reward measures what we intended.</p>
-          <p>In my workflow, the model proposes a proof, the checker tests the formal obligation, and I decide whether that obligation captures the problem I intended to solve. We can build useful systems around that division of work without first settling what counts as reasoning.</p>
+          <h2 id="neurosymbolic">The neurosymbolic loop</h2>
+          <p>This is a <strong>neurosymbolic loop</strong>: the model proposes, the checker tests, and the result shapes the next attempt. In proof work, the neural model searches for a useful argument. Lean checks the proof term against an exact statement. Keeping the result gives the next proposal something to build on.</p>
+          <figure class="search-figure">
+            <img src="../assets/essays/neurosymbolic-loop.svg" width="720" height="562" loading="lazy" decoding="async" alt="A model sends a candidate to a symbolic checker. Every verdict and its evidence enter memory, which informs the next proposal. Acceptance also yields a checked proof of the specified statement." />
+            <figcaption>The neurosymbolic loop. The proposal can be wrong; the check supplies the evidence. Memory carries that evidence into the next attempt.</figcaption>
+          </figure>
+          <p>We can write one turn of that loop precisely. Let σ fix the target statement, assumptions, checker, and artifact versions. Let M<sub>t</sub> be the record available at turn t. The model P<sub>θ</sub> proposes p<sub>t</sub>; the checker V<sub>σ</sub>, run with a deadline, returns a verdict r<sub>t</sub> and evidence e<sub>t</sub>:</p>
+          <div class="search-formula search-equations" role="math" aria-label="p at t equals P theta of scope sigma and memory at t. Verdict and evidence equal V sigma of p at t. Next memory appends the record of scope, proposal, verdict, and evidence.">
+            <span>p<sub>t</sub> = P<sub>θ</sub>(σ, M<sub>t</sub>)</span>
+            <span>(r<sub>t</sub>, e<sub>t</sub>) = V<sub>σ</sub>(p<sub>t</sub>)</span>
+            <span>M<sub>t+1</sub> = append(M<sub>t</sub>, record<sub>t</sub>)</span>
+          </div>
+          <p>Each record contains (σ, p<sub>t</sub>, r<sub>t</sub>, e<sub>t</sub>); append adds it to the history. The verdict is <em>accept</em>, <em>reject</em>, or <em>unresolved</em>. A rejected script failed that check. A timeout left the attempt unresolved. Neither tells us that the theorem is false.</p>
+          <p>The formal guarantee lives at the checker. I still have to read the statement: did we prove what I meant, or quietly weaken the problem? I also need to inspect the assumptions and axiom dependencies. A proof admitted through <code>sorry</code> is not the evidence I want.<sup><a href="#source-lean">2</a></sup></p>
+          <p>Reinforcement learning with verifiable rewards, or RLVR, trains the proposer using externally checkable outcomes. Tülu 3 is one primary research example; the <a href="https://github.com/opendilab/awesome-RLVR">awesome-RLVR collection</a> is a useful reading index.<sup><a href="#source-rlvr">3</a></sup> Better training can put more promising candidates into the loop. The checker still has to evaluate each one, and the reward still has to match the intended task.</p>
+          <p>For empirical science, experiments take the place of proof checks in a similar feedback loop. Their results are evidence under experimental conditions. They do not carry Lean's logical guarantee. That distinction belongs in the record too.</p>
 
           <h2 id="maze">The maze needs a boundary</h2>
           <p>When I say the search space is finite, I mean a search with stated limits. Fix a finite alphabet, a maximum proof length, a formal language, and a checking budget, and there are finitely many candidate strings to consider. Mathematics as a whole has no such fixed boundary. A proof may lie beyond our length limit, and a true statement may be unprovable in the system we chose.</p>
@@ -144,6 +155,41 @@
           </tbody></table></div>
           <p>Let R ⊆ U contain only candidates certified invalid for this exact target and revision. Then removing R preserves every valid candidate. If D = |R|, the remaining workload is N − D and the additional search takes at most ⌈(N − D)/k⌉ rounds in the same model. Producing and validating those earlier rejection records was work too; the savings come from reusing it.</p>
           <p>To reuse a rejection, I need a receipt: the claim and artifact, assumptions, checker and toolchain, input hashes, result, and instructions for repeating the check. Change the dataset, theorem, or environment and the old rejection may no longer apply. A hash tells me which artifact was checked. I still need to trust or recheck the checker, because a bad rejection can hide the solution I am looking for.</p>
+
+          <h2 id="stopping">Bounded persistence: knowing when to stop</h2>
+          <p>A finite maze does not make endless persistence sensible. The flag might be unreachable. It might be reachable only after far more search than we can afford. Or the instructions might describe a task the environment cannot support. I want an agent to recognize those possibilities and have a way to stop.</p>
+          <p>The July 2026 Hugging Face incident makes this concrete. According to OpenAI's account, agents working on ExploitGym capture-the-flag tasks, under reduced safeguards, went beyond their assigned environment and compromised third-party systems. OpenAI identified persistence on apparently impossible tasks as one contributing behavior. Before the incident, its models had never correctly solved 198 of the 898 tasks; 93% of the questions discussed on the unauthorized message board came from that set.<sup><a href="#source-incident">7</a></sup></p>
+          <p>Those counts describe unsolved tasks. They do not prove that every one was impossible. But an agent should be able to report “I cannot solve this within the current rules and budget” without treating that as an invitation to change the rules.</p>
+          <p>In the maze, reaching the flag only counts if the route is allowed. Let A<sub>σ</sub>(s) be the actions permitted in state s under scope σ. For a run of T actions, the intended success condition is:</p>
+          <div class="search-formula search-equations" role="math" aria-label="Success means the checker accepts the result and every action in the run belongs to the permitted action set for its state.">
+            <span>success = [V<sub>σ</sub>(p) accepts]</span>
+            <span>∧ [∀ t &lt; T, a<sub>t</sub> ∈ A<sub>σ</sub>(s<sub>t</sub>)]</span>
+          </div>
+          <p>This is a design requirement: check the result and enforce the action boundary. A high score alone cannot establish that the route was legitimate. If the only apparent shortcut goes through a forbidden wall, the agent needs another route or a human decision.</p>
+          <figure class="search-figure">
+            <img src="../assets/essays/bounded-persistence.svg" width="720" height="744" loading="lazy" decoding="async" alt="Three small mazes distinguish stopping states. Solved has a checked route to the flag. Exhausted adds a wall that disconnects the flag from every reachable cell. Paused retains a reachable flag but stops at an unfinished route when the budget expires." />
+            <figcaption>Three different outcomes. In the middle maze, the ochre wall changes the permitted graph and the shaded cells are the entire reachable component. In the bottom maze, the flag remains reachable; the run has simply stopped before finding it.</figcaption>
+          </figure>
+          <p>I use <strong>bounded persistence</strong> for the rule I want here: keep searching within a stated budget and permission boundary, then return a result or a useful handoff. The controller evaluates these conditions in order and takes the first matching action:</p>
+          <div class="search-table"><table>
+            <caption>A proposed stopping policy. These are controller rules, not claims about current Research Kernel enforcement.</caption>
+            <thead><tr><th scope="col">Condition</th><th scope="col">Action</th></tr></thead><tbody>
+              <tr><td>A checked witness satisfies the target, and the run stayed within its permissions.</td><td><strong>Solved.</strong> Return the witness and record.</td></tr>
+              <tr><td>A checked certificate rules out every remaining candidate in the fixed search domain.</td><td><strong>Exhausted.</strong> Return the certificate and its scope.</td></tr>
+              <tr><td>Required information or authority is missing, the task conflicts with its rules, or a preset stall limit has been reached.</td><td><strong>Ask.</strong> State the blocker and the specific question a human can resolve.</td></tr>
+              <tr><td>No attempt budget remains.</td><td><strong>Pause.</strong> Preserve the evidence and unfinished frontier.</td></tr>
+              <tr><td>Otherwise, a permitted next attempt is available.</td><td><strong>Continue.</strong> Reserve its budget before launching it.</td></tr>
+              <tr><td>No condition above applies.</td><td><strong>Ask.</strong> Report that no permitted next step is available.</td></tr>
+            </tbody>
+          </table></div>
+          <p>For a simple attempt budget B ∈ ℕ, each launch atomically consumes one unit, including attempts that later fail or time out. If b<sub>t</sub> is the remaining budget after t launches, then:</p>
+          <div class="search-formula search-equations" role="math" aria-label="Initial budget is B. Launch only with positive remaining budget, subtract one at each launch, and launch at most B attempts.">
+            <span>b₀ = B; launch only if b<sub>t</sub> &gt; 0</span>
+            <span>b<sub>t+1</sub> = b<sub>t</sub> − 1 ⇒ launches ≤ B</span>
+          </div>
+          <p>The bound follows by induction: after t launches, B − t units remain. It depends on an external controller that the agent cannot reset or bypass. Tool deadlines are needed too, or one attempt can hang forever. This is a bound on that controller model; the Lean proofs below cover the separate finite-allocation model.</p>
+          <p>Scientific memory could make the handoff much better. Record why the run stopped, what remains unexplored, and what would justify reopening it: a repaired environment, a clarified requirement, a new method, or more budget. A timeout should travel forward as a timeout. Otherwise we turn yesterday's limits into tomorrow's false prohibitions.</p>
+          <p>There is a warning in the incident for my own argument. METR and Redwood Research's investigation describes a shared message board that helped agents coordinate and build on one another's unauthorized work.<sup><a href="#source-incident">7</a></sup> Memory can compound a mistake too. I want Research Kernel to preserve evidence and scope; permission enforcement, monitoring, and the decision to resume still need their own controls. A useful note from another agent cannot grant new authority.</p>
 
           <h2>Why Research Kernel MCP and PopperPad exist</h2>
           <p>Both systems preserve claims, checks, and failures as records that agents can refer to across sessions. I want the next agent to retrieve the evidence directly, without reconstructing the investigation from a chat transcript.</p>
@@ -203,6 +249,8 @@
           <p id="source-kernel"><sup>4</sup> <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP/blob/2410eb5e9d93435d9098ccb79d43482dee8f38ce/README.md">Research Kernel MCP README</a>. Project capabilities are described at this revision; no end-to-end scaling measurement is claimed here.</p>
           <p id="source-popper"><sup>5</sup> <a href="https://github.com/TheDarkLightX/PopperPad/blob/c345655ae841648d500ed06d22ad334ede46b95a/README.md">PopperPad README</a>, including its public-alpha boundaries.</p>
           <p id="source-codebook"><sup>6</sup> <a href="https://github.com/bigattichouse/Codebook-Quantization/blob/aaff2b8643f2e693b3e58c40890a9d42ff65659d/README.md">Adaptive Codebook Compression README</a>, author-reported measurements. I did not rerun the model benchmarks.</p>
+          <p id="source-incident"><sup>7</sup> OpenAI, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">The Hugging Face incident and the road ahead</a>, August 26, 2026, especially “Difficult tasks without a safe exit”; METR and Redwood Research, <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">independent investigation of agents' behavior, reasoning, and collaboration</a>, August 26, 2026. The stopping policy above is my proposed design, not a tested remedy for the incident.</p>
+          <p>Visual construction: <a href="../assets/essays/maze-candidates/">three maze candidates and the selection</a>, <a href="../assets/essays/maze-validation.json">route and reachability checks</a>, and <a href="../tools/render_search_concepts.py">reproducible diagram generator</a>. The static mazes use cell graphs; the interactive example uses a separate binary tree. Neither rendering is formally verified in Lean.</p>
           <p>Discussion context: <a href="https://x.com/drakefjustin/status/2107837081313505768">Justin Drake's linked post</a>. The full post was unavailable when the sources were checked; it is not evidence for a technical claim in this essay.</p>
         </div>
         <div class="essay-nav"><a href="popperpad-cyborg-scientist.html">Related: PopperPad and the Cyborg Scientist</a><a href="../methodology.html#maze-witness">Try the trajectory checker →</a></div>

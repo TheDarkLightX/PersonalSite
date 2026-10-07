@@ -1,0 +1,285 @@
+{
+  "method": "Explicit undirected cell graphs; deterministic DFS construction and independent BFS reachability; routes checked against all open edges before rendering.",
+  "formal_status": "Executable Python assertions, not a Lean proof of SVG rendering.",
+  "maze": {
+    "width": 7,
+    "height": 5,
+    "seed": 6,
+    "cells": 35,
+    "edges": 34,
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      6,
+      4
+    ],
+    "solution": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        4
+      ]
+    ],
+    "dead_branch": [
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "checks": [
+      "Connected tree",
+      "Each trail traverses open orthogonal edges only",
+      "Dead branch terminates at a degree-one cell",
+      "Dead branch and solution share only the marked junction",
+      "Walls are precisely the missing cell edges"
+    ]
+  },
+  "stopping_examples": {
+    "base_edges": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    ],
+    "blocked_edge": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "blocked_reachable_cells": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "prefix": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "checks": [
+      "Complete route reaches flag",
+      "Flag absent from exhaustive reachable component after wall added",
+      "Budget-stop prefix has not reached flag although flag remains reachable"
+    ]
+  },
+  "candidates": [
+    {
+      "path": "maze-memory.svg",
+      "concept": "Full overhead map",
+      "selected": true,
+      "reason": "Largest corridors and clearest wall geometry; shows why the junction survives a valid branch rejection."
+    },
+    {
+      "path": "maze-candidates/02-before-after.svg",
+      "concept": "Before and after",
+      "selected": false,
+      "reason": "Accurate temporal comparison, but repeats geometry and makes each maze smaller."
+    },
+    {
+      "path": "maze-candidates/03-junction-graph.svg",
+      "concept": "Graph of cell connections",
+      "selected": false,
+      "reason": "Exact topology, but missing walls makes it less immediately recognizable as a maze."
+    }
+  ]
+}
