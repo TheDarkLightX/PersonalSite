@@ -33,6 +33,7 @@ docs/cost-estimates.md               Cost methodology, limitations, and replay i
 assets/blender/                     Original maze-checker and workflow-scaling illustrations
 writing.html                        Tutorial and interactive lab index
 essays/the-maze-that-remembers.html  Finite search, scientific memory, and AI scaling essay
+essays/research-taste-and-scientific-memory.html  TasteVal and the conditional value of research memory
 proofs/finite-search/                Scoped Lean proofs, replay instructions, and receipt
 tools/check-search-memory.cjs        Finite-search demo invariants and countercontrols
 network.html                        Professional network: people I work with, communities I contribute to

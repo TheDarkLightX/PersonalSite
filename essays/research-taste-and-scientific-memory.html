@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Taste and the Value of Memory | Dana Edwards</title>
+  <meta name="description" content="TasteVal strengthens the case for shared scientific memory. Why better AI researchers can increase the value of Research Kernel MCP, and how to test that claim." />
+  <link rel="canonical" href="https://www.danaedwards.info/essays/research-taste-and-scientific-memory.html" />
+  <meta property="og:title" content="Research Taste and the Value of Memory | Dana Edwards" />
+  <meta property="og:description" content="TasteVal strengthens the case for shared scientific memory. Why better AI researchers can increase the value of Research Kernel MCP, and how to test that claim." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.danaedwards.info/essays/research-taste-and-scientific-memory.html" />
+  <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Research Taste and the Value of Memory | Dana Edwards" />
+  <meta name="twitter:description" content="TasteVal strengthens the case for shared scientific memory. Why better AI researchers can increase the value of Research Kernel MCP, and how to test that claim." />
+  <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../assets/css/search-memory.css" />
+</head>
+<body class="search-essay">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-sticky>
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Dana Edwards home">
+        <img src="../assets/mark.svg" alt="" width="34" height="34" />
+        <span>Dana Edwards</span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#arc">Arc</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../value.html">Value</a>
+        <a href="../evidence-strategy.html">Evaluation</a>
+        <a href="../network.html">Network</a>
+        <a href="../ideas.html">Ideas</a>
+      </nav>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="../writing.html#essays">Back to Writing</a>
+        <p class="eyebrow">Essay 06 · Research methods</p>
+        <h1>Research Taste and the Value of Memory</h1>
+        <p class="lede">Better AI researchers can make shared scientific memory more valuable to the people and agents coordinating their work.</p>
+        <p class="search-meta">Dana Edwards · <time datetime="2026-10-07">October 7, 2026</time> · A follow-up to <a href="the-maze-that-remembers.html">The Maze That Remembers</a></p>
+        <nav class="search-toc" aria-label="In this essay"><a href="#tasteval">The evidence</a><a href="#memory">Why memory matters</a><a href="#value-model">The conditional argument</a><a href="#evaluation">How to test it</a></nav>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <article class="essay-prose" aria-label="Research Taste and the Value of Memory essay">
+          <p class="lead search-lead">The more useful work an agent can do, the more it matters what that agent spends its time doing. Repeating an experiment whose result was already available consumes time that a stronger researcher could have spent on a better experiment.</p>
+          <p>That is why I think improvements in AI research taste can increase the value of Research Kernel MCP. Better agents can choose better experiments. A shared scientific memory lets them make those choices with the benefit of what other agents and earlier sessions have already learned.</p>
+          <p><strong>TasteVal strengthens this case.</strong> It provides evidence about experimental judgment. The connection to my own infrastructure is an inference: if Research Kernel MCP preserves usable evidence and recovers otherwise wasted work, improvements in the agents using it can increase the benefit of that recovered capacity.</p>
+
+          <h2 id="tasteval">What TasteVal reports</h2>
+          <p>Oliver Jaffe and Dane Sherburn's <a href="https://arxiv.org/abs/2610.06824v1">TasteVal</a> evaluates experiment design and interpretation on assigned AI R&amp;D problems. A fixed Coder implements the Researcher's proposals. Its eight tasks, 20 models released during 2023–2026, and 24 experts use budgets of 40 H100-hours or 120 wall-clock hours; the best expert attempt per task supplies the human baseline.<sup><a href="#source-paper">1</a></sup></p>
+          <div class="search-table"><table>
+            <caption>Author-reported results, inspected October 7, 2026.<sup><a href="#source-page">2</a></sup></caption>
+            <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>Opus 5.5 experimental compute multiplier</td><td>2.30× the study's expert baseline; 95% CI 1.15–4.37.</td></tr>
+              <tr><td>Average cost per attempt</td><td>Approximately 1/30 of the expert baseliners' cost.</td></tr>
+              <tr><td>Frontier compute-efficiency doubling time</td><td>3.0 months since December 2025; 95% CI 1.7–5.0 months.</td></tr>
+            </tbody>
+          </table></div>
+          <p>The multiplier compares serial experimental compute needed for matched scores. It is not a general intelligence ratio or a swarm-speedup measurement. The separate normalized final-performance metric doubles every 14.6 months, without the same trend break.<sup><a href="#source-metrics">3</a></sup></p>
+          <p>The authors note that problem selection is outside scope, their baseline excludes the very best researchers, and easy-to-verify tasks may favor rapid improvement.<sup><a href="#source-page">2</a></sup> Opus 5.5 refused one task; refusals are missing data, not failures. A common seven-task comparison gives 2.25× (95% CI 1.16–4.29). Tasks are withheld, and live multi-agent coordination is not tested.<sup><a href="#source-limits">4</a></sup></p>
+          <p>I read this as evidence that experimental judgment can be delegated more effectively than before. It updates the division of labor in my <a href="popperpad-cyborg-scientist.html">earlier PopperPad essay</a>: an AI coordinator can increasingly help decide which experiment to run next. A scientific memory should serve whoever can use the evidence well.</p>
+
+          <h2 id="memory">Taste chooses the next turn. Memory preserves the map.</h2>
+          <p>In <a href="the-maze-that-remembers.html">The Maze That Remembers</a>, I focused on coverage: distribute distinct work, check candidates, and retain sound rejections. Taste adds another dimension. A capable researcher changes the order of exploration, choosing experiments likely to resolve an uncertainty or reveal a promising route.</p>
+          <p>Those choices depend on the evidence available. An excellent researcher with an incomplete record can still repeat an old mistake, overlook a failed replication, or assume that a result applies outside its tested conditions.</p>
+          <p>I want the next agent to inherit the exact question, the experiment, the result, and the limitations. It should be able to ask why an earlier approach failed, whether the failure still applies, and what would justify trying again. A stronger model may extract an insight from a record that its predecessor could not use.</p>
+          <p>This is a reason to preserve unresolved attempts as well as refutations. A timeout by an older model may become a tractable problem for a newer one. Negative memory needs enough detail to support reconsideration; turning every failed attempt into a permanent prohibition would defeat the purpose.</p>
+
+          <h2>The operator can be human or AI</h2>
+          <p><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP/tree/2410eb5e9d93435d9098ccb79d43482dee8f38ce">Research Kernel MCP</a> gives research clients persistent claims, evidence, dependencies, refutation records, and a frontier of possible next actions. Its rules specify what a claim needs before promotion.<sup><a href="#source-kernel">5</a></sup> The operator can be a person, an AI coordinating other agents, or a team using both.</p>
+          <p>For a human operator, the record can reduce reconstruction work: finding out what ran, which result is current, and which uncertainty still needs attention. For an AI coordinator, the same record can supply context for allocating work and reviewing results. A scheduler must still reserve tasks and manage concurrent updates; storage alone does not prevent duplicate assignments.</p>
+          <p><a href="https://github.com/TheDarkLightX/PopperPad/tree/c345655ae841648d500ed06d22ad334ede46b95a">PopperPad</a> pursues the broader ledger: immutable research objects, replay recipes, counterexamples, and relationships between claims.<sup><a href="#source-popper">6</a></sup> Both projects express the same priority: make the evidence reusable across sessions and models.</p>
+          <p>That is the part I expect to retain value as models change. I do not want each model upgrade to restart the investigation from a compressed recollection of the previous conversation.</p>
+
+          <h2 id="value-model">When rising taste increases memory's value</h2>
+          <p>Here is a simple planning model for the claim. It is my illustration, not a measured Research Kernel result or a fitted TasteVal scaling law.</p>
+          <p>Let C be a fixed compute budget. Let d₀ be the fraction wasted on avoidable duplication without shared memory, and d₁ the corresponding fraction after memory is added. Let h be memory's overhead, expressed in the same compute units, with 0 ≤ h ≤ C. Assume 0 ≤ d₀, d₁ ≤ 1.</p>
+          <p>The net usable compute recovered is:</p>
+          <div class="search-formula" role="math" aria-label="G equals C minus h, times one minus d one, minus C times one minus d zero">G = (C − h)(1 − d₁) − C(1 − d₀)</div>
+          <p>Suppose q ≥ 0 is an experimental-efficiency multiplier for this fixed task regime. Assume it converts usable compute linearly into a reference-equivalent capacity, and that memory's incremental effect can be separated from q. Then the extra capacity supplied by memory is:</p>
+          <div class="search-formula" role="math" aria-label="Delta A equals q times G">ΔA(q) = qG</div>
+          <p>For q₂ ≥ q₁ and G ≥ 0:</p>
+          <div class="search-formula" role="math" aria-label="Delta A at q two minus Delta A at q one equals q two minus q one times G, which is nonnegative">ΔA(q₂) − ΔA(q₁) = (q₂ − q₁)G ≥ 0</div>
+          <p><strong>Under those assumptions, better experimental taste cannot reduce memory's incremental capacity benefit.</strong> The increase is strict when q₂ &gt; q₁ and G &gt; 0. This elementary argument concerns a capacity proxy; it does not establish more discoveries, higher scientific value, or greater revenue. It is separate from the <a href="../proofs/finite-search/FiniteSearch.lean">finite-search Lean proofs</a>.</p>
+          <div class="search-table"><table>
+            <caption>Illustration only: C = 100, h = 5, d₀ = 30%, d₁ = 10%. Thus G = 15.5. All outputs are reference-equivalent capacity units, not benchmark scores.</caption>
+            <thead><tr><th scope="col">q</th><th scope="col">No memory</th><th scope="col">Memory</th><th scope="col">Gain</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>70</td><td>85.5</td><td>15.5</td></tr>
+              <tr><td>2</td><td>140</td><td>171</td><td>31</td></tr>
+              <tr><td>4</td><td>280</td><td>342</td><td>62</td></tr>
+            </tbody>
+          </table></div>
+          <p>The absolute benefit grows while the percentage gain stays about 22.1%. This is the sense in which better agents can make the same memory infrastructure more valuable.</p>
+
+          <h2>If the observed rate continues</h2>
+          <p>A continuation of a three-month doubling would imply q(t) = q(0) × 2<sup>t/3</sup>, where t is months. With a positive constant G, the capacity benefit q(t)G would double on the same schedule. Six months would mean four times the starting benefit in this model.</p>
+          <p>That is the arithmetic of an assumption. The measured trend does not establish that it will persist, transfer to my workloads, or remain independent of memory. The benchmark's multiplier already reflects how the evaluated system uses context within a run. I cannot multiply it by an unmeasured memory factor and claim that I have demonstrated another gain.</p>
+          <p>There are also ways the benefit could flatten or fall. Better agents may already avoid most duplication, making G smaller. Retrieval and checking overhead can exceed the saved work. Stale evidence can send an agent in the wrong direction. A bottleneck in verification or a saturated task can prevent additional capacity from producing additional useful results.</p>
+          <p>For a concrete counterexample, cap usable output in the table at 100 units. At q = 1, memory adds 15.5 units. At q = 2, both alternatives reach the cap and the output gain becomes zero. Improving taste alone is therefore insufficient to prove increasing realized value.</p>
+          <p>The product thesis is strongest where there is a continuing supply of worthwhile problems, reusable evidence, measurable duplication, and enough capacity to validate the extra work.</p>
+
+          <h2 id="evaluation">The experiment I would run next</h2>
+          <p>TasteVal did not evaluate Research Kernel MCP or PopperPad. To test my claim, I would compare both weaker and stronger researcher models with and without Research Kernel, keeping the Coder, task distribution, seed policy, budget, and verifier fixed. The comparison should include an ordinary experiment log with access to the same historical evidence.</p>
+          <p>The key comparison is the added benefit of memory at each model level. Does the stronger researcher obtain a larger improvement from it? That tests the proposed complementarity directly. It also separates improvements from a better model, a better corpus, and a better memory interface.</p>
+          <p>I would measure cost and time to a predefined held-out target, avoidable repeated experiments, retrieval and verification costs, successful reuse of earlier evidence, and useful candidates wrongly excluded by stale or overbroad rejections. Multiple runs and uncertainty intervals matter. A clean ledger that never improves research decisions would not satisfy the objective.</p>
+          <p>The cost comparison also needs consistent accounting. TasteVal includes model API and GPU costs, and includes researcher wages for the human baseline.<sup><a href="#source-cost">7</a></sup> Its per-attempt cost ratio should not be multiplied by its compute multiplier to invent an overall productivity number.</p>
+
+          <h2>What this changes for me</h2>
+          <p>I expect increasingly capable agents to take on more experimental planning. That makes it worth building infrastructure that lets a coordinator exploit their abilities across a continuing investigation.</p>
+          <p>Research Kernel MCP's value should be judged by the quality and cost of decisions made with its evidence. As agents improve, a good research record can become useful to more capable readers. As the number of agents grows, it can also connect more investigations. Both effects create an opportunity for increasing value, provided the record remains accurate, relevant, and economical to use.</p>
+          <p>I want an experiment performed today to improve the choices available tomorrow, even when the next researcher is a different person or a better model.</p>
+        </article>
+        <div class="essay-footnotes" aria-label="Sources and provenance">
+          <h2>Sources and provenance</h2>
+          <p>Sources inspected October 7, 2026. Benchmark numbers are the authors' reported results; I have not independently reproduced TasteVal. The capacity model, product implications, and proposed evaluation are my argument, with AI assistance in drafting and checking. No Research Kernel uplift is claimed as measured.</p>
+          <p id="source-paper"><sup>1</sup> Oliver Jaffe and Dane Sherburn, <a href="https://arxiv.org/html/2610.06824v1">TasteVal: Measuring the Experimental Research Taste of AI Systems Against Human Experts</a>, v1, October 5, 2026; abstract and §§2.1–2.4.</p>
+          <p id="source-page"><sup>2</sup> P-Zero Research, <a href="https://pzeroresearch.com/work/tasteval/">Introducing TasteVal</a>, updated October 6, 2026; results and limitations.</p>
+          <p id="source-metrics"><sup>3</sup> TasteVal v1, <a href="https://arxiv.org/html/2610.06824v1#S2.SS5">§2.5</a> and <a href="https://arxiv.org/html/2610.06824v1#S3.SS1">§3.1</a>; compute versus performance multipliers. The aggregate compute metric uses geometric averaging and reference-model conversions.</p>
+          <p id="source-limits"><sup>4</sup> TasteVal v1, <a href="https://arxiv.org/html/2610.06824v1#S3">§3</a> and <a href="https://arxiv.org/html/2610.06824v1#S4">§4</a>; task refusal treatment, verification conditions, and transfer limitations.</p>
+          <p id="source-kernel"><sup>5</sup> <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP/blob/2410eb5e9d93435d9098ccb79d43482dee8f38ce/README.md">Research Kernel MCP README</a>, frozen revision. A local promotion status is an evidence-policy result, not a universal truth guarantee.</p>
+          <p id="source-popper"><sup>6</sup> <a href="https://github.com/TheDarkLightX/PopperPad/blob/c345655ae841648d500ed06d22ad334ede46b95a/README.md">PopperPad README</a>, frozen revision, including its public-alpha limits.</p>
+          <p id="source-cost"><sup>7</sup> TasteVal v1, <a href="https://arxiv.org/html/2610.06824v1#S4.SS1">§4.1</a>; reported per-run cost accounting.</p>
+        </div>
+        <div class="essay-nav"><a href="the-maze-that-remembers.html">← The Maze That Remembers</a><a href="../case-studies/research-kernel.html">Research Kernel MCP case study →</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>&copy; <span data-year></span> Dana Edwards.</p>
+      <p>Engineer, philosopher, futurist.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
