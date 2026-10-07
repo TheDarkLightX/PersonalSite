@@ -10,11 +10,12 @@
   <meta property="og:description" content="How AI search scales with agents, verifiers, and shared negative memory. A finite-search model, an interactive maze, and a checked Lean proof." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.danaedwards.info/essays/the-maze-that-remembers.html" />
-  <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://www.danaedwards.info/assets/essays/maze-memory.webp" />
+  <meta property="og:image:alt" content="A maze with persistent traces of failed routes and a later agent exploring another corridor." />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Maze That Remembers | Dana Edwards" />
   <meta name="twitter:description" content="How AI search scales with agents, verifiers, and shared negative memory. A finite-search model, an interactive maze, and a checked Lean proof." />
-  <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <meta name="twitter:image" content="https://www.danaedwards.info/assets/essays/maze-memory.webp" />
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
   <script>
@@ -72,6 +73,11 @@
           <p>Otherwise, adding agents can mean paying for the same failure over and over. A shared record lets each attempt teach the rest of the system something. More compute buys more exploration, and memory helps us spend less of it repeating ourselves.</p>
           <p>That is why I built <a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">Research Kernel MCP</a> and <a href="https://github.com/TheDarkLightX/PopperPad">PopperPad</a>. I want agents to pick up an investigation where the previous agent left off, with the evidence available to inspect. A failed attempt should leave the next researcher better informed.</p>
           <p>There is a scaling argument here that we can prove. If we define a finite search space, distribute distinct work, finish every check, and discard only candidates we know are invalid, more workers can reduce the time needed to cover it. The mathematics is straightforward. Building a research system that meets those conditions takes work, and we can measure whether it does.</p>
+
+          <figure class="search-figure">
+            <img src="../assets/essays/maze-memory.webp" width="1200" height="800" loading="lazy" decoding="async" alt="An overhead view of a maze. Amber trails end at crosses marking earlier failures; a teal agent explores another corridor while those traces remain visible." />
+            <figcaption>Earlier attempts leave a trail for the next agent. The useful record is what was tried, why it failed, and when that failure still applies. Conceptual illustration; the interactive model below supplies the exact search rules.</figcaption>
+          </figure>
 
           <h2 id="openai">What OpenAI's math release changes</h2>
           <p>The October release of <a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a">openai/math</a> makes this discussion concrete. At the revision I inspected, the repository lists 722 manuscripts in 372 result families. OpenAI reports posing approximately 4,000 problems to an unreleased internal model, with most results produced through a common procedure averaging three hours of ChatGPT Pro thinking compute per result. The collection includes work on the irrationality exponent of π and free group factors.<sup><a href="#source-openai">1</a></sup></p>

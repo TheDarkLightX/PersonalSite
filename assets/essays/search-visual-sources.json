@@ -1,0 +1,40 @@
+{
+  "created": "2026-10-07",
+  "illustration": {
+    "path": "maze-memory.webp",
+    "method": "Built-in image generation, then resized and encoded as WebP for web delivery.",
+    "purpose": "Conceptual illustration of persistent research memory; not a technically validated maze.",
+    "prompt": "Use case: stylized-concept. Asset type: editorial illustration inside a personal research essay titled The Maze That Remembers. Primary request: make shared negative memory in an AI research maze visually intuitive. A finite architectural maze sits on a warm ivory surface, seen from a clear three-quarter overhead view. Low charcoal-gray walls form clean branching corridors. Small abstract agent markers explore it. Several older routes have amber dotted traces that remain visible and terminate at unmistakable dead ends with simple small cross marks; a later teal agent takes a different, still-open corridor, using those persistent traces as information. The traces lie on the corridor floors and do not pass through walls. Focus on the contrast between persistent evidence of prior exploration and the next agent choosing a route. Sophisticated, restrained 3D editorial illustration, matte materials, soft daylight, subtle paper texture, crisp geometry, ample uncluttered space around the maze. Match a Swiss-style black, warm-white and muted-teal research website. Landscape 3:2 composition, readable as a small website illustration. No text, labels, lettering, numbers, charts, equations, logos, humans, humanoid robots, circuit boards, decorative sci-fi holograms, or watermarks. This is a conceptual illustration, not a technical schematic or a claim that a solution is guaranteed. Do not mark any route as a proven solution."
+  },
+  "chart": {
+    "path": "memory-capacity.svg",
+    "method": "Matplotlib; replay with python tools/render_memory_capacity.py.",
+    "source": "Illustrative model in essays/research-taste-and-scientific-memory.html. Not TasteVal measurements.",
+    "assumptions": {
+      "C": 100,
+      "h": 5,
+      "d0": 0.3,
+      "d1": 0.1
+    },
+    "rows": [
+      {
+        "q": 1,
+        "without_memory": 70,
+        "with_memory": 85.5,
+        "gain": 15.5
+      },
+      {
+        "q": 2,
+        "without_memory": 140,
+        "with_memory": 171,
+        "gain": 31
+      },
+      {
+        "q": 4,
+        "without_memory": 280,
+        "with_memory": 342,
+        "gain": 62
+      }
+    ]
+  }
+}

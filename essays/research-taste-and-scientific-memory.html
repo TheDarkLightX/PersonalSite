@@ -107,6 +107,12 @@
           <p>For q₂ ≥ q₁ and G ≥ 0:</p>
           <div class="search-formula" role="math" aria-label="Delta A at q two minus Delta A at q one equals q two minus q one times G, which is nonnegative">ΔA(q₂) − ΔA(q₁) = (q₂ − q₁)G ≥ 0</div>
           <p>So, under these assumptions, increasing experimental efficiency cannot reduce the extra capacity supplied by memory. The benefit grows strictly when q₂ &gt; q₁ and G &gt; 0. This proves a relationship within the capacity model. Whether it produces more discoveries, more scientific value, or more revenue needs evidence of its own. The <a href="../proofs/finite-search/FiniteSearch.lean">finite-search Lean proofs</a> cover the separate scheduling argument.</p>
+          <figure class="search-figure">
+            <img src="../assets/essays/memory-capacity.svg" width="720" height="530" loading="lazy" decoding="async" alt="Calculated illustration of the capacity model. At q equals 1, memory adds 15.5 to a baseline of 70; at q equals 2, it adds 31 to 140; at q equals 4, it adds 62 to 280. The percentage gain stays 22.1 percent." />
+            <figcaption>Grey shows capacity without memory; teal shows the extra capacity supplied by memory. These are calculated scenarios from the model above, not TasteVal measurements.</figcaption>
+          </figure>
+          <details class="search-data">
+            <summary>View the values and assumptions</summary>
           <div class="search-table"><table>
             <caption>Illustration only: C = 100, h = 5, d₀ = 30%, d₁ = 10%. Thus G = 15.5. All outputs are reference-equivalent capacity units, not benchmark scores.</caption>
             <thead><tr><th scope="col">q</th><th scope="col">No memory</th><th scope="col">Memory</th><th scope="col">Gain</th></tr></thead>
@@ -116,6 +122,7 @@
               <tr><td>4</td><td>280</td><td>342</td><td>62</td></tr>
             </tbody>
           </table></div>
+          </details>
           <p>The same memory system saves more reference-equivalent capacity as q rises, even though the percentage gain stays about 22.1%. That is the specific sense in which better agents can make memory more valuable.</p>
 
           <h2>If the observed rate continues</h2>

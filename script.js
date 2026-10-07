@@ -172,25 +172,32 @@
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !modal.hidden) closeModal();
+      if (e.key === "Tab" && !modal.hidden) {
+        var focusable = Array.from(modal.querySelectorAll("button, a[href]"));
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
 
     figures.forEach(function (fig) {
+      var obj = fig.querySelector("object[data]");
+      var sourceImg = fig.querySelector("img[src]");
+      var srcUrl = obj ? obj.getAttribute("data") : sourceImg ? sourceImg.getAttribute("src") : null;
+      if (!srcUrl) return;
+      var label = obj ? (obj.getAttribute("aria-label") || "Figure") : (sourceImg.getAttribute("alt") || "Figure");
       fig.classList.add("zoomable");
       fig.setAttribute("tabindex", "0");
       fig.setAttribute("role", "button");
-      var obj = fig.querySelector("object[data]");
-      var srcUrl = obj ? obj.getAttribute("data") : null;
-      if (obj) {
-        var label = obj.getAttribute("aria-label") || "Figure";
-        fig.setAttribute("aria-label", "Zoom: " + label);
-      }
+      fig.setAttribute("aria-haspopup", "dialog");
+      fig.setAttribute("aria-label", "Enlarge: " + label);
       var openModal = function () {
-        if (!srcUrl) return;
         lastTrigger = fig;
         modalInner.innerHTML = "";
         var img = document.createElement("img");
         img.src = srcUrl;
-        img.alt = obj ? (obj.getAttribute("aria-label") || "Figure") : "Figure";
+        img.alt = label;
         modalInner.appendChild(img);
         var cap = fig.querySelector("figcaption");
         if (cap) {
@@ -203,7 +210,7 @@
         link.href = srcUrl;
         link.target = "_blank";
         link.rel = "noopener";
-        link.textContent = "Open full-size SVG";
+        link.textContent = "Open full-size image";
         link.className = "figure-modal-link";
         modalInner.appendChild(link);
         modal.hidden = false;
