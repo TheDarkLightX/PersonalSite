@@ -1,0 +1,54 @@
+{
+  "schema": "finite-search-verification/v1",
+  "checked_at_utc": "2026-10-07T20:09:43.333378+00:00",
+  "source": "FiniteSearch.lean",
+  "source_sha256": "48dd21124c8a88b83401c8bf012c02781cd3e4bfa7d235ca2e5890682b7c365f",
+  "toolchain": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+  "release_archive_sha256": "6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe",
+  "command": "lean -DwarningAsError=true FiniteSearch.lean",
+  "exit_code": 0,
+  "axioms": {
+    "rounds_le_iff_capacity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "more_workers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "less_work": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "candidate_covered": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "assignment_injective": [
+      "propext"
+    ],
+    "pruning_preserves_solutions": [
+      "propext"
+    ],
+    "pruning_reduces_rounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "memory_and_workers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "self_executable_path_adapter": "readlink /proc/<own-pid>/exe to /proc/self/exe only; official Lean binaries unmodified; source in README.md"
+  },
+  "scope": "Finite list filtering and equal-cost parallel candidate scheduling. No empirical scaling law, probability formalization, project implementation verification, or novelty claim."
+}

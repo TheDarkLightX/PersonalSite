@@ -32,6 +32,9 @@ tools/render_cost_estimates.py       Renders the Value cost section from the com
 docs/cost-estimates.md               Cost methodology, limitations, and replay instructions
 assets/blender/                     Original maze-checker and workflow-scaling illustrations
 writing.html                        Tutorial and interactive lab index
+essays/the-maze-that-remembers.html  Finite search, scientific memory, and AI scaling essay
+proofs/finite-search/                Scoped Lean proofs, replay instructions, and receipt
+tools/check-search-memory.cjs        Finite-search demo invariants and countercontrols
 network.html                        Professional network: people I work with, communities I contribute to
 ideas.html                          Somewhat original ideas I helped popularize, with lineages
 metrics.html                        Redirect stub to value.html (legacy)

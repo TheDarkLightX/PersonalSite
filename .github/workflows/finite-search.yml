@@ -1,0 +1,40 @@
+name: Finite search evidence
+on:
+  push:
+    paths:
+      - 'proofs/finite-search/**'
+      - 'assets/js/search-memory*.js'
+      - 'tools/check-search-memory.cjs'
+      - 'tools/check-finite-search.py'
+      - '.github/workflows/finite-search.yml'
+  pull_request:
+    paths:
+      - 'proofs/finite-search/**'
+      - 'assets/js/search-memory*.js'
+      - 'tools/check-search-memory.cjs'
+      - 'tools/check-finite-search.py'
+      - '.github/workflows/finite-search.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install pinned Lean release
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst \
+            --output "$RUNNER_TEMP/lean.tar.zst"
+          printf '%s  %s\n' '6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe' "$RUNNER_TEMP/lean.tar.zst" | sha256sum --check
+          tar --no-same-owner --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          printf '%s\n' "$RUNNER_TEMP/lean-4.19.0-linux/bin" >> "$GITHUB_PATH"
+      - name: Replay Lean and enforce receipt and axiom policy
+        run: python3 tools/check-finite-search.py
+      - name: Check both interactive models
+        run: |
+          node tools/check-search-memory.cjs
+          node tools/check-maze-witness.cjs
