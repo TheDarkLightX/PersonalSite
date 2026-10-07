@@ -60,7 +60,7 @@
         <h1>Research Taste and the Value of Memory</h1>
         <p class="lede">Better AI researchers can make shared scientific memory more valuable to the people and agents coordinating their work.</p>
         <p class="search-meta">Dana Edwards · <time datetime="2026-10-07">October 7, 2026</time> · A follow-up to <a href="the-maze-that-remembers.html">The Maze That Remembers</a></p>
-        <nav class="search-toc" aria-label="In this essay"><a href="#tasteval">The evidence</a><a href="#memory">Why memory matters</a><a href="#value-model">The conditional argument</a><a href="#stopping">Knowing when to stop</a><a href="#evaluation">How to test it</a></nav>
+        <nav class="search-toc" aria-label="In this essay"><a href="#tasteval">The evidence</a><a href="#memory">Why memory matters</a><a href="#value-model">The conditional argument</a><a href="#stopping">Knowing when to stop</a><a href="#evaluation">How to test it</a><a href="#mental-toolkit">Mental toolkit</a></nav>
       </div>
     </section>
     <section class="section">
@@ -99,10 +99,13 @@
 
           <h2 id="value-model">The memory dividend</h2>
           <p>The first question is how much compute memory saves after we pay for retrieval and checking. We can work through that with a simple planning model. Its quantities are assumptions, not measured Research Kernel results or a fitted TasteVal scaling law.</p>
+          <p>Call the compute we recover G, after subtracting what memory costs. If a better researcher can do more with each recovered unit, the same saving supports more work.</p>
+          <details class="essay-depth"><summary>Open the compute accounting</summary>
           <p>Let C be a fixed compute budget. Let d₀ be the fraction wasted on avoidable duplication without shared memory, and d₁ the corresponding fraction after memory is added. Let h be memory's overhead, expressed in the same compute units, with 0 ≤ h ≤ C. Assume 0 ≤ d₀, d₁ ≤ 1.</p>
           <p>The net usable compute recovered is:</p>
           <div class="search-formula" role="math" aria-label="G equals C minus h, times one minus d one, minus C times one minus d zero">G = (C − h)(1 − d₁) − C(1 − d₀)</div>
-          <p>Now let q ≥ 0 describe the researcher's experimental efficiency on this fixed task regime. We assume that multiplying usable compute by q gives a reference-equivalent capacity: how much work that compute could support at the reference level of efficiency. This is a linear model, and it assumes memory's additional effect can be separated from q. I will call the extra capacity supplied by memory the <strong>memory dividend</strong>:</p>
+          </details>
+          <p>Let q ≥ 0 be the researcher's efficiency in a fixed task regime. Assume capacity grows linearly with usable compute, and that this efficiency and memory's compute saving can be treated separately. I call the extra reference-equivalent capacity the <strong>memory dividend</strong>:</p>
           <div class="search-formula" role="math" aria-label="Delta A equals q times G">ΔA(q) = qG</div>
           <p>For q₂ ≥ q₁ and G ≥ 0:</p>
           <div class="search-formula" role="math" aria-label="Delta A at q two minus Delta A at q one equals q two minus q one times G, which is nonnegative">ΔA(q₂) − ΔA(q₁) = (q₂ − q₁)G ≥ 0</div>
@@ -125,7 +128,7 @@
           </details>
           <p>The same memory system saves more reference-equivalent capacity as q rises, even though the percentage gain stays about 22.1%. That is the claim behind the label: saved compute can support more work when the researcher uses it better.</p>
 
-          <h2>If the observed rate continues</h2>
+          <h2 id="limits">If the observed rate continues</h2>
           <p>A continuation of a three-month doubling would imply q(t) = q(0) × 2<sup>t/3</sup>, where t is months. With a positive constant G, the capacity benefit q(t)G would double on the same schedule. Six months would mean four times the starting benefit in this model.</p>
           <p>I would treat that as a scenario to test. We do not yet know whether the rate will continue, transfer to my workloads, or remain independent of memory. TasteVal's multiplier already includes how the model uses context during a run. Any additional benefit from Research Kernel has to be measured separately to avoid counting the same gain twice.</p>
           <p>And G can change. A better agent may avoid duplication on its own, leaving less for memory to save. Retrieval and checking can cost more than they recover. An old rejection can be wrong for the new task. Even when memory does save compute, a verifier bottleneck or a task with nothing useful left to find can stop that saving from producing more results.</p>
@@ -149,6 +152,53 @@
           <p>I expect agents to take on more experimental planning as they improve. That makes the record they inherit more important to the way I build research systems.</p>
           <p>The test for Research Kernel is whether better research decisions justify the cost of keeping and using the record. A stronger agent may get more from the same evidence. More agents may find uses for it in other investigations. Both are reasons to expect increasing value, as long as the record stays accurate, relevant, and economical to use.</p>
           <p>I want an experiment performed today to improve the choices available tomorrow, even when the next researcher is a different person or a better model.</p>
+        <p>I put these ideas to work on a containment problem in <a href="abstraction-is-compression.html">Abstraction Is Compression</a>: how to make an argument easier to think with while keeping its evidence within reach.</p>
+        <!-- MENTAL_TOOLKIT_START -->
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<p class="eyebrow">Carry these ideas forward</p>
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four handles for the argument. Open a card to recover its definition, limits, and evidence.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card" id="idea-taste">
+<h3>Research taste</h3>
+<p class="toolkit-symbol" aria-label="q: capacity per compute unit">q: capacity per compute unit</p>
+<p class="toolkit-phrase">Choose the next experiment well.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> In the planning model, q converts usable experimental compute into reference-equivalent capacity for a fixed task regime. TasteVal separately estimates task-specific compute multipliers.</p>
+<p><strong>Boundary.</strong> The benchmark does not establish general intelligence, live swarm scaling, safe stopping, or Research Kernel’s added effect.</p>
+<p class="toolkit-links"><a href="#tasteval">Read what TasteVal measures</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-dividend">
+<h3>Memory dividend</h3>
+<p class="toolkit-symbol" aria-label="Extra capacity equals efficiency q times net recovered compute G">ΔA = qG</p>
+<p class="toolkit-phrase">A better researcher can do more with the same saved compute.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> G is compute recovered after avoidable duplication and memory overhead. In the stated linear, separable model, multiplying G by efficiency q gives the extra capacity supplied by memory.</p>
+<p><strong>Boundary.</strong> The monotonic result requires G ≥ 0 with the other assumptions held fixed. Capacity is not a direct measure of discoveries, revenue, or scientific value.</p>
+<p class="toolkit-links"><a href="#value-model">Open the capacity model</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-ceiling">
+<h3>Capacity ceiling</h3>
+<p class="toolkit-symbol" aria-label="Useful output is the lesser of the cap K and available capacity A">Useful output = min(K, A)</p>
+<p class="toolkit-phrase">Saved effort helps only where useful work remains.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> The essay’s saturation example caps useful output at K. Once both systems reach K, additional capacity can leave the output gain at zero.</p>
+<p><strong>Boundary.</strong> K is an illustrative cap, not a measured scientific frontier. The example refutes an unconditional claim that stronger agents always produce a larger realized memory benefit.</p>
+<p class="toolkit-links"><a href="#limits">Read the counterexample</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-handoff">
+<h3>Resumable stop</h3>
+<p class="toolkit-symbol" aria-label="Stop reason + frontier + retry condition">Stop reason + frontier + retry condition</p>
+<p class="toolkit-phrase">Leave the next attempt a place to start.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> Preserve the exact scope, evidence, unfinished work, spent budget, and what changed evidence or resources would justify another attempt.</p>
+<p><strong>Boundary.</strong> The record supports a decision to resume; it does not grant permission or make a prior timeout into a permanent prohibition.</p>
+<p class="toolkit-links"><a href="#stopping">Read the handoff example</a> · <a href="the-maze-that-remembers.html#stopping">Inspect bounded persistence</a></p>
+</details></div>
+</div>
+<p class="toolkit-foot">The symbols are shorthand for the scoped definitions above. <a href="../data/essay-abstractions.json">Machine-readable cards</a>.</p>
+</section>
+<!-- MENTAL_TOOLKIT_END -->
         </article>
         <div class="essay-footnotes" aria-label="Sources and provenance">
           <h2>Sources and provenance</h2>

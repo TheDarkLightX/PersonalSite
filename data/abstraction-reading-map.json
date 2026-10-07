@@ -1,0 +1,152 @@
+{
+  "schema": "abstraction-reading-map/v1",
+  "date": "2026-10-07",
+  "essay": "../essays/abstraction-is-compression.html",
+  "purpose": "Navigation and claim-status metadata for human and agent readers. Not a Research Kernel MCP import or acceptance contract.",
+  "formal_companion": {
+    "source": "../proofs/abstraction/Abstraction.lean",
+    "receipt": "../proofs/abstraction/verification.json",
+    "readme": "../proofs/abstraction/README.md",
+    "toolchain": "leanprover/lean4:v4.19.0",
+    "public_theorems": 7,
+    "axiom_policy": "No axiom dependencies for all seven statements."
+  },
+  "source_pins": {
+    "CovertChannelLab": "ae90bb88273e82620f2e643c19f23aeea0d9b31c",
+    "what-if-witness-spaces": "00dd88ededda2d771a56af071744bf6a07ae70fc"
+  },
+  "claims": [
+    {
+      "id": "decision-compression",
+      "status": "proved_in_model",
+      "claim": "If the answer factors through a summary, equal summaries preserve the chosen answer.",
+      "theorems": [
+        "compression_preserves_decision"
+      ],
+      "assumptions": [
+        "A readout reproduces the answer for every concrete state."
+      ],
+      "scope": "One specified question; not lossless reconstruction of every fact.",
+      "essay_anchor": "compression-model"
+    },
+    {
+      "id": "sound-safety-abstraction",
+      "status": "proved_in_model",
+      "claim": "Abstract unreachability implies concrete unreachability when transitions and forbidden states are covered.",
+      "theorems": [
+        "reachability_maps",
+        "abstract_safety_transfers",
+        "omitted_edge_changes_answer"
+      ],
+      "assumptions": [
+        "Every concrete step maps to an abstract step, including stuttering self-loops.",
+        "Every concrete bad state maps to an abstract bad state.",
+        "The abstract bad states are unreachable."
+      ],
+      "scope": "Finite execution prefixes of the supplied transition relations. Coverage of physical behavior remains a separate obligation.",
+      "essay_anchor": "compression-model"
+    },
+    {
+      "id": "intelligence-and-invariants",
+      "status": "proved_in_model",
+      "claim": "A closed invariant contains every reachable state, independently of which modeled strategy selects the steps.",
+      "theorems": [
+        "reachable_invariant"
+      ],
+      "assumptions": [
+        "Initial state is inside the invariant.",
+        "Every modeled transition preserves it."
+      ],
+      "scope": "No intelligence parameter or agent implementation is formalized; the quantification covers all supplied transitions.",
+      "essay_anchor": "hypothesis"
+    },
+    {
+      "id": "physical-containment-existence",
+      "status": "hypothesis",
+      "claim": "A useful admissible physical configuration exists that excludes every forbidden outcome for every physically available strategy under an explicit environment contract.",
+      "formula": "exists c in C_E: U_E(c) and forall pi in Pi_E(c): not Escape_E(c,pi)",
+      "theorems": [],
+      "assumptions": [
+        "Specified physics and operating envelope.",
+        "Useful-service predicate excludes switching the machine off.",
+        "Forbidden outcomes, observers, actuators, lifetime, resources, maintenance, and outside assistance are defined."
+      ],
+      "scope": "Not established by the essay, the lab model, or the new Lean companion.",
+      "essay_anchor": "quantified-model"
+    },
+    {
+      "id": "existential-counterargument",
+      "status": "proved_in_model",
+      "claim": "Given one admissible configuration defeating all modeled strategies, universal escapability for that same design domain and environment is false.",
+      "theorems": [
+        "witness_refutes_universal_escape",
+        "quantifier_order_matters"
+      ],
+      "assumptions": [
+        "A witness with the universal safety property is supplied.",
+        "A common strategy type encodes validity inside the escape predicate."
+      ],
+      "scope": "Logical consequence conditional on the witness. Does not establish the physical existence hypothesis.",
+      "essay_anchor": "quantified-model"
+    },
+    {
+      "id": "covert-channel-witness",
+      "status": "replayed_model",
+      "claim": "The pinned catalogue has 1760 configurations and 19 feasible designs; (s,r)=(7,2) attains the global integer cost lower bound 57.",
+      "evidence": [
+        "../proofs/abstraction/covert-replay.json",
+        "https://github.com/TheDarkLightX/CovertChannelLab/blob/ae90bb88273e82620f2e643c19f23aeea0d9b31c/Proofs.lean",
+        "https://github.com/TheDarkLightX/CovertChannelLab/blob/ae90bb88273e82620f2e643c19f23aeea0d9b31c/MATH.md"
+      ],
+      "assumptions": [
+        "Five digital controls use the stated semantics.",
+        "s,r are nonnegative integers; 2s+r>=16; service constraint r<=4.",
+        "Cost J=s^2+2r^2 and service U=100-5r are stipulated."
+      ],
+      "scope": "Illustrative digital and thermal model, not measured hardware performance or production certification.",
+      "essay_anchor": "lab-math"
+    },
+    {
+      "id": "physical-refinement",
+      "status": "open_refinement",
+      "claim": "A model guarantee transfers to a deployed system only after concrete behavior and forbidden outcomes are covered by the verified abstraction.",
+      "evidence": [
+        "https://github.com/TheDarkLightX/CovertChannelLab/blob/ae90bb88273e82620f2e643c19f23aeea0d9b31c/CONTRACTS.md",
+        "https://github.com/TheDarkLightX/CovertChannelLab/blob/ae90bb88273e82620f2e643c19f23aeea0d9b31c/MATH.md"
+      ],
+      "open_obligations": [
+        "Measure and bound physical plant parameters across the operating envelope.",
+        "Prove the real-valued thermal plant refines the Lean integer envelope.",
+        "Implement and validate the trusted total fallback, canonical verifier, schedule, and resource partition.",
+        "Inventory all observer and actuator channels, including raw physical sensors.",
+        "Account separately for authorized harmful outputs, actions, and human operators."
+      ],
+      "scope": "These gates are not discharged by the model replay.",
+      "essay_anchor": "proof-layer"
+    },
+    {
+      "id": "autonomy-boundary-interaction",
+      "status": "interpretation",
+      "claim": "More independent choices and persistent shared search increase the importance of enforcing task boundaries and specifying stop conditions.",
+      "evidence": [
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+        "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+      ],
+      "scope": "The reported incident involved existing isolation controls that failed. The causal interpretation is the author's synthesis, not a finding about a lab's intentions.",
+      "essay_anchor": "autonomy"
+    },
+    {
+      "id": "witness-search-method",
+      "status": "research_method",
+      "claim": "Alternate candidate synthesis with counterexample search, retaining valid failures as constraints for later designs.",
+      "evidence": [
+        "https://github.com/TheDarkLightX/what-if-witness-spaces/blob/00dd88ededda2d771a56af071744bf6a07ae70fc/paper/NEURO_SYMBOLIC_DISASTER_LOOP.md",
+        "https://doi.org/10.5281/zenodo.19763921",
+        "https://people.csail.mit.edu/asolar/SynthesisCourse2020/Lecture10.htm"
+      ],
+      "scope": "The preprint has a bounded, checker-relative witness language. Its archived result was not independently replayed for this essay. Search failure or timeout cannot establish universal safety.",
+      "essay_anchor": "search-loop"
+    }
+  ],
+  "abstraction_cards": "essay-abstractions.json"
+}

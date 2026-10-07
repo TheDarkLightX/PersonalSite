@@ -1,0 +1,56 @@
+name: Abstraction evidence
+on:
+  push:
+    paths:
+      - 'proofs/abstraction/**'
+      - 'data/essay-abstractions.json'
+      - 'data/abstraction-reading-map.json'
+      - 'essays/abstraction-is-compression.html'
+      - 'essays/the-maze-that-remembers.html'
+      - 'essays/research-taste-and-scientific-memory.html'
+      - 'assets/essays/abstraction-*'
+      - 'assets/essays/containment-search.svg'
+      - 'tools/check-abstraction.py'
+      - 'tools/render_abstraction.py'
+      - 'tools/render_mental_toolkits.py'
+      - '.github/workflows/abstraction.yml'
+  pull_request:
+    paths:
+      - 'proofs/abstraction/**'
+      - 'data/essay-abstractions.json'
+      - 'data/abstraction-reading-map.json'
+      - 'essays/abstraction-is-compression.html'
+      - 'essays/the-maze-that-remembers.html'
+      - 'essays/research-taste-and-scientific-memory.html'
+      - 'assets/essays/abstraction-*'
+      - 'assets/essays/containment-search.svg'
+      - 'tools/check-abstraction.py'
+      - 'tools/render_abstraction.py'
+      - 'tools/render_mental_toolkits.py'
+      - '.github/workflows/abstraction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install pinned Lean release
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst \
+            --output "$RUNNER_TEMP/lean.tar.zst"
+          printf '%s  %s\n' '6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe' "$RUNNER_TEMP/lean.tar.zst" | sha256sum --check
+          tar --no-same-owner --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          printf '%s\n' "$RUNNER_TEMP/lean-4.19.0-linux/bin" >> "$GITHUB_PATH"
+      - name: Replay all seven Lean statements and check the receipt
+        run: python3 tools/check-abstraction.py
+      - name: Check the standard mental toolkits
+        run: python3 tools/render_mental_toolkits.py --check
+      - name: Reproduce the exact diagrams
+        run: |
+          python3 tools/render_abstraction.py
+          git diff --exit-code -- assets/essays/abstraction-map.svg assets/essays/containment-search.svg assets/essays/abstraction-visual-checks.json

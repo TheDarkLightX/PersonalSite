@@ -1,0 +1,246 @@
+{
+  "schema": "essay-abstractions/v1",
+  "date": "2026-10-07",
+  "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
+  "format": [
+    "label",
+    "symbol",
+    "phrase",
+    "meaning",
+    "boundary",
+    "links"
+  ],
+  "essays": [
+    {
+      "path": "essays/the-maze-that-remembers.html",
+      "cards": [
+        {
+          "id": "idea-loop",
+          "label": "Neurosymbolic loop",
+          "symbol": "Propose → check → remember",
+          "symbol_reading": "Propose → check → remember",
+          "phrase": "Let the last check improve the next proposal.",
+          "meaning": "The model produces a candidate; an external checker returns a scoped verdict and evidence; the record informs later proposals.",
+          "boundary": "Acceptance establishes the checker’s exact obligation under its assumptions. Rejection or timeout does not prove the underlying conjecture false.",
+          "links": [
+            {
+              "label": "Open the loop",
+              "href": "#neurosymbolic"
+            },
+            {
+              "label": "Lean checking assumptions",
+              "href": "#source-lean"
+            }
+          ]
+        },
+        {
+          "id": "idea-distinct",
+          "label": "Distinct work",
+          "symbol": "Tₖ(N) = ⌈N/k⌉",
+          "symbol_reading": "T sub k of N equals the ceiling of N divided by k",
+          "phrase": "Share the work before multiplying the workers.",
+          "meaning": "N distinct candidates take ceiling(N/k) rounds with k positive workers, one completed equal-cost check per worker per round, and no duplicate assignments.",
+          "boundary": "More workers cannot increase this round count, but may leave it unchanged. Unequal jobs, coordination costs, and verification bottlenecks are outside the model.",
+          "links": [
+            {
+              "label": "Read the scaling argument",
+              "href": "#scaling"
+            },
+            {
+              "label": "Checked scheduling proof",
+              "href": "#proof"
+            }
+          ]
+        },
+        {
+          "id": "idea-rejection",
+          "label": "Scoped rejection",
+          "symbol": "Reject the branch; keep the fork.",
+          "symbol_reading": "Reject the branch; keep the fork.",
+          "phrase": "Carry forward the reason a route failed.",
+          "meaning": "A certified-invalid candidate can be removed without discarding a solution. A whole branch needs evidence covering that whole branch for the same target and revision.",
+          "boundary": "A rejected script, a refuted conjecture, and an interrupted attempt mean different things. A timeout remains unresolved.",
+          "links": [
+            {
+              "label": "Read the evidence distinctions",
+              "href": "#memory"
+            },
+            {
+              "label": "Inspect the pruning proof",
+              "href": "#proof"
+            }
+          ]
+        },
+        {
+          "id": "idea-stop",
+          "label": "Bounded persistence",
+          "symbol": "Launches ≤ B",
+          "symbol_reading": "The number of launches is at most the initial budget B",
+          "phrase": "Stop with evidence the next researcher can use.",
+          "meaning": "An external controller atomically reserves one unit per attempt from a finite budget B, enforces permissions and deadlines, and returns success, scoped exhaustion, a pause, or a question.",
+          "boundary": "A prompt alone does not enforce the bound. Budget exhaustion proves that the run stopped, not that a solution does not exist.",
+          "links": [
+            {
+              "label": "Open the stopping policy",
+              "href": "#stopping"
+            },
+            {
+              "label": "Connect it to containment",
+              "href": "abstraction-is-compression.html#autonomy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/research-taste-and-scientific-memory.html",
+      "cards": [
+        {
+          "id": "idea-taste",
+          "label": "Research taste",
+          "symbol": "q: capacity per compute unit",
+          "symbol_reading": "q: capacity per compute unit",
+          "phrase": "Choose the next experiment well.",
+          "meaning": "In the planning model, q converts usable experimental compute into reference-equivalent capacity for a fixed task regime. TasteVal separately estimates task-specific compute multipliers.",
+          "boundary": "The benchmark does not establish general intelligence, live swarm scaling, safe stopping, or Research Kernel’s added effect.",
+          "links": [
+            {
+              "label": "Read what TasteVal measures",
+              "href": "#tasteval"
+            }
+          ]
+        },
+        {
+          "id": "idea-dividend",
+          "label": "Memory dividend",
+          "symbol": "ΔA = qG",
+          "symbol_reading": "Extra capacity equals efficiency q times net recovered compute G",
+          "phrase": "A better researcher can do more with the same saved compute.",
+          "meaning": "G is compute recovered after avoidable duplication and memory overhead. In the stated linear, separable model, multiplying G by efficiency q gives the extra capacity supplied by memory.",
+          "boundary": "The monotonic result requires G ≥ 0 with the other assumptions held fixed. Capacity is not a direct measure of discoveries, revenue, or scientific value.",
+          "links": [
+            {
+              "label": "Open the capacity model",
+              "href": "#value-model"
+            }
+          ]
+        },
+        {
+          "id": "idea-ceiling",
+          "label": "Capacity ceiling",
+          "symbol": "Useful output = min(K, A)",
+          "symbol_reading": "Useful output is the lesser of the cap K and available capacity A",
+          "phrase": "Saved effort helps only where useful work remains.",
+          "meaning": "The essay’s saturation example caps useful output at K. Once both systems reach K, additional capacity can leave the output gain at zero.",
+          "boundary": "K is an illustrative cap, not a measured scientific frontier. The example refutes an unconditional claim that stronger agents always produce a larger realized memory benefit.",
+          "links": [
+            {
+              "label": "Read the counterexample",
+              "href": "#limits"
+            }
+          ]
+        },
+        {
+          "id": "idea-handoff",
+          "label": "Resumable stop",
+          "symbol": "Stop reason + frontier + retry condition",
+          "symbol_reading": "Stop reason + frontier + retry condition",
+          "phrase": "Leave the next attempt a place to start.",
+          "meaning": "Preserve the exact scope, evidence, unfinished work, spent budget, and what changed evidence or resources would justify another attempt.",
+          "boundary": "The record supports a decision to resume; it does not grant permission or make a prior timeout into a permanent prohibition.",
+          "links": [
+            {
+              "label": "Read the handoff example",
+              "href": "#stopping"
+            },
+            {
+              "label": "Inspect bounded persistence",
+              "href": "the-maze-that-remembers.html#stopping"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/abstraction-is-compression.html",
+      "cards": [
+        {
+          "id": "idea-compression",
+          "label": "Sound abstraction",
+          "symbol": "Keep every route to danger.",
+          "symbol_reading": "Keep every route to danger.",
+          "phrase": "Make the map smaller without hiding the escape.",
+          "meaning": "Exact decision summaries preserve the chosen answer. Conservative safety abstractions cover every concrete transition and map every concrete bad state into an abstract bad state.",
+          "boundary": "A proof on the smaller graph transfers only when those coverage obligations hold. Fewer visible details alone do not establish soundness.",
+          "links": [
+            {
+              "label": "Open the abstraction definition",
+              "href": "#compression"
+            },
+            {
+              "label": "Lean transfer theorem",
+              "href": "../proofs/abstraction/Abstraction.lean"
+            }
+          ]
+        },
+        {
+          "id": "idea-witness",
+          "label": "Containment witness",
+          "symbol": "∃ design · ∀ strategies",
+          "symbol_reading": "There exists a design such that all strategies in scope are contained",
+          "phrase": "One useful design that withstands every strategy in scope.",
+          "meaning": "For a fixed environment contract, supply an admissible useful configuration and evidence that every physically modeled strategy avoids the specified forbidden outcomes.",
+          "boundary": "The quantifier order, utility requirement, observer, time horizon, and resources are part of the claim. A model witness is not a validated physical deployment.",
+          "links": [
+            {
+              "label": "Read the quantified hypothesis",
+              "href": "#hypothesis"
+            },
+            {
+              "label": "Inspect the worked witness",
+              "href": "#lab"
+            }
+          ]
+        },
+        {
+          "id": "idea-observation",
+          "label": "Noninterference",
+          "symbol": "Same allowed information ⇒ same observations",
+          "symbol_reading": "Same allowed information ⇒ same observations",
+          "phrase": "Close the extra signal, including its timing.",
+          "meaning": "At fixed authorized information and public schedule, protected internal differences and adversarial choices do not change the specified observable transcript.",
+          "boundary": "Every relevant channel and receiver capability must be covered. This confidentiality property does not by itself rule out harm through authorized outputs.",
+          "links": [
+            {
+              "label": "Open the observation model",
+              "href": "#channels"
+            },
+            {
+              "label": "Read the lab contracts",
+              "href": "https://github.com/TheDarkLightX/CovertChannelLab/blob/ae90bb88273e82620f2e643c19f23aeea0d9b31c/CONTRACTS.md"
+            }
+          ]
+        },
+        {
+          "id": "idea-cegis",
+          "label": "Counterexample-guided synthesis",
+          "symbol": "Propose → refute or certify → refine",
+          "symbol_reading": "Propose → refute or certify → refine",
+          "phrase": "Make each checked failure constrain the next design.",
+          "meaning": "Search for a candidate; check the required property; when a valid counterexample appears, retain it as an obligation for later candidates. A certificate can discharge a universal modeled obligation.",
+          "boundary": "A finite attack sample or a timeout cannot certify an unrestricted universal claim. Counterexamples from an overapproximation may need concretization before rejecting a real design.",
+          "links": [
+            {
+              "label": "Read the research loop",
+              "href": "#search-loop"
+            },
+            {
+              "label": "Open the preprint",
+              "href": "#source-witness"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

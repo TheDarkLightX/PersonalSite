@@ -34,7 +34,14 @@ assets/blender/                     Original maze-checker and workflow-scaling i
 writing.html                        Tutorial and interactive lab index
 essays/the-maze-that-remembers.html  Finite search, scientific memory, and AI scaling essay
 essays/research-taste-and-scientific-memory.html  TasteVal and the conditional value of research memory
+essays/abstraction-is-compression.html  Human-readable abstractions, containment synthesis, and linked evidence
+data/essay-abstractions.json          Standard mental toolkits for the three research essays
+data/abstraction-reading-map.json     Claims, assumptions, source pins, and open proof obligations
 proofs/finite-search/                Scoped Lean proofs, replay instructions, and receipt
+proofs/abstraction/                  Seven logical proofs and the separate covert-channel model replay
+tools/render_mental_toolkits.py       Generates the standard essay footers; --check detects drift
+tools/render_abstraction.py          Reproduces and checks the exact abstraction and search diagrams
+tools/check-abstraction.py           Replays all seven proofs and enforces the axiom-free receipt
 tools/check-search-memory.cjs        Finite-search demo invariants and countercontrols
 network.html                        Professional network: people I work with, communities I contribute to
 ideas.html                          Somewhat original ideas I helped popularize, with lineages

@@ -1,0 +1,139 @@
+{
+  "schema": "covert-channel-replay/v1",
+  "checked_at_utc": "2026-10-07T21:52:06.055290+00:00",
+  "repository": "https://github.com/TheDarkLightX/CovertChannelLab",
+  "revision": "ae90bb88273e82620f2e643c19f23aeea0d9b31c",
+  "inputs_sha256": {
+    "lab.py": "a55c0ef0c9ff3228ca70669c28e57bf423866a0f170ebd297d8d5da4a57860ee",
+    "test_lab.py": "68144affca6a19d57d5504e88f03be40b4b3431747b6dd103fe96e83ae34336c",
+    "Proofs.lean": "2d79dfbd13f69b52c6d928606833d2e1634e9dc73c2a622a32564adcf4d98eb4"
+  },
+  "toolchain": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+  "commands": [
+    {
+      "command": "python3 lab.py",
+      "exit_code": 0,
+      "stdout": "Configurations: 1760; feasible: 19\nOptimum: s=7, r=2, cost=57, declared service score=90\nGlobal rational lower bound: 512/9; integer bound: 57; optimality gap: 0\nIndependent bounded checker: 40 candidate pairs\nAll 55 thermal design pairs checked; every unsafe pair has a witness\nAll 5 digital ablations have explicit observation-pair witnesses\nNear-miss (s=7,r=1): first thermal distinction at step 24\nSensitivity: {\"default\": {\"cost\": 57, \"invariant_radius\": \"1/20\", \"r\": 2, \"s\": 7, \"service_score\": 90}, \"disturbance_doubled\": {\"cost\": 66, \"invariant_radius\": \"1/20\", \"r\": 1, \"s\": 8, \"service_score\": 95}, \"load_bound_doubled\": {\"cost\": 72, \"invariant_radius\": \"1/20\", \"r\": 2, \"s\": 8, \"service_score\": 90}, \"slower_cooling\": {\"cost\": 66, \"invariant_radius\": \"1/20\", \"r\": 1, \"s\": 8, \"service_score\": 95}}\nLean kernel check: separate check required; see VERIFICATION_STATUS.json. Hardware/refinement: NOT VALIDATED.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -m unittest -q test_lab",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 34 tests in 0.284s\n\nOK\n"
+    },
+    {
+      "command": "lean Proofs.lean",
+      "exit_code": 0,
+      "stdout": "'CovertChannel.guardedRelease_eq' does not depend on any axioms\n'CovertChannel.proposal_independence' does not depend on any axioms\n'CovertChannel.trace_refinement' does not depend on any axioms\n'CovertChannel.history_independence' does not depend on any axioms\n'CovertChannel.secureCore_noninterference' does not depend on any axioms\n'CovertChannel.general_envelope_invariant' depends on axioms: [propext, Quot.sound]\n'CovertChannel.winning_envelope_forever' depends on axioms: [propext, Quot.sound]\n'CovertChannel.cost_lower_bound' depends on axioms: [propext, Quot.sound]\n'CovertChannel.exists_optimal_configuration' depends on axioms: [propext, Quot.sound]\n'CovertChannel.near_miss_crosses_at_24' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "command": "lean ProofsAudit.lean",
+      "exit_code": 0,
+      "stdout": "'CovertChannel.guardedRelease_eq' does not depend on any axioms\n'CovertChannel.proposal_independence' does not depend on any axioms\n'CovertChannel.trace_refinement' does not depend on any axioms\n'CovertChannel.history_independence' does not depend on any axioms\n'CovertChannel.secureCore_emits_canonical' does not depend on any axioms\n'CovertChannel.secureCore_noninterference' does not depend on any axioms\n'CovertChannel.no_canonicalization_leaks' does not depend on any axioms\n'CovertChannel.no_padding_leaks' does not depend on any axioms\n'CovertChannel.no_fallback_leaks' does not depend on any axioms\n'CovertChannel.no_partition_leaks' does not depend on any axioms\n'CovertChannel.no_egress_mediation_leaks' does not depend on any axioms\n'CovertChannel.general_envelope_invariant' depends on axioms: [propext, Quot.sound]\n'CovertChannel.envelope_invariant' depends on axioms: [propext, Quot.sound]\n'CovertChannel.envelope_cannot_cross_sensor' depends on axioms: [propext, Quot.sound]\n'CovertChannel.residual_gain_safe_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'CovertChannel.cost_lower_bound' depends on axioms: [propext, Quot.sound]\n'CovertChannel.winner_cost' does not depend on any axioms\n'CovertChannel.winner_feasible' does not depend on any axioms\n'CovertChannel.global_optimum' depends on axioms: [propext, Quot.sound]\n'CovertChannel.exists_optimal_configuration' depends on axioms: [propext, Quot.sound]\n'CovertChannel.winning_envelope_forever' depends on axioms: [propext, Quot.sound]\n'CovertChannel.near_miss_below_at_23' does not depend on any axioms\n'CovertChannel.near_miss_crosses_at_24' does not depend on any axioms\n'CovertChannel.quiet_control_below_at_24' does not depend on any axioms\n",
+      "stderr": ""
+    }
+  ],
+  "axiom_audit": {
+    "public_theorem_count": 24,
+    "method": "Remove original #print axioms lines, leave every definition and proof unchanged, then append #print axioms CovertChannel.<name> for each public theorem in source order. Compile the derived ProofsAudit.lean.",
+    "derived_source_sha256": "f43865925b055570cbb7465983648886154df3015f15af45a71718ca74cf5088",
+    "axioms": {
+      "guardedRelease_eq": [],
+      "proposal_independence": [],
+      "trace_refinement": [],
+      "history_independence": [],
+      "secureCore_emits_canonical": [],
+      "secureCore_noninterference": [],
+      "no_canonicalization_leaks": [],
+      "no_padding_leaks": [],
+      "no_fallback_leaks": [],
+      "no_partition_leaks": [],
+      "no_egress_mediation_leaks": [],
+      "general_envelope_invariant": [
+        "propext",
+        "Quot.sound"
+      ],
+      "envelope_invariant": [
+        "propext",
+        "Quot.sound"
+      ],
+      "envelope_cannot_cross_sensor": [
+        "propext",
+        "Quot.sound"
+      ],
+      "residual_gain_safe_iff": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "cost_lower_bound": [
+        "propext",
+        "Quot.sound"
+      ],
+      "winner_cost": [],
+      "winner_feasible": [],
+      "global_optimum": [
+        "propext",
+        "Quot.sound"
+      ],
+      "exists_optimal_configuration": [
+        "propext",
+        "Quot.sound"
+      ],
+      "winning_envelope_forever": [
+        "propext",
+        "Quot.sound"
+      ],
+      "near_miss_below_at_23": [],
+      "near_miss_crosses_at_24": [],
+      "quiet_control_below_at_24": []
+    }
+  },
+  "results": {
+    "configuration_count": 1760,
+    "feasible_count": 19,
+    "winner": {
+      "core": {
+        "canonical_encoding": true,
+        "fixed_release_slot": true,
+        "total_fallback": true,
+        "shared_resource_partition": true,
+        "mediated_egress": true
+      },
+      "s": 7,
+      "r": 2,
+      "cost": 57,
+      "service_score": 90,
+      "thermal_gain": "1/250",
+      "invariant_radius": "1/20",
+      "digital_ok": true,
+      "thermal_certified": true,
+      "feasible": true
+    },
+    "global_optimality_certificate": {
+      "lower_bound": "512/9",
+      "integer_lower_bound": 57,
+      "witness_cost": 57,
+      "gap": 0,
+      "domain": "all nonnegative integer s,r with 2s+r>=16 and r<=4"
+    },
+    "unit_tests": 34,
+    "thermal_pairs_checked": 55,
+    "results_json_sha256": "17f3021abb2b4222ad6df75a27ba4e9484ecc14639cc9acf14a7ee5decf97edb"
+  },
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "self_executable_path_adapter": "readlink /proc/<own-pid>/exe to /proc/self/exe only; official Lean binaries unmodified; source in ../finite-search/README.md"
+  },
+  "scope": "Replayed illustrative digital/thermal model and its existing Lean proof. No new physical experiment or deployment certification.",
+  "open_obligations": [
+    "Measured plant parameters and sensor/observer contract",
+    "Continuous thermal plant to integer-envelope refinement",
+    "Concrete total fallback and verifier implementation",
+    "Complete observation and actuator inventory, including physical channels",
+    "Useful-service and cost assumptions validated for a real task"
+  ]
+}

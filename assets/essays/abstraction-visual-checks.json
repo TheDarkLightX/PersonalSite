@@ -1,0 +1,397 @@
+{
+  "graph": {
+    "concrete_edges": [
+      [
+        "start",
+        "a"
+      ],
+      [
+        "start",
+        "b"
+      ],
+      [
+        "a",
+        "c"
+      ],
+      [
+        "b",
+        "d"
+      ],
+      [
+        "c",
+        "bad"
+      ]
+    ],
+    "abstraction": {
+      "start": "start",
+      "a": "work",
+      "b": "work",
+      "c": "work",
+      "d": "work",
+      "bad": "bad"
+    },
+    "abstract_edges": [
+      [
+        "start",
+        "work"
+      ],
+      [
+        "work",
+        "bad"
+      ],
+      [
+        "work",
+        "work"
+      ]
+    ],
+    "checks": [
+      "All concrete edges map to an abstract edge",
+      "Self-loop retained",
+      "Bad remains reachable",
+      "Deleting Work-to-Bad falsely removes the bad path"
+    ]
+  },
+  "grid": {
+    "rows": [
+      {
+        "s": 0,
+        "r": 0,
+        "feasible": false,
+        "cost": 0
+      },
+      {
+        "s": 1,
+        "r": 0,
+        "feasible": false,
+        "cost": 1
+      },
+      {
+        "s": 2,
+        "r": 0,
+        "feasible": false,
+        "cost": 4
+      },
+      {
+        "s": 3,
+        "r": 0,
+        "feasible": false,
+        "cost": 9
+      },
+      {
+        "s": 4,
+        "r": 0,
+        "feasible": false,
+        "cost": 16
+      },
+      {
+        "s": 5,
+        "r": 0,
+        "feasible": false,
+        "cost": 25
+      },
+      {
+        "s": 6,
+        "r": 0,
+        "feasible": false,
+        "cost": 36
+      },
+      {
+        "s": 7,
+        "r": 0,
+        "feasible": false,
+        "cost": 49
+      },
+      {
+        "s": 8,
+        "r": 0,
+        "feasible": true,
+        "cost": 64
+      },
+      {
+        "s": 9,
+        "r": 0,
+        "feasible": true,
+        "cost": 81
+      },
+      {
+        "s": 10,
+        "r": 0,
+        "feasible": true,
+        "cost": 100
+      },
+      {
+        "s": 0,
+        "r": 1,
+        "feasible": false,
+        "cost": 2
+      },
+      {
+        "s": 1,
+        "r": 1,
+        "feasible": false,
+        "cost": 3
+      },
+      {
+        "s": 2,
+        "r": 1,
+        "feasible": false,
+        "cost": 6
+      },
+      {
+        "s": 3,
+        "r": 1,
+        "feasible": false,
+        "cost": 11
+      },
+      {
+        "s": 4,
+        "r": 1,
+        "feasible": false,
+        "cost": 18
+      },
+      {
+        "s": 5,
+        "r": 1,
+        "feasible": false,
+        "cost": 27
+      },
+      {
+        "s": 6,
+        "r": 1,
+        "feasible": false,
+        "cost": 38
+      },
+      {
+        "s": 7,
+        "r": 1,
+        "feasible": false,
+        "cost": 51
+      },
+      {
+        "s": 8,
+        "r": 1,
+        "feasible": true,
+        "cost": 66
+      },
+      {
+        "s": 9,
+        "r": 1,
+        "feasible": true,
+        "cost": 83
+      },
+      {
+        "s": 10,
+        "r": 1,
+        "feasible": true,
+        "cost": 102
+      },
+      {
+        "s": 0,
+        "r": 2,
+        "feasible": false,
+        "cost": 8
+      },
+      {
+        "s": 1,
+        "r": 2,
+        "feasible": false,
+        "cost": 9
+      },
+      {
+        "s": 2,
+        "r": 2,
+        "feasible": false,
+        "cost": 12
+      },
+      {
+        "s": 3,
+        "r": 2,
+        "feasible": false,
+        "cost": 17
+      },
+      {
+        "s": 4,
+        "r": 2,
+        "feasible": false,
+        "cost": 24
+      },
+      {
+        "s": 5,
+        "r": 2,
+        "feasible": false,
+        "cost": 33
+      },
+      {
+        "s": 6,
+        "r": 2,
+        "feasible": false,
+        "cost": 44
+      },
+      {
+        "s": 7,
+        "r": 2,
+        "feasible": true,
+        "cost": 57
+      },
+      {
+        "s": 8,
+        "r": 2,
+        "feasible": true,
+        "cost": 72
+      },
+      {
+        "s": 9,
+        "r": 2,
+        "feasible": true,
+        "cost": 89
+      },
+      {
+        "s": 10,
+        "r": 2,
+        "feasible": true,
+        "cost": 108
+      },
+      {
+        "s": 0,
+        "r": 3,
+        "feasible": false,
+        "cost": 18
+      },
+      {
+        "s": 1,
+        "r": 3,
+        "feasible": false,
+        "cost": 19
+      },
+      {
+        "s": 2,
+        "r": 3,
+        "feasible": false,
+        "cost": 22
+      },
+      {
+        "s": 3,
+        "r": 3,
+        "feasible": false,
+        "cost": 27
+      },
+      {
+        "s": 4,
+        "r": 3,
+        "feasible": false,
+        "cost": 34
+      },
+      {
+        "s": 5,
+        "r": 3,
+        "feasible": false,
+        "cost": 43
+      },
+      {
+        "s": 6,
+        "r": 3,
+        "feasible": false,
+        "cost": 54
+      },
+      {
+        "s": 7,
+        "r": 3,
+        "feasible": true,
+        "cost": 67
+      },
+      {
+        "s": 8,
+        "r": 3,
+        "feasible": true,
+        "cost": 82
+      },
+      {
+        "s": 9,
+        "r": 3,
+        "feasible": true,
+        "cost": 99
+      },
+      {
+        "s": 10,
+        "r": 3,
+        "feasible": true,
+        "cost": 118
+      },
+      {
+        "s": 0,
+        "r": 4,
+        "feasible": false,
+        "cost": 32
+      },
+      {
+        "s": 1,
+        "r": 4,
+        "feasible": false,
+        "cost": 33
+      },
+      {
+        "s": 2,
+        "r": 4,
+        "feasible": false,
+        "cost": 36
+      },
+      {
+        "s": 3,
+        "r": 4,
+        "feasible": false,
+        "cost": 41
+      },
+      {
+        "s": 4,
+        "r": 4,
+        "feasible": false,
+        "cost": 48
+      },
+      {
+        "s": 5,
+        "r": 4,
+        "feasible": false,
+        "cost": 57
+      },
+      {
+        "s": 6,
+        "r": 4,
+        "feasible": true,
+        "cost": 68
+      },
+      {
+        "s": 7,
+        "r": 4,
+        "feasible": true,
+        "cost": 81
+      },
+      {
+        "s": 8,
+        "r": 4,
+        "feasible": true,
+        "cost": 96
+      },
+      {
+        "s": 9,
+        "r": 4,
+        "feasible": true,
+        "cost": 113
+      },
+      {
+        "s": 10,
+        "r": 4,
+        "feasible": true,
+        "cost": 132
+      }
+    ],
+    "feasible_count": 19,
+    "winner": {
+      "s": 7,
+      "r": 2,
+      "feasible": true,
+      "cost": 57
+    },
+    "digital_controls": "all five enabled",
+    "scope": "This renderer checks the 55-cell slice. The separate lab certificate establishes the global integer lower bound."
+  }
+}

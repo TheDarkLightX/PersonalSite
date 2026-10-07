@@ -1,0 +1,27 @@
+{
+  "schema": "abstraction-verification/v1",
+  "checked_at_utc": "2026-10-07T21:52:03.514997+00:00",
+  "source": "Abstraction.lean",
+  "source_sha256": "85dfc447de2a196f7c6a30cc78e5634633124bba545066fc871aecbf88ae5a80",
+  "toolchain": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+  "release_archive_sha256": "6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe",
+  "command": "lean -DwarningAsError=true Abstraction.lean",
+  "exit_code": 0,
+  "stdout": "'Abstraction.compression_preserves_decision' does not depend on any axioms\n'Abstraction.reachable_invariant' does not depend on any axioms\n'Abstraction.reachability_maps' does not depend on any axioms\n'Abstraction.abstract_safety_transfers' does not depend on any axioms\n'Abstraction.witness_refutes_universal_escape' does not depend on any axioms\n'Abstraction.quantifier_order_matters' does not depend on any axioms\n'Abstraction.omitted_edge_changes_answer' does not depend on any axioms\n",
+  "stderr": "",
+  "axioms": {
+    "compression_preserves_decision": [],
+    "reachable_invariant": [],
+    "reachability_maps": [],
+    "abstract_safety_transfers": [],
+    "witness_refutes_universal_escape": [],
+    "quantifier_order_matters": [],
+    "omitted_edge_changes_answer": []
+  },
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "self_executable_path_adapter": "readlink /proc/<own-pid>/exe to /proc/self/exe only; official Lean binaries unmodified; source in ../finite-search/README.md"
+  },
+  "scope": "Elementary logical theorems about decisions, invariant closure, sound transition abstraction, and quantifier order. No physical containment existence proof."
+}

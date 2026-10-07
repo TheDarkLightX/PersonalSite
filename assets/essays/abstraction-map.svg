@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-labelledby="title desc">
+<title id="title">Shrink the map. Keep the dangerous route.</title><desc id="desc">Six concrete states compress to three abstract states. Four private internal states map to Work. Every concrete step has an abstract step, including a Work self-loop; the route to Bad is preserved.</desc>
+<rect width="720" height="560" fill="#faf9f5"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<text x="36" y="45" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#242b2b" text-anchor="start">Shrink the map. Keep the dangerous route.</text>
+<text x="36" y="80" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="start">Same question: can the forbidden state be reached?</text>
+<text x="36" y="118" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#58615e" text-anchor="start">DETAILED / 6 states</text>
+<path d="M97.83466844530588,210.6123131500481 L219.3109979990309,171.3111477061959" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M97.6733156816799,225.86897426599478 L219.49251985811011,268.14740395075586" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M269.0,163.0 L428.0,163.0" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M269.0,277.0 L428.0,277.0" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M478.0048725506973,169.83928643399108 L614.1195183804656,210.30580276176002" fill="none" stroke="#93422c" stroke-width="2.5" marker-end="url(#arrow)"/>
+<circle cx="75" cy="218" r="23" fill="#faf9f5" stroke="#242b2b" stroke-width="2"/>
+<text x="75" y="226" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#242b2b" text-anchor="middle">S</text>
+<circle cx="245" cy="163" r="23" fill="#e5eee7" stroke="#242b2b" stroke-width="2"/>
+<text x="245" y="171" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#242b2b" text-anchor="middle">a</text>
+<circle cx="245" cy="277" r="23" fill="#e5eee7" stroke="#242b2b" stroke-width="2"/>
+<text x="245" y="285" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#242b2b" text-anchor="middle">b</text>
+<circle cx="455" cy="163" r="23" fill="#e5eee7" stroke="#242b2b" stroke-width="2"/>
+<text x="455" y="171" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#242b2b" text-anchor="middle">c</text>
+<circle cx="455" cy="277" r="23" fill="#e5eee7" stroke="#242b2b" stroke-width="2"/>
+<text x="455" y="285" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#242b2b" text-anchor="middle">d</text>
+<circle cx="640" cy="218" r="23" fill="#faf9f5" stroke="#93422c" stroke-width="2"/>
+<text x="640" y="226" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#93422c" text-anchor="middle">×</text>
+<text x="75" y="325" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#242b2b" text-anchor="middle">Start</text>
+<text x="350" y="325" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="middle">Private internal states</text>
+<text x="640" y="325" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#93422c" text-anchor="middle">Forbidden</text>
+<path d="M36 348 H684" fill="none" stroke="#cbd0c8" stroke-width="1"/>
+<text x="36" y="383" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#58615e" text-anchor="start">COMPRESSED / 3 states</text>
+<path d="M100 460 H320" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M402 460 H611" fill="none" stroke="#93422c" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M382 430 C452 365 268 365 338 430" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#arrow)"/>
+<circle cx="75" cy="460" r="23" fill="#faf9f5" stroke="#242b2b" stroke-width="2"/>
+<text x="75" y="468" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#242b2b" text-anchor="middle">S</text>
+<circle cx="360" cy="460" r="37" fill="#e5eee7" stroke="#242b2b" stroke-width="2"/>
+<text x="360" y="468" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#242b2b" text-anchor="middle">Work</text>
+<circle cx="640" cy="460" r="23" fill="#faf9f5" stroke="#93422c" stroke-width="2"/>
+<text x="640" y="468" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#93422c" text-anchor="middle">×</text>
+<text x="75" y="518" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#242b2b" text-anchor="middle">Start</text>
+<text x="360" y="518" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#58615e" text-anchor="middle">a, b, c, d merged</text>
+<text x="640" y="518" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#93422c" text-anchor="middle">Forbidden</text>
+</svg>

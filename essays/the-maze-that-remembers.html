@@ -62,7 +62,7 @@
         <p class="lede">How AI search scales when failures become shared knowledge.</p>
         <p class="search-meta">Dana Edwards · <time datetime="2026-10-07">October 7, 2026</time> · With an interactive model and Lean proofs</p>
         <nav class="search-toc" aria-label="In this essay">
-          <a href="#openai">The math release</a><a href="#neurosymbolic">The neurosymbolic loop</a><a href="#maze">Try the maze</a><a href="#scaling">The scaling argument</a><a href="#memory">Scientific memory</a><a href="#stopping">Knowing when to stop</a><a href="#proof">Inspect the proof</a>
+          <a href="#openai">The math release</a><a href="#neurosymbolic">The neurosymbolic loop</a><a href="#maze">Try the maze</a><a href="#scaling">The scaling argument</a><a href="#memory">Scientific memory</a><a href="#stopping">Knowing when to stop</a><a href="#proof">Inspect the proof</a><a href="#mental-toolkit">Mental toolkit</a>
         </nav>
       </div>
     </section>
@@ -90,6 +90,8 @@
             <img src="../assets/essays/neurosymbolic-loop.svg" width="720" height="562" loading="lazy" decoding="async" alt="A model sends a candidate to a symbolic checker. Every verdict and its evidence enter memory, which informs the next proposal. Acceptance also yields a checked proof of the specified statement." />
             <figcaption>The neurosymbolic loop. The proposal can be wrong; the check supplies the evidence. Memory carries that evidence into the next attempt.</figcaption>
           </figure>
+          <p>Each turn leaves a record: the proposal, what the checker found, and the conditions under which that result applies. A failed proof script is useful evidence for the next attempt; it does not tell us the theorem is false.</p>
+          <details class="essay-depth" id="loop-model"><summary>Open the precise loop</summary>
           <p>We can write one turn of that loop precisely. Let σ fix the target statement, assumptions, checker, and artifact versions. Let M<sub>t</sub> be the record available at turn t. The model P<sub>θ</sub> proposes p<sub>t</sub>; the checker V<sub>σ</sub>, run with a deadline, returns a verdict r<sub>t</sub> and evidence e<sub>t</sub>:</p>
           <div class="search-formula search-equations" role="math" aria-label="p at t equals P theta of scope sigma and memory at t. Verdict and evidence equal V sigma of p at t. Next memory appends the record of scope, proposal, verdict, and evidence.">
             <span>p<sub>t</sub> = P<sub>θ</sub>(σ, M<sub>t</sub>)</span>
@@ -97,6 +99,7 @@
             <span>M<sub>t+1</sub> = append(M<sub>t</sub>, record<sub>t</sub>)</span>
           </div>
           <p>Each record contains (σ, p<sub>t</sub>, r<sub>t</sub>, e<sub>t</sub>); append adds it to the history. The verdict is <em>accept</em>, <em>reject</em>, or <em>unresolved</em>. A rejected script failed that check. A timeout left the attempt unresolved. Neither tells us that the theorem is false.</p>
+          </details>
           <p>The formal guarantee lives at the checker. I still have to read the statement: did we prove what I meant, or quietly weaken the problem? I also need to inspect the assumptions and axiom dependencies. A proof admitted through <code>sorry</code> is not the evidence I want.<sup><a href="#source-lean">2</a></sup></p>
           <p>Reinforcement learning with verifiable rewards, or RLVR, trains the proposer using externally checkable outcomes. Tülu 3 is one primary research example; the <a href="https://github.com/opendilab/awesome-RLVR">awesome-RLVR collection</a> is a useful reading index.<sup><a href="#source-rlvr">3</a></sup> Better training can put more promising candidates into the loop. The checker still has to evaluate each one, and the reward still has to match the intended task.</p>
           <p>For empirical science, experiments take the place of proof checks in a similar feedback loop. Their results are evidence under experimental conditions. They do not carry Lean's logical guarantee. That distinction belongs in the record too.</p>
@@ -239,6 +242,53 @@
           <h2 id="taste-update">Better choices can make the record more valuable</h2>
           <p>My follow-up, <a href="research-taste-and-scientific-memory.html">Research Taste and the Value of Memory</a>, looks at TasteVal and what happens as agents become better at choosing experiments. The maze can be explored faster, and the routes can be chosen more intelligently.</p>
           <p>When memory saves more compute than it costs, a stronger researcher may do more with that saved capacity. The follow-up works through that argument and proposes a direct test of Research Kernel MCP for the people and AI agents coordinating the research.</p>
+        <p>I put these ideas to work on a containment problem in <a href="abstraction-is-compression.html">Abstraction Is Compression</a>: how to make an argument easier to think with while keeping its evidence within reach.</p>
+        <!-- MENTAL_TOOLKIT_START -->
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<p class="eyebrow">Carry these ideas forward</p>
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four handles for the argument. Open a card to recover its definition, limits, and evidence.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card" id="idea-loop">
+<h3>Neurosymbolic loop</h3>
+<p class="toolkit-symbol" aria-label="Propose → check → remember">Propose → check → remember</p>
+<p class="toolkit-phrase">Let the last check improve the next proposal.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> The model produces a candidate; an external checker returns a scoped verdict and evidence; the record informs later proposals.</p>
+<p><strong>Boundary.</strong> Acceptance establishes the checker’s exact obligation under its assumptions. Rejection or timeout does not prove the underlying conjecture false.</p>
+<p class="toolkit-links"><a href="#neurosymbolic">Open the loop</a> · <a href="#source-lean">Lean checking assumptions</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-distinct">
+<h3>Distinct work</h3>
+<p class="toolkit-symbol" aria-label="T sub k of N equals the ceiling of N divided by k">Tₖ(N) = ⌈N/k⌉</p>
+<p class="toolkit-phrase">Share the work before multiplying the workers.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> N distinct candidates take ceiling(N/k) rounds with k positive workers, one completed equal-cost check per worker per round, and no duplicate assignments.</p>
+<p><strong>Boundary.</strong> More workers cannot increase this round count, but may leave it unchanged. Unequal jobs, coordination costs, and verification bottlenecks are outside the model.</p>
+<p class="toolkit-links"><a href="#scaling">Read the scaling argument</a> · <a href="#proof">Checked scheduling proof</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-rejection">
+<h3>Scoped rejection</h3>
+<p class="toolkit-symbol" aria-label="Reject the branch; keep the fork.">Reject the branch; keep the fork.</p>
+<p class="toolkit-phrase">Carry forward the reason a route failed.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> A certified-invalid candidate can be removed without discarding a solution. A whole branch needs evidence covering that whole branch for the same target and revision.</p>
+<p><strong>Boundary.</strong> A rejected script, a refuted conjecture, and an interrupted attempt mean different things. A timeout remains unresolved.</p>
+<p class="toolkit-links"><a href="#memory">Read the evidence distinctions</a> · <a href="#proof">Inspect the pruning proof</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-stop">
+<h3>Bounded persistence</h3>
+<p class="toolkit-symbol" aria-label="The number of launches is at most the initial budget B">Launches ≤ B</p>
+<p class="toolkit-phrase">Stop with evidence the next researcher can use.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> An external controller atomically reserves one unit per attempt from a finite budget B, enforces permissions and deadlines, and returns success, scoped exhaustion, a pause, or a question.</p>
+<p><strong>Boundary.</strong> A prompt alone does not enforce the bound. Budget exhaustion proves that the run stopped, not that a solution does not exist.</p>
+<p class="toolkit-links"><a href="#stopping">Open the stopping policy</a> · <a href="abstraction-is-compression.html#autonomy">Connect it to containment</a></p>
+</details></div>
+</div>
+<p class="toolkit-foot">The symbols are shorthand for the scoped definitions above. <a href="../data/essay-abstractions.json">Machine-readable cards</a>.</p>
+</section>
+<!-- MENTAL_TOOLKIT_END -->
         </article>
         <div class="essay-footnotes" aria-label="Sources and provenance">
           <h2>Sources and provenance</h2>
