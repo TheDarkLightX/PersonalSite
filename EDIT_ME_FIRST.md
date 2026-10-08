@@ -17,6 +17,10 @@ Use this before making the site more public or sending it to reviewers.
 - Keep the homepage organized around reviewer evidence.
 - Give every selected project a reviewer path.
 - Scope every ambitious claim with evidence, assumptions, and limitations.
+- Translate quantifiers literally across formulas, prose, diagrams, and mental toolkits:
+  `∃` means at least one; `∃!` means exactly one. Preserve domains and quantifier order.
+- Use AI-generated for generated material and AI-assisted for the broader workflow.
+  Describe human contributions separately; provenance labels do not determine copyright.
 - Frame AI usage as untrusted proposer, verified outputs only.
 - Lead with who you are (engineer, philosopher, futurist), not a narrow specialty.
   Formal methods is one expression of a broader systems-thinking practice.

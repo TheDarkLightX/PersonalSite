@@ -63,8 +63,8 @@
     {
       "id": "physical-containment-existence",
       "status": "hypothesis",
-      "claim": "A useful admissible physical configuration exists that excludes every forbidden outcome for every physically available strategy under an explicit environment contract.",
-      "formula": "exists c in C_E: U_E(c) and forall pi in Pi_E(c): not Escape_E(c,pi)",
+      "claim": "At least one useful admissible physical configuration exists that excludes every forbidden outcome for every physically available strategy under an explicit environment contract.",
+      "formula": "exists c in C_E: (U_E(c) and (forall pi in Pi_E(c): not Escape_E(c,pi)))",
       "theorems": [],
       "assumptions": [
         "Specified physics and operating envelope.",
@@ -72,12 +72,13 @@
         "Forbidden outcomes, observers, actuators, lifetime, resources, maintenance, and outside assistance are defined."
       ],
       "scope": "Not established by the essay, the lab model, or the new Lean companion.",
-      "essay_anchor": "quantified-model"
+      "essay_anchor": "quantified-model",
+      "quantifier_note": "Existence, not uniqueness: the same chosen configuration must withstand every strategy in its modeled domain."
     },
     {
       "id": "existential-counterargument",
       "status": "proved_in_model",
-      "claim": "Given one admissible configuration defeating all modeled strategies, universal escapability for that same design domain and environment is false.",
+      "claim": "Given at least one admissible configuration defeating all modeled strategies, universal escapability for that same design domain and environment is false.",
       "theorems": [
         "witness_refutes_universal_escape",
         "quantifier_order_matters"

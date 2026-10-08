@@ -126,7 +126,7 @@ and the relevant shell/deployment assumptions.
 
 ## Inspectable files
 
-- `contract/`: the source declarations, rules and AI-authored example expectations.
+- `contract/`: the source declarations, rules and AI-generated example expectations.
 - `app/`: factory-produced native application plus explicitly added tests.
 - `evidence/contract-review.json`: unmodified factory output.
 - `check_case.py`: independent executable policy model and graph check.

@@ -24,9 +24,10 @@
   },
   "provenance": {
     "human_role": "task, purpose, requested policy demonstration and adversarial review",
-    "contract_and_examples": "AI-authored; adapted from the pinned dual-approval example; no independent human approval recorded",
-    "oracle_and_proof": "AI-authored; checked with executable comparisons and Lean; not an independent human oracle",
-    "review": "separately assigned adversarial AI subagent in the same session; not an external human audit"
+    "contract_and_examples": "AI-generated; adapted from the pinned dual-approval example; no independent human approval recorded",
+    "oracle_and_proof": "AI-generated; checked with executable comparisons and Lean; not an independent human oracle",
+    "review": "separately assigned adversarial AI subagent in the same session; not an external human audit",
+    "terminology": "AI-generated describes provenance, not legal authorship. Historical review receipts retain their original wording."
   },
   "evidence": {
     "native_tests": 7,
@@ -48,9 +49,9 @@
   "artifact_sha256": {
     "../../assets/essays/two-key-state.svg": "c7971040dd4996d049f122882dfbb003e234725218c78a265f8a50d7e85bdc65",
     "../../assets/essays/zenofcis-boundary.svg": "20239f1f77cd90f765627e0243028baf6681b52b911dcc478c2b3dda8df22d27",
-    "../../essays/meaning-before-mechanism.html": "26978337dfbd283d12ab4513c38a1ba35571584d82be45f0cf0635938e803a67",
+    "../../essays/meaning-before-mechanism.html": "cf68f77d1bab9d249fd38450770f4e81d3844986c95ab00d799676e0653b8497",
     ".gitignore": "0f8b409f064dd74aa239bc219f792634375179fe8470572f786a120b858a5d54",
-    "README.md": "a5390360b3bcabb9596aeb4376de5f8221960c37c117eb69498e71c8ff2f706e",
+    "README.md": "0ec7fa657ab8dc7962321efce87c1f87ee41a352e095738e9a6fccc0d8e21f6e",
     "app/Cargo.lock": "7053263f74935271f3f3b4712a5ffa8730f30d49d0a075da571312dc48abf66b",
     "app/Cargo.toml": "1fb01fbcdc91ca8c34f74f308ded57f52d4dfa0cb4c35c7a0dd56f612a03fd76",
     "app/README.md": "eccc8d418c02647a6a8ad2a4c2348aff5cff2e4d4c81775ee260e2f3699d1e49",
@@ -68,7 +69,7 @@
     "app/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
     "app/v2/policy.zcve": "8c59f7342cbcc1bed04a92a6f8346c48989d4b59ce0bb39a5083b07d2d705040",
     "app/v2/schema.zcve": "bb0b3f383ff9d2c39a5a3f540381a6d693b2713b242049644e82bcd8db88c8a3",
-    "check_case.py": "fa56b6f884703b041eecd42240ddd36a237cccb2b95ef880a5fd510aa2a47466",
+    "check_case.py": "6bf6b4e3a9bb0893c115b17e9c87094d7682090b079a846db35107bedf521b54",
     "check_lean.py": "c81356336720a84f7a796b25edb4f76245845aafaf5c19ffa054a9e513bba52f",
     "contract/project.zeno": "2e14b1f426e8f1f0047c7f69a84d5aa11f505de01fba1c7f9df21657621eff2d",
     "contract/tests/decision-examples.txt": "21d0b62e2aeb2f32d45251a826027e4efde38fcdef19ffa88ca21e1abfb6b38b",
@@ -78,7 +79,7 @@
     "demo.js": "24a3b90742045ad7531b1cae3abef9f6e0ea2f1c2ad046c7b26e7dfe4311a74d",
     "evidence/adversarial-review.json": "2cbd18f6fcc04289c42d4165dcae8fe089c181db37cdbe052b66a076c37579fa",
     "evidence/contract-review.json": "c2b2e4b54c4a711b76abfffd736ef876278ee4a8a85aa43ef277a0c6d0fc18e9",
-    "evidence/finite-check.json": "883744b8d51ff913cdb71342f80903beff0e3a6538b5e4907e08056c26a97654",
+    "evidence/finite-check.json": "0ce6fbff50215ddf7bc30899343cce0afa82027ae8d7c5173b9c6b8a14a9fe49",
     "index.html": "651a5a60327434d94d7379e770d4332a9ed0366aff35774dbc020bc68baac765",
     "replay.py": "2ac3bf57aae849b018213e591e71afcb018ef81f3fe1b8adc4991bd1d149b36c",
     "../../proofs/two-key-release/Export.lean": "3fa2fea51a55240b5146f79226e304e9c6d5e160f6d567aa3a904b84b7d20a94",

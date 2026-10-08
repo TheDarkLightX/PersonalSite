@@ -107,13 +107,14 @@
         <h2 id="hypothesis">The claim is “there exists”</h2>
         <p>My hypothesis is that useful containment configurations exist under explicit physical and operating conditions, such that no strategy available to the contained intelligence can reach a forbidden outcome. A smarter agent may search better. The containment claim must hold for every strategy inside those conditions.</p>
         <p>I will call a configuration with the required evidence a <strong>containment witness</strong>. The compressed form is:</p>
-        <div class="search-formula search-equations" role="math" aria-label="There exists a useful configuration such that every physically permitted strategy has no escape."><span>∃ useful configuration c</span><span>∀ permitted strategies π: no escape</span></div>
-        <p>Read it as: <em>there is one useful configuration that withstands every permitted strategy</em>. The order matters. Finding a different patch after each attack is a weaker achievement than finding one configuration that handles them all.</p>
+        <div class="search-formula search-equations" role="math" aria-label="There exists at least one useful configuration such that every physically permitted strategy has no escape."><span>∃ useful configuration c</span><span>∀ permitted strategies π: no escape</span></div>
+        <p>Read it as: <em>there exists at least one useful configuration that withstands every permitted strategy</em>. The same configuration must handle them all; choosing a different configuration for each strategy is a weaker claim. Existence does not imply uniqueness: several configurations may work.</p>
         <p>“Useful” rules out the empty victory of switching the machine off. “Permitted” here means physically possible within the stated environment, including malicious actions; it does not mean actions the agent was instructed to take. The time horizon, resources, observers, maintenance, and outside assistance all belong in that environment.</p>
         <details class="essay-depth" id="quantified-model">
           <summary>Open the quantified claim and the synthesis problem</summary>
           <p>Fix an environment contract E. Let C<sub>E</sub> be the admitted designs, U<sub>E</sub>(c) their useful-service predicate, Π<sub>E</sub>(c) all modeled strategies and environment behaviors, and Escape<sub>E</sub>(c,π) mean that π reaches a specifically forbidden outcome. The hypothesis is:</p>
-          <div class="search-formula search-equations" role="math" aria-label="There exists c in C sub E such that U sub E of c holds and every pi in Pi sub E of c does not escape."><span>∃ c ∈ C<sub>E</sub>: U<sub>E</sub>(c)</span><span>∧ ∀ π ∈ Π<sub>E</sub>(c), ¬Escape<sub>E</sub>(c,π)</span></div>
+          <div class="search-formula search-equations" role="math" aria-label="There exists at least one c in C sub E such that both U sub E of c holds and every pi in Pi sub E of c does not escape."><span>∃ c ∈ C<sub>E</sub>: [U<sub>E</sub>(c)</span><span>∧ (∀ π ∈ Π<sub>E</sub>(c): ¬Escape<sub>E</sub>(c,π))]</span></div>
+          <p><strong>Quantifier key.</strong> ∃ means “at least one”; ∃! means “exactly one.” This claim uses ∃. The catalogue below has 19 feasible configurations, so even the worked model does not claim a unique feasible design.</p>
           <p>A concrete witness plus a sound proof of the universal condition would refute “every admitted useful configuration has an escape” for this same E. The Lean theorem assumes such a witness; it does not conjure one for real hardware. It uses a common strategy type with validity included in the escape predicate.</p>
           <p>Existence is a feasibility question. Optimization adds an objective, such as minimum cost J(c), among the feasible designs. Calling a design optimal requires that objective and a lower bound or equivalent certificate. It is not necessary for the basic no-escape claim.</p>
           <p>With finite design variables and finitely checkable constraints, this has the shape of a constraint satisfaction problem. The universal attack condition adds an adversarial verification problem: often quantified synthesis, a safety game, or invariant reasoning. Continuous physics and unbounded behaviors do not become decidable merely because we write a finite configuration file. A restriction to a catalogue needs a stated scope, and a finite sample of attacks cannot discharge the universal quantifier.</p>
@@ -173,11 +174,11 @@
 </details></div>
 <div class="toolkit-card" id="idea-witness">
 <h3>Containment witness</h3>
-<p class="toolkit-symbol" aria-label="There exists a design such that all strategies in scope are contained">∃ design · ∀ strategies</p>
-<p class="toolkit-phrase">One useful design that withstands every strategy in scope.</p>
+<p class="toolkit-symbol" aria-label="The existential quantifier means at least one">∃ means at least one</p>
+<p class="toolkit-phrase">A useful design that withstands every strategy in scope.</p>
 <details><summary>Definition, limits, evidence</summary>
-<p><strong>Meaning.</strong> For a fixed environment contract, supply an admissible useful configuration and evidence that every physically modeled strategy avoids the specified forbidden outcomes.</p>
-<p><strong>Boundary.</strong> The quantifier order, utility requirement, observer, time horizon, and resources are part of the claim. A model witness is not a validated physical deployment.</p>
+<p><strong>Meaning.</strong> For a fixed environment contract, at least one admissible useful configuration withstands every physically modeled strategy. The same configuration must handle them all.</p>
+<p><strong>Boundary.</strong> Existence does not imply uniqueness. The utility requirement, observer, time horizon, and resources are part of the claim. A model witness is not a validated physical deployment.</p>
 <p class="toolkit-links"><a href="#hypothesis">Read the quantified hypothesis</a> · <a href="#lab">Inspect the worked witness</a></p>
 </details></div>
 <div class="toolkit-card" id="idea-observation">

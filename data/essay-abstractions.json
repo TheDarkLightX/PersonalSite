@@ -186,11 +186,11 @@
         {
           "id": "idea-witness",
           "label": "Containment witness",
-          "symbol": "∃ design · ∀ strategies",
-          "symbol_reading": "There exists a design such that all strategies in scope are contained",
-          "phrase": "One useful design that withstands every strategy in scope.",
-          "meaning": "For a fixed environment contract, supply an admissible useful configuration and evidence that every physically modeled strategy avoids the specified forbidden outcomes.",
-          "boundary": "The quantifier order, utility requirement, observer, time horizon, and resources are part of the claim. A model witness is not a validated physical deployment.",
+          "symbol": "∃ means at least one",
+          "symbol_reading": "The existential quantifier means at least one",
+          "phrase": "A useful design that withstands every strategy in scope.",
+          "meaning": "For a fixed environment contract, at least one admissible useful configuration withstands every physically modeled strategy. The same configuration must handle them all.",
+          "boundary": "Existence does not imply uniqueness. The utility requirement, observer, time horizon, and resources are part of the claim. A model witness is not a validated physical deployment.",
           "links": [
             {
               "label": "Read the quantified hypothesis",
@@ -252,7 +252,7 @@
           "symbol_reading": "Purpose, then model, then implementation",
           "phrase": "Decide what should happen before choosing how to build it.",
           "meaning": "The human supplies goals and judges whether the explicit specification captures them. Agents propose realizations; checkers test stated obligations.",
-          "boundary": "Formal conformance cannot establish an unstated intention. This case’s examples are AI-authored; no independent human approval is inferred.",
+          "boundary": "Formal conformance cannot establish an unstated intention. This case’s examples are AI-generated; no independent human approval is inferred.",
           "links": [
             {
               "label": "Human steering",

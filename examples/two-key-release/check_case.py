@@ -2,7 +2,7 @@
 """Compare the Authority's finite table with a separately written policy model.
 
 This script does not interpret policy.json or copy its expression graph. It is
-another AI-authored implementation, not independent human approval or a proof
+another AI-generated implementation, not independent human approval or a proof
 of the Rust/Lean translation. Native tests additionally inspect patch/effects.
 """
 if not __debug__:
@@ -135,7 +135,7 @@ def main():
                 'reachable_states': [list(s) for s in sorted(seen)],
                 'reachable_edges': len(edges), 'release_edges': emitted,
                 'release_credit_check': 'all reachable edges: releases + credit(next) <= credit(pre)',
-                'limits': ['AI-authored oracle; no human approval inferred',
+                'limits': ['AI-generated oracle; no human approval inferred',
                            'Finite policy agreement; not a verified compiler or UI',
                            'Identity, external delivery, host and proof-tool trust remain separate'],
                 'edges': edges}
