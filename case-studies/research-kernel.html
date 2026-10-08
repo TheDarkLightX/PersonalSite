@@ -21,8 +21,9 @@
     (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
   </script>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../assets/css/research-kernel.css" />
 </head>
-<body>
+<body class="research-kernel-case">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="../index.html"><img src="../assets/mark.svg" alt="" width="34" height="34" /><span>Dana Edwards</span></a>
@@ -71,46 +72,33 @@
             <h2>Summary</h2>
             <p>Research Kernel MCP stores claims, evidence records, refutation attempts, and alternative formulations as typed records in a persistent graph. I can query those records and resume an investigation in a later session. The kernel checks the requirements for claim promotion and keeps an append-only history of changes.</p>
             <figure class="media-figure">
-              <svg class="diagram" viewBox="0 0 820 290" role="img" aria-labelledby="rk-diagram-title">
-                <title id="rk-diagram-title">Research Kernel control boundary: a model proposes atoms, a deterministic kernel gates promotion, and only supported claims survive.</title>
-                <style>
-                  .diagram text { font-family: var(--font-body); }
-                  .diagram .box { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
-                  .diagram .gate { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
-                  .diagram .reject { fill: color-mix(in srgb, var(--accent-2) 12%, var(--surface)); stroke: var(--accent-2); stroke-width: 1.5; }
-                  .diagram .t { fill: var(--text); font-weight: 800; font-size: 15px; }
-                  .diagram .s { fill: var(--muted); font-size: 12px; }
-                  .diagram .lbl { fill: var(--accent); font-size: 11px; font-weight: 800; }
-                  .diagram .rlbl { fill: var(--accent-2); font-size: 12px; font-weight: 800; }
-                  .diagram .ar { stroke: var(--muted); stroke-width: 2; fill: none; }
-                  .diagram .arr { stroke: var(--accent-2); stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
-                  .diagram #rk-ah path { fill: var(--muted); }
-                  .diagram #rk-ahr path { fill: var(--accent-2); }
-                </style>
-                <defs>
-                  <marker id="rk-ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
-                  <marker id="rk-ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z"/></marker>
-                </defs>
-                <rect class="box" x="20" y="44" width="200" height="86" rx="10"/>
-                <text class="t" x="120" y="80" text-anchor="middle">Untrusted model</text>
-                <text class="s" x="120" y="101" text-anchor="middle">claims · evidence · reformulations</text>
-                <rect class="gate" x="310" y="32" width="210" height="110" rx="10"/>
-                <text class="t" x="415" y="64" text-anchor="middle">Deterministic kernel</text>
-                <text class="s" x="415" y="86" text-anchor="middle">promotion gate</text>
-                <text class="s" x="415" y="103" text-anchor="middle">evidence + refutation</text>
-                <text class="s" x="415" y="120" text-anchor="middle">+ provenance required</text>
-                <rect class="box" x="610" y="44" width="190" height="86" rx="10"/>
-                <text class="t" x="705" y="80" text-anchor="middle">Supported claim</text>
-                <text class="s" x="705" y="101" text-anchor="middle">fail-closed · replayable</text>
-                <path class="ar" d="M220,87 L304,87" marker-end="url(#rk-ah)"/>
-                <text class="lbl" x="262" y="78" text-anchor="middle">proposes</text>
-                <path class="ar" d="M520,87 L604,87" marker-end="url(#rk-ah)"/>
-                <text class="lbl" x="562" y="78" text-anchor="middle">promoted</text>
-                <path class="arr" d="M415,142 L415,212" marker-end="url(#rk-ahr)"/>
-                <rect class="reject" x="300" y="214" width="230" height="60" rx="10"/>
-                <text class="rlbl" x="415" y="240" text-anchor="middle">Rejected: fail closed</text>
-                <text class="s" x="415" y="260" text-anchor="middle">no evidence · no refutation · no provenance</text>
-              </svg>
+              <div class="rk-flow" role="group" aria-label="Research Kernel control boundary">
+                <div class="rk-flow-node rk-model">
+                  <strong>Untrusted model</strong>
+                  <span>Claims · evidence · reformulations</span>
+                </div>
+                <p class="rk-flow-connector"><span aria-hidden="true">↓</span> proposes</p>
+                <div class="rk-flow-node rk-gate">
+                  <strong>Deterministic kernel</strong>
+                  <span>Promotion gate: evidence, refutation, and provenance required</span>
+                </div>
+                <div class="rk-flow-outcomes">
+                  <div class="rk-flow-branch">
+                    <p class="rk-flow-connector"><span aria-hidden="true">↓</span> gate passes</p>
+                    <div class="rk-flow-node">
+                      <strong>Supported claim</strong>
+                      <span>Fail-closed · replayable</span>
+                    </div>
+                  </div>
+                  <div class="rk-flow-branch">
+                    <p class="rk-flow-connector"><span aria-hidden="true">↓</span> requirements missing</p>
+                    <div class="rk-flow-node rk-rejected">
+                      <strong>Rejected: fail closed</strong>
+                      <span>No evidence, refutation, or provenance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <figcaption>The control boundary: the model proposes atoms, the kernel gates promotion, and only claims that pass evidence, refutation, provenance, and contradiction checks become supported. Missing evidence, missing refutation attempts, or missing provenance fail closed.</figcaption>
             </figure>
             <div class="callout">
@@ -128,38 +116,39 @@
               <li><code>pytest.ini</code> - focused test configuration.</li>
             </ol>
             <h3>A 10-minute review</h3>
-            <p>Read the README, then open <code>kernel.py</code> and inspect <code>ATOM_TYPES</code>, <code>STATUSES</code>, <code>EDGE_TYPES</code>, and the promotion gate logic. Finally, run the self-test: <code>.venv/bin/python internal/research_kernel_mcp/server.py --self-test</code>.</p>
+            <p>Read the README, then open <code>kernel.py</code> and inspect <code>ATOM_TYPES</code>, <code>STATUSES</code>, <code>EDGE_TYPES</code>, and the promotion gate logic. Finally, run the self-test:</p>
+            <pre class="rk-command"><code>.venv/bin/python internal/research_kernel_mcp/server.py --self-test</code></pre>
           </section>
 
           <section id="claims">
             <h2>Claims and evidence</h2>
-            <table class="claim-table">
-              <thead><tr><th>Claim</th><th>Evidence to show</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>Claim promotion is fail-closed: a claim cannot become SUPPORTED without support evidence, a refutation attempt, dependencies, provenance, and a rationale.</td>
-                  <td>The <code>rk_promote</code> tool and the promotion gate in <code>kernel.py</code>; the test that confirms promotion fails when evidence is missing.</td>
-                  <td class="status supported">Supported / bounded</td>
+            <table class="claim-table" role="table" aria-label="Claims and evidence">
+              <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Claim</th><th scope="col" role="columnheader">Evidence to show</th><th scope="col" role="columnheader">Status</th></tr></thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <td role="cell" data-label="Claim">Claim promotion is fail-closed: a claim cannot become SUPPORTED without support evidence, a refutation attempt, dependencies, provenance, and a rationale.</td>
+                  <td role="cell" data-label="Evidence">The <code>rk_promote</code> tool and the promotion gate in <code>kernel.py</code>; the test that confirms promotion fails when evidence is missing.</td>
+                  <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
-                <tr>
-                  <td>Every state-changing operation is appended to an event log for replay and external ledger ingestion.</td>
-                  <td>The <code>events.jsonl</code> append path in <code>kernel.py</code>; the test that confirms events are recorded.</td>
-                  <td class="status supported">Supported / bounded</td>
+                <tr role="row">
+                  <td role="cell" data-label="Claim">Every state-changing operation is appended to an event log for replay and external ledger ingestion.</td>
+                  <td role="cell" data-label="Evidence">The <code>events.jsonl</code> append path in <code>kernel.py</code>; the test that confirms events are recorded.</td>
+                  <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
-                <tr>
-                  <td>Artifacts are content-addressed by SHA-256 and restricted to allowlisted paths unless explicitly overridden.</td>
-                  <td>The artifact storage logic in <code>kernel.py</code>; the <code>RK_ARTIFACT_ALLOWLIST</code> and <code>RK_ALLOW_OUTSIDE_ARTIFACTS</code> behavior.</td>
-                  <td class="status supported">Supported / bounded</td>
+                <tr role="row">
+                  <td role="cell" data-label="Claim">Artifacts are content-addressed by SHA-256 and restricted to allowlisted paths unless explicitly overridden.</td>
+                  <td role="cell" data-label="Evidence">The artifact storage logic in <code>kernel.py</code>; the <code>RK_ARTIFACT_ALLOWLIST</code> and <code>RK_ALLOW_OUTSIDE_ARTIFACTS</code> behavior.</td>
+                  <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
-                <tr>
-                  <td>Actual counterexamples create a COUNTEREXAMPLE atom, add a REFUTES edge, and mark the target REFUTED.</td>
-                  <td>The <code>rk_refute</code> tool with <code>counterexample_is_actual=true</code>; the corresponding test.</td>
-                  <td class="status supported">Supported / bounded</td>
+                <tr role="row">
+                  <td role="cell" data-label="Claim">Actual counterexamples create a COUNTEREXAMPLE atom, add a REFUTES edge, and mark the target REFUTED.</td>
+                  <td role="cell" data-label="Evidence">The <code>rk_refute</code> tool with <code>counterexample_is_actual=true</code>; the corresponding test.</td>
+                  <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
-                <tr>
-                  <td>The kernel is a complete research automation system ready for production deployment.</td>
-                  <td>Would require deployment hardening, load testing, multi-user isolation, and external review.</td>
-                  <td class="status open">Not claimed</td>
+                <tr role="row">
+                  <td role="cell" data-label="Claim">The kernel is a complete research automation system ready for production deployment.</td>
+                  <td role="cell" data-label="Evidence">Would require deployment hardening, load testing, multi-user isolation, and external review.</td>
+                  <td class="status open" role="cell" data-label="Status">Not claimed</td>
                 </tr>
               </tbody>
             </table>

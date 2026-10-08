@@ -30,21 +30,23 @@
   }
 
   /* Capability ledger: surface the recruiter-facing path on older static pages. */
+  var siteBase = new URL(".", document.currentScript.src);
+  var capabilitiesHref = new URL("capabilities.html", siteBase).href;
   var primaryNav = document.getElementById("primary-nav");
-  if (primaryNav && !primaryNav.querySelector('a[href="capabilities.html"]')) {
+  if (primaryNav && !primaryNav.querySelector('a[href$="capabilities.html"]')) {
     var capabilitiesLink = document.createElement("a");
-    capabilitiesLink.href = "capabilities.html";
+    capabilitiesLink.href = capabilitiesHref;
     capabilitiesLink.textContent = "Capabilities";
-    var writingLink = primaryNav.querySelector('a[href="writing.html"]');
+    var writingLink = primaryNav.querySelector('a[href$="writing.html"]');
     primaryNav.insertBefore(capabilitiesLink, writingLink || primaryNav.firstChild);
   }
 
   var proofLinks = document.querySelector(".proof-links");
-  if (proofLinks && !proofLinks.querySelector('a[href="capabilities.html"]')) {
+  if (proofLinks && !proofLinks.querySelector('a[href$="capabilities.html"]')) {
     var proofCapability = document.createElement("a");
-    proofCapability.href = "capabilities.html";
+    proofCapability.href = capabilitiesHref;
     proofCapability.innerHTML = "<span>Capabilities</span><strong>Task evidence for remote work</strong>";
-    var evaluationLink = proofLinks.querySelector('a[href="evidence-strategy.html"]');
+    var evaluationLink = proofLinks.querySelector('a[href$="evidence-strategy.html"]');
     proofLinks.insertBefore(proofCapability, evaluationLink || null);
   }
 
