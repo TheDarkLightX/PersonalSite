@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Replay the kernel proofs and compare the Lean projection with Authority."""
+if not __debug__:
+    raise SystemExit('Verification requires assertions; remove -O/-OO and PYTHONOPTIMIZE.')
+
 import argparse
 from datetime import datetime, timezone
 from hashlib import sha256

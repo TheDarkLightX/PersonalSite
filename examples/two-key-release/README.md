@@ -58,6 +58,11 @@ proofs and their decision projection. It refuses a different or modified
 framework checkout. Internet access is needed for the initial tool/dependency
 downloads. All files in `evidence/provenance.json` must match their hashes.
 
+The verification scripts refuse `-O`, `-OO`, and `PYTHONOPTIMIZE`, which disable
+Python assertion checks. CI tests these refusals before replay. The additional
+[adversarial review](evidence/adversarial-followup.json) records the demonstrated
+false-PASS issue and its repair; the native policy and formal model are unchanged.
+
 To run the native generated app after replay, choose a new database path:
 
 ```sh

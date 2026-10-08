@@ -11,6 +11,9 @@ Use this before making the site more public or sending it to reviewers.
 
 ## Claim Hygiene
 
+- Include a concise mental shortcuts / Mental toolkit section in new essays.
+  Each card gives a memorable handle, its meaning, its boundary, and an evidence link.
+  Use `data/essay-abstractions.json` and `tools/render_mental_toolkits.py` for the shared format.
 - Keep the homepage organized around reviewer evidence.
 - Give every selected project a reviewer path.
 - Scope every ambitious claim with evidence, assumptions, and limitations.

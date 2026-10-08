@@ -1,0 +1,34 @@
+{
+  "schema": "two-key-release/adversarial-followup/1",
+  "reviewed_commit": "acb8f1d6c1db9c1aa012a76b13ae3ac0bf3f7c39",
+  "reviewer": "Separately assigned adversarial AI subagent; same shared workspace; not an external human audit.",
+  "conclusion": "No unresolved in-scope native policy bypass found. Optimized-Python false-PASS issue repaired.",
+  "finding": {
+    "id": "R8",
+    "severity": "low",
+    "scope": "evidence runner, not native policy",
+    "reproduction": "Change first decision-table.json row class to FORGED in a temporary copy. Normal check_case.py refuses; original python3 -O check_case.py incorrectly prints success. Assertion gates are disabled by -O, -OO or PYTHONOPTIMIZE.",
+    "repair": "All three verifier modules explicitly refuse execution when __debug__ is false, before loading input files or starting checks.",
+    "validation": "Nine refusal probes across three scripts and -O, -OO, PYTHONOPTIMIZE=1 pass; ordinary full replay passes."
+  },
+  "unchanged": [
+    "generated Rust",
+    "contract",
+    "Lean model",
+    "browser demo",
+    "assurance scope"
+  ],
+  "checks_replayed_by_reviewer": [
+    "seven native tests",
+    "384 exact policy comparisons",
+    "14 reachable states and 112 edges",
+    "seven Lean theorems",
+    "384 Authority/Lean projections"
+  ],
+  "source_sha256": {
+    "check_case.py": "fa56b6f884703b041eecd42240ddd36a237cccb2b95ef880a5fd510aa2a47466",
+    "check_lean.py": "c81356336720a84f7a796b25edb4f76245845aafaf5c19ffa054a9e513bba52f",
+    "replay.py": "2ac3bf57aae849b018213e591e71afcb018ef81f3fe1b8adc4991bd1d149b36c",
+    "test_runner_guards.py": "365cd048ffe6400820ad141afbd92aed8152621d67cda83fb18e1ace9b6c4d2c"
+  }
+}

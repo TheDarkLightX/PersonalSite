@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Rebuild the pinned factory, reproduce generated source, and replay evidence."""
+if not __debug__:
+    raise SystemExit('Verification requires assertions; remove -O/-OO and PYTHONOPTIMIZE.')
+
 from hashlib import sha256
 import json
 import os

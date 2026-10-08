@@ -29,6 +29,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Refuse verification with disabled assertion gates
+        run: python3 examples/two-key-release/test_runner_guards.py
       - name: Install pinned Rust and Lean
         shell: bash
         run: |

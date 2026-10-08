@@ -50,7 +50,7 @@
     "../../assets/essays/zenofcis-boundary.svg": "20239f1f77cd90f765627e0243028baf6681b52b911dcc478c2b3dda8df22d27",
     "../../essays/meaning-before-mechanism.html": "26978337dfbd283d12ab4513c38a1ba35571584d82be45f0cf0635938e803a67",
     ".gitignore": "0f8b409f064dd74aa239bc219f792634375179fe8470572f786a120b858a5d54",
-    "README.md": "6a807ca59f05ef7433bb6c5846425723363c8fd1cd52cc0f6a64672099ad2e4d",
+    "README.md": "a5390360b3bcabb9596aeb4376de5f8221960c37c117eb69498e71c8ff2f706e",
     "app/Cargo.lock": "7053263f74935271f3f3b4712a5ffa8730f30d49d0a075da571312dc48abf66b",
     "app/Cargo.toml": "1fb01fbcdc91ca8c34f74f308ded57f52d4dfa0cb4c35c7a0dd56f612a03fd76",
     "app/README.md": "eccc8d418c02647a6a8ad2a4c2348aff5cff2e4d4c81775ee260e2f3699d1e49",
@@ -68,8 +68,8 @@
     "app/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
     "app/v2/policy.zcve": "8c59f7342cbcc1bed04a92a6f8346c48989d4b59ce0bb39a5083b07d2d705040",
     "app/v2/schema.zcve": "bb0b3f383ff9d2c39a5a3f540381a6d693b2713b242049644e82bcd8db88c8a3",
-    "check_case.py": "99aab17238943d7f8859075ff5502acd637f6049a4a52010309f2c59d3f99503",
-    "check_lean.py": "542abe80f62b5abd5a12e5834ebb1dab2c9d044c128b99a791c10d702a3952b7",
+    "check_case.py": "fa56b6f884703b041eecd42240ddd36a237cccb2b95ef880a5fd510aa2a47466",
+    "check_lean.py": "c81356336720a84f7a796b25edb4f76245845aafaf5c19ffa054a9e513bba52f",
     "contract/project.zeno": "2e14b1f426e8f1f0047c7f69a84d5aa11f505de01fba1c7f9df21657621eff2d",
     "contract/tests/decision-examples.txt": "21d0b62e2aeb2f32d45251a826027e4efde38fcdef19ffa88ca21e1abfb6b38b",
     "contract/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
@@ -80,11 +80,14 @@
     "evidence/contract-review.json": "c2b2e4b54c4a711b76abfffd736ef876278ee4a8a85aa43ef277a0c6d0fc18e9",
     "evidence/finite-check.json": "883744b8d51ff913cdb71342f80903beff0e3a6538b5e4907e08056c26a97654",
     "index.html": "651a5a60327434d94d7379e770d4332a9ed0366aff35774dbc020bc68baac765",
-    "replay.py": "6bf5d49649fed12066f39d8e67a1785d1be1c657b183f434bae61e5624ceaea3",
+    "replay.py": "2ac3bf57aae849b018213e591e71afcb018ef81f3fe1b8adc4991bd1d149b36c",
     "../../proofs/two-key-release/Export.lean": "3fa2fea51a55240b5146f79226e304e9c6d5e160f6d567aa3a904b84b7d20a94",
     "../../proofs/two-key-release/README.md": "f0c8f784836247fbc16dca2a620c599eee52d25439fd8cefba36137809c18904",
     "../../proofs/two-key-release/ReleaseDesk.lean": "23668407ff42b42589808ab8242a44f2f450b93f4df784fcb5e4eface8705a77",
     "../../proofs/two-key-release/verification.json": "0dc53d9970a97a341d7a4b073e5844fcfd420ac2e1e43d83ae98daa84e373654",
-    "../../tools/render_release_desk.py": "ead490f0380153229dcd68718ac6c1ae5b2fe73d16ac9d6586fa0047da3b0532"
-  }
+    "../../tools/render_release_desk.py": "ead490f0380153229dcd68718ac6c1ae5b2fe73d16ac9d6586fa0047da3b0532",
+    "test_runner_guards.py": "365cd048ffe6400820ad141afbd92aed8152621d67cda83fb18e1ace9b6c4d2c",
+    "evidence/adversarial-followup.json": "ca914be11ab077cf34e8a4d6a3e7522f02b900b9d65c5d13ca04b6adcf8249b5"
+  },
+  "followup_review": "evidence/adversarial-followup.json"
 }

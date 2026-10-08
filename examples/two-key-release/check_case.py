@@ -5,6 +5,9 @@ This script does not interpret policy.json or copy its expression graph. It is
 another AI-authored implementation, not independent human approval or a proof
 of the Rust/Lean translation. Native tests additionally inspect patch/effects.
 """
+if not __debug__:
+    raise SystemExit('Verification requires assertions; remove -O/-OO and PYTHONOPTIMIZE.')
+
 import argparse
 from collections import Counter, deque
 from hashlib import sha256
