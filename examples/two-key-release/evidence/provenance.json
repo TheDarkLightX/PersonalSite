@@ -23,7 +23,7 @@
     "browser_execution": "table-backed presentation adapter; not Rust/Wasm execution"
   },
   "provenance": {
-    "human_role": "task, purpose, requested policy demonstration and adversarial review",
+    "human_role": "Dana Edwards: engineering objective and conceptual framing; review of generated outputs; corrections to terminology and ambiguity; refinement of wording and meaning; requested policy demonstration and adversarial review",
     "contract_and_examples": "AI-generated; adapted from the pinned dual-approval example; no independent human approval recorded",
     "oracle_and_proof": "AI-generated; checked with executable comparisons and Lean; not an independent human oracle",
     "review": "separately assigned adversarial AI subagent in the same session; not an external human audit",
@@ -49,9 +49,9 @@
   "artifact_sha256": {
     "../../assets/essays/two-key-state.svg": "c7971040dd4996d049f122882dfbb003e234725218c78a265f8a50d7e85bdc65",
     "../../assets/essays/zenofcis-boundary.svg": "20239f1f77cd90f765627e0243028baf6681b52b911dcc478c2b3dda8df22d27",
-    "../../essays/meaning-before-mechanism.html": "cf68f77d1bab9d249fd38450770f4e81d3844986c95ab00d799676e0653b8497",
+    "../../essays/meaning-before-mechanism.html": "708a4ebfded3420d6098995b37369f4f094438b9ea02cda1ffa7f731c71b0a57",
     ".gitignore": "0f8b409f064dd74aa239bc219f792634375179fe8470572f786a120b858a5d54",
-    "README.md": "0ec7fa657ab8dc7962321efce87c1f87ee41a352e095738e9a6fccc0d8e21f6e",
+    "README.md": "8b62244fc38ed2bdae734c9d65a58e0096636c2e5f0dd1058fb1bc6b58230671",
     "app/Cargo.lock": "7053263f74935271f3f3b4712a5ffa8730f30d49d0a075da571312dc48abf66b",
     "app/Cargo.toml": "1fb01fbcdc91ca8c34f74f308ded57f52d4dfa0cb4c35c7a0dd56f612a03fd76",
     "app/README.md": "eccc8d418c02647a6a8ad2a4c2348aff5cff2e4d4c81775ee260e2f3699d1e49",

@@ -32,8 +32,9 @@ checked before replay. Cargo produced the app's resolved lockfile from the
 factory's copied workspace lock. Two additional test files, the Python/Lean
 companions, diagrams, and browser adapter were added for the case study.
 
-The human supplied the task, purpose and desired explanation. Contract rules,
-examples and formalizations were prepared by an AI assistant. A separately
+Dana Edwards supplied the engineering objective and conceptual framing, reviewed
+the generated outputs, and refined their wording and meaning. Contract rules,
+examples and formalizations were prepared by an AI assistant under his direction. A separately
 assigned adversarial AI reviewed the app. **No independent human acceptance of
 the examples or ZAL model is claimed.** The raw factory packet's generic
 `owner-example` and `owner_agrees_with` field names do not change that provenance.
