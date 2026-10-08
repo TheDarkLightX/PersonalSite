@@ -127,7 +127,7 @@
               <tbody role="rowgroup">
                 <tr role="row">
                   <td role="cell" data-label="Claim">Claim promotion is fail-closed: a claim cannot become SUPPORTED without support evidence, a refutation attempt, dependencies, provenance, and a rationale.</td>
-                  <td role="cell" data-label="Evidence">The <code>rk_promote</code> tool and the promotion gate in <code>kernel.py</code>; the test that confirms promotion fails when evidence is missing.</td>
+                  <td role="cell" data-label="Evidence">The <code>rk_<wbr>promote</code> tool and the promotion gate in <code>kernel.py</code>; the test that confirms promotion fails when evidence is missing.</td>
                   <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
                 <tr role="row">
@@ -137,12 +137,12 @@
                 </tr>
                 <tr role="row">
                   <td role="cell" data-label="Claim">Artifacts are content-addressed by SHA-256 and restricted to allowlisted paths unless explicitly overridden.</td>
-                  <td role="cell" data-label="Evidence">The artifact storage logic in <code>kernel.py</code>; the <code>RK_ARTIFACT_ALLOWLIST</code> and <code>RK_ALLOW_OUTSIDE_ARTIFACTS</code> behavior.</td>
+                  <td role="cell" data-label="Evidence">The artifact storage logic in <code>kernel.py</code>; the <code>RK_<wbr>ARTIFACT_<wbr>ALLOWLIST</code> and <code>RK_<wbr>ALLOW_<wbr>OUTSIDE_<wbr>ARTIFACTS</code> behavior.</td>
                   <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
                 <tr role="row">
                   <td role="cell" data-label="Claim">Actual counterexamples create a COUNTEREXAMPLE atom, add a REFUTES edge, and mark the target REFUTED.</td>
-                  <td role="cell" data-label="Evidence">The <code>rk_refute</code> tool with <code>counterexample_is_actual=true</code>; the corresponding test.</td>
+                  <td role="cell" data-label="Evidence">The <code>rk_<wbr>refute</code> tool with <code>counterexample_<wbr>is_<wbr>actual=<wbr>true</code>; the corresponding test.</td>
                   <td class="status supported" role="cell" data-label="Status">Supported / bounded</td>
                 </tr>
                 <tr role="row">
@@ -172,6 +172,6 @@
   </main>
 
   <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards</p><p>Engineer, philosopher, futurist.</p></div></footer>
-  <script src="../script.js"></script>
+  <script src="../script.js?v=20261008-rk-layout"></script>
 </body>
 </html>
