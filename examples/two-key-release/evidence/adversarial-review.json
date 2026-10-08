@@ -1,0 +1,232 @@
+{
+  "schema": "two-key-release/adversarial-review/1",
+  "status": "completed",
+  "review_date_utc": "2026-10-08",
+  "framework_commit": "a1ce03e2bcd917ecb9a61a29be429f5ca09a85b8",
+  "conclusion": "No unresolved in-scope policy bypass was found in the reviewed local example. This bounded adversarial review is not a theorem that the application has no attack surfaces.",
+  "reviewer": {
+    "kind": "separately assigned adversarial AI subagent",
+    "authorization": "The human explicitly requested a subagent adversarial review.",
+    "process": "Read-only review of app, framework boundaries, diagrams and claims; independently authored native probes and browser checks. The main agent incorporated the native probes and made the disclosed assurance fixes.",
+    "independence_limits": [
+      "Same overall AI-assisted session and shared workspace; not an independent human audit or independent organization.",
+      "The reviewer saw the task context and threat model.",
+      "The rules, example expectations, additional models and prose remain AI-authored; no human meaning approval or ZAL acceptance was inferred."
+    ]
+  },
+  "threat_model": {
+    "in_scope": [
+      "One finite release request from genuine genesis.",
+      "Recognized and unrecognized supplied officer IDs, repeat approvals, cancellation and closed requests.",
+      "Malformed framed inputs, wrong variants, exact/changed replay, stale state, duplicated publication and wrong acknowledgement digest.",
+      "The table-backed local browser adapter and factual scope of the essay/README."
+    ],
+    "trusted_or_external": [
+      "Caller authentication and whether distinct IDs represent distinct people.",
+      "Native process, Rust compiler/platform, runtime memory safety and SQLite durability.",
+      "Host file integrity, acknowledgement observations, and any external monotonic checkpoint against rollback.",
+      "Durable idempotency of a real destination; this example uses an in-memory recording sink.",
+      "Reviewed specification and formal-tool trust: Verus/vstd/Z3 and Lean/kernel; the executable Lean export also relies on its execution toolchain."
+    ],
+    "not_a_production_service": "There is no remote authentication/payment service; the browser does not send real releases or run the Rust core."
+  },
+  "source_sha256": {
+    "contract/project.zeno": "2e14b1f426e8f1f0047c7f69a84d5aa11f505de01fba1c7f9df21657621eff2d",
+    "contract/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
+    "contract/tests/decision-examples.txt": "21d0b62e2aeb2f32d45251a826027e4efde38fcdef19ffa88ca21e1abfb6b38b",
+    "app/src/v2_contract.rs": "b631a11fbbec045bcc2dd68ed8f5c4da382f1f6dae0a76bfb739043736f3551f",
+    "app/src/lib.rs": "ccd588763e81541edd16b8b2eec365d6cdef5ee924120a57b66abb2870efca61",
+    "app/src/session.rs": "b3ffc8f5490cf452338dd02fd2259db1eef267b10173792dc47e7b19eeb4db19",
+    "app/src/main.rs": "e1286612b5b33cf7eb74e9fa548776d9a21a27d4fb926ad45c12dd8559ee8fa2",
+    "app/tests/case_safety.rs": "be876ffc59ccbab4ce5e3ae784248b5cab7c03a335ed0f1034454bee8981726b",
+    "app/tests/adversarial.rs": "f3458ac675fb03b93e59ea5c006ba21dba6c36e97bde5c43ae1a9caf3f0ba54f",
+    "check_case.py": "99aab17238943d7f8859075ff5502acd637f6049a4a52010309f2c59d3f99503",
+    "check_lean.py": "542abe80f62b5abd5a12e5834ebb1dab2c9d044c128b99a791c10d702a3952b7",
+    "demo.js": "24a3b90742045ad7531b1cae3abef9f6e0ea2f1c2ad046c7b26e7dfe4311a74d",
+    "index.html": "651a5a60327434d94d7379e770d4332a9ed0366aff35774dbc020bc68baac765",
+    "README.md": "6a807ca59f05ef7433bb6c5846425723363c8fd1cd52cc0f6a64672099ad2e4d",
+    "replay.py": "6bf5d49649fed12066f39d8e67a1785d1be1c657b183f434bae61e5624ceaea3",
+    "../../proofs/two-key-release/ReleaseDesk.lean": "23668407ff42b42589808ab8242a44f2f450b93f4df784fcb5e4eface8705a77",
+    "../../proofs/two-key-release/Export.lean": "3fa2fea51a55240b5146f79226e304e9c6d5e160f6d567aa3a904b84b7d20a94",
+    "../../proofs/two-key-release/verification.json": "0dc53d9970a97a341d7a4b073e5844fcfd420ac2e1e43d83ae98daa84e373654",
+    "../../essays/meaning-before-mechanism.html": "26978337dfbd283d12ab4513c38a1ba35571584d82be45f0cf0635938e803a67",
+    "../../assets/essays/two-key-state.svg": "c7971040dd4996d049f122882dfbb003e234725218c78a265f8a50d7e85bdc65",
+    "../../assets/essays/zenofcis-boundary.svg": "20239f1f77cd90f765627e0243028baf6681b52b911dcc478c2b3dda8df22d27"
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "category": "external trust boundary",
+      "severity_in_demo": "informational",
+      "status": "disclosed; intentionally outside example guarantee",
+      "title": "Two officer IDs do not establish two independent people",
+      "locations": [
+        "contract/project.zeno: field 120 Caller.officer and Officer variants",
+        "contract/v2/policy.json: officer variable, recognized-officer and repeat-officer cases",
+        "demo.js: act(command, officer)"
+      ],
+      "reproduction": [
+        "Select Alice and approve.",
+        "Select Bob from the same browser/operator and approve.",
+        "The local example records a release without asking for credentials."
+      ],
+      "implication": "This is expected under simulated identity. Deployment needs an authenticated caller adapter and role/key governance; a proof about enum values does not supply either.",
+      "implemented_response": "Main prose, UI, README and mental toolkit explicitly scope key to an approval by an ID, not a cryptographic signature or proof of two people."
+    },
+    {
+      "id": "R2",
+      "category": "external trust boundary",
+      "severity_in_demo": "informational",
+      "status": "disclosed and regression-probed",
+      "title": "Destination deduplication is local to a MemoryDestination instance",
+      "locations": [
+        "framework crates/zeno-fcis-shell/src/delivery.rs:29-35,84-98",
+        "app/src/session.rs: deliver() and journey()",
+        "app/tests/adversarial.rs: replay_state_and_delivery_boundaries"
+      ],
+      "reproduction": [
+        "Leave the release outbox pending.",
+        "Call deliver_next_memory_unacknowledged twice with one MemoryDestination: one distinct delivery is recorded.",
+        "Call it with a fresh MemoryDestination: that instance records the same delivery again."
+      ],
+      "observed": "Same content-bound ID in every attempt; delivered_count is 1 in each fresh sink.",
+      "implication": "The case establishes one release intent per logical request history and same-sink retry behavior. Durable external exactly-once delivery is not established.",
+      "implemented_response": "The demonstration, native app description, essay and README distinguish outbox intent from real delivery and explicitly retain a durable destination as a separate obligation."
+    },
+    {
+      "id": "R3",
+      "category": "external trust boundary",
+      "severity_in_demo": "informational",
+      "status": "demonstrated and disclosed",
+      "title": "Unkeyed history and trusted acknowledgements do not prevent hostile file rollback or forged delivery observations",
+      "locations": [
+        "framework crates/zeno-fcis-shell-sqlite/src/v2.rs:17-22 and acknowledge()",
+        "app/src/session.rs: audit() and deliver()"
+      ],
+      "reproduction": [
+        "On a scratch database run the actual generated CLI with --decide; save a copy while pending=1.",
+        "Use a direct SQLite host write: UPDATE v2_deliveries SET acknowledged=1. The generated --audit reports pending=0.",
+        "Restore the saved valid pending database; --deliver reports one delivery.",
+        "Restore that same saved copy again; --deliver reports the same delivery ID again to its fresh recording sink."
+      ],
+      "observed_delivery_id": "7609ee58397a6728ee8d1bb38e5b1b40b1e3e326a2e9e74531f13af9bbc666f6",
+      "implication": "Audit validates the stated history and checked contents; it does not authenticate the host observation that real delivery occurred or prove that a valid file is the newest one.",
+      "implemented_response": "Essay, app details and README explicitly preserve host integrity, external checkpoints and destination behavior as separate assumptions. No universal tamper-proof or rollback-proof claim remains."
+    },
+    {
+      "id": "R4",
+      "category": "assurance test gap",
+      "severity_in_demo": "low",
+      "status": "fixed in the case-specific assurance layer; generated source preserved",
+      "title": "Generic generated example comparison omits some delivery metadata",
+      "locations": [
+        "app/src/lib.rs: compare()",
+        "app/tests/case_safety.rs: all_384_complete_decisions_match_a_separate_policy_model",
+        "check_case.py: model() and full table comparison"
+      ],
+      "observation": "The generic compare() checks class, reason, successor, delivery count/channel/payload; it does not compare destination, ordinal, idempotency marker or effects.",
+      "implication": "Generic examples alone do not justify a claim of independent whole-decision comparison.",
+      "implemented_response": "Added native all-domain checks for pre/post, patches, effects and complete delivery metadata, plus a separately written Python model comparing all 384 Authority answers. Both are explicitly AI-authored checks, not human policy approval.",
+      "verification": "Reviewer reran all seven native tests and check_case.py successfully."
+    },
+    {
+      "id": "R5",
+      "category": "provenance wording",
+      "severity_in_demo": "low",
+      "status": "fixed by explicit provenance; raw factory report retained",
+      "title": "Factory owner-example vocabulary is not a human approval record",
+      "locations": [
+        "evidence/contract-review.json: mutants.list[].witness.source and owner_agrees_with",
+        "contract/tests/decision-examples.txt: provenance header",
+        "README.md: How it was produced"
+      ],
+      "observation": "The factory uses generic owner-example/owner_agrees_with field names for the case’s AI-authored expectation file.",
+      "implemented_response": "Expectation files and surrounding prose explicitly state that the examples are AI-authored and were not independently accepted by a human. No ZAL acceptance gesture was simulated."
+    },
+    {
+      "id": "R6",
+      "category": "assurance wording",
+      "severity_in_demo": "low",
+      "status": "fixed and replayed",
+      "title": "The Rust/Lean connection needed evidence beyond a reviewed model correspondence",
+      "locations": [
+        "index.html: What runs here, and what was checked?",
+        "check_lean.py",
+        "../../proofs/two-key-release/Export.lean",
+        "../../proofs/two-key-release/verification.json"
+      ],
+      "observation": "An initial draft implied an exhaustive Rust/Lean comparison before the Lean definition itself was exported.",
+      "implemented_response": "The same Lean step definition used by the theorems now exports all 384 typed combinations. check_lean.py compares class, successor state and release count with actual Authority rows; prose still states that this is executable comparison, not a proved compiler or end-to-end refinement.",
+      "verification": "Reviewer replayed check_lean.py successfully. Five theorems are axiom-free; history_spends_credit and every_history_is_safe use standard propext. No custom axioms or proof gaps were found."
+    },
+    {
+      "id": "R7",
+      "category": "diagram clarity",
+      "severity_in_demo": "editorial",
+      "status": "fixed",
+      "title": "A diagram originally reused P for both policy and Publication",
+      "locations": [
+        "../../assets/essays/zenofcis-boundary.svg"
+      ],
+      "implemented_response": "P continues to denote the policy; the private-publication arrow is now labelled pub. The state diagram explicitly defines key as an ID approval and compresses the concrete graph into four phases."
+    }
+  ],
+  "checks_replayed_by_reviewer": {
+    "native": {
+      "command": "cargo test --locked --manifest-path examples/two-key-release/app/Cargo.toml",
+      "result": "7 tests passed; 0 failed",
+      "checks": [
+        "12 generated decision examples and grammar equivalence",
+        "Genuine genesis and alternate-field refusals",
+        "Real SQLite journey, idempotent replay, delivery retry and audit",
+        "All 384 typed inputs against a separate complete policy model",
+        "Every truncation of three sample input frames, trailing bytes, and foreign officer variants",
+        "Duplicate officer gives business Reject without a publication",
+        "Changed caller under reused key gives Error::Replay",
+        "Stale pre-state under fresh key gives Error::PreState",
+        "Exact replay is CommitStatus::IdempotentReplay",
+        "Repeated second-approval publication under a new key gives Error::PreState",
+        "Wrong acknowledgement digest gives Error::Delivery",
+        "Invalid supplied pre-state may generate a valid successor but cannot replace shell history",
+        "Memory sink restart limit is explicitly exercised"
+      ]
+    },
+    "finite_graph": {
+      "command": "python3 examples/two-key-release/check_case.py",
+      "result": "384 exact policy comparisons; 14 reachable states; 112 outgoing edges; one-use release credit preserved"
+    },
+    "lean": {
+      "command": "python3 examples/two-key-release/check_lean.py",
+      "result": "7 theorems replayed; 384 projected Authority/Lean decisions agree",
+      "toolchain": "Lean 4.19.0 on Linux x86_64",
+      "environment_note": "This workspace needed an LD_PRELOAD proc-path compatibility adapter to let the unmodified Lean binary locate its own installation. It redirects own-process executable-path lookup; it does not replace proof checking. Normal installations need no adapter."
+    },
+    "browser": {
+      "engine": "Headless Chromium through Playwright; local served repository; 390px viewport",
+      "result": "passed",
+      "checks": [
+        "Repeat-ID scenario rejects duplicate then permits distinct approval; later action is closed/rejected",
+        "Cancellation closes with zero releases",
+        "Unknown caller leaves pending/empty approvals",
+        "45 further repeat attempts keep zero releases and only latest 40 history entries",
+        "New simulation resets state/count/history",
+        "503 decision-table response leaves action controls disabled",
+        "Duplicate table input rows leave controls disabled",
+        "No uncaught JavaScript errors",
+        "No horizontal page overflow at 390px"
+      ]
+    },
+    "host_boundary": "Successful scratch-database acknowledgement-tampering and valid-rollback experiments are documented under R3.",
+    "scope_review": "Read final essay, README, browser code, generated source, additional tests, model/export/checker and diagram labels."
+  },
+  "proof_scope": {
+    "lean": "Policy model theorems quantify over arbitrary finite histories. Finite executable projection comparison supports its connection to this finite app; it is not a machine-checked Rust compiler theorem.",
+    "verus": "The essay points to exact-revision upstream Authority qualification. The reviewer inspected relevant source boundaries but did not independently rerun the full Verus suite or re-audit the proof toolchain.",
+    "generation": "Generated app source was inspected. The main agent is responsible for final fresh-factory byte replay and artifact-manifest verification; this report does not turn generator correctness into a theorem.",
+    "review": "No found bypass is not proof of absence. Successful attacks outside the declared boundary remain real deployment obligations, not fixes supplied by functional purity."
+  },
+  "remaining_release_checks": [
+    "Main agent to complete fresh-factory replay and final artifact digests after this report.",
+    "Main agent to perform final publication/render/link checks."
+  ]
+}

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="450" viewBox="0 0 720 450" role="img" aria-labelledby="title desc">
+<title id="title">Two keys, one release intent</title><desc id="desc">Four phases group fourteen reachable states. First approval records an ID. A different ID completes approval and emits one release intent. Either pending phase can cancel. The loop on each phase denotes a rejected attempt that changes nothing.</desc>
+<rect width="720" height="450" fill="#faf9f5"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<text x="36" y="44" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#242b2b" font-weight="700" text-anchor="start">Two keys, one release intent</text>
+<text x="36" y="78" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#58615e" font-weight="400" text-anchor="start">“Key” means an approval by an ID, not a cryptographic signature.</text>
+<rect x="36" y="150" width="168" height="76" fill="#faf9f5" stroke="#b7c3ba" stroke-width="2"/>
+<text x="120" y="180" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#58615e" font-weight="700" text-anchor="middle">Pending</text>
+<text x="120" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#58615e" font-weight="400" text-anchor="middle">no approvals</text>
+<path d="M141 150 C195 92 55 92 99 150" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="276" y="150" width="168" height="76" fill="#faf9f5" stroke="#b7c3ba" stroke-width="2"/>
+<text x="360" y="180" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#242b2b" font-weight="700" text-anchor="middle">Pending</text>
+<text x="360" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#242b2b" font-weight="400" text-anchor="middle">first ID saved</text>
+<path d="M381 150 C435 92 295 92 339 150" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="516" y="150" width="168" height="76" fill="#e8efe8" stroke="#b7c3ba" stroke-width="2"/>
+<text x="600" y="180" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#086451" font-weight="700" text-anchor="middle">Approved</text>
+<text x="600" y="208" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#086451" font-weight="400" text-anchor="middle">release intent: 1</text>
+<path d="M621 150 C675 92 535 92 579 150" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M204 188 H274" fill="none" stroke="#086451" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M444 188 H514" fill="none" stroke="#086451" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="240" y="247" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#58615e" font-weight="400" text-anchor="middle">first ID</text>
+<text x="480" y="247" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#086451" font-weight="400" text-anchor="middle">different ID</text>
+<rect x="276" y="302" width="168" height="70" fill="#f1e7df" stroke="#cdb2a2" stroke-width="2"/>
+<text x="360" y="332" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#93422c" font-weight="700" text-anchor="middle">Cancelled</text>
+<text x="360" y="357" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#93422c" font-weight="400" text-anchor="middle">release intent: 0</text>
+<path d="M120 226 V338 H274" fill="none" stroke="#93422c" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="145" y="323" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#93422c" font-weight="400" text-anchor="start">cancel</text>
+<path d="M360 226 V300" fill="none" stroke="#93422c" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="375" y="281" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#93422c" font-weight="400" text-anchor="start">cancel</text>
+<path d="M444 330 C515 288 515 388 444 351" fill="none" stroke="#58615e" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="36" y="407" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Loops: rejected attempts leave state and outbox unchanged.</text>
+<text x="36" y="435" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Only recognized IDs can approve or cancel a pending request.</text>
+</svg>

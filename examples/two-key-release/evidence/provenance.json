@@ -1,0 +1,90 @@
+{
+  "schema": "two-key-release/provenance/1",
+  "created_at_utc": "2026-10-08T00:03:18.922503+00:00",
+  "framework": {
+    "repository": "https://github.com/TheDarkLightX/ZenoFCIS",
+    "commit": "a1ce03e2bcd917ecb9a61a29be429f5ca09a85b8",
+    "branch_at_generation": "agent/v21-factory-20261004",
+    "feature_line": "2.1 development factory",
+    "workspace_package_version": "1.1.0",
+    "tagged_release_claim": false,
+    "rust_toolchain": "1.97.1"
+  },
+  "zal": {
+    "used_to_generate_this_app": false,
+    "inspected_commit": "4e4a97fe4eacb81dddc842cf232bc7b0c22be2a6",
+    "scope": "experimental 2.3/2.4 authoring layer"
+  },
+  "method": {
+    "generation": "actual zeno-fcis new app --contract contract --source PINNED_SOURCE",
+    "generated_rust_modified": false,
+    "packaging_normalization": "Cargo path bindings normalized to ../.zenofcis-source/; app lock resolved by Cargo from the factory workspace lock",
+    "added_files": "case_safety.rs and adversarial.rs tests, Python/Lean companions, browser adapter, diagrams, essay, receipts",
+    "browser_execution": "table-backed presentation adapter; not Rust/Wasm execution"
+  },
+  "provenance": {
+    "human_role": "task, purpose, requested policy demonstration and adversarial review",
+    "contract_and_examples": "AI-authored; adapted from the pinned dual-approval example; no independent human approval recorded",
+    "oracle_and_proof": "AI-authored; checked with executable comparisons and Lean; not an independent human oracle",
+    "review": "separately assigned adversarial AI subagent in the same session; not an external human audit"
+  },
+  "evidence": {
+    "native_tests": 7,
+    "typed_inputs_compared": 384,
+    "reachable_states": 14,
+    "reachable_edges": 112,
+    "lean_theorems": 7,
+    "lean_authority_projected_rows": 384,
+    "authority_verus_job": "https://github.com/TheDarkLightX/ZenoFCIS/actions/runs/37592277998/job/112696381253",
+    "upstream_verus_status": "exact-revision hosted success inspected; full suite not rerun locally",
+    "trust_boundaries": [
+      "specification meaning",
+      "caller authentication",
+      "host integrity and freshness",
+      "durable external destination",
+      "formal toolchains, compiler and platform"
+    ]
+  },
+  "artifact_sha256": {
+    "../../assets/essays/two-key-state.svg": "c7971040dd4996d049f122882dfbb003e234725218c78a265f8a50d7e85bdc65",
+    "../../assets/essays/zenofcis-boundary.svg": "20239f1f77cd90f765627e0243028baf6681b52b911dcc478c2b3dda8df22d27",
+    "../../essays/meaning-before-mechanism.html": "26978337dfbd283d12ab4513c38a1ba35571584d82be45f0cf0635938e803a67",
+    ".gitignore": "0f8b409f064dd74aa239bc219f792634375179fe8470572f786a120b858a5d54",
+    "README.md": "6a807ca59f05ef7433bb6c5846425723363c8fd1cd52cc0f6a64672099ad2e4d",
+    "app/Cargo.lock": "7053263f74935271f3f3b4712a5ffa8730f30d49d0a075da571312dc48abf66b",
+    "app/Cargo.toml": "1fb01fbcdc91ca8c34f74f308ded57f52d4dfa0cb4c35c7a0dd56f612a03fd76",
+    "app/README.md": "eccc8d418c02647a6a8ad2a4c2348aff5cff2e4d4c81775ee260e2f3699d1e49",
+    "app/project.zeno": "2e14b1f426e8f1f0047c7f69a84d5aa11f505de01fba1c7f9df21657621eff2d",
+    "app/rust-toolchain.toml": "8e390d6a0838315f972690f46ef8bae8b7ecc9ee6c1ed70140ef852869c2482e",
+    "app/src/examples.rs": "68c5e29fbfbc403faf870a6243b9469ba413a7d00c560f0c574dac7dd36384a8",
+    "app/src/lib.rs": "ccd588763e81541edd16b8b2eec365d6cdef5ee924120a57b66abb2870efca61",
+    "app/src/main.rs": "e1286612b5b33cf7eb74e9fa548776d9a21a27d4fb926ad45c12dd8559ee8fa2",
+    "app/src/session.rs": "b3ffc8f5490cf452338dd02fd2259db1eef267b10173792dc47e7b19eeb4db19",
+    "app/src/v2_contract.rs": "b631a11fbbec045bcc2dd68ed8f5c4da382f1f6dae0a76bfb739043736f3551f",
+    "app/tests/adversarial.rs": "f3458ac675fb03b93e59ea5c006ba21dba6c36e97bde5c43ae1a9caf3f0ba54f",
+    "app/tests/case_safety.rs": "be876ffc59ccbab4ce5e3ae784248b5cab7c03a335ed0f1034454bee8981726b",
+    "app/tests/decision-examples.txt": "21d0b62e2aeb2f32d45251a826027e4efde38fcdef19ffa88ca21e1abfb6b38b",
+    "app/tests/decisions.rs": "a1f739211a28fdc94056378a29bc2f37df80c8c0c996abbc1d76d9414d4e2fb7",
+    "app/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
+    "app/v2/policy.zcve": "8c59f7342cbcc1bed04a92a6f8346c48989d4b59ce0bb39a5083b07d2d705040",
+    "app/v2/schema.zcve": "bb0b3f383ff9d2c39a5a3f540381a6d693b2713b242049644e82bcd8db88c8a3",
+    "check_case.py": "99aab17238943d7f8859075ff5502acd637f6049a4a52010309f2c59d3f99503",
+    "check_lean.py": "542abe80f62b5abd5a12e5834ebb1dab2c9d044c128b99a791c10d702a3952b7",
+    "contract/project.zeno": "2e14b1f426e8f1f0047c7f69a84d5aa11f505de01fba1c7f9df21657621eff2d",
+    "contract/tests/decision-examples.txt": "21d0b62e2aeb2f32d45251a826027e4efde38fcdef19ffa88ca21e1abfb6b38b",
+    "contract/v2/policy.json": "692f67123f4e185d3b880b6d96837477ed7755bf775866d9cb0f2cae3b300435",
+    "decision-table.json": "a1a28497d96b6dcfcb49486a416c6043d614744e955cb3cdcbae2dd7c5de1eed",
+    "demo.css": "0932510b63a16a6464223f1090903d73a2cb8260e68ce14c16bea1c366e992e1",
+    "demo.js": "24a3b90742045ad7531b1cae3abef9f6e0ea2f1c2ad046c7b26e7dfe4311a74d",
+    "evidence/adversarial-review.json": "2cbd18f6fcc04289c42d4165dcae8fe089c181db37cdbe052b66a076c37579fa",
+    "evidence/contract-review.json": "c2b2e4b54c4a711b76abfffd736ef876278ee4a8a85aa43ef277a0c6d0fc18e9",
+    "evidence/finite-check.json": "883744b8d51ff913cdb71342f80903beff0e3a6538b5e4907e08056c26a97654",
+    "index.html": "651a5a60327434d94d7379e770d4332a9ed0366aff35774dbc020bc68baac765",
+    "replay.py": "6bf5d49649fed12066f39d8e67a1785d1be1c657b183f434bae61e5624ceaea3",
+    "../../proofs/two-key-release/Export.lean": "3fa2fea51a55240b5146f79226e304e9c6d5e160f6d567aa3a904b84b7d20a94",
+    "../../proofs/two-key-release/README.md": "f0c8f784836247fbc16dca2a620c599eee52d25439fd8cefba36137809c18904",
+    "../../proofs/two-key-release/ReleaseDesk.lean": "23668407ff42b42589808ab8242a44f2f450b93f4df784fcb5e4eface8705a77",
+    "../../proofs/two-key-release/verification.json": "0dc53d9970a97a341d7a4b073e5844fcfd420ac2e1e43d83ae98daa84e373654",
+    "../../tools/render_release_desk.py": "ead490f0380153229dcd68718ac6c1ae5b2fe73d16ac9d6586fa0047da3b0532"
+  }
+}

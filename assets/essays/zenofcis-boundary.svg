@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+<title id="title">Separate meaning, decision and action</title><desc id="desc">A human chooses the intended rules. An agent and the factory produce a contract. The pure verified Authority evaluates explicit state, command and context under that contract. Only a law-admitted committing decision produces a private publication for the imperative shell. Authentication, storage and external delivery remain outside the pure core.</desc>
+<rect width="720" height="520" fill="#faf9f5"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<text x="36" y="45" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#242b2b" font-weight="700" text-anchor="start">Meaning → decision → action</text>
+<rect x="36" y="78" width="648" height="96" fill="#e8efe8" stroke="#b7c3ba" stroke-width="2"/>
+<text x="56" y="107" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#086451" font-weight="700" text-anchor="start">HUMAN STEERING</text>
+<text x="56" y="138" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#242b2b" font-weight="700" text-anchor="start">Choose the rules and what counts as success.</text>
+<text x="56" y="160" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Agent + factory produce the explicit contract P.</text>
+<path d="M232 174 V217" fill="none" stroke="#086451" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="260" y="202" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#58615e" font-weight="400" text-anchor="start">contract</text>
+<rect x="36" y="222" width="400" height="182" fill="#faf9f5" stroke="#086451" stroke-width="2"/>
+<text x="56" y="252" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#086451" font-weight="700" text-anchor="start">VERIFIED FUNCTIONAL CORE</text>
+<text x="56" y="288" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#242b2b" font-weight="700" text-anchor="start">D = Fₚ(state, command, context)</text>
+<text x="56" y="324" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Typed inputs · checked laws · metered work</text>
+<text x="56" y="355" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#242b2b" font-weight="400" text-anchor="start">No database, network or callbacks here.</text>
+<text x="56" y="383" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#93422c" font-weight="400" text-anchor="start">Reject / refuse → no commit capability</text>
+<rect x="482" y="222" width="202" height="182" fill="#eeeae2" stroke="#b7c3ba" stroke-width="2"/>
+<text x="500" y="252" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#242b2b" font-weight="700" text-anchor="start">IMPERATIVE SHELL</text>
+<text x="500" y="289" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#242b2b" font-weight="700" text-anchor="start">Commit state</text>
+<text x="500" y="318" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#242b2b" font-weight="700" text-anchor="start">+ outbox</text>
+<text x="500" y="356" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#58615e" font-weight="400" text-anchor="start">Then deliver</text>
+<text x="500" y="383" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#58615e" font-weight="400" text-anchor="start">explicit intents.</text>
+<path d="M436 290 H480" fill="none" stroke="#086451" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="459" y="327" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#086451" font-weight="700" text-anchor="middle">pub</text>
+<text x="36" y="447" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">pub: a private Publication, created only by Authority.</text>
+<text x="36" y="480" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Outside the core: authenticate IDs, protect storage, handle retries.</text>
+<text x="36" y="507" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#58615e" font-weight="400" text-anchor="start">Those responsibilities need their own evidence.</text>
+</svg>

@@ -1,0 +1,49 @@
+name: Two-key release evidence
+on:
+  push:
+    paths:
+      - 'examples/two-key-release/**'
+      - 'proofs/two-key-release/**'
+      - 'essays/meaning-before-mechanism.html'
+      - 'assets/essays/two-key-state.svg'
+      - 'assets/essays/zenofcis-boundary.svg'
+      - 'tools/render_release_desk.py'
+      - 'data/essay-abstractions.json'
+      - '.github/workflows/two-key-release.yml'
+  pull_request:
+    paths:
+      - 'examples/two-key-release/**'
+      - 'proofs/two-key-release/**'
+      - 'essays/meaning-before-mechanism.html'
+      - 'assets/essays/two-key-state.svg'
+      - 'assets/essays/zenofcis-boundary.svg'
+      - 'tools/render_release_desk.py'
+      - 'data/essay-abstractions.json'
+      - '.github/workflows/two-key-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install pinned Rust and Lean
+        shell: bash
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal
+          rustup default 1.97.1
+          curl --fail --location --silent --show-error --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst \
+            --output "$RUNNER_TEMP/lean.tar.zst"
+          printf '%s  %s\n' '6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe' "$RUNNER_TEMP/lean.tar.zst" | sha256sum --check
+          tar --no-same-owner --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          printf '%s\n' "$RUNNER_TEMP/lean-4.19.0-linux/bin" >> "$GITHUB_PATH"
+      - name: Reproduce factory output, native app, finite comparison and Lean proofs
+        run: python3 examples/two-key-release/replay.py
+      - name: Check precise figures and mental toolkits
+        run: |
+          python3 tools/render_release_desk.py
+          python3 tools/render_mental_toolkits.py --check
+          git diff --exit-code -- assets/essays/two-key-state.svg assets/essays/zenofcis-boundary.svg

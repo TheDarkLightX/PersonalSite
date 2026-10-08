@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the same abstraction-card format in the three linked essays."""
+"""Render the standard abstraction-card format in the linked essays."""
 import argparse
 from html import escape
 import json

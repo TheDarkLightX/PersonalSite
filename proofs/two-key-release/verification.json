@@ -1,0 +1,30 @@
+{
+  "schema": "release-desk/lean-verification/1",
+  "toolchain": "Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)",
+  "source_sha256": "23668407ff42b42589808ab8242a44f2f450b93f4df784fcb5e4eface8705a77",
+  "export_sha256": "3fa2fea51a55240b5146f79226e304e9c6d5e160f6d567aa3a904b84b7d20a94",
+  "authority_review_sha256": "c2b2e4b54c4a711b76abfffd736ef876278ee4a8a85aa43ef277a0c6d0fc18e9",
+  "axioms": {
+    "step_preserves": [],
+    "reject_changes_nothing": [],
+    "release_requires_two_keys": [],
+    "release_spends_credit": [],
+    "history_preserves": [],
+    "history_spends_credit": [
+      "propext"
+    ],
+    "every_history_is_safe": [
+      "propext"
+    ]
+  },
+  "proof_stdout": "'ReleaseDesk.step_preserves' does not depend on any axioms\n'ReleaseDesk.reject_changes_nothing' does not depend on any axioms\n'ReleaseDesk.release_requires_two_keys' does not depend on any axioms\n'ReleaseDesk.release_spends_credit' does not depend on any axioms\n'ReleaseDesk.history_preserves' does not depend on any axioms\n'ReleaseDesk.history_spends_credit' depends on axioms: [propext]\n'ReleaseDesk.every_history_is_safe' depends on axioms: [propext]\n",
+  "matching_projected_decisions": 384,
+  "projection_sha256": "7bb6c82af243c51ba6aab0654e68f93151e97609069dbf943f3904e1fe89363a",
+  "projection_fields": [
+    "class",
+    "next_state",
+    "release_count"
+  ],
+  "scope": "Seven policy-model theorems plus executable finite projection agreement; not a proved Rust/Lean compiler or full-system security proof.",
+  "checked_at_utc": "2026-10-07T23:58:23.759771+00:00"
+}

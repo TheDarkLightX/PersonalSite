@@ -1,0 +1,65 @@
+[package]
+name = "two-key-release"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.97.1"
+publish = false
+
+# The emitted application is independent of any enclosing workspace.
+[workspace]
+
+# The SQLite session is optional: the core builds without it, for a host or
+# for wasm32-unknown-unknown.
+[features]
+default = ["sqlite"]
+sqlite = ["dep:zeno-fcis-crypto", "dep:zeno-fcis-shell", "dep:zeno-fcis-shell-sqlite"]
+
+# Every application built from a contract shares this source, so the library
+# has one fixed name.
+[lib]
+name = "application"
+
+[dependencies]
+zeno-fcis-codec = "=1.1.0"
+zeno-fcis-crypto = { version = "=1.1.0", features = ["rustcrypto"], optional = true }
+zeno-fcis-shell = { version = "=1.1.0", optional = true }
+zeno-fcis-shell-sqlite = { version = "=1.1.0", optional = true }
+zeno-fcis-synthesis = { version = "=1.1.0", default-features = false }
+zeno-fcis-value = "=1.1.0"
+
+[[bin]]
+name = "two-key-release"
+path = "src/main.rs"
+required-features = ["sqlite"]
+
+[profile.dev]
+debug = 0
+incremental = false
+
+# Every program comparison a store upgrade or open makes runs in the
+# library evaluator; optimising that one crate keeps debug builds usable.
+# Overflow checks and debug assertions stay on, as in every dev build.
+[profile.dev.package.zeno-fcis-synthesis]
+opt-level = 3
+
+[patch.crates-io]
+zeno-fcis-authority = { path = "../.zenofcis-source/crates/zeno-fcis-authority" }
+zeno-fcis-catalog = { path = "../.zenofcis-source/crates/zeno-fcis-catalog" }
+zeno-fcis-codec = { path = "../.zenofcis-source/crates/zeno-fcis-codec" }
+zeno-fcis-compose = { path = "../.zenofcis-source/crates/zeno-fcis-compose" }
+zeno-fcis-core = { path = "../.zenofcis-source/crates/zeno-fcis-core" }
+zeno-fcis-crypto = { path = "../.zenofcis-source/crates/zeno-fcis-crypto" }
+zeno-fcis-evidence = { path = "../.zenofcis-source/crates/zeno-fcis-evidence" }
+zeno-fcis-laws = { path = "../.zenofcis-source/crates/zeno-fcis-laws" }
+zeno-fcis-patch = { path = "../.zenofcis-source/crates/zeno-fcis-patch" }
+zeno-fcis-plan = { path = "../.zenofcis-source/crates/zeno-fcis-plan" }
+zeno-fcis-project = { path = "../.zenofcis-source/crates/zeno-fcis-project" }
+zeno-fcis-receipt = { path = "../.zenofcis-source/crates/zeno-fcis-receipt" }
+zeno-fcis-refine = { path = "../.zenofcis-source/crates/zeno-fcis-refine" }
+zeno-fcis-schema = { path = "../.zenofcis-source/crates/zeno-fcis-schema" }
+zeno-fcis-shell = { path = "../.zenofcis-source/crates/zeno-fcis-shell" }
+zeno-fcis-shell-sqlite = { path = "../.zenofcis-source/crates/zeno-fcis-shell-sqlite" }
+zeno-fcis-spec = { path = "../.zenofcis-source/crates/zeno-fcis-spec" }
+zeno-fcis-synthesis = { path = "../.zenofcis-source/crates/zeno-fcis-synthesis" }
+zeno-fcis-transition = { path = "../.zenofcis-source/crates/zeno-fcis-transition" }
+zeno-fcis-value = { path = "../.zenofcis-source/crates/zeno-fcis-value" }

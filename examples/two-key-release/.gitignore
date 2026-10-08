@@ -1,0 +1,5 @@
+.zenofcis-source
+app/target/
+evidence/work/
+*.sqlite*
+__pycache__/

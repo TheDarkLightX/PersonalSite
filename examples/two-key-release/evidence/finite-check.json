@@ -1,0 +1,1887 @@
+{
+  "edges": [
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        160,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        150,
+        161,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        150,
+        162,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        150,
+        163,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        150,
+        160,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        161,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        161,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 162,
+      "releases": 1,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 163,
+      "releases": 1,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        150,
+        161,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        162,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 161,
+      "releases": 1,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        162,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 163,
+      "releases": 1,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        150,
+        162,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        163,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 161,
+      "releases": 1,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Accept",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 162,
+      "releases": 1,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        150,
+        163,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        150,
+        163,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "CommittedFailure",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        150,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        160,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        160,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        162
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        161,
+        163
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        161,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        161,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        161,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        161
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        162,
+        163
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        162,
+        163
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        162,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        162,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        161
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        161
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        151,
+        163,
+        162
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        151,
+        163,
+        162
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 140,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 160,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 161,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 162,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    },
+    {
+      "class": "Reject",
+      "command": 141,
+      "next": [
+        152,
+        163,
+        160
+      ],
+      "officer": 163,
+      "releases": 0,
+      "state": [
+        152,
+        163,
+        160
+      ]
+    }
+  ],
+  "framework_commit": "a1ce03e2bcd917ecb9a61a29be429f5ca09a85b8",
+  "limits": [
+    "AI-authored oracle; no human approval inferred",
+    "Finite policy agreement; not a verified compiler or UI",
+    "Identity, external delivery, host and proof-tool trust remain separate"
+  ],
+  "matching_decisions": 384,
+  "outcomes": {
+    "Accept": 27,
+    "CommittedFailure": 12,
+    "Reject": 300,
+    "refused": 45
+  },
+  "reachable_edges": 112,
+  "reachable_states": [
+    [
+      150,
+      160,
+      160
+    ],
+    [
+      150,
+      161,
+      160
+    ],
+    [
+      150,
+      162,
+      160
+    ],
+    [
+      150,
+      163,
+      160
+    ],
+    [
+      151,
+      161,
+      162
+    ],
+    [
+      151,
+      161,
+      163
+    ],
+    [
+      151,
+      162,
+      161
+    ],
+    [
+      151,
+      162,
+      163
+    ],
+    [
+      151,
+      163,
+      161
+    ],
+    [
+      151,
+      163,
+      162
+    ],
+    [
+      152,
+      160,
+      160
+    ],
+    [
+      152,
+      161,
+      160
+    ],
+    [
+      152,
+      162,
+      160
+    ],
+    [
+      152,
+      163,
+      160
+    ]
+  ],
+  "release_credit_check": "all reachable edges: releases + credit(next) <= credit(pre)",
+  "release_edges": 6,
+  "review_sha256": "c2b2e4b54c4a711b76abfffd736ef876278ee4a8a85aa43ef277a0c6d0fc18e9",
+  "schema": "two-key-release/finite-check/1",
+  "typed_inputs": 384
+}

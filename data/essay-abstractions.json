@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -237,6 +237,87 @@
             {
               "label": "Open the preprint",
               "href": "#source-witness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/meaning-before-mechanism.html",
+      "cards": [
+        {
+          "id": "idea-meaning",
+          "label": "Meaning before mechanism",
+          "symbol": "Purpose → model → implementation",
+          "symbol_reading": "Purpose, then model, then implementation",
+          "phrase": "Decide what should happen before choosing how to build it.",
+          "meaning": "The human supplies goals and judges whether the explicit specification captures them. Agents propose realizations; checkers test stated obligations.",
+          "boundary": "Formal conformance cannot establish an unstated intention. This case’s examples are AI-authored; no independent human approval is inferred.",
+          "links": [
+            {
+              "label": "Human steering",
+              "href": "#meaning"
+            },
+            {
+              "label": "Case provenance",
+              "href": "../examples/two-key-release/evidence/provenance.json"
+            }
+          ]
+        },
+        {
+          "id": "idea-effect-boundary",
+          "label": "Effect boundary",
+          "symbol": "D = Fₚ(S, C, X)",
+          "symbol_reading": "Under policy P, decision D is a function of state, command and context",
+          "phrase": "The core decides. The shell acts.",
+          "meaning": "A pure core evaluates immutable explicit inputs under a fixed policy. Only a law-admitted committing decision yields the private publication consumed by the shell.",
+          "boundary": "Purity alone does not prove the policy. Authentication, durable storage, external delivery, and toolchain trust remain separate obligations.",
+          "links": [
+            {
+              "label": "Open the boundary",
+              "href": "#boundary"
+            },
+            {
+              "label": "Generated code",
+              "href": "#code"
+            }
+          ]
+        },
+        {
+          "id": "idea-two-keys",
+          "label": "Two keys, one release",
+          "symbol": "A ≠ B; release intents ≤ 1",
+          "symbol_reading": "Distinct approver IDs and at most one release intent per history from genesis",
+          "phrase": "A second identity completes the approval; a repeat does not.",
+          "meaning": "The illustrated policy requires two recognized distinct IDs to approve, and each finite history from genesis emits at most one release intent. A key here is an ID’s approval, not a cryptographic signature.",
+          "boundary": "The caller IDs are simulated. The bound concerns a request’s logical history, not delivery retries, database rollback, multiple fresh requests, or proof of two distinct people.",
+          "links": [
+            {
+              "label": "Try the app",
+              "href": "../examples/two-key-release/"
+            },
+            {
+              "label": "Lean policy model",
+              "href": "../proofs/two-key-release/ReleaseDesk.lean"
+            }
+          ]
+        },
+        {
+          "id": "idea-two-views",
+          "label": "One meaning, two views",
+          "symbol": "parse(render(M)) = M",
+          "symbol_reading": "Parsing a rendering of M returns M",
+          "phrase": "Change the notation. Preserve the behavior.",
+          "meaning": "ZAL’s symbolic and controlled-English projections target the same admitted typed model. A human can inspect the readable view while tools operate on its precise structure.",
+          "boundary": "This is the prototype’s specified, tested round-trip target, not a proved frontend. Ordinary prose is not automatically formal; the local review record cannot authenticate a human.",
+          "links": [
+            {
+              "label": "ZAL and its limits",
+              "href": "#zal"
+            },
+            {
+              "label": "Pinned specification",
+              "href": "#source-zal"
             }
           ]
         }
