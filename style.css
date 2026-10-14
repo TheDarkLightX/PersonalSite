@@ -1514,3 +1514,36 @@ details.sources[open] > summary { border-bottom: 1px solid var(--line); margin-b
 }
 .figure-modal-close:hover { opacity: 1; }
 .figure-modal-close:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Compact homepage methodology and AI attribution */
+.profile-copy .profile-method-link { margin-top: .7rem; font-size: .78rem; }
+.profile-method-link a { text-decoration-color: var(--line-strong); }
+.ai-attribution {
+  display: grid;
+  grid-template-columns: minmax(175px, .3fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.ai-attribution-heading .card-topline { margin-bottom: .55rem; }
+.ai-attribution-heading h2 { font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 500; margin: 0; }
+.ai-attribution-heading h2 span { display: block; margin-top: .25rem; font-size: .9rem; color: var(--muted); font-weight: 400; }
+.ai-attribution-body { min-width: 0; }
+.ai-attribution-body p { margin: 0 0 .65rem; font-size: .86rem; color: var(--muted); line-height: 1.6; }
+.ai-attribution-body strong, .ai-attribution-body b { color: var(--text); font-weight: 600; }
+.ai-attribution-body .ai-expression {
+  margin: .65rem 0 .45rem;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text);
+  white-space: normal;
+  letter-spacing: -.02em;
+}
+.ai-readings { margin-bottom: .65rem; }
+.ai-readings p { margin: .12rem 0; font-size: .8rem; }
+.ai-attribution-body .ai-notation-key { font-size: .77rem; color: var(--muted-2); }
+@media (max-width: 680px) {
+  .ai-attribution { grid-template-columns: 1fr; gap: .75rem; }
+  .ai-attribution-heading h2 span { display: inline; margin-left: .35rem; }
+}
