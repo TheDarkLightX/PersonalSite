@@ -207,62 +207,106 @@
         <div class="section-heading">
           <p class="eyebrow">Open source · Upstream work</p>
           <h2 id="external-contributions-heading">Open Source Contributions.</h2>
-          <p>My upstream work has a consistent theme: identify where an implementation diverges from its intended semantics, reproduce the failure, find the underlying cause, and develop a checkable correction. I use human-led, AI-assisted search, formal reasoning, tests, and counterexamples to support those contributions. The records below distinguish merged work from proposals under review.</p>
+          <p>My contributions connect early work on decentralized governance with more recent work on compilers, formal verification, and reliable software. I look for where behavior diverges from a specification, reproduce the failure, explain the mechanism, and seek a checkable correction. I use human-led, AI-assisted research and engineering methods throughout.</p>
+          <p class="value-note"><strong>Scope:</strong> As of October 15, 2026, the public @TheDarkLightX account has authored five pull requests and 47 issues across ten external GitHub repositories. These are submissions, not 52 merged fixes. The entries below distinguish upstream merges, formally recognized issue contributions, and open proposals.</p>
         </div>
+        <p class="eyebrow">Compiler correctness and formal methods</p>
         <div class="project-grid">
           <article class="project-card featured">
-            <div class="project-meta"><span>Upstream-recognized</span><span>32 issue-based contributions</span></div>
+            <div class="project-meta"><span>Maintainer-recognized</span><span>32 issue-based contributions</span></div>
             <h3>Tau Language (IDNI)</h3>
-            <p>IDNI's official contribution record credits me with 30 substantive issue-based contributions in Q3 2026 and two in Q1 2026. I investigated solver soundness, quantifier elimination, exact rational arithmetic, performance bottlenecks, and interpreter defects, providing diagnoses, proposed fixes, and reproducible evidence.</p>
-            <p class="value-note">These are maintainer-recognized issue contributions, not 32 merged pull requests. The associated upstream commits document how the fixes were integrated.</p>
+            <p>IDNI officially recognizes 30 issue-based contributions in Q3 2026 and two in Q1 2026. I reported and diagnosed problems in satisfiability and quantifier elimination, exact rational arithmetic, solver performance, and interpreter behavior, often supplying reproducible cases and proposed changes.</p>
+            <p class="value-note">I filed 41 issues in this repository; the official contribution record credits 32. This is issue-based upstream work, not 32 merged pull requests.</p>
             <div class="card-actions">
               <a href="https://github.com/IDNI/tau-lang/blob/main/CONTRIBUTIONS.md">Official contribution record</a>
-              <a href="https://github.com/IDNI/tau-lang/issues/140">Correctness example</a>
-              <a href="https://github.com/IDNI/tau-lang/issues/134">Performance example</a>
+              <a href="https://github.com/IDNI/tau-lang/issues?q=is%3Aissue+author%3ATheDarkLightX">All my Tau issues</a>
+              <a href="https://github.com/IDNI/tau-lang/issues/140">Solver correctness</a>
+              <a href="https://github.com/IDNI/tau-lang/issues/134">Measured optimization</a>
             </div>
           </article>
 
           <article class="project-card featured">
-            <div class="project-meta"><span>Merged upstream</span><span>Formal verification</span></div>
+            <div class="project-meta"><span>Merged PR</span><span>Formal verification</span></div>
             <h3>Verus</h3>
-            <p>Resolved a source-type preservation issue in <code>SpecFn</code> lambda wrappers. The change retains source function types and restricts application semantics to valid inputs, with regression coverage for the reported defect.</p>
+            <p>Fixed source-type preservation in <code>SpecFn</code> lambda wrappers, retaining the source function type while restricting application semantics to valid inputs. The change includes regression coverage and was merged upstream on October 2, 2026.</p>
             <div class="card-actions">
               <a href="https://github.com/verus-lang/verus/pull/3016">Merged PR #3016</a>
-              <a href="https://github.com/verus-lang/verus/issues/3010">Original issue #3010</a>
+              <a href="https://github.com/verus-lang/verus/issues/3010">Issue #3010</a>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-meta"><span>Open upstream PR</span><span>Proof tooling</span></div>
+            <div class="project-meta"><span>Open PR</span><span>Proof tooling</span></div>
             <h3>Kontrol (Runtime Verification)</h3>
-            <p>Proposed a fix for incremental builds that reused stale required-lemma copies after source edits. The patch handles changed and missing copies, invalidates failed build markers, preserves valid caching, and adds regression tests.</p>
+            <p>Proposed a fix for incremental compilation that could reuse stale required-lemma copies after source edits. The PR addresses content-based invalidation, failed-build recovery, caching behavior, and regressions.</p>
             <div class="card-actions">
               <a href="https://github.com/runtimeverification/kontrol/pull/1168">PR #1168</a>
-              <a href="https://github.com/runtimeverification/kontrol/issues/871">Original issue #871</a>
+              <a href="https://github.com/runtimeverification/kontrol/issues/871">Issue #871</a>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-meta"><span>Open upstream PR</span><span>Formal proofs</span></div>
+            <div class="project-meta"><span>Open PR</span><span>Inductive proofs</span></div>
             <h3>Dafny</h3>
-            <p>Submitted proofs of natural-number and integer string-conversion round trips, including decimal and hexadecimal cases. The proposed lemmas make the required digit and sign assumptions explicit, with verification and runtime regression evidence.</p>
+            <p>Submitted proofs of number-to-string conversion round trips for natural and signed integers, including decimal and hexadecimal cases. The work makes digit and sign preconditions explicit and includes verification and executable regression evidence.</p>
             <div class="card-actions">
               <a href="https://github.com/dafny-lang/dafny/pull/6558">PR #6558</a>
-              <a href="https://github.com/dafny-lang/dafny/issues/4795">Original issue #4795</a>
+              <a href="https://github.com/dafny-lang/dafny/issues/4795">Issue #4795</a>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-meta"><span>Open upstream PR</span><span>E-graphs · Optimization</span></div>
+            <div class="project-meta"><span>Open PR</span><span>E-graphs · Optimization</span></div>
             <h3>egg</h3>
-            <p>Proposed SCC-local rank constraints for linear-programming extraction, preserving valid acyclic e-graph selections that a broader cycle-breaking approach could exclude. The submission includes counterexamples, an independent small-graph oracle, and a linked Lean proof artifact.</p>
+            <p>Proposed SCC-local rank constraints for linear-programming e-graph extraction, preserving acyclic selections that a broader cycle-breaking approach could exclude. Counterexamples, an independent small-graph oracle, and a linked Lean proof accompany the change.</p>
             <div class="card-actions">
               <a href="https://github.com/egraphs-good/egg/pull/369">PR #369</a>
-              <a href="https://github.com/egraphs-good/egg/issues/207">Original issue #207</a>
+              <a href="https://github.com/egraphs-good/egg/issues/207">Issue #207</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Open issue · Proposed patch</span><span>Parser performance</span></div>
+            <h3>IDNI/parser</h3>
+            <p>Identified repeated copying of shaping options during recursive parse-tree processing. Supplied a patch, an independent reproduction package, and benchmarks reporting a 73.3–79.5% reduction in the isolated shaping interval on six inputs; broader compiler validation remains open.</p>
+            <div class="card-actions">
+              <a href="https://github.com/IDNI/parser/issues/22">Issue #22, patch and benchmark</a>
             </div>
           </article>
         </div>
-        <p class="value-note" style="margin-top: 1.25rem;">Upstream statuses checked October 15, 2026. Open pull requests are proposed changes, not claims of acceptance or merge.</p>
+
+        <p class="eyebrow" style="margin-top: 2rem;">Security and protocol validation</p>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-meta"><span>Public coordinated report</span><span>Verification boundaries</span></div>
+            <h3>SQIsign</h3>
+            <p>Reported fixed-size decoding before length validation and noncanonical detached-signature length handling in a pinned public implementation. The report includes AddressSanitizer cases and bounded regression evidence. The SQIsign team independently reproduced the findings and stated that equivalent guards already existed in its private development tree before the report.</p>
+            <p class="value-note">This is an implementation and API-boundary report, not a claim to have broken SQIsign's cryptographic security or originated the upstream fix.</p>
+            <div class="card-actions">
+              <a href="https://github.com/SQISign/the-sqisign/issues/23">Coordinated report #23</a>
+              <a href="https://github.com/TheDarkLightX/sqisign-verification-boundary/releases/tag/v0.1.0">Reproducibility artifact</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Three closed issues</span><span>Protocol validation</span></div>
+            <h3>IDNI/tau-testnet</h3>
+            <p>Filed three reports with proposed patches for enforcing test-only validation bypasses, binding DHT objects to canonical hashes, and revalidating retrieved state snapshots against requested consensus hashes.</p>
+            <p class="value-note">The issues are closed. This entry documents the reports and proposed patches; it does not claim independently confirmed upstream adoption.</p>
+            <div class="card-actions">
+              <a href="https://github.com/IDNI/tau-testnet/issues/8">Test-only guard #8</a>
+              <a href="https://github.com/IDNI/tau-testnet/issues/9">DHT identity #9</a>
+              <a href="https://github.com/IDNI/tau-testnet/issues/10">State integrity #10</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="eyebrow" style="margin-top: 2rem;">Earlier governance contributions</p>
+        <div class="snapshot-list">
+          <article><strong>Bitnation · Merged PR (2016)</strong><p>Added a reference to an evolutionary Nomic approach to digital rulemaking in the constitution repository. <a href="https://github.com/Bit-Nation/BITNATION-Constitution/pull/8">Merged PR #8</a>.</p></article>
+          <article><strong>Steem · Governance proposal (2016)</strong><p>Proposed randomized delegated voting and shared curation rewards as a possible way to distribute voting power and reduce collusion. This was a discussion proposal, not a merged implementation. <a href="https://github.com/steemit/steem/issues/335">Issue #335</a>.</p></article>
+        </div>
+        <p class="value-note" style="margin-top: 1.25rem;">These links cover all public external repositories with authored issues or pull requests found for @TheDarkLightX on October 15, 2026. They do not claim to enumerate every historical code commit, review, or discussion. See <a href="https://github.com/search?q=is%3Apr+author%3ATheDarkLightX+-user%3ATheDarkLightX&amp;type=pullrequests">external PR history</a> and <a href="https://github.com/search?q=is%3Aissue+author%3ATheDarkLightX+-user%3ATheDarkLightX&amp;type=issues">external issue history</a>.</p>
       </div>
     </section>
 
