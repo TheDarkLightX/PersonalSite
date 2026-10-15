@@ -203,31 +203,66 @@
     </section>
 
     <section class="section" id="external-contributions" aria-labelledby="external-contributions-heading">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Open source · External recognition</p>
-          <h2 id="external-contributions-heading">Tau Language (IDNI).</h2>
-          <p>IDNI's <a href="https://github.com/IDNI/tau-lang/blob/main/CONTRIBUTIONS.md#q3-2026">published contribution record</a> credits me with <strong>30 issue-based contributions in Q3 2026</strong> and <strong>two in Q1 2026</strong>, or 32 recognized contributions in total.</p>
-          <p>My contributions include reproducible failures, root-cause diagnoses, proposed fixes, performance measurements, and regression tests. The maintainers integrated corresponding changes upstream. These are issue-based contributions, not a claim of 32 merged pull requests.</p>
-          <div class="card-actions">
-            <a href="https://github.com/IDNI/tau-lang/blob/main/CONTRIBUTIONS.md">Official contribution record</a>
-            <a href="https://github.com/IDNI/tau-lang/issues?q=is%3Aissue+author%3ATheDarkLightX">Issues I filed</a>
-          </div>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Open source · Upstream work</p>
+          <h2 id="external-contributions-heading">Open Source Contributions.</h2>
+          <p>My upstream work has a consistent theme: identify where an implementation diverges from its intended semantics, reproduce the failure, find the underlying cause, and develop a checkable correction. I use human-led, AI-assisted search, formal reasoning, tests, and counterexamples to support those contributions. The records below distinguish merged work from proposals under review.</p>
         </div>
-        <div class="snapshot-list">
-          <article>
-            <strong>Solver correctness</strong>
-            <p>Diagnosed incorrect satisfiability and model results, including <a href="https://github.com/IDNI/tau-lang/issues/129">XOR normalization</a> and <a href="https://github.com/IDNI/tau-lang/issues/140">rational-order witness construction</a>.</p>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-meta"><span>Upstream-recognized</span><span>32 issue-based contributions</span></div>
+            <h3>Tau Language (IDNI)</h3>
+            <p>IDNI's official contribution record credits me with 30 substantive issue-based contributions in Q3 2026 and two in Q1 2026. I investigated solver soundness, quantifier elimination, exact rational arithmetic, performance bottlenecks, and interpreter defects, providing diagnoses, proposed fixes, and reproducible evidence.</p>
+            <p class="value-note">These are maintainer-recognized issue contributions, not 32 merged pull requests. The associated upstream commits document how the fixes were integrated.</p>
+            <div class="card-actions">
+              <a href="https://github.com/IDNI/tau-lang/blob/main/CONTRIBUTIONS.md">Official contribution record</a>
+              <a href="https://github.com/IDNI/tau-lang/issues/140">Correctness example</a>
+              <a href="https://github.com/IDNI/tau-lang/issues/134">Performance example</a>
+            </div>
           </article>
-          <article>
-            <strong>Performance</strong>
-            <p>Identified avoidable repeated work in <a href="https://github.com/IDNI/tau-lang/issues/134">Boolean decomposition and BDD construction</a> and <a href="https://github.com/IDNI/tau-lang/issues/135">definition expansion</a>, with measured speedups and proposed patches.</p>
+
+          <article class="project-card featured">
+            <div class="project-meta"><span>Merged upstream</span><span>Formal verification</span></div>
+            <h3>Verus</h3>
+            <p>Resolved a source-type preservation issue in <code>SpecFn</code> lambda wrappers. The change retains source function types and restricts application semantics to valid inputs, with regression coverage for the reported defect.</p>
+            <div class="card-actions">
+              <a href="https://github.com/verus-lang/verus/pull/3016">Merged PR #3016</a>
+              <a href="https://github.com/verus-lang/verus/issues/3010">Original issue #3010</a>
+            </div>
           </article>
-          <article>
-            <strong>Interpreter reliability</strong>
-            <p>Traced a <a href="https://github.com/IDNI/tau-lang/issues/54">segmentation fault in stream declarations</a> and <a href="https://github.com/IDNI/tau-lang/issues/58">incorrect file I/O paths</a> to specific code paths, and proposed corrections.</p>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Open upstream PR</span><span>Proof tooling</span></div>
+            <h3>Kontrol (Runtime Verification)</h3>
+            <p>Proposed a fix for incremental builds that reused stale required-lemma copies after source edits. The patch handles changed and missing copies, invalidates failed build markers, preserves valid caching, and adds regression tests.</p>
+            <div class="card-actions">
+              <a href="https://github.com/runtimeverification/kontrol/pull/1168">PR #1168</a>
+              <a href="https://github.com/runtimeverification/kontrol/issues/871">Original issue #871</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Open upstream PR</span><span>Formal proofs</span></div>
+            <h3>Dafny</h3>
+            <p>Submitted proofs of natural-number and integer string-conversion round trips, including decimal and hexadecimal cases. The proposed lemmas make the required digit and sign assumptions explicit, with verification and runtime regression evidence.</p>
+            <div class="card-actions">
+              <a href="https://github.com/dafny-lang/dafny/pull/6558">PR #6558</a>
+              <a href="https://github.com/dafny-lang/dafny/issues/4795">Original issue #4795</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta"><span>Open upstream PR</span><span>E-graphs · Optimization</span></div>
+            <h3>egg</h3>
+            <p>Proposed SCC-local rank constraints for linear-programming extraction, preserving valid acyclic e-graph selections that a broader cycle-breaking approach could exclude. The submission includes counterexamples, an independent small-graph oracle, and a linked Lean proof artifact.</p>
+            <div class="card-actions">
+              <a href="https://github.com/egraphs-good/egg/pull/369">PR #369</a>
+              <a href="https://github.com/egraphs-good/egg/issues/207">Original issue #207</a>
+            </div>
           </article>
         </div>
+        <p class="value-note" style="margin-top: 1.25rem;">Upstream statuses checked October 15, 2026. Open pull requests are proposed changes, not claims of acceptance or merge.</p>
       </div>
     </section>
 
