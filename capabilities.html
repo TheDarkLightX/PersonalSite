@@ -231,6 +231,15 @@
               <a href="https://github.com/verus-lang/verus/issues/3010">Issue #3010</a>
             </div>
           </article>
+          <article class="project-card featured">
+            <div class="project-meta"><span>Merged upstream PR</span><span>Incremental verification</span></div>
+            <h3>Kontrol (Runtime Verification)</h3>
+            <p>Fixed incremental builds that could reuse stale required lemmas after their source files changed. The merged patch refreshes changed or missing copies by content, invalidates compilation-success markers when necessary, and preserves correct caching for unchanged inputs. Added regressions for source changes, cache reuse, failures, and retries.</p>
+            <div class="card-actions">
+              <a href="https://github.com/runtimeverification/kontrol/pull/1168">Merged PR #1168</a>
+              <a href="https://github.com/runtimeverification/kontrol/issues/871">Issue #871</a>
+            </div>
+          </article>
         </div>
         <div class="snapshot-list" style="margin-top: 1.5rem;">
           <article>
