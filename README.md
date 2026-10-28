@@ -24,7 +24,8 @@ assets/dana-github-avatar.png       Local GitHub avatar asset
 case-studies/mprd.html              MPRD case study page
 case-studies/zenodex.html           ZenoDEX case study page
 case-studies/research-kernel.html   Research Kernel MCP case study page
-value.html                          Current value, curated capabilities, outcomes, and evidence paths
+value.html                          Current value, capabilities, outcomes, and expandable evaluation guidance
+evidence-strategy.html              Redirect to value.html#evaluation (legacy)
 data/cost-model-inputs.json          Dated public commits, wages, and cost-scenario assumptions
 data/cost-estimates.json             Current three-repository cost sensitivity and comparison
 tools/collect_cost_estimates.py      Replays the cost snapshot from pinned Git objects

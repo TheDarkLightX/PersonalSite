@@ -33,7 +33,6 @@
         <a href="index.html#work">Work</a>
         <a href="writing.html">Writing</a>
         <a href="value.html" aria-current="page">Value</a>
-        <a href="evidence-strategy.html">Evaluation</a>
         <a href="network.html">Network</a>
         <a href="ideas.html">Ideas</a>
       </nav>
@@ -60,7 +59,7 @@
         <div class="hero-actions">
           <a class="button primary" href="#contribution">Where I can contribute</a>
           <a class="button secondary" href="capabilities.html">Curated capabilities</a>
-          <a class="button secondary" href="mailto:p33rl3ss1@gmail.com">Discuss a problem</a>
+          <a class="button secondary" href="#evaluation">How to evaluate the work</a>
         </div>
       </div>
     </section>
@@ -205,21 +204,155 @@
     </section>
     <!-- cost-estimates:end -->
 
-    <section class="section alt" id="assess-value">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">How to assess the value</p>
-          <h2>Put it to the test.</h2>
-          <p>Start with the problem you need solved. Inspect a related artifact, identify my role and the tools involved, then agree on a small project and decide how to assess its results.</p>
-          <p>Published work provides evidence of particular capabilities. A proof has stated assumptions; a benchmark has a defined scope; a prototype needs further work before deployment. I make those boundaries part of the assessment.</p>
-          <div class="card-actions"><a href="evidence-strategy.html">Evaluation paths</a><a href="capabilities.html">Capability evidence and status</a></div>
+    <section class="section alt" id="evaluation" aria-labelledby="evaluation-heading">
+      <div class="container">
+        <div class="two-col" id="assess-value">
+          <div>
+            <p class="eyebrow">Evaluation</p>
+            <h2 id="evaluation-heading">Put it to the test.</h2>
+            <p>Start with the problem you need solved. Inspect a related artifact, identify my role and the tools involved, then agree on a small project and decide how to assess its results.</p>
+            <p>Published work provides evidence of particular capabilities. A proof has stated assumptions; a benchmark has a defined scope; a prototype needs further work before deployment. I make those boundaries part of the assessment.</p>
+            <div class="card-actions"><a href="capabilities.html">Capability evidence and status</a></div>
+          </div>
+          <div class="snapshot-list">
+            <article><strong>Useful result</strong><p>Does the output answer the question or enable the intended task?</p></article>
+            <article><strong>Checkable support</strong><p>Can the relevant evidence be inspected or replayed, with its assumptions visible?</p></article>
+            <article><strong>Practical cost</strong><p>How much time, compute, integration work, and review did the outcome require?</p></article>
+            <article><strong>Future use</strong><p>Does the work leave behind knowledge, tooling, or a method that makes subsequent work easier?</p></article>
+          </div>
         </div>
+        <ol class="method-steps">
+          <li><b>1. Prove</b><p>Build the Lean projects and run TLC on the TLA+ specs. If a proof fails to check, record the failure and investigate before relying on it.</p></li>
+          <li><b>2. Run</b><p>Execute each repo's test suite, weighting the tamper, replay, and fuzz cases. Regenerate the metrics and diff the JSON.</p></li>
+          <li><b>3. Break</b><p>Construct an input the gate should reject. Confirm it is rejected. Then read the stated limitations and test whether any are understated.</p></li>
+        </ol>
+        <details class="sources">
+          <summary>Repository sources and verification commands</summary>
+          <p>Choose a project relevant to your question. Follow its documented prerequisites and revision-specific instructions, then compare the results with the stated claims.</p>
+          <h3>Sources</h3>
+          <div class="matrix-card">
+          <table class="matrix">
+            <thead><tr><th>Repository</th><th>What it is</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://github.com/TheDarkLightX/MPRD">TheDarkLightX/MPRD</a></td><td>AI actions checked against specified rules. Rust core, Lean proofs, and zero-knowledge proofs.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/ZenoDEX">TheDarkLightX/ZenoDEX</a></td><td>Formally constrained exchange. Integer-exact settlement, Lean + TLA+, replay certificates.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/Research-Kernel-MCP">TheDarkLightX/Research-Kernel-MCP</a></td><td>Research memory for AI assistants. Connected claims and evidence, explicit promotion rules, SQLite persistence, and an append-only event log.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/PopperPad">TheDarkLightX/PopperPad</a></td><td>Scientific memory that records attempts to refute claims. Objects identified by content hashes, a linked event log, and evidence you can replay.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/ZenoFCIS">TheDarkLightX/ZenoFCIS</a></td><td>Public Rust library for high-assurance functional-core and imperative-shell systems, with canonical boundaries, atomic commit, and replay evidence.</td></tr>
+              <tr><td><a href="https://github.com/TheDarkLightX/PersonalSite">TheDarkLightX/PersonalSite</a></td><td>This site, plus the <a href="docs/cost-estimates.md">cost-model inputs and replay instructions</a>.</td></tr>
+              <tr><td><a href="https://thedarklightx.github.io/Formal_Methods_Philosophy/">Formal Methods Philosophy (blog)</a></td><td>Public tutorials and interactive labs on verification, functional architecture, neuro-symbolic AI, and the philosophy of software correctness. Read it online.</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <h3>Claims and checks</h3>
+          <div class="matrix-card">
+          <table class="matrix">
+            <thead><tr><th>Claim</th><th>Where it lives</th><th>How to check it</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>AI actions reach an executor only through a deterministic verifier.</td>
+                <td>MPRD <code>crates/mprd-core/</code>, <code>proofs/lean/</code></td>
+                <td>Read the executor API; confirm it requires a verified receipt as input. Run the crate tests.</td>
+              </tr>
+              <tr>
+                <td>Settlement is integer-exact and replayable.</td>
+                <td>ZenoDEX <code>src/</code>, <code>formal/</code>, replay docs</td>
+                <td>Run the public replay; confirm the certificate hash is identical across two clean runs, and changes if you alter an input.</td>
+              </tr>
+              <tr>
+                <td>The repositories include machine-checked properties.</td>
+                <td>Lean files in each repo; <code>*.tla</code> specs</td>
+                <td>Build the Lean projects (<code>lake build</code>) and run TLC on the specs. Read the assumptions and the scope of each result.</td>
+              </tr>
+              <tr>
+                <td>The value figures are reproducible.</td>
+                <td>PersonalSite <a href="docs/cost-estimates.md">cost-model replay instructions</a></td>
+                <td>Use the pinned repository versions and commands in the instructions, then compare the result with <code>data/cost-estimates.json</code>.</td>
+              </tr>
+              <tr>
+                <td>Claim promotion is fail-closed: no SUPPORTED claim without evidence, refutation, and provenance.</td>
+                <td>Research-Kernel-MCP <code>internal/research_kernel_mcp/kernel.py</code>, <code>tests/internal/test_research_kernel_mcp.py</code></td>
+                <td>Run <code>pytest -q tests/internal/test_research_kernel_mcp.py</code> and the server self-test (<code>--self-test</code>). Confirm promotion fails when evidence is missing.</td>
+              </tr>
+              <tr>
+                <td>Scientific status follows the recorded evidence and verification rules.</td>
+                <td>PopperPad <code>src/popperpad/</code>, <code>tests/</code></td>
+                <td>Run <code>pytest -q</code>. Inspect the status and strict doctor tests; confirm malformed evidence fails closed and changing stake alone cannot change scientific status.</td>
+              </tr>
+              <tr>
+                <td>Imperative effects are separated from a pure transition and bound to the exact candidate selected for commit.</td>
+                <td>ZenoFCIS <code>crates/</code>, <code>tools/check_assurance.py</code></td>
+                <td>Run <code>python3 tools/check_assurance.py --self-test</code> and <code>cargo test --workspace</code>. Inspect the candidate commit boundary and shell tests.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </details>
+        <details class="sources">
+          <summary>How to interpret and challenge the results</summary>
+          <p>I give more weight to evidence I can independently check. I also ask whether it answers the question at hand.</p>
+          <div class="matrix-card">
+          <table class="matrix">
+            <thead><tr><th>Signal</th><th>Weight</th></tr></thead>
+            <tbody>
+              <tr><td>A machine-checked proof that compiles.</td><td>Strong evidence for the stated theorem. I still check its assumptions and how it applies to the system.</td></tr>
+              <tr><td>An adversarial test that reproduces; a certificate that matches on replay.</td><td>High.</td></tr>
+              <tr><td>Line counts, commit counts, stars, follower counts.</td><td>I give these little weight on their own.</td></tr>
+              <tr><td>Any claim without supporting evidence.</td><td>I treat it as unverified until the evidence is available.</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <h3>Look for mistakes</h3>
+          <p>Look for weaknesses in the specification, the implementation, and the connection between the two. I use those findings to improve the system.</p>
         <div class="snapshot-list">
-          <article><strong>Useful result</strong><p>Does the output answer the question or enable the intended task?</p></article>
-          <article><strong>Checkable support</strong><p>Can the relevant evidence be inspected or replayed, with its assumptions visible?</p></article>
-          <article><strong>Practical cost</strong><p>How much time, compute, integration work, and review did the outcome require?</p></article>
-          <article><strong>Future use</strong><p>Does the work leave behind knowledge, tooling, or a method that makes subsequent work easier?</p></article>
+          <article>
+            <strong>Specification gaps</strong>
+            <p>A proof is only as strong as what it states. Check whether a theorem proves a simplified property while the live system relies on a richer one.</p>
+          </article>
+          <article>
+            <strong>Boundary coverage</strong>
+            <p>Look for an interface that reaches an effect without passing the intended gate or receipt check.</p>
+          </article>
+          <article>
+            <strong>Replay binding</strong>
+            <p>Confirm a replay certificate is actually bound to the critical path, not to a convenient summary of it.</p>
+          </article>
+          <article>
+            <strong>Estimate honesty</strong>
+            <p>The cost figures are illustrative scenarios from an uncalibrated model. Check the inputs, assumptions, and limits alongside the numbers.</p>
+          </article>
         </div>
+        </details>
+        <details class="sources">
+          <summary>Machine-readable evaluation manifest</summary>
+        <pre style="overflow:auto; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem 1.25rem; font-family:var(--font-mono); font-size:.82rem; line-height:1.55; color:var(--text);">{
+  "name": "Dana Edwards",
+  "site": "https://www.danaedwards.info/",
+  "repos": {
+    "mprd": "https://github.com/TheDarkLightX/MPRD",
+    "zenodex": "https://github.com/TheDarkLightX/ZenoDEX",
+    "research_kernel_mcp": "https://github.com/TheDarkLightX/Research-Kernel-MCP",
+    "site": "https://github.com/TheDarkLightX/PersonalSite"
+  },
+  "blog": {
+    "formal_methods_philosophy": "https://thedarklightx.github.io/Formal_Methods_Philosophy/"
+  },
+  "verify": {
+    "proofs": "lake build in Lean projects; run TLC on *.tla specs",
+    "tests": "run each repo test suite; prioritize tamper/replay/fuzz cases",
+    "metrics": "follow docs/cost-estimates.md; compare with data/cost-estimates.json",
+    "research_kernel": "pytest -q tests/internal/test_research_kernel_mcp.py; server.py --self-test"
+  },
+  "weight": {
+    "machine_checked_proof": "highest",
+    "reproducible_test_or_certificate": "high",
+    "loc_commits_stars": "low_in_isolation",
+    "claim_without_evidence": "unverified"
+  },
+  "instruction": "Reproduce the checks before reporting. State assumptions, failures, and limits."
+}</pre>
+        </details>
+        <p class="value-note">Tell me what you could reproduce and where you ran into problems. Record assumptions, failures, and limits alongside any successful checks.</p>
       </div>
     </section>
 

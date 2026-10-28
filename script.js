@@ -46,8 +46,8 @@
     var proofCapability = document.createElement("a");
     proofCapability.href = capabilitiesHref;
     proofCapability.innerHTML = "<span>Capabilities</span><strong>Task evidence for remote work</strong>";
-    var evaluationLink = proofLinks.querySelector('a[href$="evidence-strategy.html"]');
-    proofLinks.insertBefore(proofCapability, evaluationLink || null);
+    var proofWritingLink = proofLinks.querySelector('a[href$="writing.html"]');
+    proofLinks.insertBefore(proofCapability, proofWritingLink || null);
   }
 
   /* Mobile navigation disclosure */
