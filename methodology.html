@@ -263,13 +263,13 @@ formal / behavioral model
             <p class="eyebrow">ZAL workflow</p>
             <h3 id="zal-workflow-heading">Turn a mental model into a shared formal model.</h3>
             <p>I start by describing how I think the software should behave. The LLM infers my intent and proposes semantic specifications in controlled English. I review its interpretation, correct assumptions, and test concrete examples before accepting a model.</p>
-            <p>ZAL, the Zeno Abstraction Language, gives us a shared abstract representation: my intended behavior expressed as a mathematical model that tools can work with. Controlled English, symbolic rules, and visual notation let us inspect the same declared meaning from different perspectives. The model becomes a specification against which an implementation can be checked.</p>
+            <p>ZAL, the Zeno Abstraction Language, gives us a shared abstract representation: my intended behavior expressed as a mathematical model that tools can work with. Controlled English, symbolic rules, and visual notation let us inspect the same declared meaning from different perspectives. The model becomes a specification against which an implementation can be checked. The goal is code that is correct by construction, with the required behavior preserved through verified refinement.</p>
           </div>
           <div class="zal-example-grid">
             <div>
               <h4>Start with the intent</h4>
               <blockquote class="zal-intent"><p>“A request can reserve a resource once. Releasing it must not let the same request reserve again.”</p></blockquote>
-              <p>The important question is whether release restores eligibility. This example says it does not. A reusable reservation would be a different specification.</p>
+              <p>Once this request releases the resource, it cannot reserve it again. Allowing the same request to reserve again would require a different model.</p>
               <h4>Inspect the controlled English</h4>
               <p class="zal-label">Three rules from the ZAL model</p>
               <div class="zal-english">
@@ -300,7 +300,7 @@ formal / behavioral model
                 <text class="zal-state" x="138" y="351" text-anchor="middle">released</text>
                 <path class="zal-edge zal-reject" d="M 211 330 H 266 V 364 H 216" marker-end="url(#zal-arrow)" />
                 <text class="zal-loop-label" x="275" y="335"><tspan x="275">reserve:</tspan><tspan x="275" dy="19">reject</tspan></text>
-                <text class="zal-chart-note" x="180" y="412" text-anchor="middle">Release does not restore eligibility.</text>
+                <text class="zal-chart-note" x="180" y="412" text-anchor="middle">This request cannot reserve again.</text>
               </svg>
               <figcaption>Solid arrows change the state. Dashed loops reject a duplicate and keep the state unchanged. Every event with <code>authorized = false</code> is rejected; other rejection paths are omitted.</figcaption>
             </figure>
@@ -339,7 +339,14 @@ Rule r09: when the state is unseen and the event is release, if authorized, reje
 Rule r10: when the state is unseen and the event is reserve, if (not authorized), reject because unauthorized and keep the state unchanged.
 Rule r11: when the state is unseen and the event is reserve, if authorized, move to held.</code></pre>
             <p>The <a href="https://github.com/TheDarkLightX/ZenoFCIS/blob/57a19ecc6aabfcd6e5107ce0e6135fe2c1a01beb/docs/zal/GRAMMAR.md">versioned ZAL grammar</a> defines this controlled English. Its fixed vocabulary and syntax give these sentences precise meaning. I review the LLM's proposed specification to check that it matches my intent.</p>
-            <p>Finite checks cover the declared model. They do not establish human agreement or prove a deployed implementation correct. The C² example is a separate explanatory constraint, not a reported solver result.</p>
+            <h4>What establishes correctness?</h4>
+            <p>The formal connection is <strong>refinement</strong>: under the declared assumptions, every observable behavior of the implementation is allowed by the behavioral model. The controlled English and the model must have the same formal meaning, and the model must satisfy the formalized requirements. My review checks that those requirements capture what I intended.</p>
+            <p>One precise statement of that alignment is:</p>
+            <p class="zal-formula" aria-label="Program behaviors, mapped into the model's vocabulary, are a subset of model behaviors, which equal the meaning of the controlled English and are a subset of the behaviors permitted by the formal requirements."><span>α(Beh<sub>A</sub>(P)) ⊆</span> <span>Beh<sub>A</sub>(M) =</span> <span>⟦E⟧<sub>A</sub> ⊆ R<sub>A</sub></span></p>
+            <p>Here <code>P</code> is the program, <code>M</code> the model, <code>E</code> the controlled English, and <code>A</code> the assumptions. <code>Beh</code> denotes all complete observable executions; <code>α</code> maps implementation observations to the model's vocabulary; <code>R<sub>A</sub></code> is the set of executions satisfying the formal requirements under those assumptions. The chain establishes that the implementation satisfies those requirements. Requirements about completion add termination or progress obligations.</p>
+            <p>When synthesis or generation establishes these relations through checked refinement proofs as it constructs the implementation, the result is <strong>correct by construction with respect to the specification and assumptions</strong>. This is the approach illustrated by <a href="https://people.csail.mit.edu/bendy/Fiat/">proof-producing program refinement</a>. An independent proof can also establish correctness of code after it has been generated. For a finite system, exhaustive refinement checking can establish the relation across its complete declared domain.</p>
+            <p>A claim about a deployed build must explain how the proof reaches that executable, including the stated trust assumptions for compilation, the runtime, and the environment. <a href="https://compcert.org/man/manual001.html">Semantic preservation in verified compilation</a> provides one formal link in that chain.</p>
+            <p><strong>Evidence for this example:</strong> the completed check covers the 12 declared input combinations of the reservation model and the displayed rules and arrows. ZAL's <a href="https://github.com/TheDarkLightX/ZenoFCIS/blob/57a19ecc6aabfcd6e5107ce0e6135fe2c1a01beb/docs/zal/REFINEMENT.md">refinement guide</a> describes the additional comparison between a model and a generated application's behavior. That implementation comparison was not run for this page's example. The C² example remains a separate explanatory constraint.</p>
           </details>
         </article>
         <div class="project-grid">
