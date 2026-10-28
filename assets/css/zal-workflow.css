@@ -1,0 +1,37 @@
+#zal-workflow { scroll-margin-top: 84px; }
+.zal-workflow { margin: 0 0 2rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); }
+.zal-workflow .section-heading { margin-bottom: 1.5rem; }
+.zal-workflow h3 { font-size: clamp(1.35rem, 2.5vw, 1.8rem); line-height: 1.25; }
+.zal-workflow h4 { margin: 1.5rem 0 .65rem; font-size: 1rem; }
+.zal-workflow h4:first-child { margin-top: 0; }
+.zal-workflow p { color: var(--muted); }
+.zal-workflow a { text-underline-offset: .2em; }
+.zal-workflow code { overflow-wrap: anywhere; }
+.zal-example-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.zal-intent { margin: 0 0 1rem; padding: .1rem 0 .1rem 1rem; border-left: 2px solid var(--text); }
+.zal-intent p { color: var(--text); font-size: 1.1rem; line-height: 1.6; }
+.zal-label { font-size: .8rem; }
+.zal-english { border-top: 1px solid var(--line); }
+.zal-english p { margin: 0; padding: .8rem 0; border-bottom: 1px solid var(--line); font-size: .93rem; color: var(--text); line-height: 1.65; }
+.zal-state-figure { margin: 0; }
+.zal-state-figure svg { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; font-family: var(--font-sans, sans-serif); }
+.zal-state-figure marker path { fill: var(--text); }
+.zal-node { fill: var(--bg); stroke: var(--text); stroke-width: 1.5; }
+.zal-edge { fill: none; stroke: var(--text); stroke-width: 1.5; }
+.zal-reject { stroke-dasharray: 5 4; }
+.zal-state { fill: var(--text); font-size: 19px; font-weight: 600; }
+.zal-event { fill: var(--text); font-size: 16px; }
+.zal-loop-label, .zal-chart-note { fill: var(--muted); font-size: 14px; }
+.zal-state-figure figcaption { padding: .75rem 0; font-size: .82rem; color: var(--muted); line-height: 1.65; }
+.zal-review { margin-top: 1.5rem; }
+.zal-workflow .zal-scope { padding-left: 1rem; border-left: 2px solid var(--line); font-size: .88rem; }
+.zal-workflow details.sources { margin: 1rem 0 0; }
+.zal-workflow summary:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+.zal-source { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .82rem; line-height: 1.7; padding: 1rem 0; color: var(--text); }
+.zal-workflow .zal-formula { padding: 1rem; border: 1px solid var(--line); font-family: var(--font-mono); font-size: .95rem; color: var(--text); overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .zal-example-grid { grid-template-columns: minmax(0, 1fr); }
+  .zal-state-figure svg { max-width: 340px; }
+  .zal-workflow details.sources { padding: .25rem .8rem; }
+  .zal-workflow .zal-formula { padding: .75rem; font-size: .87rem; }
+}
