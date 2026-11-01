@@ -1,0 +1,16 @@
+{
+  "schema": "essay-cover/v1",
+  "essay": "essays/a-software-factory.html",
+  "asset": "assets/essays/software-factory-cover.webp",
+  "created_utc": "2026-11-01 21:03:49 UTC",
+  "provenance": "AI-generated editorial illustration",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: wide landscape editorial cover illustration for a minimalist personal website essay titled A Software Factory. Create a sophisticated Swiss modernist / Bauhaus abstract composition that conveys an assembly line of fallible proposals, deterministic inspection, rejected parts sent back for repair, and consistent accepted outputs. Scene: a completely flat near-white #fafafa background, ample quiet negative space. A delicate horizontal production rail links a small field of varied, slightly irregular open geometric modules to one precise black inspection frame; beyond the frame, a short orderly sequence of matching geometric modules continues on the rail. One imperfect module is diverted into a clearly readable, elegant return loop underneath the main rail, returning toward the input. Use only a few architectural elements, rigorously balanced geometry, crisp fine black and gray lines, restrained pale-gray solid fills, and at most one tiny muted dark-red #8a1a1a accent on the rejected module. This is an abstract editorial artwork, not a flowchart filled with boxes: make it feel intelligent, calm, spacious and beautifully composed, like a mid-century technical print reduced to its essence. Main visual occupies the middle band with generous upper and lower margins. Wide approximately 2:1 landscape composition. Flat vector-like raster illustration, sharp edges. No gradients, shadows, 3D, textures, grain, robots, human faces, literal factory buildings, cars, screens, circuit-board clichés, text, lettering, labels, numerals, logos, or watermark.",
+  "width": 1774,
+  "height": 887,
+  "bytes": 9346,
+  "source_png_sha256": "9d3e70cea077e8f5733491285a54ea25611ada31698406be65f8d5e9dc9870f2",
+  "webp_sha256": "aa485e332e79dae0bbc160a2a638b5f18e833ba104d35b0e0cfd9f5d3aaa91e2",
+  "encoding": "ImageMagick WebP quality 90; dimensions preserved; metadata stripped",
+  "alt": "Varied geometric parts approach a checking station. Matching circles leave it while a rejected red part follows a return loop for repair."
+}
