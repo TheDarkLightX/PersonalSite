@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Software Factory | Dana Edwards</title>
+  <meta name="description" content="The factory is just another kind of abstraction. Henry Ford, Six Sigma, and what software factories mean for ZenoFCIS." />
+  <link rel="canonical" href="https://www.danaedwards.info/essays/a-software-factory.html" />
+  <meta property="og:title" content="A Software Factory | Dana Edwards" />
+  <meta property="og:description" content="The factory is just another kind of abstraction. Henry Ford, Six Sigma, and what software factories mean for ZenoFCIS." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.danaedwards.info/essays/a-software-factory.html" />
+  <meta property="og:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Software Factory | Dana Edwards" />
+  <meta name="twitter:description" content="The factory is just another kind of abstraction. Henry Ford, Six Sigma, and what software factories mean for ZenoFCIS." />
+  <meta name="twitter:image" content="https://www.danaedwards.info/assets/dana-github-avatar.png" />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../assets/css/search-memory.css" />
+</head>
+<body class="search-essay">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-sticky>
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Dana Edwards home">
+        <img src="../assets/mark.svg" alt="" width="34" height="34" />
+        <span>Dana Edwards</span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#arc">Arc</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../value.html">Value</a>
+        <a href="../network.html">Network</a>
+        <a href="../ideas.html">Ideas</a>
+      </nav>
+      <div class="nav-right">
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container">
+      <a class="breadcrumb" href="../writing.html#essays">Back to Writing</a>
+      <p class="eyebrow">Essay 09 · Software factories</p>
+      <h1>A Software Factory</h1>
+      <p class="search-meta">Dana Edwards · <time datetime="2026-11-01">November 1, 2026</time></p>
+    </div></section>
+    <section class="section"><div class="container">
+      <article class="essay-prose" aria-label="A Software Factory essay">
+        <p class="lead search-lead" id="abstraction">The factory is just another kind of abstraction.</p>
+        <p>Humans gained control over nature by way of abstraction and then making tools. When you find you can generate electricity with a steam engine, now you have the practical ability to power factories and, eventually, robotics and computers. This is what happened the last time we made a similar level of discovery: it produced increased automation and accuracy.<sup><a href="#source-steam" aria-label="Source 1: steam power and electricity">1</a></sup></p>
+
+        <p>If software factories now exist, it means code becomes commoditized, mass produced. It's going to scale dramatically.</p>
+
+        <p id="ford">Think of each LLM like a human worker in a car factory under Henry Ford. Individual humans make a lot of mistakes. Ford and his engineers organized production around interchangeable parts, specialized tasks, and a moving assembly line. When organized the right way, the Model T could be mass produced at a much greater scale. This essay is inspired by Henry Ford's discoveries about organizing production.<sup><a href="#source-ford" aria-label="Source 2: Ford's moving assembly line">2</a></sup></p>
+
+        <p id="quality">I'm also inspired by Six Sigma's principles. Measure the defects, reduce variation, and improve the process. Credit goes to Bill Smith, Bob Galvin, and Mikel Harry for their work on Six Sigma at Motorola, and to Walter Shewhart and W. Edwards Deming for the earlier work on statistical quality control and improving production.<sup><a href="#source-quality" aria-label="Source 3: Six Sigma and statistical quality control">3</a></sup></p>
+
+        <p id="cisco">On October 30, 2026, <a href="https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/">Fortune reported</a> that Cisco's Jeetu Patel had given 27-year-old Padmanabhan Krishnamurthy unlimited AI tokens to refactor legacy code. The plan was for a two-person team, with a four-week demonstration and a goal of refactoring 98% of Cisco's legacy code within 24 months. That is why I think we are in that time now.<sup><a href="#source-cisco" aria-label="Source 4: Fortune's Cisco report">4</a></sup></p>
+
+        <p id="checkers">This is where LLMs are now. They make a lot of mistakes. But if organized right, with the right deterministic checkers, the final output of the factory can be software (or hardware) with a very low defect rate.</p>
+
+        <p id="zenofcis">That is the idea behind <a href="https://github.com/TheDarkLightX/ZenoFCIS">ZenoFCIS</a>. I am building a software factory where you describe the behavior you want, LLMs help produce the implementation, and deterministic checkers check the result against the specified behavior.<sup><a href="#source-zenofcis" aria-label="Source 5: ZenoFCIS and a factory-generated app">5</a></sup></p>
+
+        <p>The code that fails a check is like a part that fails inspection. It goes back to be fixed. The checks still have to check the right things. A factory can produce the wrong thing very accurately if its instructions are wrong. High assurance needs evidence for the properties being claimed.</p>
+
+        <p id="performance">And that defect rate being low is the high assurance part. Once you get that defect rate down, then it's all about increasing performance at low defect rates.</p>
+
+        <blockquote><p>A software factory. Every competent developer in the next few years will be using one.</p></blockquote>
+
+        <details class="essay-depth"><summary>The factory analogy, in four parts</summary>
+<!-- MENTAL_TOOLKIT_START -->
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<p class="eyebrow">Carry these ideas forward</p>
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four handles for the argument. Open a card to recover its definition, limits, and evidence.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card" id="idea-factory">
+<h3>The factory</h3>
+<p class="toolkit-symbol" aria-label="Workers, tools, then checked output">Workers → tools → checked output</p>
+<p class="toolkit-phrase">The factory is just another kind of abstraction.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> Organize LLMs, tools, and checks into a repeatable process for producing software.</p>
+<p><strong>Boundary.</strong> The Ford analogy explains the organization of production. It does not establish a software defect rate.</p>
+<p class="toolkit-links"><a href="#ford">Ford and the factory</a> · <a href="#zenofcis">ZenoFCIS</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-checkers">
+<h3>Deterministic checkers</h3>
+<p class="toolkit-symbol" aria-label="Produce, check, then repair">Produce → check → repair</p>
+<p class="toolkit-phrase">The checks still have to check the right things.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> LLMs help produce implementations. Checkers evaluate whether they satisfy the specified behavior.</p>
+<p><strong>Boundary.</strong> A verdict covers the specified properties within the stated model and assumptions. The human still has to judge whether the specification captures the intended behavior.</p>
+<p class="toolkit-links"><a href="#checkers">The inspection analogy</a> · <a href="meaning-before-mechanism.html">A generated app and its evidence</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-six-sigma">
+<h3>Six Sigma</h3>
+<p class="toolkit-symbol" aria-label="Measure, reduce variation, then improve">Measure → reduce variation → improve</p>
+<p class="toolkit-phrase">Measure the defects, reduce variation, and improve the process.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> The quality of the production process can be measured and improved along with the output.</p>
+<p><strong>Boundary.</strong> This is an influence on the approach. A measured sigma level would require defined defects, opportunities, and observations from the actual process.</p>
+<p class="toolkit-links"><a href="#source-quality">Credit and sources</a> · <a href="https://asq.org/quality-resources/six-sigma">ASQ on Six Sigma</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-performance">
+<h3>Increasing performance</h3>
+<p class="toolkit-symbol" aria-label="Low defect rates, then increasing performance">Low defect rates → increasing performance</p>
+<p class="toolkit-phrase">Once you get that defect rate down, then it&#x27;s all about increasing performance at low defect rates.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> Improve production speed, cost, and software performance while preserving the required checks.</p>
+<p><strong>Boundary.</strong> The Cisco example is a reported plan. Actual throughput and defect rates require their own measurements.</p>
+<p class="toolkit-links"><a href="#performance">The next step</a> · <a href="#source-cisco">Cisco report</a></p>
+</details></div>
+</div>
+<p class="toolkit-foot">The symbols are shorthand for the scoped definitions above. <a href="../data/essay-abstractions.json">Machine-readable cards</a>.</p>
+</section>
+<!-- MENTAL_TOOLKIT_END -->
+        </details>
+      </article>
+      <div class="essay-footnotes">
+        <p><strong>Authorship.</strong> The argument, original wording, and prediction are mine. An AI assistant helped with grammar, fact checking, citations, and continuing the analogy.</p>
+        <p id="source-steam"><sup>1</sup> Science and Industry Museum, <a href="https://www.scienceandindustrymuseum.org.uk/objects-and-stories/mapping-manchesters-engines">Mapping Manchester's engines</a>, on steam-powered factories and later electricity generation.</p>
+        <p id="source-ford"><sup>2</sup> The Henry Ford, <a href="https://askus.thehenryford.org/K12/faq/433848">Assembly Line research guide</a>, on Ford and his engineers combining existing methods in a moving assembly line in 1913.</p>
+        <p id="source-quality"><sup>3</sup> American Society for Quality, <a href="https://asq.org/quality-resources/six-sigma">Six Sigma</a>; Mikel J. Harry, <a href="https://asq.org/quality-progress/articles/six-sigma-a-breakthrough-strategy-for-profitability?id=bd6baa689df842a3905d068dd52d2120">Six Sigma: A Breakthrough Strategy for Profitability</a>, <em>Quality Progress</em>, May 1998; and ASQ, <a href="https://asq.org/quality-resources/history-of-quality">The History of Quality</a>.</p>
+        <p id="source-cisco"><sup>4</sup> Orianna Rosa Royle, <a href="https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/">Fortune's report on Cisco's legacy-code refactoring plan</a>, October 30, 2026. The 98% figure and 24-month timeframe are a reported goal. I take the ambition of that plan as a sign of the shift described here.</p>
+        <p id="source-zenofcis"><sup>5</sup> <a href="https://github.com/TheDarkLightX/ZenoFCIS">ZenoFCIS source</a> and <a href="meaning-before-mechanism.html">Meaning Before Mechanism</a>, a factory-generated app with its checks, evidence, and limits.</p>
+      </div>
+      <div class="essay-nav"><a href="meaning-before-mechanism.html">← Meaning Before Mechanism</a><a href="../writing.html#essays">All essays →</a></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards.</p><p>Engineer, philosopher, futurist.</p></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

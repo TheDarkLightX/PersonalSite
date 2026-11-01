@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-10-08",
+  "date": "2026-11-01",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -318,6 +318,87 @@
             {
               "label": "Pinned specification",
               "href": "#source-zal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/a-software-factory.html",
+      "cards": [
+        {
+          "id": "idea-factory",
+          "label": "The factory",
+          "symbol": "Workers → tools → checked output",
+          "symbol_reading": "Workers, tools, then checked output",
+          "phrase": "The factory is just another kind of abstraction.",
+          "meaning": "Organize LLMs, tools, and checks into a repeatable process for producing software.",
+          "boundary": "The Ford analogy explains the organization of production. It does not establish a software defect rate.",
+          "links": [
+            {
+              "label": "Ford and the factory",
+              "href": "#ford"
+            },
+            {
+              "label": "ZenoFCIS",
+              "href": "#zenofcis"
+            }
+          ]
+        },
+        {
+          "id": "idea-checkers",
+          "label": "Deterministic checkers",
+          "symbol": "Produce → check → repair",
+          "symbol_reading": "Produce, check, then repair",
+          "phrase": "The checks still have to check the right things.",
+          "meaning": "LLMs help produce implementations. Checkers evaluate whether they satisfy the specified behavior.",
+          "boundary": "A verdict covers the specified properties within the stated model and assumptions. The human still has to judge whether the specification captures the intended behavior.",
+          "links": [
+            {
+              "label": "The inspection analogy",
+              "href": "#checkers"
+            },
+            {
+              "label": "A generated app and its evidence",
+              "href": "meaning-before-mechanism.html"
+            }
+          ]
+        },
+        {
+          "id": "idea-six-sigma",
+          "label": "Six Sigma",
+          "symbol": "Measure → reduce variation → improve",
+          "symbol_reading": "Measure, reduce variation, then improve",
+          "phrase": "Measure the defects, reduce variation, and improve the process.",
+          "meaning": "The quality of the production process can be measured and improved along with the output.",
+          "boundary": "This is an influence on the approach. A measured sigma level would require defined defects, opportunities, and observations from the actual process.",
+          "links": [
+            {
+              "label": "Credit and sources",
+              "href": "#source-quality"
+            },
+            {
+              "label": "ASQ on Six Sigma",
+              "href": "https://asq.org/quality-resources/six-sigma"
+            }
+          ]
+        },
+        {
+          "id": "idea-performance",
+          "label": "Increasing performance",
+          "symbol": "Low defect rates → increasing performance",
+          "symbol_reading": "Low defect rates, then increasing performance",
+          "phrase": "Once you get that defect rate down, then it's all about increasing performance at low defect rates.",
+          "meaning": "Improve production speed, cost, and software performance while preserving the required checks.",
+          "boundary": "The Cisco example is a reported plan. Actual throughput and defect rates require their own measurements.",
+          "links": [
+            {
+              "label": "The next step",
+              "href": "#performance"
+            },
+            {
+              "label": "Cisco report",
+              "href": "#source-cisco"
             }
           ]
         }
