@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -399,6 +399,87 @@
             {
               "label": "Cisco report",
               "href": "#source-cisco"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/neural-networks-as-fuzzy-lookup-tables.html",
+      "cards": [
+        {
+          "id": "idea-same-function",
+          "label": "Same function",
+          "symbol": "For every admitted x: network(x) = table(x)",
+          "symbol_reading": "For every admitted input x, the network output equals the table output",
+          "phrase": "A change of representation can preserve every answer.",
+          "meaning": "A fixed deterministic computation on a finite input set can be represented by a complete input-output table.",
+          "boundary": "State and randomness must be fixed or included. The complete table may be too large to store.",
+          "links": [
+            {
+              "label": "Finite-domain argument",
+              "href": "#finite-domain"
+            },
+            {
+              "label": "NeuraLUT",
+              "href": "https://arxiv.org/abs/2403.00849v2"
+            }
+          ]
+        },
+        {
+          "id": "idea-programming-examples",
+          "label": "Programming by example",
+          "symbol": "Examples + objective → constructed behaviour",
+          "symbol_reading": "Examples and an objective guide construction of computational behaviour",
+          "phrase": "Examples can guide program construction.",
+          "meaning": "Training fits a computation to examples and an objective. Program synthesis can also construct programs from example requirements.",
+          "boundary": "This is the essay’s conceptual connection. The algorithms and guarantees of the two methods can differ.",
+          "links": [
+            {
+              "label": "The argument",
+              "href": "#programming"
+            },
+            {
+              "label": "Synthesis from Examples",
+              "href": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/wambse12.pdf"
+            }
+          ]
+        },
+        {
+          "id": "idea-programmable-weights",
+          "label": "Programmable weights",
+          "symbol": "Fit · edit · compile",
+          "symbol_reading": "Fit weights, edit weights, or compile operations into weights",
+          "phrase": "Weights can encode specified operations.",
+          "meaning": "Weights can be constructed by training, by direct edits, or by compilation.",
+          "boundary": "The cited projects report particular demonstrations. Their results do not establish arbitrary edits as correct or settle definitions of thought.",
+          "links": [
+            {
+              "label": "Weight-space programming",
+              "href": "https://rikiyat.github.io/blog/weight-space-programming/"
+            },
+            {
+              "label": "QwenPU documentation",
+              "href": "https://github.com/divagr18/QwenPU/blob/5af1fc0e0722ad1cc0d983394410c7fc331e08f2/README.md"
+            }
+          ]
+        },
+        {
+          "id": "idea-execution-correctness",
+          "label": "Execution and correctness",
+          "symbol": "Same answers ≠ correct answers",
+          "symbol_reading": "Matching answers do not necessarily mean correct answers",
+          "phrase": "A faithful implementation can preserve a mistake.",
+          "meaning": "The 40-table pilot matched its reference on all 256 input pairs while retaining prediction errors.",
+          "boundary": "Agreement covers the fixed classifier and declared inputs. It does not establish the intended comparison task as correct.",
+          "links": [
+            {
+              "label": "Pilot and counterexample",
+              "href": "#execution-checks"
+            },
+            {
+              "label": "Companion essay and manuscript scope",
+              "href": "https://thedarklightx.github.io/Formal_Methods_Philosophy/tutorials/fuzzy-lookup-tables-or-neural-networks/"
             }
           ]
         }

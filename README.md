@@ -33,6 +33,7 @@ tools/render_cost_estimates.py       Renders the Value cost section from the com
 docs/cost-estimates.md               Cost methodology, limitations, and replay instructions
 assets/blender/                     Original maze-checker and workflow-scaling illustrations
 writing.html                        Tutorial and interactive lab index
+essays/neural-networks-as-fuzzy-lookup-tables.html  Programmable weights, finite tables, and Tau execution checks
 essays/the-maze-that-remembers.html  Finite search, scientific memory, and AI scaling essay
 essays/research-taste-and-scientific-memory.html  TasteVal and the conditional value of research memory
 essays/abstraction-is-compression.html  Human-readable abstractions, containment synthesis, and linked evidence
