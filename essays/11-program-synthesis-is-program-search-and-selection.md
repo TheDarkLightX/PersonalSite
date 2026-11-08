@@ -108,7 +108,7 @@ This does not make search futile. It tells us what the real work is. Rather than
 
 Here the initial premise becomes concrete. Define a language of candidate programs **L**, a specification **Spec**, and a domain **D**. We want a program **p** such that:
 
-`p ∈ L &nbsp;and&nbsp; ∀x ∈ D, &nbsp; p(x) = Spec(x)`
+`p ∈ L ∧ ∀x ∈ D, p(x) = Spec(x)`
 
 We can also rank correct programs by size, execution time, memory use, readability, or some other cost. The synthesis problem is therefore both a **search problem** and a **selection problem**. Generating candidates is only part of it. We also need to know which candidates are correct, and then which correct candidate we prefer.
 
