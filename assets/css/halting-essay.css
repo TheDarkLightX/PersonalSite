@@ -1,50 +1,43 @@
-/* Illustrated computability essay: visual language shared with the Writing section.
-   Figure backgrounds follow abstraction-map.svg and neurosymbolic-loop.svg. */
-.halting-essay .page-hero { padding-bottom: 3.35rem; }
+/* A quieter treatment for the illustrated computability essay. */
+.halting-essay .page-hero { padding-bottom: 2rem; }
 .halting-essay .page-hero h1 { max-width: 22ch; font-size: clamp(2.55rem, 5vw, 4.6rem); line-height: 1.1; letter-spacing: -.037em; }
-.halting-essay .page-hero .lede { max-width: 790px; line-height: 1.55; }
-.halting-essay .essay-prose { max-width: 790px; margin-inline: auto; }
-.halting-essay .essay-prose p { line-height: 1.81; font-size: clamp(1rem, 1.35vw, 1.085rem); margin: 1.08rem 0; }
-.halting-essay .essay-prose h2 { font-size: clamp(1.52rem, 2.7vw, 2.1rem); margin-top: 3.5rem; padding-top: .4rem; line-height: 1.25; letter-spacing: -.022em; scroll-margin-top: 95px; }
-.halting-essay .essay-prose h3 { margin-top: 2rem; font-size: clamp(1.13rem, 2vw, 1.35rem); }
+.halting-essay .page-hero .lede { max-width: 720px; line-height: 1.55; }
+.halting-essay .essay-prose { max-width: 720px; margin-inline: auto; }
+.halting-essay .essay-prose p { line-height: 1.78; font-size: clamp(1rem, 1.35vw, 1.06rem); }
+.halting-essay .essay-prose .lead { color: var(--text); font-size: 1.12rem; line-height: 1.7; }
+.halting-essay .essay-prose h2 { font-size: clamp(1.45rem, 2.5vw, 1.9rem); line-height: 1.25; letter-spacing: -.018em; margin-top: 3.2rem; }
 .halting-essay .essay-prose a { text-underline-offset: .18em; }
-.halting-essay .essay-prose pre { overflow-x: auto; padding: 1.15rem 1.3rem; background: #192b34; color: #f1f6f7; border-left: 3px solid #a5c2b0; border-radius: 3px; font-size: .95rem; line-height: 1.65; }
-.halting-essay .essay-prose code { font-size: .9em; }
-.halting-essay .hl-formula { padding: 1.2rem .8rem; margin: 1.65rem 0; background: var(--bg-soft); border-block: 1px solid var(--line); font: 600 clamp(1.02rem, 2.4vw, 1.36rem)/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; text-align: center; overflow-x: auto; }
-.halting-essay .visual-intro { display:block; width:100%; height:auto; max-width:1200px; margin: 0 auto 2rem; background: #faf9f5; border: 1px solid var(--line); }
-.halting-essay .essay-prose figure.hl-min-figure { margin: 2.1rem 0 2.5rem; }
-.halting-essay .hl-min-figure > img { display:block; width:100%; height:auto; max-width:720px; margin:0 auto; border:1px solid #d9ded6; border-radius:0; background:#faf9f5; box-shadow:none; }
-.halting-essay .essay-prose .hl-min-figure figcaption { text-align:left; color:var(--muted); font-size:.89rem; line-height:1.55; margin:.68rem auto 0; max-width:720px; }
-.halting-essay .hl-min-figure .fig-no { color:var(--text); font-weight:650; }
-.halting-essay .hl-toc { margin:1.4rem 0 0; padding:.65rem 0 0; border-top:1px solid var(--line); max-width:790px; }
-.halting-essay .hl-toc summary { min-height:40px; cursor:pointer; font-weight:650; color:var(--text); }
-.halting-essay .hl-toc nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem 1.35rem; padding:.6rem 0 1.2rem; }
-.halting-essay .hl-toc nav a { font-size:.87rem; line-height:1.5; }
-.halting-essay .source-list { padding-left:1.5rem; }
-.halting-essay .source-list li { margin:.75rem 0; line-height:1.62; overflow-wrap:anywhere; }
-.halting-essay .further-reading { border-top:1px solid var(--line); margin-top:3.8rem; padding-top:1rem; }
-.halting-essay .author-note { margin-top:2.2rem; padding:1rem 0 0; border-top:1px solid var(--line); color:var(--muted); }
-.halting-essay .author-note p { font-size:.91rem; }
-.halting-essay .essay-nav { display:flex; justify-content:space-between; gap:1.2rem; flex-wrap:wrap; padding-top:1.1rem; margin-top:2rem; border-top:1px solid var(--line); }
-.halting-essay .essay-nav a { font-weight:650; }
-.halting-essay .little-kicker { display:block; color:#086451; font-size:.77rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.55rem; }
-.halting-essay .fate-simulator { margin:2.15rem 0 2.55rem; padding:1.4rem 1.5rem 1.45rem; border:1px solid #cbd0c8; background:#faf9f5; color:#242b2b; }
-.halting-essay .fate-simulator h3 { margin:.25rem 0 .6rem; font-size:1.42rem; color:#242b2b; }
-.halting-essay .fate-simulator p { margin:.45rem 0 .9rem; font-size:.96rem; line-height:1.65; color:#58615e; }
-.halting-essay .prediction-buttons { display:flex; flex-wrap:wrap; gap:.65rem; margin:1.05rem 0; }
-.halting-essay .prediction-buttons button { color:#242b2b; background:#fffefa; border:1.5px solid #84938b; border-radius:3px; padding:.8rem 1rem; font-size:.9rem; font-weight:700; cursor:pointer; min-height:44px; }
-.halting-essay .prediction-buttons button[aria-pressed="true"] { border-color:#086451; background:#e5eee7; color:#064c3e; }
-.halting-essay .prediction-buttons button:hover { border-color:#086451; }
-.halting-essay .prediction-buttons button:focus-visible { outline:3px solid #086451; outline-offset:3px; }
-.halting-essay .fate-output { padding:1rem 1.12rem; border-left:3px solid #93422c; background:#f6ebe6; min-height:92px; }
-.halting-essay .fate-output strong { color:#93422c; }
-.halting-essay .fate-output p { margin:.35rem 0 0; color:#242b2b; font-size:.96rem; }
-@media(max-width:650px) {
-  .halting-essay .page-hero h1 { font-size:clamp(2.25rem, 10vw, 3.65rem); }
-  .halting-essay .hl-toc nav { grid-template-columns:1fr; }
-  .halting-essay .hl-min-figure > img { max-width:100%; }
-  .halting-essay .essay-prose figure.hl-min-figure { margin:1.65rem 0 2.05rem; }
-  .halting-essay .fate-simulator { padding:1.1rem; }
-  .halting-essay .prediction-buttons button { flex:1 1 160px; }
+.halting-essay .essay-prose pre { overflow-x: auto; padding: 1.1rem 1.25rem; font-size: .9rem; line-height: 1.65; }
+.halting-essay .hl-toc { margin: 1.4rem 0 0; padding: .7rem 0 0; border-top: 1px solid var(--line); max-width: 720px; }
+.halting-essay .hl-toc summary { min-height: 40px; cursor: pointer; font-weight: 600; color: var(--text); }
+.halting-essay .hl-toc nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 1.35rem; padding: .6rem 0 1.2rem; }
+.halting-essay .hl-toc nav a { font-size: .87rem; line-height: 1.5; }
+.halting-essay .essay-prose figure.halting-cover { margin: 2rem 0 2.6rem; }
+.halting-essay .visual-intro { display: block; width: 100%; height: auto; max-width: none; border: 1px solid var(--line); background: #faf9f5; }
+.halting-essay .halting-cover figcaption, .halting-essay .hl-min-figure figcaption { text-align: left; color: var(--muted); font-size: .87rem; line-height: 1.55; margin: .65rem 0 0; }
+.halting-essay .essay-prose figure.hl-min-figure { margin: 2rem 0 2.4rem; }
+.halting-essay .hl-min-figure > img { display: block; width: 100%; height: auto; max-width: none; border: 1px solid var(--line); background: #faf9f5; box-shadow: none; }
+.halting-essay .essay-depth pre { color: var(--text); background: var(--surface-2); border: 1px solid var(--line); }
+.halting-essay .fate-simulator { margin: .8rem 0 .3rem; }
+.halting-essay .prediction-buttons { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1rem 0; }
+.halting-essay .prediction-buttons button { color: var(--text); background: var(--surface); border: 1px solid var(--line-strong); padding: .72rem .95rem; font: inherit; font-size: .9rem; cursor: pointer; min-height: 44px; }
+.halting-essay .prediction-buttons button[aria-pressed="true"] { border-color: #527969; box-shadow: inset 0 0 0 1px #527969; }
+.halting-essay .prediction-buttons button:hover { border-color: var(--text); }
+.halting-essay .prediction-buttons button:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.halting-essay .fate-output { padding: .75rem 1rem; border-left: 2px solid #527969; background: var(--surface-2); }
+.halting-essay .fate-output p { margin: .3rem 0 0; font-size: .95rem; }
+.halting-essay .toolkit-card h3 { margin: 0 0 .7rem; }
+.halting-essay .toolkit-card p { font-size: .9rem; line-height: 1.6; }
+.halting-essay .source-list { padding-left: 1.5rem; }
+.halting-essay .source-list li { margin: .75rem 0; line-height: 1.62; overflow-wrap: anywhere; }
+.halting-essay .further-reading { border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1rem; }
+.halting-essay .author-note { margin-top: 2.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); }
+.halting-essay .author-note p { font-size: .91rem; }
+.halting-essay .essay-nav { display: flex; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; padding-top: 1.1rem; margin-top: 2rem; border-top: 1px solid var(--line); }
+.halting-essay .essay-nav a { font-weight: 600; }
+@media (max-width: 650px) {
+  .halting-essay .page-hero h1 { font-size: clamp(2.25rem, 10vw, 3.65rem); }
+  .halting-essay .hl-toc nav { grid-template-columns: 1fr; }
+  .halting-essay .essay-prose figure.hl-min-figure { margin: 1.6rem 0 2rem; }
+  .halting-essay .prediction-buttons button { flex: 1 1 170px; }
 }
-@media(prefers-reduced-motion:reduce) { .halting-essay * { scroll-behavior:auto !important; } }

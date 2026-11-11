@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Chrome QA for the external SVG artwork and its responsive essay layout.
 
-Runs without credentials. Every figure is rendered in a real browser; every
-SVG label is checked for clipping and the contact sheet preserves visual QA.
+Runs without credentials. Each explanatory figure is rendered in a real browser; SVG labels are
+checked for clipping and a contact sheet preserves visual QA.
 """
 from __future__ import annotations
 
@@ -21,13 +21,14 @@ from selenium.common.exceptions import ElementClickInterceptedException
 ROOT = Path(__file__).resolve().parents[1]
 ARTICLE = ROOT / "essays/why-cant-a-turing-machine-predict-its-own-death.html"
 ASSETS = ROOT / "assets/essays/halting-paradox"
+FIGURES = ("prediction", "waiting", "repeated-state")
 
 
 def check_article(browser, width: int, height: int, output: Path) -> None:
     browser.set_window_size(width, height)
     browser.get(ARTICLE.as_uri())
     WebDriverWait(browser, 15).until(
-        lambda d: len(d.find_elements(By.CSS_SELECTOR, ".hl-min-figure img")) == 12
+        lambda d: len(d.find_elements(By.CSS_SELECTOR, ".hl-min-figure img")) == len(FIGURES)
     )
     # Lazy-loaded SVGs below the fold are intentionally incomplete until
     # scrolled into view. Visit all figures before checking natural dimensions.
@@ -50,7 +51,7 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
         const img = figure.querySelector('img');
         const rect = img.getBoundingClientRect();
         const caption = figure.querySelector('figcaption');
-        if (!img.complete || img.naturalWidth !== 720 || img.naturalHeight < 300)
+        if (!img.complete || img.naturalWidth !== 720 || img.naturalHeight < 200)
           problems.push('Figure '+(i+1)+' did not load or has wrong natural dimensions');
         if (rect.width > innerWidth + 2)
           problems.push('Figure '+(i+1)+' overflows viewport');
@@ -73,7 +74,10 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
     """)
     if result["problems"]:
         raise AssertionError(f"{width}px: {result['problems']}")
-    for guess, expected in (("halts", "D loops forever"), ("loops", "D halts")):
+    details = browser.find_element(By.CSS_SELECTOR, "#prediction-experiment > summary")
+    browser.execute_script("arguments[0].scrollIntoView({block:'center',behavior:'instant'});", details)
+    details.click()
+    for guess, expected in (("halts", "D runs forever"), ("loops", "D halts")):
         button = browser.find_element(By.CSS_SELECTOR, f'[data-prediction="{guess}"]')
         browser.execute_script(
             "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", button
@@ -88,7 +92,7 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
 
     # The existing site script makes figures keyboard-zoomable. Verify the
     # same viewer rather than adding a competing link or nested button.
-    central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[4]
+    central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[0]
     browser.execute_script(
         "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", central
     )
@@ -103,7 +107,7 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
     if modal.is_displayed():
         raise AssertionError("Enlarged figure dialog did not close")
     output.mkdir(parents=True, exist_ok=True)
-    central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[4]
+    central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[0]
     browser.execute_script(
         "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", central
     )
@@ -117,8 +121,8 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
 def check_artwork(browser, output: Path) -> None:
     """Read each SVG directly in Chrome to inspect actual glyph geometry."""
     gallery = []
-    for i in range(1, 13):
-        file = ASSETS / f"figure-{i:02d}.svg"
+    for i, name in enumerate(FIGURES, 1):
+        file = ASSETS / f"{name}.svg"
         browser.set_window_size(1050, 900)
         browser.get(file.as_uri())
         result = browser.execute_script("""
@@ -152,7 +156,7 @@ def check_artwork(browser, output: Path) -> None:
         if result["errors"]:
             raise AssertionError(f"SVG {i:02d}: {result['errors']}")
         element = browser.find_element(By.TAG_NAME, "svg")
-        shot = output / f"figure-{i:02d}.png"
+        shot = output / f"{name}.png"
         element.screenshot(str(shot))
         picture = Image.open(shot).convert("RGB")
         # A cream background with no actual content would have almost no
@@ -186,7 +190,7 @@ def check_artwork(browser, output: Path) -> None:
         raise AssertionError(str(cover["problems"]))
     browser.find_element(By.TAG_NAME,"svg").screenshot(str(output / "minimalist-cover.png"))
 
-    sheet = Image.new("RGB",(1174,6*430),"#f0f0ec")
+    sheet = Image.new("RGB",(1174,2*430),"#f0f0ec")
     draw = ImageDraw.Draw(sheet)
     for i,img in enumerate(gallery):
         x=14+(i%2)*585
@@ -211,7 +215,7 @@ def main():
         check_artwork(driver,args.output)
     finally:
         driver.quit()
-    print("PASS: responsive article, interaction, and all 12 SVG illustrations.")
+    print("PASS: responsive article, interaction, and all explanatory SVG illustrations.")
 
 
 if __name__=="__main__":

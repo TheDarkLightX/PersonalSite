@@ -3,12 +3,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Why Can't a Turing Machine Predict Its Own Death? | Dana Edwards</title>
-<meta name="description" content="An illustrated essay on effective human and machine computation, the unbounded tape, Turing's halting argument, Gödel's incompleteness theorems, and what these results do and do not imply about nature." />
+<meta name="description" content="A clear, illustrated explanation of the halting problem, effective computation, Gödel's incompleteness theorems, and the limits of prediction." />
 <meta name="author" content="Dana Edwards" />
 <link rel="canonical" href="https://www.danaedwards.info/essays/why-cant-a-turing-machine-predict-its-own-death.html" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Why Can't a Turing Machine Predict Its Own Death? | Dana Edwards" />
-<meta property="og:description" content="An illustrated essay on effective human and machine computation, the unbounded tape, Turing's halting argument, Gödel's incompleteness theorems, and what these results do and do not imply about nature." />
+<meta property="og:description" content="A clear, illustrated explanation of the halting problem, effective computation, Gödel's incompleteness theorems, and the limits of prediction." />
 <meta property="og:url" content="https://www.danaedwards.info/essays/why-cant-a-turing-machine-predict-its-own-death.html" />
 <meta property="og:image" content="https://www.danaedwards.info/assets/essays/halting-paradox/cover.svg" />
 <meta property="article:published_time" content="2026-11-11" />
@@ -32,165 +32,119 @@
 <a class="breadcrumb" href="../writing.html#essays">Back to Writing</a>
 <p class="eyebrow">Essay 12 · Computability, proof, and nature</p>
 <h1>Why Can't a Turing Machine Predict Its Own Death?</h1>
-<p class="lede">Give a machine an unbounded tape and let it inspect its own code. Why can't it reliably predict whether it will stop?</p>
-<p class="search-meta">Dana Edwards · <time datetime="2026-11-11">November 11, 2026</time> · Illustrated essay and interactive experiment</p>
+<p class="lede">A machine can predict the end of some computations. Why can't one procedure predict the end of all of them?</p>
+<p class="search-meta">Dana Edwards · <time datetime="2026-11-11">November 11, 2026</time> · Illustrated essay</p>
 <details class="hl-toc"><summary>Explore the argument</summary><nav aria-label="Essay sections">
 <a href="#what-is-computation">What is computation?</a>
-<a href="#unbounded-tape">What the infinite tape means</a>
-<a href="#what-can-be-predicted">Which predictions are possible?</a>
+<a href="#what-can-be-predicted">The prediction</a>
 <a href="#the-contradiction">The contradiction</a>
-<a href="#cant-we-just-run-it">Why simulation is insufficient</a>
-<a href="#godel">Gödel's incompleteness</a>
-<a href="#proof-search">A theorem becomes a program</a>
-<a href="#programs-and-proofs">Programs and proofs</a>
-<a href="#where-decidability-returns">Decidable fragments</a>
-<a href="#what-nature-allows">What this says about nature</a>
+<a href="#cant-we-just-run-it">Why not wait and see?</a>
+<a href="#godel">Gödel and proof</a>
+<a href="#where-decidability-returns">What can we still know?</a>
+<a href="#what-nature-allows">What about nature?</a>
 </nav></details>
 </div></section>
 <section class="section"><div class="container"><article class="essay-prose" aria-label="Why Can't a Turing Machine Predict Its Own Death?">
-<img class="visual-intro" src="../assets/essays/halting-paradox/cover.svg" width="1200" height="630" alt="A minimalist cream cover shows a halting predictor and its two self-defeating answers: when H predicts halt, D loops; when H predicts loop, D halts." loading="eager" />
-<p>Picture a machine reading its own source code. Its tape has no preset end, and it can use more space as the calculation proceeds. Ask it whether it will ever execute its last instruction. Sometimes that question has an easy answer. Yet no effective procedure can answer it correctly for <em>every</em> possible program.</p>
-<p>At first, this sounds like a shortage of resources. Perhaps more memory, faster hardware, or a cleverer analysis would solve it. Turing's result survives a machine with an unbounded tape. The obstacle is logical: we can construct a program that acts against the prediction it receives.</p>
-<p>Here, <em>death</em> means the end of a computation. It is a metaphor, not a claim about biological mortality or mechanical failure. Individual machines can sometimes predict their own termination. The theorem rules out one computable halting predictor that always answers correctly for every program and input.</p>
+<p class="lead search-lead">A program can stop, or it can keep running forever. Sometimes we can tell which will happen just by reading it. But there is no single algorithm that can correctly answer that question for every program and every input.</p>
+<p>That is the halting problem. It remains unsolvable even if we imagine a machine with as much memory as its calculation needs. To see why, we can build a program that does the opposite of what the supposed predictor says.</p>
+<figure class="halting-cover">
+  <img class="visual-intro" src="../assets/essays/halting-paradox/cover.svg" width="1200" height="390" alt="A read-write head points to one cell on a tape that continues in both directions." />
+  <figcaption>An unbounded tape provides more room for a computation, one step at a time.</figcaption>
+</figure>
 
 <h2 id="what-is-computation">What is computation?</h2>
-<p>An effective computation follows a finite set of exact instructions. In the usual deterministic model, the current state determines the next step. A person working with paper and pencil can carry out such a procedure. So can a machine. Adding 12 and 7 is the same calculation whether a human writes the result or a processor stores it in a register.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-01.svg" width="720" height="381" loading="lazy" decoding="async" alt="A simple three-step recipe reads two numbers, adds them and writes nineteen. A human and a machine each execute the same rules and obtain nineteen." />
-  <figcaption><span class="fig-no">Figure 01.</span> One finite recipe produces the same output when a person or machine follows it. The executor changes, but the rule does not.</figcaption>
-</figure>
-<p>The <em>instructions</em> have a finite description. Their <em>execution</em> need not be finite. A program can run forever, even though its source code fits on a page. To compute a defined output effectively, the procedure must produce that output after finitely many steps. This distinction will matter when we reach the halting problem.</p>
-<p>In <a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf"><em>Effective Computation by Humans and Machines</em></a>, philosopher Oron Shagrir describes the history behind this idea. Church's lambda calculus, Kleene's recursive functions, Post's finite combinatory processes, and Turing machines arrived at equivalent classes of computable functions. Shagrir also makes a useful historical point: early analyses focused on the idealized <em>human computer</em> following mechanical rules, whereas later formulations often speak of machine computation. The abstract procedure is what connects them. (<a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf">Shagrir, §1</a>)</p>
-<p>Calling a human a computer in this sense does not mean every kind of human thought has been shown to be algorithmic. It means that when someone follows an effective calculation, they are computing.</p>
+<p>Computation is a process of following exact rules to transform information. An <em>effective procedure</em> is a finite set of instructions that can be followed mechanically. Adding two numbers is one: a person with pencil and paper or a machine can follow the same rules and reach the same answer.</p>
+<p>The instructions can be finite even when the process never finishes. For a procedure to compute an answer on a given input, it must produce that answer after a finite number of steps.</p>
+<p id="unbounded-tape">A Turing machine is a simple mathematical model of such a process. It reads and writes symbols on a tape according to a fixed set of rules. The tape has no fixed storage limit, but the machine still takes one step at a time. After any finite number of steps, it has used only a finite portion.</p>
+<p>In <a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf"><em>Effective Computation by Humans and Machines</em></a>, philosopher Oron Shagrir traces how this idea developed from the ideal of a human following mechanical rules to questions about machine computation. Following a procedure is a form of computation; this does not establish that all human thought is algorithmic.</p>
 
-<h2 id="unbounded-tape">Unlimited tape, one step at a time</h2>
-<p>A Turing machine has a finite set of states and transition rules. The tape has no preset last cell. At each step the machine reads a symbol, changes its state, may write a symbol, and moves its head. After any finite number of steps, it has visited only finitely many cells.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-02.svg" width="720" height="338" loading="lazy" decoding="async" alt="A row of cells has no fixed endpoint. A subset is highlighted as already visited and a head points at one cell." />
-  <figcaption><span class="fig-no">Figure 02.</span> An unbounded tape has no fixed last cell. Every finite execution still visits only finitely many cells.</figcaption>
-</figure>
-<p>A program may contain only a few instructions and still run without end. The tape removes a fixed storage ceiling, but execution remains a sequence of individual steps.</p>
+<h2 id="what-can-be-predicted">The prediction we want</h2>
+<p>Some predictions are easy. A program that immediately returns will halt. An unconditional loop with no exit will run forever.</p>
+<p>Now ask for much more: a predictor we will call <code>H</code>. Give it <em>any</em> program and input. It must finish its own analysis and answer either “halts” or “runs forever.” It must be right every time.</p>
+<p>Being right when it answers is not enough. A predictor that sometimes runs forever itself, or says “I don't know,” has not solved this problem.</p>
 
-<h2 id="what-can-be-predicted">What can a machine predict?</h2>
-<p>Some programs tell us their fate immediately. A program containing only <code>return</code> halts. An unconditional loop with no exit runs forever. Neither case requires us to solve an undecidable problem.</p>
+<h2 id="the-contradiction">A prediction designed to fail</h2>
+<p>Suppose <code>H</code> exists. We can use it to construct another program, <code>D</code>. Give <code>D</code> a program's description. It asks <code>H</code> what that program will do when given its own description as input. Then <code>D</code> does the opposite: if <code>H</code> predicts a halt, it loops; if <code>H</code> predicts a loop, it halts.</p>
+<p>Now give <code>D</code> its own description. Call that description <code>d</code>. What does <code>H</code> predict for <code>D(d)</code>?</p>
 <figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-03.svg" width="720" height="390" loading="lazy" decoding="async" alt="Two individual examples with known behavior, an immediate return and an unconditional loop, contrast with the impossibility of a universal decision algorithm." />
-  <figcaption><span class="fig-no">Figure 03.</span> The outcomes of individual programs may be easy to establish. A single decider for all programs is impossible.</figcaption>
+  <img src="../assets/essays/halting-paradox/prediction.svg" width="720" height="350" loading="lazy" decoding="async" alt="If the predictor says D given its own description halts, D runs forever. If the predictor says D runs forever, D halts. Either prediction is wrong." />
+  <figcaption>Both possible predictions fail. Each row follows the behavior built into D.</figcaption>
 </figure>
-<p>Turing's result begins with a stronger demand. Imagine an algorithm <code>H</code> that receives the code of any program <code>P</code> and an input <code>x</code>. It always finishes its analysis and answers whether <code>P(x)</code> will halt. It must be correct for every possible pair.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-04.svg" width="720" height="406" loading="lazy" decoding="async" alt="The hypothetical decider H takes any program and input and must always answer one for halts or zero for loops." />
-  <figcaption><span class="fig-no">Figure 04.</span> The proposed predictor H must decide every program and input, correctly and in finite time.</figcaption>
-</figure>
-<div class="hl-formula" role="math" aria-label="H of P comma x equals one if P on x halts, and zero if P on x runs forever.">H(P, x) = 1 if P(x) halts; 0 otherwise</div>
-<p>There are two demands here: the answer must be right, and the prediction procedure must itself finish. A process that occasionally says “I don't know” can be useful, but it does not meet this specification.</p>
-
-<h2 id="the-contradiction">The machine that contradicts its own forecast</h2>
-<p>Assume <code>H</code> exists. We can now write a new program <code>D</code>. It asks <code>H</code> what will happen when the supplied program receives its own description as input, then deliberately does the opposite.</p>
+<p>If <code>H</code> says “halts,” <code>D(d)</code> runs forever. If <code>H</code> says “runs forever,” <code>D(d)</code> halts. Either answer is wrong. Since <code>H</code> was supposed to finish and be right for every program and input, it cannot exist.</p>
+<p>The program does not somehow halt and run forever at once. The contradiction tells us that our starting assumption, a universal predictor with those guarantees, was impossible. The construction is an example of <em>diagonalization</em>: it uses a proposed general method to create a case that defeats it.</p>
+<details class="essay-depth" id="construction-code"><summary>See the construction in code</summary>
+<p>Here <code>H</code> is the hypothetical predictor. The input <code>code</code> is a description of a program; <code>H(code, code)</code> asks what that program does on its own description.</p>
 <pre><code>def D(code):
-    if H(code, code) == 1:
+    if H(code, code) == "halts":
         while True:
-            pass     # H predicted halt; D loops.
+            pass
     else:
-        return       # H predicted loop; D halts.</code></pre>
-<p>This is pseudocode: <code>H</code> is the hypothetical universal predictor that we are about to disprove. Now run <code>D</code> on its own description, <code>d</code>. The predicted execution is <code>D(d)</code>.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-05.svg" width="720" height="532" loading="lazy" decoding="async" alt="Both branches of the diagonal argument: if H predicts halt, D loops; if H predicts loop, D halts. Both predictions are wrong." />
-  <figcaption><span class="fig-no">Figure 05.</span> Whichever answer H gives about D, D behaves oppositely. A universally correct H cannot exist.</figcaption>
-</figure>
-<p>If <code>H(d,d)</code> says “halts,” <code>D(d)</code> runs forever. If it says “runs forever,” <code>D(d)</code> stops. No prediction satisfies its own specification.</p>
-<div class="hl-formula" role="math" aria-label="H of d d equals one if and only if H of d d equals zero.">H(d, d) = 1 ⇔ H(d, d) = 0</div>
-<p>The program has not somehow begun to halt and run forever at the same time. We reached a contradiction because we assumed a universally correct, terminating, computable predictor existed. So that predictor cannot exist.</p>
+        return</code></pre>
+<p>Give <code>D</code> its own description <code>d</code>. Because <code>H</code> is assumed to terminate on every input, the call <code>H(d, d)</code> must return one of the two answers. Each leads to the opposite behavior.</p>
+</details>
+<details class="essay-depth" id="prediction-experiment"><summary>Try the two predictions</summary>
 <div class="fate-simulator" role="group" aria-label="Test the halting prediction">
-<span class="little-kicker">Interactive thought experiment</span>
-<h3>Make the prediction</h3>
-<p>Suppose you are the universal predictor <code>H</code>. What do you predict about the constructed program <code>D(d)</code>? Choose either answer. The program acts on it.</p>
-<div class="prediction-buttons"><button type="button" data-prediction="halts" aria-pressed="false">I predict HALTS</button><button type="button" data-prediction="loops" aria-pressed="false">I predict LOOPS</button></div>
-<div class="fate-output" id="fate-output" aria-live="polite"><strong>Choose a prediction above.</strong><p>This is a two-case logical demonstration. It does not execute an infinite loop.</p></div>
-<noscript><p>If H predicts HALTS, D loops, so H is wrong. If H predicts LOOPS, D halts, so H is also wrong.</p></noscript>
-</div>
-<p>We asked whether the machine could predict its own <em>death</em>. The proof is about whether a program halts at all. A universal algorithm that correctly supplied the exact halting time for every program, together with a way to report nontermination, would solve that weaker yes-or-no question too. It is therefore impossible for the same reason.</p>
+<p>Predict what <code>D(d)</code> will do. The thought experiment shows how D responds to that answer.</p>
+<div class="prediction-buttons"><button type="button" data-prediction="halts" aria-pressed="false">I predict halts</button><button type="button" data-prediction="loops" aria-pressed="false">I predict runs forever</button></div>
+<div class="fate-output" id="fate-output" aria-live="polite"><strong>Choose a prediction.</strong><p>This demonstration does not run an infinite loop.</p></div>
+<noscript><p>If the prediction is “halts,” D loops. If it is “runs forever,” D halts.</p></noscript>
+</div></details>
+<p>I use <em>death</em> as a metaphor for the end of a computation. The result does not say that every machine is unable to predict its own end. A program can, for example, count down from ten and stop. The impossibility concerns a single computable procedure that decides the question for <em>all</em> programs and inputs. An algorithm that always gave the exact stopping step, while also identifying programs that never stop, would solve the same yes-or-no problem. It cannot exist either.</p>
 
-<h2 id="cant-we-just-run-it">Why not run the program and see?</h2>
-<p>Simulation can confirm a halt. Execute the program until it stops, and you have a finite witness. Nontermination is harder to establish this way. After a million steps, a program might halt on step 1,000,001. After a trillion, it might halt on the next one.</p>
+<h2 id="cant-we-just-run-it">Why not wait and see?</h2>
+<p>Running a program can tell us that it halts: eventually, we see it stop. But observing it run for a million steps does not tell us whether it will stop on the next step. The same is true after a trillion steps, or any other finite wait.</p>
 <figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-06.svg" width="720" height="356" loading="lazy" decoding="async" alt="A timeline of finitely many observed steps ends at N. The next step, N plus one, remains unknown and could halt." />
-  <figcaption><span class="fig-no">Figure 06.</span> Seeing a program run for any finite number of steps cannot establish that it will never stop.</figcaption>
+  <img src="../assets/essays/halting-paradox/waiting.svg" width="720" height="280" loading="lazy" decoding="async" alt="A timeline reaches N observed steps while the program is still running. Beyond N, the unobserved future may contain a halt." />
+  <figcaption>At any finite observation point, the program may still stop later. Waiting alone cannot establish that it runs forever.</figcaption>
 </figure>
-<p>A proof of nontermination can sometimes be short. A loop invariant can show that an exit condition is unreachable. A finite-state machine that revisits the same <em>complete</em> state must repeat the same future execution. But there is no algorithm that finds a correct termination or nontermination proof for every arbitrary program.</p>
+<p>We can sometimes prove nontermination without waiting forever. An invariant may show that an exit condition is unreachable. The point is that no algorithm can settle every case correctly and always finish.</p>
 
-<h2 id="godel">Gödel was studying a related problem</h2>
-<p>In 1931, Kurt Gödel asked what a formal mathematical system can establish using its own axioms and proof rules. A proof is a finite sequence of justified steps. Such proofs can be encoded as integers and checked mechanically.</p>
-<p>Gödel used that machinery to construct a sentence <code>G</code> that, in effect, says it has no proof within a particular formal theory <code>T</code>. The crucial ingredient is a way for arithmetic to express facts about arithmetic proofs.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-07.svg" width="720" height="395" loading="lazy" decoding="async" alt="A formal theory T supplies proof rules. Its Gödel sentence G expresses that G has no proof in T." />
-  <figcaption><span class="fig-no">Figure 07.</span> Arithmetic can encode statements about formal proofs. Gödel's sentence expresses its own unprovability in T.</figcaption>
-</figure>
-<div class="hl-formula" role="math" aria-label="G is equivalent within T to not provable in T of the Gödel number of G.">T ⊢ G ↔ ¬Prov<sub>T</sub>(⌜G⌝)</div>
-<p>If <code>T</code> is consistent and meets the standard technical conditions, it cannot prove this Gödel sentence. In the standard interpretation of arithmetic, the sentence is true. That conclusion concerns what can be derived inside <code>T</code>, not what could be established with stronger axioms.</p>
-<p>Both proofs turn the system's expressive power against a proposed universal claim. Gödel encoded sentences and proofs as arithmetic, then constructed a sentence about its own provability. Turing encoded programs as data, then built a program that defeats the purported predictor. This is <em>diagonalization</em>: select a case that disagrees with any proposed answer in the critical position.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-08.svg" width="720" height="454" loading="lazy" decoding="async" alt="Two rows compare Gödel's self-referential sentence with Turing's self-defeating predictor." />
-  <figcaption><span class="fig-no">Figure 08.</span> Both arguments use an encoding and a diagonal construction to defeat a universal assertion.</figcaption>
-</figure>
-<p>Self-reference alone causes no trouble. A program can print its own source code. The contradiction comes from the specific move of negating or reversing a universal claim.</p>
+<h2 id="godel">Where does Gödel fit?</h2>
+<p>Gödel's incompleteness theorems ask a related question about proof: what can a formal mathematical system establish from its own rules? Gödel showed that sufficiently expressive, consistent theories with mechanically checkable proofs have limits on what they can prove. Turing's result concerns what an algorithm can decide. The questions are different, but both use precise descriptions of symbolic systems to expose a limit.</p>
+<details class="essay-depth" id="proof-search"><summary>How a question about proof becomes a program</summary>
+<p>Take an effectively axiomatized theory <code>T</code> with checkable, enumerable proofs. Write a program that searches through those proofs and stops if it finds a proof of <code>0 = 1</code>. If such a proof exists, the program eventually halts. If the theory is consistent, it runs forever.</p>
+<p>For a sufficiently strong, consistent theory with the usual formalization of arithmetic and proof, Gödel's second incompleteness theorem says that the theory cannot prove its own consistency. Such a theory can formalize the connection above, so it cannot prove that this particular search program runs forever. A stronger theory may be able to prove that fact.</p>
+<p id="programs-and-proofs">There is another connection between programs and proofs. Under the Curry–Howard correspondence, propositions can be represented as types and proofs as terms. An arbitrary program is not automatically a proof; the correspondence depends on the language and the rules used to check it.</p>
+</details>
 
-<h2 id="proof-search">The bridge: turn a theorem into a program</h2>
-<p>We can make the connection more precise. Take a formal theory <code>T</code> whose proofs can be effectively enumerated and checked. Write a program <code>P<sub>T</sub></code> that searches through all proofs until it finds a proof of the contradiction <code>0 = 1</code>.</p>
-<pre><code>def P_T():
-    for proof in enumerate_proofs(T):
-        if proves(proof, "0 = 1"):
-            return</code></pre>
+<h2 id="where-decidability-returns">What can we still know?</h2>
+<p>A general solution is impossible, but many particular programs can be analyzed. A useful restriction can make the question decidable.</p>
+<p>Imagine a deterministic system with finitely many possible <em>complete</em> states and no changing outside input. If it has not halted and reaches a state it has already visited, its future will repeat. With only finitely many states, it must eventually halt or repeat a state. Checking for that repetition decides halting for this model.</p>
 <figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-09.svg" width="720" height="480" loading="lazy" decoding="async" alt="Two cases of exhaustive proof enumeration show that a proof-search program halts if T is inconsistent and runs forever if T is consistent." />
-  <figcaption><span class="fig-no">Figure 09.</span> The proof-search program stops if and only if T proves 0 = 1. If T is consistent, it runs forever.</figcaption>
+  <img src="../assets/essays/halting-paradox/repeated-state.svg" width="720" height="260" loading="lazy" decoding="async" alt="A deterministic execution visits complete states A, B, C, then B again. The repeated B means that the following behavior will repeat." />
+  <figcaption>When the complete state B returns in a deterministic, closed system, the same future follows. A repeated partial observation would not be enough.</figcaption>
 </figure>
-<p>If <code>T</code> is inconsistent, some finite proof establishes <code>0 = 1</code>. The search eventually finds it and halts. If <code>T</code> is consistent, there is no such proof. The search keeps going. We have translated the consistency of a mathematical theory into the nontermination of a program.</p>
-<div class="hl-formula" role="math" aria-label="T is consistent if and only if P sub T does not halt.">Con(T) ⇔ ¬Halts(P<sub>T</sub>)</div>
-<p>Gödel's <em>second</em> incompleteness theorem says that a sufficiently strong, consistent, effectively axiomatized theory <code>T</code> cannot prove its own consistency, under the usual formalization. For this proof-search program, the theory can formalize the link between consistency and nontermination. It therefore cannot prove that <code>P<sub>T</sub></code> runs forever, even though, assuming <code>T</code> is consistent, that is exactly what happens.</p>
-<p>A stronger external theory may prove the original system consistent and hence prove that the program does not halt. The inability belongs to the specified theory. This is one reason it matters to name the axioms being used when we claim a program has been verified.</p>
-
-<h2 id="programs-and-proofs">Are programs proofs?</h2>
-<p>There is a precise sense in which they can be. Under the Curry–Howard correspondence, propositions are represented as types and proofs as terms inhabiting those types. In proof assistants and suitable total programming languages, checking a program term can amount to checking a proof.</p>
-<p>That correspondence has conditions. An arbitrary Turing-machine program is not automatically a proof, and a nonterminating program does not establish the proposition it was supposed to prove. Yet the link helps explain why program synthesis and automated theorem proving share so much machinery. Both search for finite symbolic objects that satisfy formal requirements.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-10.svg" width="720" height="404" loading="lazy" decoding="async" alt="Truth, effective computability and provability within a theory are distinct questions." />
-  <figcaption><span class="fig-no">Figure 10.</span> Truth, computability, and provability are different questions. Their answers need not align.</figcaption>
-</figure>
-
-<h2 id="where-decidability-returns">We can still prove useful programs correct</h2>
-<p>Undecidability is a claim about unrestricted classes of programs. Restricted models can be decidable. In a deterministic finite-state machine, for instance, there are only finitely many possible complete configurations. Either the machine halts, or a state eventually repeats and its execution loops.</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-11.svg" width="720" height="389" loading="lazy" decoding="async" alt="Deterministic finite states A, B, C, D proceed and return to the complete state B, proving a cycle." />
-  <figcaption><span class="fig-no">Figure 11.</span> A deterministic finite-state system either halts or eventually repeats a complete state, which establishes a cycle.</figcaption>
-</figure>
-<p>Verification methods take advantage of this structure. Model checking explores finite transition systems. Ranking functions establish termination for particular loops. Abstract interpretation can replace an unmanageable program with a simpler model that preserves the property under investigation. Total programming languages rule out nontermination by design.</p>
-<p>In my work on program synthesis, that suggests searching for a useful <em>representation</em> alongside the program. A difficult question may become easy once we find an invariant, a reduction, or a restricted language in which a decision procedure exists. This cannot give us a universal solution for arbitrary programs. It gives us a method of finding the solvable fragments.</p>
+<p>This does not make every finite model practical to explore. It does show why the structure of a problem matters. Model checking, invariants, and termination arguments can establish results for specified systems, even though no method can decide halting for every unrestricted program.</p>
+<p>In program synthesis, I find this distinction useful. We can search for an invariant, a better representation, or a restricted language that makes the question tractable. A restriction must preserve the property we care about, and it may exclude some programs we would otherwise want to analyze.</p>
 
 <h2 id="what-nature-allows">What does this tell us about nature?</h2>
-<p>What interests me most is that the contradiction survives the idealization. Give the machine an unbounded tape and it still cannot implement a universal halting predictor. We have removed a resource limit, but a limit remains. Does that tell us something about the physical world, or only about our mathematical model of computation?</p>
-<figure class="search-figure hl-min-figure">
-  <img src="../assets/essays/halting-paradox/figure-12.svg" width="720" height="458" loading="lazy" decoding="async" alt="Three levels distinguish Turing's mathematical theorem, the Church–Turing thesis and claims about physical nature." />
-  <figcaption><span class="fig-no">Figure 12.</span> Turing's theorem, the Church–Turing thesis, and claims about physical computation have different logical status.</figcaption>
-</figure>
-<p>Turing proved a mathematical theorem. The Church–Turing thesis identifies what an <em>effective procedure</em> can compute. A further claim, that every physically realizable computation falls within the Turing model, requires assumptions about physics. Shagrir examines the move from idealized human calculation to physical machines. The halting theorem alone does not establish that nature rules out every hypothetical form of computation beyond the Turing model.</p>
-<p>Nor does it show that every organism, computer, or physical object is unable to forecast its own end. Many systems have well-understood failure modes. A machine can calculate a deadline written into its own program. Finite models may permit exact prediction. The undecidability result concerns the promise of one procedure that works for <em>all</em> programs of the unrestricted class.</p>
-<p>I take the lesson to be about the boundaries of prediction. Additional resources and better mathematics can settle many questions we once could not answer. A universal computable method for deciding every program's halting behavior is different. Any candidate for that role supplies the material for its own counterexample.</p>
-<p>For program synthesis and verification, this shifts my attention toward the structure of the problem. I want to know which invariants make termination provable, which abstractions preserve the property at issue, and which reductions take us into a decidable fragment. A universal predictor is impossible. Particular proofs are still there to be found.</p>
+<p>The part that interests me most is the unbounded tape. We remove a fixed memory limit, yet a limit on prediction remains. Does that tell us something about the physical world, or about the mathematical model we chose?</p>
+<p>The halting theorem is a mathematical result about computation in the Turing model. The <em>Church–Turing thesis</em> connects that model to the informal idea of an effective procedure. A further claim, that every physically realizable computation falls within the Turing model, requires assumptions about physics. The theorem alone does not settle every hypothetical account of computation in nature.</p>
+<p>Nor does it say that physical systems, organisms, or individual machines can never have predictable endings. It tells us where a particular promise fails: no ordinary algorithm can always decide the eventual behavior of every program and input, even with an unbounded tape.</p>
+<p>That still leaves room for discovery. We can prove particular programs terminate, identify loops, and find representations that expose structure we could not previously see. The useful question is which assumptions make a particular prediction possible.</p>
+
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four ideas to carry away from the argument.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card"><h3>Effective procedure</h3><p class="toolkit-phrase">A finite recipe of mechanical steps.</p><details><summary>Definition and source</summary><p>It gives a defined answer after finitely many steps on the relevant input. A finite program may instead run forever.</p><p class="toolkit-links"><a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf">Shagrir on effective computation</a></p></details></div>
+<div class="toolkit-card"><h3>Halting problem</h3><p class="toolkit-phrase">Will this program ever stop on this input?</p><details><summary>Definition and boundary</summary><p>No single computable procedure terminates with the correct yes-or-no answer for every program and input. Particular cases may be decidable.</p><p class="toolkit-links"><a href="#the-contradiction">The two-case argument</a></p></details></div>
+<div class="toolkit-card"><h3>Diagonalization</h3><p class="toolkit-phrase">Build a case that defeats a proposed general method.</p><details><summary>Definition and boundary</summary><p>Here the constructed program receives its own description and reverses the predictor's answer. Self-reference alone need not cause a contradiction.</p><p class="toolkit-links"><a href="#construction-code">The construction in code</a></p></details></div>
+<div class="toolkit-card"><h3>Decidable fragment</h3><p class="toolkit-phrase">A restricted class with an answerable question.</p><details><summary>Definition and boundary</summary><p>A deterministic closed finite-state system permits a halt-or-repeat check. Other restrictions need their own justification.</p><p class="toolkit-links"><a href="#where-decidability-returns">The finite-state example</a></p></details></div>
+</div></section>
 
 <section class="further-reading" aria-labelledby="sources">
 <h2 id="sources">Sources and further reading</h2>
 <ol class="source-list">
-<li>Oron Shagrir, <a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf"><em>Effective Computation by Humans and Machines</em></a>. On the history of effective procedures, idealized human computers, and claims about machine computation. See especially §1 and §2.</li>
-<li>Alan M. Turing, <a href="https://doi.org/10.1112/plms/s2-42.1.230"><em>On Computable Numbers, with an Application to the Entscheidungsproblem</em></a>, received in 1936 and published in 1937. Its diagonal argument and Entscheidungsproblem result precede the standard modern presentation of the halting problem.</li>
-<li><a href="https://plato.stanford.edu/entries/goedel-incompleteness/">Stanford Encyclopedia of Philosophy, <em>Gödel's Incompleteness Theorems</em></a>. For the first and second theorems and their formal assumptions.</li>
-<li><a href="https://plato.stanford.edu/entries/church-turing/">Stanford Encyclopedia of Philosophy, <em>The Church–Turing Thesis</em></a>. For the difference between a mathematical computability result and a thesis about effective methods.</li>
-</ol>
-</section>
-<aside class="author-note"><h3>Authorship and assistance</h3><p>The central question, its philosophical framing, and the connection to research on program synthesis originate with Dana Edwards. AI assistance was used to develop the prose, examples, diagrams, and interactive explanation. The visual examples illustrate mathematical arguments; they are not independent proofs of a more general physical claim.</p></aside>
+<li>Oron Shagrir, <a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf"><em>Effective Computation by Humans and Machines</em></a>, especially §1–2, on effective procedures and the shift from idealized human calculation to accounts of machine computation.</li>
+<li>Alan M. Turing, <a href="https://doi.org/10.1112/plms/s2-42.1.230"><em>On Computable Numbers, with an Application to the Entscheidungsproblem</em></a>, received in 1936 and published in 1937. The paper's diagonal argument precedes the standard modern presentation of the halting problem used here.</li>
+<li>Stanford Encyclopedia of Philosophy, <a href="https://plato.stanford.edu/entries/goedel-incompleteness/"><em>Gödel's Incompleteness Theorems</em></a>, for the formal assumptions behind the incompleteness results.</li>
+<li>Stanford Encyclopedia of Philosophy, <a href="https://plato.stanford.edu/entries/church-turing/"><em>The Church–Turing Thesis</em></a>, for effective methods and their relationship to claims about physical computation.</li>
+</ol></section>
+<aside class="author-note"><h3>Authorship and assistance</h3><p>The central question, philosophical framing, and connection to program synthesis originate with Dana Edwards. The essay and illustrations were developed with AI assistance.</p></aside>
 <div class="essay-nav"><a href="program-synthesis-is-program-search-and-selection.html">Related: Program Synthesis Is Program Search and Selection</a><a href="../writing.html#essays">All essays →</a></div>
 </article></div></section></main>
 <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards.</p><p>Engineer, philosopher, futurist.</p></div></footer>
 <script src="../script.js"></script>
-<script>(function(){var buttons=document.querySelectorAll("[data-prediction]");var out=document.getElementById("fate-output");if(!out||!buttons.length)return;buttons.forEach(function(button){button.addEventListener("click",function(){var guess=button.getAttribute("data-prediction");buttons.forEach(function(b){b.setAttribute("aria-pressed",String(b===button));});if(guess==="halts"){out.innerHTML="<strong>You predict HALTS. D loops forever.</strong><p>The predictor says D will stop, so D executes the infinite loop. The prediction fails.</p>";}else{out.innerHTML="<strong>You predict LOOPS. D halts.</strong><p>The predictor says D will never stop, so D immediately returns. The prediction fails.</p>";}});});})();</script>
+<script>(function(){var buttons=document.querySelectorAll("[data-prediction]");var out=document.getElementById("fate-output");if(!out||!buttons.length)return;buttons.forEach(function(button){button.addEventListener("click",function(){var guess=button.getAttribute("data-prediction");buttons.forEach(function(b){b.setAttribute("aria-pressed",String(b===button));});if(guess==="halts"){out.innerHTML="<strong>You predict halts. D runs forever.</strong><p>D does the opposite, so the prediction is wrong.</p>";}else{out.innerHTML="<strong>You predict runs forever. D halts.</strong><p>D does the opposite, so the prediction is wrong.</p>";}});});})();</script>
 </body></html>
