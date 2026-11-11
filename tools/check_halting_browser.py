@@ -8,7 +8,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 from pathlib import Path
+
+from PIL import Image
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -82,12 +85,27 @@ def inspect(browser, width: int, height: int, output: Path):
         assert expected in output_text, (guess, output_text)
 
     output.mkdir(parents=True, exist_ok=True)
-    browser.save_screenshot(str(output / f"article-{width}.png"))
-    browser.find_element(By.CSS_SELECTOR, ".essay-plate").screenshot(
-        str(output / f"first-diagram-{width}.png")
+    first = browser.find_element(By.CSS_SELECTOR, ".essay-plate")
+    browser.execute_script(
+        "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", first
     )
+    time.sleep(0.3)
+    browser.save_screenshot(str(output / f"article-{width}.png"))
+    image_file = output / f"first-diagram-{width}.png"
+    first.screenshot(str(image_file))
+    pixels = Image.open(image_file).convert("RGB")
+    # The illustration has a large dark-blue background. A blank, white
+    # screenshot must not count as proof that the SVG visibly rendered.
+    sample = [pixels.getpixel((x, y)) for y in range(50, pixels.height-30, 16)
+              for x in range(10, pixels.width-10, 16)]
+    dark_fraction = sum(max(rgb) < 130 for rgb in sample) / max(1, len(sample))
+    if dark_fraction < 0.18:
+        raise AssertionError(
+            f"Viewport {width}: SVG screenshot blank, dark pixel share {dark_fraction:.2%}"
+        )
     print(json.dumps({"viewport": width, "figures": result["figureCount"],
-                      "pageWidth": result["pageWidth"], "controls": "PASS"}))
+                      "pageWidth": result["pageWidth"], "controls": "PASS",
+                      "diagramDarkPixelShare": round(dark_fraction, 3)}))
 
 
 def main():
