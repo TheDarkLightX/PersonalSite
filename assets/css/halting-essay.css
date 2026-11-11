@@ -70,3 +70,21 @@
 .halting-essay .hl-toc nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem 1.5rem; padding:.55rem 0 1.2rem; }
 .halting-essay .hl-toc nav a { font-size:.86rem; line-height:1.5; }
 @media(max-width:650px){.halting-essay .hl-toc nav { grid-template-columns:1fr; }}
+
+/* Visual QA: diagrams are real SVG illustrations, captions are prose. */
+.halting-essay .essay-plate { border:1px solid var(--line); box-shadow:0 12px 30px rgba(11,29,43,.09); }
+.halting-essay .diagram-window { position:relative; }
+.halting-essay .diagram-window svg { min-width:0; width:100%; height:auto; }
+.halting-essay .essay-plate figcaption { max-width:100%; }
+.halting-essay .essay-plate figcaption strong { color:var(--text); }
+.halting-essay .essay-prose p a { text-underline-offset:.16em; }
+.halting-essay .essay-plate .plate-head strong { line-height:1.4; letter-spacing:-.008em; }
+@media(max-width:700px) {
+  .halting-essay .diagram-window { overflow-x:auto; }
+  .halting-essay .diagram-window svg { min-width:670px; width:670px; }
+  .halting-essay .essay-plate .plate-head::after { content:"Swipe diagram →"; display:block; color:var(--muted); font-size:.75rem; white-space:nowrap; }
+  .halting-essay .essay-plate .plate-head { flex-wrap:wrap; }
+}
+@media(min-width:701px) {
+  .halting-essay .diagram-window svg { min-width:0; }
+}
