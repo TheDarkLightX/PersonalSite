@@ -3,8 +3,8 @@
   <desc id="desc">If H predicts D on its own description halts, D runs forever. If H predicts D runs forever, D halts. Both predictions are wrong.</desc>
   <rect width="720" height="350" fill="#faf9f5"/>
   <g font-family="Arial, Helvetica, sans-serif">
-    <text x="46" y="55" fill="#626d66" font-size="21" font-weight="700" letter-spacing="1.2">H PREDICTS</text>
-    <text x="410" y="55" fill="#626d66" font-size="21" font-weight="700" letter-spacing="1.2">D DOES</text>
+    <text x="46" y="55" fill="#626d66" font-size="28" font-weight="700" letter-spacing="1.2">H PREDICTS</text>
+    <text x="410" y="55" fill="#626d66" font-size="28" font-weight="700" letter-spacing="1.2">D DOES</text>
     <path d="M46 78h628" stroke="#d5dcd5" stroke-width="2"/>
     <text x="46" y="150" fill="#1f3029" font-size="33" font-weight="700">Halts</text>
     <path d="M248 139h112m-13-9 13 9-13 9" fill="none" stroke="#638474" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -14,6 +14,6 @@
     <path d="M248 241h112m-13-9 13 9-13 9" fill="none" stroke="#638474" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     <text x="410" y="252" fill="#8b493a" font-size="33" font-weight="700">Halts</text>
     <path d="M46 284h628" stroke="#d5dcd5" stroke-width="2"/>
-    <text x="46" y="322" fill="#56645c" font-size="22">Each prediction is wrong.</text>
+    <text x="46" y="322" fill="#56645c" font-size="27">Each prediction is wrong.</text>
   </g>
 </svg>
