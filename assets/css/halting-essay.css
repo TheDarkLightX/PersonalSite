@@ -64,3 +64,9 @@
   .halting-essay .diagram-window svg { min-width:620px; }
 }
 @media (prefers-reduced-motion:reduce) { .halting-essay * { scroll-behavior:auto !important; transition:none !important; } }
+
+.halting-essay .hl-toc { margin:1.4rem 0 0; padding:.65rem 0 0; border-top:1px solid var(--line); max-width:850px; }
+.halting-essay .hl-toc summary { cursor:pointer; font-weight:650; color:var(--text); min-height:40px; }
+.halting-essay .hl-toc nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem 1.5rem; padding:.55rem 0 1.2rem; }
+.halting-essay .hl-toc nav a { font-size:.86rem; line-height:1.5; }
+@media(max-width:650px){.halting-essay .hl-toc nav { grid-template-columns:1fr; }}
