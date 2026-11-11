@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Waiting has an edge</title>
+  <desc id="desc">After N observed steps the program is still running, but an unobserved later step might halt.</desc>
+  <rect width="720" height="280" fill="#faf9f5"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="45" y="58" fill="#1f3029" font-size="28" font-weight="700">Still running after N steps</text>
+    <path d="M47 137h405" stroke="#527969" stroke-width="4" stroke-linecap="round"/>
+    <path d="M452 137h214m-13-9 13 9-13 9" fill="none" stroke="#9ca9a0" stroke-width="2.5" stroke-dasharray="7 8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="47" cy="137" r="5" fill="#527969"/><circle cx="452" cy="137" r="8" fill="#527969"/>
+    <text x="45" y="182" fill="#626d66" font-size="27">Start</text>
+    <text x="443" y="182" fill="#1f3029" font-size="27" font-weight="700">N</text>
+    <text x="45" y="234" fill="#626d66" font-size="27">The program may still stop later.</text>
+  </g>
+</svg>

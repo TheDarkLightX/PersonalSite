@@ -1,30 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-<title id="title">Why can't a Turing machine predict its own death?</title>
-<desc id="desc">An understated cream illustration: a Turing-machine tape on the left and a two-case prediction diagram on the right. If the predictor says halt, D loops; if it says loop, D halts.</desc>
-<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#58615e"/></marker></defs>
-<rect width="1200" height="630" fill="#faf9f5"/>
-<g font-family="Arial,Helvetica,sans-serif">
-<path d="M70 77 H1130" stroke="#cbd0c8" stroke-width="2"/>
-<text x="70" y="122" fill="#086451" font-weight="700" font-size="21" letter-spacing="2.4">COMPUTABILITY / SELF-REFERENCE</text>
-<text x="70" y="199" fill="#242b2b" font-weight="700" font-size="47">What if a machine</text>
-<text x="70" y="261" fill="#242b2b" font-weight="700" font-size="47">could predict its</text>
-<text x="70" y="323" fill="#242b2b" font-weight="700" font-size="47">own last step?</text>
-<text x="70" y="383" fill="#58615e" font-size="24">An unbounded tape cannot eliminate</text>
-<text x="70" y="416" fill="#58615e" font-size="24">a logical contradiction.</text>
-<text x="709" y="158" fill="#58615e" font-weight="700" font-size="19">THE PREDICTION</text>
-<rect x="815" y="192" width="180" height="66" rx="4" fill="#e5eee7" stroke="#a0b5a8" stroke-width="2"/>
-<text x="905" y="234" fill="#242b2b" font-size="27" font-weight="700" text-anchor="middle">H(d, d)</text>
-<path d="M905 258 V294 H763 V330" stroke="#58615e" stroke-width="2.6" fill="none" marker-end="url(#arr)"/>
-<path d="M905 294 H1047 V330" stroke="#58615e" stroke-width="2.6" fill="none" marker-end="url(#arr)"/>
-<text x="763" y="364" fill="#242b2b" font-size="23" text-anchor="middle">HALT</text>
-<text x="1047" y="364" fill="#242b2b" font-size="23" text-anchor="middle">LOOP</text>
-<rect x="675" y="385" width="177" height="73" rx="3" fill="#f6ebe6" stroke="#cfaa9a" stroke-width="1.6"/>
-<rect x="959" y="385" width="177" height="73" rx="3" fill="#f6ebe6" stroke="#cfaa9a" stroke-width="1.6"/>
-<text x="763" y="416" fill="#93422c" font-weight="700" font-size="24" text-anchor="middle">D loops</text>
-<text x="763" y="445" fill="#58615e" font-size="19" text-anchor="middle">wrong</text>
-<text x="1047" y="416" fill="#93422c" font-weight="700" font-size="24" text-anchor="middle">D halts</text>
-<text x="1047" y="445" fill="#58615e" font-size="19" text-anchor="middle">wrong</text>
-<path d="M70 500 H1130" stroke="#cbd0c8" stroke-width="2"/>
-<text x="71" y="562" fill="#242b2b" font-size="22" font-weight="700">Gödel and Turing</text>
-<text x="308" y="562" fill="#58615e" font-size="22">· Proof, computation and the limits of prediction</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">An unbounded tape</title>
+  <desc id="desc">A read-write head points to one cell of a tape that continues in both directions.</desc>
+  <rect width="1200" height="390" fill="#faf9f5"/>
+  <path d="M67 198h84m898 0h84" fill="none" stroke="#9ca7a0" stroke-width="2" stroke-dasharray="5 9"/>
+  <path d="M151 151h898v94H151z" fill="#fffefa" stroke="#9ca7a0" stroke-width="2"/>
+  <path d="M251 151v94m100-94v94m100-94v94m100-94v94m100-94v94m100-94v94m100-94v94m100-94v94" fill="none" stroke="#c4cbc5" stroke-width="1.5"/>
+  <path d="M551 151h100v94H551z" fill="#e8f0e9" stroke="#4e7768" stroke-width="2"/>
+  <path d="M601 81v41m-13-14 13 14 13-14" fill="none" stroke="#386c59" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="201" cy="198" r="4" fill="#aeb8b1"/><circle cx="401" cy="198" r="4" fill="#aeb8b1"/><circle cx="601" cy="198" r="5" fill="#386c59"/><circle cx="801" cy="198" r="4" fill="#aeb8b1"/><circle cx="1001" cy="198" r="4" fill="#aeb8b1"/>
+  <path d="M527 290h148" stroke="#d9dfd9" stroke-width="2"/>
+</svg>

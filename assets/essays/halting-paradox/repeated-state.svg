@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">A complete state repeats</title>
+  <desc id="desc">The run visits complete states A, B, C, then B again. The second B has the same future in a deterministic closed system.</desc>
+  <rect width="720" height="260" fill="#faf9f5"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="43" y="51" fill="#626d66" font-size="28" font-weight="700" letter-spacing="1">A DETERMINISTIC RUN</text>
+    <path d="M129 126h57m-10-8 10 8-10 8M290 126h57m-10-8 10 8-10 8M451 126h57m-10-8 10 8-10 8M612 126h57" fill="none" stroke="#82978b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="90" cy="126" r="39" fill="#fffefa" stroke="#a9b6ad" stroke-width="2"/>
+    <circle cx="251" cy="126" r="39" fill="#e8f0e9" stroke="#527969" stroke-width="2"/>
+    <circle cx="412" cy="126" r="39" fill="#fffefa" stroke="#a9b6ad" stroke-width="2"/>
+    <circle cx="573" cy="126" r="39" fill="#e8f0e9" stroke="#527969" stroke-width="2"/>
+    <text x="90" y="138" text-anchor="middle" fill="#1f3029" font-size="34" font-weight="700">A</text>
+    <text x="251" y="138" text-anchor="middle" fill="#285b49" font-size="34" font-weight="700">B</text>
+    <text x="412" y="138" text-anchor="middle" fill="#1f3029" font-size="34" font-weight="700">C</text>
+    <text x="573" y="138" text-anchor="middle" fill="#285b49" font-size="34" font-weight="700">B</text>
+    <text x="43" y="224" fill="#56645c" font-size="27">Same complete state, same future.</text>
+  </g>
+</svg>
