@@ -29,7 +29,20 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
     WebDriverWait(browser, 15).until(
         lambda d: len(d.find_elements(By.CSS_SELECTOR, ".hl-min-figure img")) == 12
     )
-    # The page itself must fit; the diagrams must load at both sizes.
+    # Lazy-loaded SVGs below the fold are intentionally incomplete until
+    # scrolled into view. Visit all figures before checking natural dimensions.
+    for figure in browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure"):
+        browser.execute_script(
+            "arguments[0].scrollIntoView({block:'center',behavior:'instant'});",
+            figure
+        )
+        img = figure.find_element(By.TAG_NAME, "img")
+        WebDriverWait(browser, 10).until(
+            lambda d: d.execute_script(
+                "return arguments[0].complete && arguments[0].naturalWidth > 0;",
+                img
+            )
+        )
     result = browser.execute_script("""
       const problems = [];
       const figures = [...document.querySelectorAll('.hl-min-figure')];
