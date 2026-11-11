@@ -16,9 +16,6 @@
 .halting-essay .hl-min-figure > img { display:block; width:100%; height:auto; max-width:720px; margin:0 auto; border:1px solid #d9ded6; border-radius:0; background:#faf9f5; box-shadow:none; }
 .halting-essay .essay-prose .hl-min-figure figcaption { text-align:left; color:var(--muted); font-size:.89rem; line-height:1.55; margin:.68rem auto 0; max-width:720px; }
 .halting-essay .hl-min-figure .fig-no { color:var(--text); font-weight:650; }
-.halting-essay .hl-min-figure .fig-expand { display:inline-block; margin-left:.6em; font-weight:600; color:var(--muted); text-decoration:underline; text-underline-offset:.2em; white-space:nowrap; }
-.halting-essay .hl-min-figure .fig-expand:hover { color:var(--text); }
-.halting-essay .hl-min-figure .fig-expand:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
 .halting-essay .hl-toc { margin:1.4rem 0 0; padding:.65rem 0 0; border-top:1px solid var(--line); max-width:790px; }
 .halting-essay .hl-toc summary { min-height:40px; cursor:pointer; font-weight:650; color:var(--text); }
 .halting-essay .hl-toc nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem 1.35rem; padding:.6rem 0 1.2rem; }
