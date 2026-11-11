@@ -58,9 +58,10 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
           problems.push('Figure '+(i+1)+' is distorted');
         if (!caption || caption.querySelector('svg,rect,path,text'))
           problems.push('Figure '+(i+1)+' caption invalid');
-        const link = caption.querySelector('a.fig-expand');
-        if (!link || !link.href.endsWith(img.getAttribute('src').split('/').pop()))
-          problems.push('Figure '+(i+1)+' lacks a working zoom link');
+        if (!figure.classList.contains('zoomable') ||
+            figure.getAttribute('role') !== 'button' ||
+            figure.getAttribute('tabindex') !== '0')
+          problems.push('Figure '+(i+1)+' lacks accessible native zoom');
       }
       const cover = document.querySelector('img.visual-intro');
       if (!cover || !cover.complete || !cover.naturalWidth)
@@ -85,6 +86,22 @@ def check_article(browser, width: int, height: int, output: Path) -> None:
         if expected not in outcome:
             raise AssertionError(f"Interactive scenario {guess} returned {outcome!r}")
 
+    # The existing site script makes figures keyboard-zoomable. Verify the
+    # same viewer rather than adding a competing link or nested button.
+    central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[4]
+    browser.execute_script(
+        "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", central
+    )
+    browser.execute_script("arguments[0].click();", central)
+    modal = browser.find_element(By.CSS_SELECTOR, ".figure-modal")
+    if not modal.is_displayed():
+        raise AssertionError("Site's native figure enlargement did not open")
+    browser.execute_script(
+        "arguments[0].click();",
+        browser.find_element(By.CSS_SELECTOR, ".figure-modal-close")
+    )
+    if modal.is_displayed():
+        raise AssertionError("Enlarged figure dialog did not close")
     output.mkdir(parents=True, exist_ok=True)
     central = browser.find_elements(By.CSS_SELECTOR, ".hl-min-figure")[4]
     browser.execute_script(
