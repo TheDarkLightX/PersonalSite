@@ -11,7 +11,7 @@ import json
 import time
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps, ImageDraw
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -103,6 +103,28 @@ def inspect(browser, width: int, height: int, output: Path):
         raise AssertionError(
             f"Viewport {width}: SVG screenshot blank, dark pixel share {dark_fraction:.2%}"
         )
+    if width > 700:
+        captures = []
+        for i, figure in enumerate(browser.find_elements(By.CSS_SELECTOR, ".essay-plate"), 1):
+            browser.execute_script(
+                "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", figure
+            )
+            time.sleep(0.06)
+            name = output / f"diagram-{i:02d}-{width}.png"
+            figure.screenshot(str(name))
+            img = Image.open(name).convert("RGB")
+            if img.getpixel((min(20,img.width-1),min(100,img.height-1))) == (255,255,255):
+                raise AssertionError(f"Diagram {i} was captured as a blank white image.")
+            thumb = ImageOps.contain(img, (560, 370))
+            captures.append(thumb)
+        sheet = Image.new("RGB", (1170, 6 * 415), "#edf1f5")
+        draw = ImageDraw.Draw(sheet)
+        for i, thumb in enumerate(captures):
+            x = 16 + (i % 2) * 580
+            y = 12 + (i // 2) * 415
+            sheet.paste(thumb, (x,y + 27))
+            draw.text((x+2,y+3), f"FIGURE {i+1:02d}", fill="#172c3d")
+        sheet.save(output / "diagram-contact-sheet.png")
     print(json.dumps({"viewport": width, "figures": result["figureCount"],
                       "pageWidth": result["pageWidth"], "controls": "PASS",
                       "diagramDarkPixelShare": round(dark_fraction, 3)}))
