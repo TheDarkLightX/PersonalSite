@@ -1,0 +1,23 @@
+name: Check illustrated halting essay
+
+on:
+  push:
+    paths:
+      - 'essays/why-cant-a-turing-machine-predict-its-own-death.html'
+      - 'tools/check_halting_essay.py'
+      - '.github/workflows/check-halting-essay.yml'
+  pull_request:
+    paths:
+      - 'essays/why-cant-a-turing-machine-predict-its-own-death.html'
+      - 'tools/check_halting_essay.py'
+      - '.github/workflows/check-halting-essay.yml'
+
+jobs:
+  check-illustrations:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate inline SVGs, captions, and navigation
+        run: python3 tools/check_halting_essay.py
