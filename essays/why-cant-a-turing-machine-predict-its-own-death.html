@@ -57,7 +57,7 @@
 <p>An effective computation follows a finite set of exact instructions. In the usual deterministic model, the current state determines the next step. A person working with paper and pencil can carry out such a procedure. So can a machine. Adding 12 and 7 is the same calculation whether a human writes the result or a processor stores it in a register.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-01.svg" width="720" height="381" loading="lazy" decoding="async" alt="A simple three-step recipe reads two numbers, adds them and writes nineteen. A human and a machine each execute the same rules and obtain nineteen." />
-  <figcaption><span class="fig-no">Figure 01.</span> One finite recipe produces the same output when a person or machine follows it. The executor changes, but the rule does not. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-01.svg" target="_blank" rel="noopener" aria-label="Open figure 1 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 01.</span> One finite recipe produces the same output when a person or machine follows it. The executor changes, but the rule does not.</figcaption>
 </figure>
 <p>The <em>instructions</em> have a finite description. Their <em>execution</em> need not be finite. A program can run forever, even though its source code fits on a page. To compute a defined output effectively, the procedure must produce that output after finitely many steps. This distinction will matter when we reach the halting problem.</p>
 <p>In <a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf"><em>Effective Computation by Humans and Machines</em></a>, philosopher Oron Shagrir describes the history behind this idea. Church's lambda calculus, Kleene's recursive functions, Post's finite combinatory processes, and Turing machines arrived at equivalent classes of computable functions. Shagrir also makes a useful historical point: early analyses focused on the idealized <em>human computer</em> following mechanical rules, whereas later formulations often speak of machine computation. The abstract procedure is what connects them. (<a href="https://openscholar.huji.ac.il/sites/default/files/oronshagrir/files/effective_computation_by_human_and_machine.pdf">Shagrir, §1</a>)</p>
@@ -67,7 +67,7 @@
 <p>A Turing machine has a finite set of states and transition rules. The tape has no preset last cell. At each step the machine reads a symbol, changes its state, may write a symbol, and moves its head. After any finite number of steps, it has visited only finitely many cells.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-02.svg" width="720" height="338" loading="lazy" decoding="async" alt="A row of cells has no fixed endpoint. A subset is highlighted as already visited and a head points at one cell." />
-  <figcaption><span class="fig-no">Figure 02.</span> An unbounded tape has no fixed last cell. Every finite execution still visits only finitely many cells. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-02.svg" target="_blank" rel="noopener" aria-label="Open figure 2 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 02.</span> An unbounded tape has no fixed last cell. Every finite execution still visits only finitely many cells.</figcaption>
 </figure>
 <p>A program may contain only a few instructions and still run without end. The tape removes a fixed storage ceiling, but execution remains a sequence of individual steps.</p>
 
@@ -75,12 +75,12 @@
 <p>Some programs tell us their fate immediately. A program containing only <code>return</code> halts. An unconditional loop with no exit runs forever. Neither case requires us to solve an undecidable problem.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-03.svg" width="720" height="390" loading="lazy" decoding="async" alt="Two individual examples with known behavior, an immediate return and an unconditional loop, contrast with the impossibility of a universal decision algorithm." />
-  <figcaption><span class="fig-no">Figure 03.</span> The outcomes of individual programs may be easy to establish. A single decider for all programs is impossible. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-03.svg" target="_blank" rel="noopener" aria-label="Open figure 3 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 03.</span> The outcomes of individual programs may be easy to establish. A single decider for all programs is impossible.</figcaption>
 </figure>
 <p>Turing's result begins with a stronger demand. Imagine an algorithm <code>H</code> that receives the code of any program <code>P</code> and an input <code>x</code>. It always finishes its analysis and answers whether <code>P(x)</code> will halt. It must be correct for every possible pair.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-04.svg" width="720" height="406" loading="lazy" decoding="async" alt="The hypothetical decider H takes any program and input and must always answer one for halts or zero for loops." />
-  <figcaption><span class="fig-no">Figure 04.</span> The proposed predictor H must decide every program and input, correctly and in finite time. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-04.svg" target="_blank" rel="noopener" aria-label="Open figure 4 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 04.</span> The proposed predictor H must decide every program and input, correctly and in finite time.</figcaption>
 </figure>
 <div class="hl-formula" role="math" aria-label="H of P comma x equals one if P on x halts, and zero if P on x runs forever.">H(P, x) = 1 if P(x) halts; 0 otherwise</div>
 <p>There are two demands here: the answer must be right, and the prediction procedure must itself finish. A process that occasionally says “I don't know” can be useful, but it does not meet this specification.</p>
@@ -96,7 +96,7 @@
 <p>This is pseudocode: <code>H</code> is the hypothetical universal predictor that we are about to disprove. Now run <code>D</code> on its own description, <code>d</code>. The predicted execution is <code>D(d)</code>.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-05.svg" width="720" height="532" loading="lazy" decoding="async" alt="Both branches of the diagonal argument: if H predicts halt, D loops; if H predicts loop, D halts. Both predictions are wrong." />
-  <figcaption><span class="fig-no">Figure 05.</span> Whichever answer H gives about D, D behaves oppositely. A universally correct H cannot exist. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-05.svg" target="_blank" rel="noopener" aria-label="Open figure 5 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 05.</span> Whichever answer H gives about D, D behaves oppositely. A universally correct H cannot exist.</figcaption>
 </figure>
 <p>If <code>H(d,d)</code> says “halts,” <code>D(d)</code> runs forever. If it says “runs forever,” <code>D(d)</code> stops. No prediction satisfies its own specification.</p>
 <div class="hl-formula" role="math" aria-label="H of d d equals one if and only if H of d d equals zero.">H(d, d) = 1 ⇔ H(d, d) = 0</div>
@@ -115,7 +115,7 @@
 <p>Simulation can confirm a halt. Execute the program until it stops, and you have a finite witness. Nontermination is harder to establish this way. After a million steps, a program might halt on step 1,000,001. After a trillion, it might halt on the next one.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-06.svg" width="720" height="356" loading="lazy" decoding="async" alt="A timeline of finitely many observed steps ends at N. The next step, N plus one, remains unknown and could halt." />
-  <figcaption><span class="fig-no">Figure 06.</span> Seeing a program run for any finite number of steps cannot establish that it will never stop. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-06.svg" target="_blank" rel="noopener" aria-label="Open figure 6 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 06.</span> Seeing a program run for any finite number of steps cannot establish that it will never stop.</figcaption>
 </figure>
 <p>A proof of nontermination can sometimes be short. A loop invariant can show that an exit condition is unreachable. A finite-state machine that revisits the same <em>complete</em> state must repeat the same future execution. But there is no algorithm that finds a correct termination or nontermination proof for every arbitrary program.</p>
 
@@ -124,14 +124,14 @@
 <p>Gödel used that machinery to construct a sentence <code>G</code> that, in effect, says it has no proof within a particular formal theory <code>T</code>. The crucial ingredient is a way for arithmetic to express facts about arithmetic proofs.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-07.svg" width="720" height="395" loading="lazy" decoding="async" alt="A formal theory T supplies proof rules. Its Gödel sentence G expresses that G has no proof in T." />
-  <figcaption><span class="fig-no">Figure 07.</span> Arithmetic can encode statements about formal proofs. Gödel's sentence expresses its own unprovability in T. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-07.svg" target="_blank" rel="noopener" aria-label="Open figure 7 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 07.</span> Arithmetic can encode statements about formal proofs. Gödel's sentence expresses its own unprovability in T.</figcaption>
 </figure>
 <div class="hl-formula" role="math" aria-label="G is equivalent within T to not provable in T of the Gödel number of G.">T ⊢ G ↔ ¬Prov<sub>T</sub>(⌜G⌝)</div>
 <p>If <code>T</code> is consistent and meets the standard technical conditions, it cannot prove this Gödel sentence. In the standard interpretation of arithmetic, the sentence is true. That conclusion concerns what can be derived inside <code>T</code>, not what could be established with stronger axioms.</p>
 <p>Both proofs turn the system's expressive power against a proposed universal claim. Gödel encoded sentences and proofs as arithmetic, then constructed a sentence about its own provability. Turing encoded programs as data, then built a program that defeats the purported predictor. This is <em>diagonalization</em>: select a case that disagrees with any proposed answer in the critical position.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-08.svg" width="720" height="454" loading="lazy" decoding="async" alt="Two rows compare Gödel's self-referential sentence with Turing's self-defeating predictor." />
-  <figcaption><span class="fig-no">Figure 08.</span> Both arguments use an encoding and a diagonal construction to defeat a universal assertion. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-08.svg" target="_blank" rel="noopener" aria-label="Open figure 8 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 08.</span> Both arguments use an encoding and a diagonal construction to defeat a universal assertion.</figcaption>
 </figure>
 <p>Self-reference alone causes no trouble. A program can print its own source code. The contradiction comes from the specific move of negating or reversing a universal claim.</p>
 
@@ -143,7 +143,7 @@
             return</code></pre>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-09.svg" width="720" height="480" loading="lazy" decoding="async" alt="Two cases of exhaustive proof enumeration show that a proof-search program halts if T is inconsistent and runs forever if T is consistent." />
-  <figcaption><span class="fig-no">Figure 09.</span> The proof-search program stops if and only if T proves 0 = 1. If T is consistent, it runs forever. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-09.svg" target="_blank" rel="noopener" aria-label="Open figure 9 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 09.</span> The proof-search program stops if and only if T proves 0 = 1. If T is consistent, it runs forever.</figcaption>
 </figure>
 <p>If <code>T</code> is inconsistent, some finite proof establishes <code>0 = 1</code>. The search eventually finds it and halts. If <code>T</code> is consistent, there is no such proof. The search keeps going. We have translated the consistency of a mathematical theory into the nontermination of a program.</p>
 <div class="hl-formula" role="math" aria-label="T is consistent if and only if P sub T does not halt.">Con(T) ⇔ ¬Halts(P<sub>T</sub>)</div>
@@ -155,14 +155,14 @@
 <p>That correspondence has conditions. An arbitrary Turing-machine program is not automatically a proof, and a nonterminating program does not establish the proposition it was supposed to prove. Yet the link helps explain why program synthesis and automated theorem proving share so much machinery. Both search for finite symbolic objects that satisfy formal requirements.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-10.svg" width="720" height="404" loading="lazy" decoding="async" alt="Truth, effective computability and provability within a theory are distinct questions." />
-  <figcaption><span class="fig-no">Figure 10.</span> Truth, computability, and provability are different questions. Their answers need not align. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-10.svg" target="_blank" rel="noopener" aria-label="Open figure 10 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 10.</span> Truth, computability, and provability are different questions. Their answers need not align.</figcaption>
 </figure>
 
 <h2 id="where-decidability-returns">We can still prove useful programs correct</h2>
 <p>Undecidability is a claim about unrestricted classes of programs. Restricted models can be decidable. In a deterministic finite-state machine, for instance, there are only finitely many possible complete configurations. Either the machine halts, or a state eventually repeats and its execution loops.</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-11.svg" width="720" height="389" loading="lazy" decoding="async" alt="Deterministic finite states A, B, C, D proceed and return to the complete state B, proving a cycle." />
-  <figcaption><span class="fig-no">Figure 11.</span> A deterministic finite-state system either halts or eventually repeats a complete state, which establishes a cycle. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-11.svg" target="_blank" rel="noopener" aria-label="Open figure 11 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 11.</span> A deterministic finite-state system either halts or eventually repeats a complete state, which establishes a cycle.</figcaption>
 </figure>
 <p>Verification methods take advantage of this structure. Model checking explores finite transition systems. Ranking functions establish termination for particular loops. Abstract interpretation can replace an unmanageable program with a simpler model that preserves the property under investigation. Total programming languages rule out nontermination by design.</p>
 <p>In my work on program synthesis, that suggests searching for a useful <em>representation</em> alongside the program. A difficult question may become easy once we find an invariant, a reduction, or a restricted language in which a decision procedure exists. This cannot give us a universal solution for arbitrary programs. It gives us a method of finding the solvable fragments.</p>
@@ -171,7 +171,7 @@
 <p>What interests me most is that the contradiction survives the idealization. Give the machine an unbounded tape and it still cannot implement a universal halting predictor. We have removed a resource limit, but a limit remains. Does that tell us something about the physical world, or only about our mathematical model of computation?</p>
 <figure class="search-figure hl-min-figure">
   <img src="../assets/essays/halting-paradox/figure-12.svg" width="720" height="458" loading="lazy" decoding="async" alt="Three levels distinguish Turing's mathematical theorem, the Church–Turing thesis and claims about physical nature." />
-  <figcaption><span class="fig-no">Figure 12.</span> Turing's theorem, the Church–Turing thesis, and claims about physical computation have different logical status. <a class="fig-expand" href="../assets/essays/halting-paradox/figure-12.svg" target="_blank" rel="noopener" aria-label="Open figure 12 at full resolution">Enlarge ↗</a></figcaption>
+  <figcaption><span class="fig-no">Figure 12.</span> Turing's theorem, the Church–Turing thesis, and claims about physical computation have different logical status.</figcaption>
 </figure>
 <p>Turing proved a mathematical theorem. The Church–Turing thesis identifies what an <em>effective procedure</em> can compute. A further claim, that every physically realizable computation falls within the Turing model, requires assumptions about physics. Shagrir examines the move from idealized human calculation to physical machines. The halting theorem alone does not establish that nature rules out every hypothetical form of computation beyond the Turing model.</p>
 <p>Nor does it show that every organism, computer, or physical object is unable to forecast its own end. Many systems have well-understood failure modes. A machine can calculate a deadline written into its own program. Finite models may permit exact prediction. The undecidability result concerns the promise of one procedure that works for <em>all</em> programs of the unrestricted class.</p>
