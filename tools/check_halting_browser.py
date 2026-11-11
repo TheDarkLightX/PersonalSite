@@ -150,6 +150,25 @@ def check_artwork(browser, output: Path) -> None:
         gallery.append(thumb)
         print(json.dumps({"svg":i,"labels":result["labels"],
                           "inkRatio":round(ink,4),"geometry":"PASS"}))
+    # The cover is a diagram too. Check it at its native size and keep a
+    # rendered copy so the publication preview is reviewable.
+    browser.set_window_size(1440, 900)
+    browser.get((ASSETS / "cover.svg").as_uri())
+    cover = browser.execute_script("""
+      const s = document.querySelector('svg');
+      const vb=s.viewBox.baseVal;
+      const problems=[];
+      for(const t of s.querySelectorAll('text')){
+        const b=t.getBBox();
+        if(b.width<=0 || b.x<-2 || b.y<-2 || b.x+b.width>vb.width+2 ||
+           b.y+b.height>vb.height+2) problems.push('cover text out of bounds: '+t.textContent);
+      }
+      return {problems,labels:s.querySelectorAll('text').length};
+    """)
+    if cover["problems"]:
+        raise AssertionError(str(cover["problems"]))
+    browser.find_element(By.TAG_NAME,"svg").screenshot(str(output / "minimalist-cover.png"))
+
     sheet = Image.new("RGB",(1174,6*430),"#f0f0ec")
     draw = ImageDraw.Draw(sheet)
     for i,img in enumerate(gallery):
