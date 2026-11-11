@@ -82,6 +82,8 @@ def run() -> None:
         } for node in root.iter())
         if len(labels) < 5 or shapes < 3:
             errs.append(f"Figure {i} empty or decorative: {len(labels)} labels, {shapes} shapes")
+        if any(not "".join(t.itertext()).strip() for t in labels):
+            errs.append(f"Figure {i} contains an empty text element")
         try:
             width = int(root.attrib["width"])
             height = int(root.attrib["height"])
