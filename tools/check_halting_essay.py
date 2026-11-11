@@ -1,109 +1,119 @@
 #!/usr/bin/env python3
-"""Validate the illustrated Gödel–Turing essay before publication.
+"""Static validation for the 12 minimalist, external SVG figures.
 
-Usage:
-    python3 tools/check_halting_essay.py
-    python3 tools/check_halting_essay.py --html path/to/essay.html
-
-The previous publishing error left the SVGs empty while painting their intended
-shapes into captions. This test checks actual SVG children rather than counting
-figure tags alone.
+The page once shipped 12 empty SVG elements with all drawing markup in their
+captions. This test checks the actual files and figure references, not counts of
+containers. Live layout and text geometry are checked in Chrome separately.
 """
 from __future__ import annotations
 
-import argparse
 import re
-from pathlib import Path
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from pathlib import Path
 
-
-DEFAULT = (
-    Path(__file__).resolve().parents[1]
-    / "essays"
-    / "why-cant-a-turing-machine-predict-its-own-death.html"
-)
+ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / "essays/why-cant-a-turing-machine-predict-its-own-death.html"
+ASSET = ROOT / "assets/essays/halting-paradox"
 NS = "{http://www.w3.org/2000/svg}"
 
 
-class Structure(HTMLParser):
+class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.ids = set()
-        self.duplicate_ids = set()
-        self.fragment_links = []
-        self._figures = 0
+        self.duplicates = set()
+        self.anchors = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if "id" in a:
+        if a.get("id"):
             if a["id"] in self.ids:
-                self.duplicate_ids.add(a["id"])
+                self.duplicates.add(a["id"])
             self.ids.add(a["id"])
         if tag == "a" and a.get("href", "").startswith("#"):
-            self.fragment_links.append(a["href"][1:])
-        if tag == "figure" and "essay-plate" in a.get("class", "").split():
-            self._figures += 1
+            self.anchors.append(a["href"][1:])
 
 
-def validate(path: Path) -> None:
-    html = path.read_text(encoding="utf-8")
-    parser = Structure()
-    parser.feed(html)
-    errors = []
+def run() -> None:
+    html = HTML.read_text(encoding="utf-8")
+    page = Page()
+    page.feed(html)
+    errs = []
+
     figures = re.findall(
-        r'<figure class="essay-plate">([\s\S]*?)</figure>', html
+        r'<figure class="search-figure hl-min-figure">([\s\S]*?)</figure>',
+        html,
     )
-    if len(figures) != 12 or parser._figures != 12:
-        errors.append(f"Expected 12 figures, got {len(figures)}.")
-
-    for number, figure in enumerate(figures, 1):
-        svg_match = re.search(r"<svg\b[\s\S]*?</svg>", figure)
-        cap_match = re.search(r"<figcaption>([\s\S]*?)</figcaption>", figure)
-        if not svg_match or not cap_match:
-            errors.append(f"Figure {number}: missing SVG or caption.")
+    if len(figures) != 12:
+        errs.append(f"Expected 12 figures, found {len(figures)}")
+    for i, figure in enumerate(figures, 1):
+        expected = f"figure-{i:02d}.svg"
+        m = re.search(r'<img\b[^>]*>', figure)
+        caption = re.search(r"<figcaption>([\s\S]*?)</figcaption>", figure)
+        if not m or not caption:
+            errs.append(f"Figure {i} missing img or caption")
             continue
-        if re.search(r"<(?:rect|path|text|line|polygon)\b", cap_match[1]):
-            errors.append(f"Figure {number}: drawing markup leaked into caption.")
-        if not re.search(r"[A-Za-z]{5,}", re.sub(r"<[^>]+>", "", cap_match[1])):
-            errors.append(f"Figure {number}: caption does not explain anything.")
+        tag = m.group(0)
+        if expected not in tag:
+            errs.append(f"Figure {i} references wrong file")
+        if not re.search(r'alt="[^"]{40,}"', tag):
+            errs.append(f"Figure {i} missing meaningful alt text")
+        if not re.search(r"[A-Za-z]{25,}", re.sub(r"<[^>]*>", "", caption.group(1))):
+            errs.append(f"Figure {i} has poor caption")
+        if re.search(r"<(?:rect|path|svg|circle|line|text)\b", caption.group(1)):
+            errs.append(f"Figure {i} has shape tags in its caption")
+        filepath = ASSET / expected
+        if not filepath.exists():
+            errs.append(f"Figure {i} missing SVG file {filepath}")
+            continue
         try:
-            svg = ET.fromstring(svg_match[0])
+            root = ET.parse(filepath).getroot()
         except ET.ParseError as exc:
-            errors.append(f"Figure {number}: malformed SVG XML: {exc}")
+            errs.append(f"Figure {i} has invalid XML: {exc}")
             continue
-        if svg.tag != f"{NS}svg":
-            errors.append(f"Figure {number}: wrong namespace.")
-        if not svg.find(f"{NS}title") is not None or svg.find(f"{NS}desc") is None:
-            errors.append(f"Figure {number}: missing accessible title/description.")
-        txt = list(svg.iter(f"{NS}text"))
-        shapes = sum(1 for e in svg.iter() if e.tag in {
-            f"{NS}rect", f"{NS}path", f"{NS}line",
-            f"{NS}polygon", f"{NS}circle"
-        })
-        if len(txt) < 4 or shapes < 3:
-            errors.append(
-                f"Figure {number}: only {len(txt)} text and {shapes} shapes."
-            )
-        if any(not (t.text or "").strip() for t in txt):
-            errors.append(f"Figure {number}: empty text element.")
-        print(f"Figure {number:>2}: {len(txt):>2} labels, {shapes:>2} shapes, valid SVG")
+        if root.tag != NS + "svg":
+            errs.append(f"Figure {i} wrong SVG namespace")
+        if root.find(NS + "title") is None or root.find(NS + "desc") is None:
+            errs.append(f"Figure {i} missing accessible title and description")
+        labels = list(root.iter(NS + "text"))
+        shapes = sum(node.tag in {
+            NS + "rect", NS + "path", NS + "circle", NS + "line"
+        } for node in root.iter())
+        if len(labels) < 5 or shapes < 3:
+            errs.append(f"Figure {i} empty or decorative: {len(labels)} labels, {shapes} shapes")
+        try:
+            width = int(root.attrib["width"])
+            height = int(root.attrib["height"])
+            vb = tuple(map(int, root.attrib["viewBox"].split()))
+            if width != 720 or height < 300 or vb != (0, 0, width, height):
+                errs.append(f"Figure {i} incorrect dimensions: {width}x{height}, {vb}")
+        except (ValueError, KeyError) as exc:
+            errs.append(f"Figure {i} missing explicit consistent viewBox: {exc}")
+        print(f"Figure {i:02d}: {len(labels)} labels, {shapes} shapes, {width}x{height}")
 
-    if parser.duplicate_ids:
-        errors.append(f"Duplicate HTML IDs: {sorted(parser.duplicate_ids)}.")
-    missing = sorted(set(parser.fragment_links) - parser.ids)
+    if page.duplicates:
+        errs.append(f"Duplicate HTML IDs: {page.duplicates}")
+    missing = set(page.anchors) - page.ids
     if missing:
-        errors.append(f"Broken fragment links: {missing}.")
-    if 'data-prediction="halts"' not in html or 'data-prediction="loops"' not in html:
-        errors.append("Missing interactive halting scenario controls.")
+        errs.append(f"Broken internal section links: {missing}")
     if "effective_computation_by_human_and_machine.pdf" not in html:
-        errors.append("Missing requested Shagrir reference.")
-    if errors:
-        raise SystemExit("\n".join(errors))
-    print("PASS: valid explanatory SVG content, captions, page anchors and experiment.")
+        errs.append("Shagrir source is missing")
+    if 'data-prediction="halts"' not in html or 'data-prediction="loops"' not in html:
+        errs.append("Interactive prediction controls missing")
+
+    cover = ASSET / "cover.svg"
+    try:
+        root = ET.parse(cover).getroot()
+        if len(list(root.iter(NS + "text"))) < 8:
+            errs.append("Cover is not an explanatory illustration")
+    except (ET.ParseError, FileNotFoundError) as exc:
+        errs.append(f"Cover SVG cannot be read: {exc}")
+
+    if errs:
+        raise SystemExit("\n".join(errs))
+    print("PASS: external figures, XML geometry, captions and links checked.")
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--html", type=Path, default=DEFAULT)
-    validate(ap.parse_args().html)
+    run()
