@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Why can't a Turing machine predict its own death?</title>
+<desc id="desc">An unbounded Turing tape leads to a predictor. If the predictor says halt, the adversarial program loops. If it says loop, that program halts.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a1929"/><stop offset="1" stop-color="#1d3948"/></linearGradient><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9Z" fill="#c4d5dd"/></marker></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect x="28" y="28" width="1144" height="574" rx="22" fill="none" stroke="#557185" stroke-width="1.5"/>
+<text x="72" y="85" fill="#f0c883" font-size="20" font-weight="700" letter-spacing="3" font-family="Arial,Helvetica,sans-serif">TURING · GÖDEL · SELF-REFERENCE</text>
+<text x="72" y="155" fill="#f7fafb" font-size="50" font-weight="750" font-family="Arial,Helvetica,sans-serif">The self-defeating prediction</text>
+<text x="72" y="194" fill="#b7cad6" font-size="22" font-family="Arial,Helvetica,sans-serif">Unlimited tape cannot make a universal halting oracle computable.</text>
+<text x="100" y="260" fill="#c4d5dd" font-size="18" font-weight="700" font-family="Arial,Helvetica,sans-serif" letter-spacing="2">INPUT: A PROGRAM</text>
+<g transform="translate(90 298)">
+<rect x="0" y="0" width="61" height="74" fill="#f6f3e8" stroke="#6f8791" stroke-width="2"/><rect x="63" y="0" width="61" height="74" fill="#f6f3e8" stroke="#6f8791" stroke-width="2"/><rect x="126" y="0" width="61" height="74" fill="#f0c883" stroke="#6f8791" stroke-width="2"/><rect x="189" y="0" width="61" height="74" fill="#f6f3e8" stroke="#6f8791" stroke-width="2"/><rect x="252" y="0" width="61" height="74" fill="#f6f3e8" stroke="#6f8791" stroke-width="2"/>
+<g fill="#203c4b" font-size="26" text-anchor="middle" font-family="monospace" font-weight="bold"><text x="30" y="46">0</text><text x="93" y="46">1</text><text x="156" y="46">D</text><text x="219" y="46">1</text><text x="282" y="46">0</text></g>
+<path d="M157 -22 V-4" stroke="#f0c883" stroke-width="4"/><path d="M149 -14 L157 -23 L165 -14" fill="none" stroke="#f0c883" stroke-width="3"/></g>
+<text x="97" y="413" fill="#92afbc" font-size="18" font-family="Arial,Helvetica,sans-serif">… unbounded tape …</text>
+<path d="M428 337 H501" stroke="#c4d5dd" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="515" y="291" width="164" height="100" rx="14" fill="#29475a" stroke="#8ab9ca" stroke-width="2"/>
+<text x="597" y="330" text-anchor="middle" fill="#edf9fb" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700">Predictor H</text>
+<text x="597" y="362" text-anchor="middle" fill="#c2d6df" font-family="Arial,Helvetica,sans-serif" font-size="16">Halts or loops?</text>
+<path d="M680 341 H714 M714 341 V270 M714 341 V433 M714 270 H755 M714 433 H755" stroke="#c4d5dd" stroke-width="3" fill="none"/>
+<rect x="758" y="239" width="356" height="91" rx="12" fill="#243743" stroke="#f0c883" stroke-width="2"/>
+<text x="780" y="274" fill="#f0c883" font-size="21" font-weight="700" font-family="Arial,Helvetica,sans-serif">H predicts HALT</text><text x="780" y="307" fill="#f4f7f9" font-size="21" font-family="Arial,Helvetica,sans-serif">D loops forever → wrong</text>
+<rect x="758" y="400" width="356" height="91" rx="12" fill="#243743" stroke="#86d9d4" stroke-width="2"/>
+<text x="780" y="435" fill="#86d9d4" font-size="21" font-weight="700" font-family="Arial,Helvetica,sans-serif">H predicts LOOP</text><text x="780" y="468" fill="#f4f7f9" font-size="21" font-family="Arial,Helvetica,sans-serif">D halts → wrong</text>
+<text x="77" y="551" fill="#dce6ea" font-size="20" font-family="Arial,Helvetica,sans-serif">The contradiction is logical, not a shortage of memory.</text>
+</svg>
