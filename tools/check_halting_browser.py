@@ -37,6 +37,12 @@ def inspect(browser, width: int, height: int, output: Path):
       for (const [index, figure] of diagrams.entries()) {
         const svg = figure.querySelector('svg');
         const texts = [...svg.querySelectorAll('text')];
+        const svgRect = svg.getBoundingClientRect();
+        const vb = svg.viewBox.baseVal;
+        const expectedHeight = svgRect.width * vb.height / vb.width;
+        if (Math.abs(svgRect.height - expectedHeight) > 4) {
+          problems.push('Figure '+(index+1)+' is vertically cropped: '+Math.round(svgRect.height)+' px vs expected '+Math.round(expectedHeight)+' px');
+        }
         if (texts.length < 4) problems.push('Figure '+(index+1)+' is empty');
         for (const text of texts) {
           const box = text.getBBox();
