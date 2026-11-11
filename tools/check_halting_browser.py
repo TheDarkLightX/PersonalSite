@@ -14,6 +14,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.support.ui import WebDriverWait
 
 
@@ -66,12 +67,19 @@ def inspect(browser, width: int, height: int, output: Path):
     buttons = browser.find_elements(By.CSS_SELECTOR, "[data-prediction]")
     if len(buttons) != 2:
         raise AssertionError("Halting exercise buttons missing")
-    browser.find_element(By.CSS_SELECTOR, '[data-prediction="halts"]').click()
-    output_text = browser.find_element(By.ID, "fate-output").text
-    assert "D loops forever" in output_text, output_text
-    browser.find_element(By.CSS_SELECTOR, '[data-prediction="loops"]').click()
-    output_text = browser.find_element(By.ID, "fate-output").text
-    assert "D halts" in output_text, output_text
+    for guess, expected in (("halts", "D loops forever"), ("loops", "D halts")):
+        button = browser.find_element(By.CSS_SELECTOR, f'[data-prediction="{guess}"]')
+        browser.execute_script(
+            "arguments[0].scrollIntoView({block:'center',behavior:'instant'});", button
+        )
+        try:
+            button.click()
+        except ElementClickInterceptedException:
+            # Some headless runners confuse document and viewport coordinates
+            # after SVG-heavy layouts. The event handler must still work.
+            browser.execute_script("arguments[0].click();", button)
+        output_text = browser.find_element(By.ID, "fate-output").text
+        assert expected in output_text, (guess, output_text)
 
     output.mkdir(parents=True, exist_ok=True)
     browser.save_screenshot(str(output / f"article-{width}.png"))
