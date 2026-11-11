@@ -49,6 +49,10 @@ def inspect(browser, width: int, height: int, output: Path):
           if (!(box.width > 0 && box.height > 0)) {
             problems.push('Figure '+(index+1)+' has invisible text: '+text.textContent);
           }
+          if (box.y < -4 || box.y + box.height > vb.height - 2 ||
+              box.x < -4 || box.x + box.width > vb.width + 4) {
+            problems.push('Figure '+(index+1)+' clips text: '+text.textContent);
+          }
         }
         const caption = figure.querySelector('figcaption');
         if (caption.querySelector('rect,path,text,svg')) {
