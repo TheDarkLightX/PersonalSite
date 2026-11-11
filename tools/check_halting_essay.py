@@ -59,7 +59,7 @@ def run() -> None:
             errs.append(f"Figure {i} references wrong file")
         if not re.search(r'alt="[^"]{40,}"', tag):
             errs.append(f"Figure {i} missing meaningful alt text")
-        if not re.search(r"[A-Za-z]{25,}", re.sub(r"<[^>]*>", "", caption.group(1))):
+        if len(re.sub(r"<[^>]*>", "", caption.group(1)).strip()) < 40:
             errs.append(f"Figure {i} has poor caption")
         if re.search(r"<(?:rect|path|svg|circle|line|text)\b", caption.group(1)):
             errs.append(f"Figure {i} has shape tags in its caption")
