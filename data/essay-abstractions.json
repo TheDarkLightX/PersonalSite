@@ -19,9 +19,9 @@
           "label": "Monoid",
           "symbol": "(a ⊗ b) ⊗ c = a ⊗ (b ⊗ c)",
           "symbol_reading": "The operation is associative",
-          "phrase": "Regroup while preserving order.",
-          "meaning": "An associative operation with an identity supports reusable aggregation.",
-          "boundary": "Reordering requires commutativity. Efficient parallelism additionally depends on operation costs; implementation arithmetic must satisfy the stated laws.",
+          "phrase": "Move the parentheses; keep the order.",
+          "meaning": "An associative operation with an identity lets us combine values in groups without changing the result.",
+          "boundary": "Changing the order also requires commutativity. Parallel speed depends on the cost of combining values, and the implementation must obey the stated laws.",
           "links": [
             {
               "label": "Definition and example",
@@ -42,9 +42,9 @@
           "label": "Algebraic path problem",
           "symbol": "Alternatives · composition · repetition",
           "symbol_reading": "Combine alternatives, compose successive steps, and account for repetitions",
-          "phrase": "Interpret the same route structure using different operations.",
-          "meaning": "Semiring operations model alternatives and successive steps; suitable closure handles repeated traversal.",
-          "boundary": "Closure availability, initialization, and pivot rules must match the chosen domain.",
+          "phrase": "Keep the routes; change how you combine them.",
+          "meaning": "Use one operation for alternative routes, another for successive steps, and a suitable closure operation for repetition.",
+          "boundary": "Closure, initialization, and pivot rules must be valid for the chosen domain.",
           "links": [
             {
               "label": "Elimination example",
@@ -61,9 +61,9 @@
           "label": "Well-founded reduction",
           "symbol": "Invariant + certified progress",
           "symbol_reading": "Preserve an invariant and certify progress",
-          "phrase": "Preserve the answer while ruling out an infinite run.",
-          "meaning": "Each permitted step preserves the relevant answer or algebraic relation and advances a justified termination argument.",
-          "boundary": "A decreasing measure must land in a well-founded order. The ascending-chain condition in Buchberger’s outer algorithm requires its own justification.",
+          "phrase": "Preserve the answer and show why the process stops.",
+          "meaning": "Each step preserves the relevant answer or algebraic relation. A separate progress argument rules out an infinite run.",
+          "boundary": "A decreasing measure needs an order with no infinite descent. Buchberger’s outer algorithm instead uses the ascending-chain condition for leading-term ideals.",
           "links": [
             {
               "label": "Progress arguments",
@@ -84,9 +84,9 @@
           "label": "Algebra isomorphism",
           "symbol": "Translate → compute → translate back",
           "symbol_reading": "Translate, compute, then translate back",
-          "phrase": "A reversible map preserves the operations being transported.",
-          "meaning": "For the complex DFT, cyclic convolution maps to pointwise multiplication.",
-          "boundary": "General synthesis reductions need not be isomorphisms; they do need a correctness relation. Benefit depends on conversion and arithmetic costs.",
+          "phrase": "Change representation while preserving the operations.",
+          "meaning": "A reversible map preserves the operations being transported. The complex DFT, for example, maps cyclic convolution to pointwise multiplication.",
+          "boundary": "A general synthesis reduction need not be an isomorphism, but it must preserve the required answer. Conversion and arithmetic costs determine whether it saves work.",
           "links": [
             {
               "label": "Representation change",

@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Algebra Beneath the Algorithm | Dana Edwards</title>
-  <meta name="description" content="How algebraic laws make algorithms reusable across domains, and how those assumptions can become executable contracts for program synthesis." />
+  <meta name="description" content="Why familiar algorithms work in unfamiliar domains, what their algebraic laws allow, and what a synthesis system should remember." />
   <meta name="author" content="Dana Edwards" />
   <link rel="canonical" href="https://www.danaedwards.info/essays/the-algebra-beneath-the-algorithm.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Algebra Beneath the Algorithm | Dana Edwards" />
-  <meta property="og:description" content="How algebraic laws make algorithms reusable across domains, and how those assumptions can become executable contracts for program synthesis." />
+  <meta property="og:description" content="Why familiar algorithms work in unfamiliar domains, what their algebraic laws allow, and what a synthesis system should remember." />
   <meta property="og:url" content="https://www.danaedwards.info/essays/the-algebra-beneath-the-algorithm.html" />
   <meta property="article:published_time" content="2026-11-12" />
   <meta name="twitter:card" content="summary" />
@@ -38,35 +38,34 @@
 <a class="breadcrumb" href="../writing.html#essays">Back to Writing</a>
 <p class="eyebrow">Essay 14 · Algorithms and abstraction</p>
 <h1>The Algebra Beneath the Algorithm</h1>
-<p class="lede">How algebraic laws turn familiar algorithms into reusable methods.</p>
+<p class="lede">The laws that let one algorithm work in many domains.</p>
 <p class="search-meta">Dana Edwards · <time datetime="2026-11-12">November 12, 2026</time> · Research essay</p>
-<details class="ps-toc"><summary>Explore sections</summary><nav class="search-toc" aria-label="Sections in this essay"><a href="#associative-composition">Associative composition</a><a href="#algebraic-elimination">Algebraic elimination</a><a href="#reduction-and-progress">Reduction and progress</a><a href="#representation-change">Representation change</a><a href="#greedy-and-fixpoints">Greedy and fixpoints</a><a href="#crucible-case-study">Crucible case study</a><a href="#saturation-counterexample">Saturation counterexample</a><a href="#checked-reuse">Checked reuse</a><a href="#sources">Sources</a></nav></details>
+<details class="ps-toc"><summary>Explore sections</summary><nav class="search-toc" aria-label="Sections in this essay"><a href="#associative-composition">Regrouping operations</a><a href="#algebraic-elimination">Eliminating a state</a><a href="#reduction-and-progress">Reduction and progress</a><a href="#representation-change">An easier representation</a><a href="#greedy-and-fixpoints">Greedy choice and iteration</a><a href="#crucible-case-study">Several questions, one map</a><a href="#saturation-counterexample">Saturating addition</a><a href="#checked-reuse">What synthesis should remember</a><a href="#sources">Sources</a></nav></details>
 </div></section>
 <section class="section"><div class="container"><article class="essay-prose" aria-label="The algebra beneath the algorithm">
-
-
-<p class="lead">Once you strip away concrete data types and examine the laws an algorithm uses, an algorithms textbook starts to look much smaller. Problems filed under arithmetic, graphs, strings, and signal processing repeatedly depend on the same few structures. A new domain can sometimes be reached by changing the values and operations beneath an existing procedure.</p>
+<p class="lead">An algorithms textbook can feel like a collection of unrelated tricks. Fast exponentiation gets one explanation; graph algorithms get another. But strip away the concrete data types, and many procedures depend on the same small set of laws. A new application can sometimes reuse an existing procedure with different values and operations.</p>
+<p>If a procedure needs an associative operation, matrix multiplication may serve it just as well as integer addition. The useful question is:</p>
 <p class="thesis">What must remain true for this procedure to work?</p>
-<p>Alexander Stepanov and Paul McJones organize <em>Elements of Programming</em> around the relationship between algorithms and the mathematical requirements that justify them. Those requirements determine where an algorithm applies.<a class="ref" href="#source-1" aria-label="Source 1">1</a></p>
-<p>Several families make this way of thinking concrete. They overlap, and they connect algorithms at different levels: sometimes through the same procedure, sometimes through a shared law or proof pattern. Four will serve as a starting point; greedy selection and fixpoint iteration will show why the list should remain open.</p>
+<p>Alexander Stepanov and Paul McJones build <em>Elements of Programming</em> around the relationship between algorithms and their mathematical requirements. Finding the weakest requirements tells us how far we can reuse a procedure.<a class="ref" href="#source-1" aria-label="Source 1">1</a></p>
+<p>Four connections are a useful starting point, though they vary in strength. Reusing a loop is a closer relationship than reusing a proof technique.</p>
 
-<h2 id="associative-composition">Regrouping without changing the answer</h2>
-<p>Suppose we combine four values. Associativity lets us change the parentheses while preserving their order:</p>
+<h2 id="associative-composition">Change the grouping, keep the answer</h2>
+<p>Suppose we combine four values. If the operation is associative, we can move the parentheses without changing their order:</p>
 <div class="equation">((a ⊗ b) ⊗ c) ⊗ d = (a ⊗ b) ⊗ (c ⊗ d)</div>
-<p>The two pairs on the right can be computed independently. With more values, balanced grouping reduces the depth of the dependency chain. Associativity permits regrouping; commutativity would additionally permit reordering.</p>
-<p>A set with an associative binary operation is a <em>semigroup</em>. Add an identity element—something that changes nothing when combined with a value—and it becomes a <em>monoid</em>. The identity supplies the result for an empty collection or a zeroth power.</p>
+<p>On the right, the two pairs can be computed independently. With more values, this grouping turns a long dependency chain into a balanced tree. Rearranging the values themselves would also require commutativity.</p>
+<p>A set with an associative binary operation is a <em>semigroup</em>. Give it an identity, an element that leaves any value unchanged when combined with it, and it becomes a <em>monoid</em>. The identity also tells us what to return for an empty collection or a zeroth power.</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Associative operations and identities"><table>
 <thead><tr><th scope="col">Values</th><th scope="col">Combine</th><th scope="col">Identity</th></tr></thead>
 <tbody><tr><td>Integers</td><td>Addition</td><td>0</td></tr><tr><td>Strings</td><td>Concatenation</td><td>Empty string</td></tr><tr><td>Square matrices of fixed size</td><td>Matrix multiplication</td><td>Identity matrix</td></tr><tr><td>Functions from a set to itself</td><td>Composition</td><td>Identity function</td></tr></tbody>
 </table></div>
-<p>Fast exponentiation reuses powers of the same value. A prefix scan produces the aggregate at every prefix. A segment tree stores aggregates for intervals. Their control flow and outputs differ, but associativity licenses all three forms of regrouping.<a class="ref" href="#source-1" aria-label="Source 1">1</a><a class="ref" href="#source-2" aria-label="Source 2">2</a></p>
-<p>Some recurrences become scans after a change of representation. Consider updates of the form <em>x ↦ ax + b</em>. Store each update as a pair <em>(a, b)</em>. Applying <em>(a, b)</em> and then <em>(c, d)</em> gives:</p>
+<p>Fast exponentiation reuses powers; segment trees store aggregates for intervals. A prefix scan needs the aggregate at every prefix of a sequence. Associativity supports each of these arrangements.<a class="ref" href="#source-1" aria-label="Source 1">1</a><a class="ref" href="#source-2" aria-label="Source 2">2</a></p>
+<p>Even a recurrence that appears sequential can sometimes use a scan. Take updates of the form <em>x ↦ ax + b</em> and represent each one by the pair <em>(a, b)</em>. Applying <em>(a, b)</em> followed by <em>(c, d)</em> gives:</p>
 <div class="equation">(a, b) ⋄ (c, d) = (ca, cb + d)<small>For example: x ↦ 2x + 1, then x ↦ 3x + 4, becomes x ↦ 6x + 7.</small></div>
-<p>Composition is associative, and these pairs give a compact representation of it. That makes a scan useful. Merely observing that arbitrary state transitions compose does not make every dynamic program an efficient parallel scan: the composed transition may be expensive to represent or evaluate.<a class="ref" href="#source-2" aria-label="Source 2">2</a></p>
-<p>Dynamic programming crosses these boundaries. A chain can expose associative composition; branching recurrences often need both combination of alternatives and composition of partial solutions. Semirings provide a powerful framework for that second case when the required distributive laws and decomposition conditions hold. “All dynamic programming requires a semiring” would be a stronger claim.<a class="ref" href="#source-10" aria-label="Source 10">10</a></p>
+<p>Combine any number of these updates and the result still fits in a pair. That makes an associative scan useful. Arbitrary state transitions also compose, but storing or evaluating their composition may cost too much to help.<a class="ref" href="#source-2" aria-label="Source 2">2</a></p>
+<p>Branching recurrences often need a second operation: one to combine alternatives, another to compose partial solutions. Semirings describe how those operations interact, giving us another way to organize dynamic programming when the recurrence has the right decomposition and the operations obey the required laws, including distributivity.<a class="ref" href="#source-10" aria-label="Source 10">10</a></p>
 
-<h2 id="algebraic-elimination">Eliminating an intermediate state</h2>
-<p>A route can go directly from <em>i</em> to <em>j</em>, or visit <em>k</em>, loop there, and leave. Eliminating <em>k</em> folds those possibilities into one edge:</p>
+<h2 id="algebraic-elimination">Remove a state, keep its paths</h2>
+<p>A route from <em>i</em> to <em>j</em> can go directly or pass through <em>k</em>, possibly looping there before it leaves. Removing <em>k</em> means accounting for those possibilities in the edge that remains:</p>
 <figure>
 <svg class="path-diagram" viewBox="0 0 640 250" role="img" aria-labelledby="path-title path-desc">
 <title id="path-title">Direct route or route through an intermediate state</title>
@@ -84,72 +83,70 @@
 <figcaption>The structure stays fixed. The meaning of “combine alternatives,” “join steps,” and “repeat” determines the problem being solved.</figcaption>
 </figure>
 <div class="equation">w′<sub>ij</sub> = w<sub>ij</sub> ⊕ w<sub>ik</sub> ⊗ (w<sub>kk</sub>)<sup>*</sup> ⊗ w<sub>kj</sub><small>i and j survive the elimination; every term on the right uses the previous weights.</small></div>
-<p>Here ⊕ combines alternatives, ⊗ joins successive steps, and star accounts for zero or more repetitions.</p>
+<p>Read ⊕ as “combine alternatives,” ⊗ as “join successive steps,” and star as “repeat zero or more times.” Changing their meanings changes the question we can answer:</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Algebraic path interpretations"><table>
 <thead><tr><th scope="col">Problem</th><th scope="col">Alternatives ⊕</th><th scope="col">Successive steps ⊗</th></tr></thead>
 <tbody><tr><td>Shortest paths</td><td>Minimum</td><td>Addition</td></tr><tr><td>Reachability</td><td>OR</td><td>AND</td></tr><tr><td>Regular languages</td><td>Union</td><td>Concatenation</td></tr></tbody>
 </table></div>
-<p>This connects Floyd–Warshall, transitive closure, and automaton-to-regex conversion. The closure operation and its laws matter; two operators alone are insufficient. Finite shortest-path answers also require the relevant routes to avoid negative cycles.</p>
-<p>Matrix inversion fits the broader elimination framework through <em>X = I + AX</em>, giving <em>X = (I − A)<sup>−1</sup></em> when the inverse exists. Ordinary arithmetic needs defined pivots, with scalar closure <em>a<sup>*</sup> = 1/(1 − a)</em>; it is not a total closed-semiring instance. Pivot handling and row/column updates matter. The inverse need not equal a convergent infinite sum of powers.<a class="ref" href="#source-3" aria-label="Source 3">3</a></p>
+<p>This is the connection between Floyd–Warshall, transitive closure, and converting an automaton to a regular expression. Repetition needs its own operation and laws; choosing two operators does not settle how loops behave. For finite shortest-path answers, the relevant routes must avoid negative cycles.</p>
+<p>Matrix inversion fits the broader elimination framework through the equation <em>X = I + AX</em>. When the inverse exists, its solution is <em>X = (I − A)<sup>−1</sup></em>. Here scalar closure means <em>a<sup>*</sup> = 1/(1 − a)</em>, so some values are excluded. Unlike a total closed-semiring instance, arithmetic inversion needs valid pivots and the appropriate row and column updates. The inverse can exist even when the infinite sum of powers does not converge.<a class="ref" href="#source-3" aria-label="Source 3">3</a></p>
 
-<h2 id="reduction-and-progress">Preserving the answer while making progress</h2>
-<p>Euclid’s algorithm repeatedly replaces a pair by a divisor and remainder:</p>
+<h2 id="reduction-and-progress">Make progress without losing the answer</h2>
+<p>Euclid’s algorithm replaces a pair of numbers with the divisor and remainder:</p>
 <div class="equation">(a, b) ↦ (b, r), &nbsp; a = qb + r<small>For nonnegative integers and b &gt; 0: 0 ≤ r &lt; b.</small></div>
-<p>Two facts do the work. The common divisors are preserved, and the remainders cannot decrease forever. Replace integers with univariate polynomials over a field, and degree supplies the decreasing measure.<a class="ref" href="#source-1" aria-label="Source 1">1</a></p>
-<p>Gaussian elimination and Gröbner-basis methods share a broader pattern: cancel terms while preserving the relevant solution set or algebraic relation. Their progress arguments differ. Gaussian elimination advances through finitely many pivot positions; its coefficients need not shrink.</p>
-<p>In polynomial reduction, a well-founded monomial order prevents an endless descent of leading monomials. Buchberger’s <em>outer</em> algorithm adds nonzero remainders of S-polynomials to the basis. Its termination relies on the strictly growing ideals generated by leading terms eventually having to stop growing.<a class="ref" href="#source-4" aria-label="Source 4">4</a></p>
-<p>Calling all three “the same division loop” would discard the distinction that proves termination. The reusable questions are more valuable: what does each step preserve, what counts as progress, and why can progress not continue forever?</p>
+<p>The replacement preserves their common divisors. It also makes the second number smaller, and a nonnegative integer cannot keep shrinking forever. The same argument works for univariate polynomials over a field, with degree taking the place of size.<a class="ref" href="#source-1" aria-label="Source 1">1</a></p>
+<p>Gaussian elimination also preserves the answer while canceling terms, but its coefficients need not shrink. Progress comes from moving through a finite number of pivot positions.</p>
+<p>Gröbner-basis methods need two progress arguments. During polynomial reduction, each cancellation lowers the leading monomial in a well-founded order, an order with no infinite descending chain. Buchberger’s outer algorithm then adds nonzero remainders of S-polynomials to the basis. Each addition enlarges the ideal generated by leading terms, and the ascending-chain condition guarantees that this growth eventually stops.<a class="ref" href="#source-4" aria-label="Source 4">4</a></p>
 
-<h2 id="representation-change">Changing coordinates to simplify an operation</h2>
-<p>Multiply two polynomials in coefficient form and their coefficients interact through convolution. Evaluate them at suitable points, and multiplication becomes pointwise:</p>
+<h2 id="representation-change">Find an easier representation</h2>
+<p>In coefficient form, polynomial multiplication requires convolution: each output coefficient collects products from several pairs of inputs. In point-value form, multiplication is immediate at each point:</p>
 <div class="equation">(pq)(t) = p(t)q(t)</div>
-<p>For <em>p(x) = 1 + 2x</em> and <em>q(x) = 3 + 4x</em>, three evaluations determine their degree-at-most-two product:</p>
+<p>For <em>p(x) = 1 + 2x</em> and <em>q(x) = 3 + 4x</em>, the product has degree at most two. Three evaluations determine it:</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Polynomial evaluation example"><table>
 <thead><tr><th scope="col">t</th><th scope="col">p(t)</th><th scope="col">q(t)</th><th scope="col">p(t)q(t)</th></tr></thead>
 <tbody><tr><td>0</td><td>1</td><td>3</td><td>3</td></tr><tr><td>1</td><td>3</td><td>7</td><td>21</td></tr><tr><td>2</td><td>5</td><td>11</td><td>55</td></tr></tbody>
 </table></div>
-<p>Interpolation recovers <em>3 + 10x + 8x²</em>. This tiny example illustrates the representation change; it makes no claim of a speedup.</p>
-<p>The discrete Fourier transform makes the corresponding relationship exact for cyclic convolution:</p>
+<p>Interpolation recovers <em>3 + 10x + 8x²</em>. At this size, converting back and forth is extra work. To gain speed, we need cheap conversions.</p>
+<p>The discrete Fourier transform gives an exact relationship between cyclic convolution and pointwise multiplication:</p>
 <div class="equation">F(a ∗ b) = F(a) ⊙ F(b)<small>∗ is cyclic convolution; ⊙ is pointwise multiplication.</small></div>
-<p>The FFT is a fast algorithm for computing that transform. Over the complex numbers, suitable transform lengths allow the forward and inverse conversions in <em>O(n log n)</em> arithmetic operations. Ordinary polynomial multiplication uses enough zero padding to prevent wraparound.<a class="ref" href="#source-5" aria-label="Source 5">5</a><a class="ref" href="#source-6" aria-label="Source 6">6</a></p>
-<p>Transform-based integer multiplication applies this idea to digit sequences, with additional work for exact coefficient recovery and carries.<a class="ref" href="#source-7" aria-label="Source 7">7</a> The broader principle is conditional: find a reversible representation that preserves the operation and makes the <em>whole computation</em> cheaper. Being a ring or group does not itself supply such a transform.</p>
+<p>The FFT computes that transform efficiently. Over the complex numbers, suitable transform lengths let us convert in either direction in <em>O(n log n)</em> arithmetic operations. To multiply ordinary polynomials, we first add enough zero padding to prevent coefficients from wrapping around.<a class="ref" href="#source-5" aria-label="Source 5">5</a><a class="ref" href="#source-6" aria-label="Source 6">6</a></p>
+<p>Transform-based integer multiplication uses digit sequences in much the same way, then recovers exact coefficients and handles the carries.<a class="ref" href="#source-7" aria-label="Source 7">7</a> The transformation must preserve the operation and let us recover the answer. It only pays off if the whole computation, including conversion, costs less. Being a ring or group does not guarantee that such a transform exists.</p>
 
-<h2 id="greedy-and-fixpoints">Two more structures worth recognizing</h2>
-<p>Greedy selection has a particularly sharp boundary. Start with a finite set and a nonempty family of feasible subsets closed under taking subsets. For every assignment of nonnegative element weights, selecting the heaviest remaining feasible element gives a maximum-weight feasible set <em>if and only if</em> the family is a matroid. Its exchange axiom supplies the crucial additional structure.<a class="ref" href="#source-8" aria-label="Source 8">8</a></p>
-<p>The quantifiers matter. A greedy method succeeding on one weighted instance does not establish the matroid property, and the theorem concerns this particular selection rule and additive objective.</p>
-<p>Fixpoint iteration supplies another family. For a monotone map on a finite-height lattice, iteration from the bottom stabilizes at the least fixpoint. This underlies many dataflow analyses. Infinite domains may need widening or additional convergence arguments; having a lattice alone does not ensure that ordinary iteration stops.<a class="ref" href="#source-9" aria-label="Source 9">9</a></p>
-<p>The lesson survives the longer list: identify the law that licenses a procedure, then look for other places where it holds.</p>
+<h2 id="greedy-and-fixpoints">Where greedy choice and iteration fit</h2>
+<p>Greedy selection gives us a precise test of which assumptions matter. Start with a finite set and a nonempty family of feasible subsets, closed under taking subsets. Give each element a nonnegative weight. Repeatedly add the heaviest element that keeps the selection feasible.</p>
+<p>This rule finds a maximum-weight feasible set for <em>every</em> such weight assignment if and only if the family is a matroid. The matroid’s exchange axiom lets us justify the greedy choices.<a class="ref" href="#source-8" aria-label="Source 8">8</a> Success on one instance is not enough: the theorem covers every nonnegative weight assignment, with this selection rule and an additive objective.</p>
+<p>Fixpoint iteration is another family. Apply a monotone map repeatedly, starting at the bottom of a finite-height lattice, and the sequence stabilizes at the least fixpoint. Many dataflow analyses use this structure. On an infinite domain, we may need widening or another convergence argument; a lattice alone does not make iteration terminate.<a class="ref" href="#source-9" aria-label="Source 9">9</a></p>
 
-<h2 id="crucible-case-study">What this lens revealed in Crucible</h2>
-<p>A review of my Crucible research suggested a practical use for this perspective: separate a checked decomposition of a problem from the question asked of that decomposition. A difference map partitions the inputs into cells where two programs agree everywhere or differ everywhere. The existing implementation asks whether a difference exists, where the first one occurs, and how many inputs differ.<a class="ref" href="#source-11" aria-label="Source 11">11</a></p>
-<p>The review then explored a generic fold over these cells. Changing the aggregation operation and the way a cell is summarized reportedly added the last differing input, counts per output, the largest output gap, and the total output gap.</p>
+<h2 id="crucible-case-study">One decomposition, several questions</h2>
+<p>A review of my Crucible work suggested a practical use for this approach. A difference map partitions inputs into cells where two programs either agree everywhere or differ everywhere. The existing implementation can find the first differing input or count all of them. It can also answer the simpler question of whether a difference exists.<a class="ref" href="#source-11" aria-label="Source 11">11</a></p>
+<p>The review explored a generic fold over those cells: summarize each one, then combine the summaries. Changing those operations added four queries in the scratch experiments: the last differing input, counts per output, the largest output gap, and the total output gap.</p>
 <div class="equation">Q(C₁ ∪ ··· ∪ Cₘ) = q(C₁) ⊕ ··· ⊕ q(Cₘ)<small>q must correctly summarize a whole cell; counts and totals require disjointness or explicit correction for overlap.</small></div>
-<p>Associativity permits regrouping. Commutativity permits visiting cells in any order. Idempotence—<em>a ⊕ a = a</em>—makes repeated contributions harmless for operations such as OR, minimum, and maximum. For counting, the same input appearing twice usually changes the answer. These are separate permissions, each justified by a separate law.</p>
-<p>The review supplied the following exploratory results. The scratch scripts and receipts were not available for replay in this essay review, so these figures remain attributed reports.</p>
+<p>Associativity lets the fold regroup its summaries. With commutativity, it can also visit cells in any order. An idempotent operation satisfies <em>a ⊕ a = a</em>, so repeating a contribution does no harm; OR and minimum behave this way, as does maximum. Counting an input twice usually changes the answer.</p>
+<p>These are the review’s reported results. The scratch scripts and receipts were unavailable for independent replay when this essay was prepared.</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Exploratory results and evidence boundaries"><table>
 <thead><tr><th scope="col">Experiment</th><th scope="col">Reported result</th><th scope="col">Evidence boundary</th></tr></thead>
 <tbody><tr><td>Seven fold queries</td><td>12,821 answers on 1,262 random program pairs; no disagreement with enumeration</td><td>Random-program checks; the generic extension is uncommitted</td></tr><tr><td>Shortest-path specialization</td><td>87% of emptiness tests eligible; matching verdicts on 172,403 tests; 3.7× faster in the reported comparison</td><td>Scope and timing require replay; refutation certificates are still missing</td></tr><tr><td>Algebraic-law checks</td><td>Seven operators; ranges of 10⁹; 0.14 seconds reported</td><td>Finite-domain claims; checker output and timing not independently replayed here</td></tr></tbody>
 </table></div>
-<p>The shortest-path result suggests recognizing constraints of the form <em>x − y ≤ c</em> and selecting a specialized solver. That is a useful application of the algebraic view, but it does not establish that closed-semiring elimination was already present in the committed code. A faster verdict also needs the certificate expected by the consuming proof checker.</p>
-<p>The other connections need equally precise names. The inspected <code>linear.py</code> uses Fourier–Motzkin elimination with integer tightening and branching; <code>count.py</code> sums variables out symbolically. These fit a broad elimination pattern, without becoming instances of Euclid’s remainder algorithm.</p>
-<p>The witness-set representation has an exact, narrower interpretation. For candidates restricted to the same comparison cuts, affine-spanning witness points determine the affine outputs on each cell, subject to the stated failure conditions. Agreement on arbitrary sample points would not suffice. This is a determining representation for a restricted function class; a ring isomorphism or FFT-style diagonalization would require additional structure.<a class="ref" href="#source-11" aria-label="Source 11">11</a></p>
+<p>The shortest-path experiment suggests routing constraints of the form <em>x − y ≤ c</em> to a suitable graph solver. This specialization is outside the inspected revision. Before its verdict can be used in a proof, it must produce the certificate expected by the checker.</p>
+<p>The inspected <code>linear.py</code> uses Fourier–Motzkin elimination with integer tightening and branching; <code>count.py</code> sums variables out symbolically. Both fit a broad elimination pattern. Relating them to Euclid’s algorithm would require a more specific argument.</p>
+<p>Witness sets illustrate a restricted kind of representation change. For candidates with the same comparison cuts, affine-spanning witness points determine the affine outputs on each cell, subject to the stated failure conditions. An affine output is a linear expression plus a constant; arbitrary sample points may leave it underdetermined. This determining representation still falls short of a ring isomorphism or FFT-style diagonalization.<a class="ref" href="#source-11" aria-label="Source 11">11</a></p>
 
-<h2 id="saturation-counterexample">A familiar operator can fail the contract</h2>
-<p>The most revealing example from the review is saturating addition. On the integers from 0 to <em>N</em>, define <em>a ⊕ b = min(N, a + b)</em>. Both bracketings of three inputs equal <em>min(N, a + b + c)</em>. The operation is associative and commutative, and 0 is its identity.</p>
-<p>Now allow negative inputs and clamp at both −<em>N</em> and <em>N</em>. Commutativity and the identity survive. Associativity fails. With <em>N = 10</em>:</p>
+<h2 id="saturation-counterexample">When addition stops being associative</h2>
+<p>Consider addition that stops at a limit. On the integers from 0 to <em>N</em>, define <em>a ⊕ b = min(N, a + b)</em>. Either grouping of three inputs gives <em>min(N, a + b + c)</em>. This saturating addition is associative and commutative, with identity 0.</p>
+<p>Now include negative inputs and clamp the result at both −<em>N</em> and <em>N</em>. Commutativity and the identity survive, but associativity fails. With <em>N = 10</em>:</p>
 <div class="equation">(−10 ⊕ −10) ⊕ 1 = −9<br>−10 ⊕ (−10 ⊕ 1) = −10</div>
-<p>The same counterexample scales to <em>N = 10⁹</em>, producing −999,999,999 and −1,000,000,000. It was independently recomputed for this essay. A fold using this operation cannot be freely rebracketed, even though its name, type signature, commutativity, and identity all look suitable.</p>
-<p>A contract could therefore declare the algebra its algorithm requires. A checker could search for a violation of associativity, for example. A counterexample rejects the proposed instance. A completed sound decision procedure can establish the bounded claim; a budget stop cannot. This is a proposed ZAL/Crucible contract feature, not a claim that these declarations and checks are already integrated.</p>
+<p>In the first grouping, adding −10 to −10 hits the lower limit. Adding 1 then moves the result up to −9. In the second, −10 + 1 becomes −9 before the outer addition clamps the result back to −10. The parentheses determine when information is lost.</p>
+<p>At <em>N = 10⁹</em>, the same example gives −999,999,999 and −1,000,000,000. Both cases were independently recomputed for this essay. The operator’s type signature gives no hint of the problem. A fold using it cannot be freely regrouped.</p>
+<p>A ZAL contract could declare that it needs associativity and ask Crucible to check it. A counterexample would reject the proposed instance; a completed sound decision procedure could establish the bounded claim. Running out of budget would leave it unresolved. This contract feature is still a proposal.</p>
 
-<h2 id="checked-reuse">The proof is part of the reusable component</h2>
-<p>These connections change how I would organize a synthesis system. A library entry should contain a procedure, its assumptions, its correctness argument, and the cost of the operations it calls. Retrieving an algorithm by domain label alone leaves much of that knowledge inaccessible.</p>
-<p>For a new problem, the search can ask which representation exposes the required laws. A numerical recurrence might become composition of affine maps. A route problem might become elimination over a suitable algebra. A convolution might become pointwise multiplication after a transform.</p>
-<p>That introduces a concrete proof obligation. If <em>E</em> encodes inputs, <em>K</em> is the reusable procedure, and <em>D</em> decodes the result, then for every valid input <em>x</em>:</p>
+<h2 id="checked-reuse">What a synthesis system should remember</h2>
+<p>This is how I would organize a synthesis library. Store each procedure with the assumptions that justify it and its correctness argument. Record operation costs too. A label such as “graph algorithm” tells a search less about reuse than the laws the procedure needs.</p>
+<p>A search could try to turn a recurrence into composition of affine maps, or recognize a path problem inside a set of constraints.</p>
+<p>That connection has something to prove. Write <em>E</em> for the input encoding and <em>D</em> for the output decoder. If <em>K</em> is the reusable procedure, then for every valid input <em>x</em>:</p>
 <div class="equation">D(K(E(x))) = Spec(x)<small>For a functional specification, with encoding and decoding defined on the required domains.</small></div>
-<p>The system must establish that the encoded inputs satisfy <em>K</em>’s assumptions and that decoding recovers the requested answer. A reversible encoding by itself proves neither claim. The conversion costs must also be included before claiming an improvement.</p>
-<p>This suggests a discovery-pattern library: retain the successful representation, the algorithm it enabled, and the conditions under which the connection was checked. The next search can begin with that relationship. This is a design proposal for organizing synthesis, not evidence that an implementation already performs these transfers automatically.</p>
-<p>Reusing a proof requires checking the laws of the actual operations, including rounding, overflow, and failure behavior. The relevant carrier is the declared domain of the implementation, with its exact semantics. Algebraic names do not discharge those obligations.</p>
-<p class="end">A reusable algorithm is a procedure together with the conditions under which it deserves to be reused.</p>
+<p>Encoding must put the problem inside <em>K</em>’s domain of correctness, and decoding must recover the requested answer. A reversible map alone proves neither. Conversion costs also belong in any performance comparison.</p>
+<p>A discovery-pattern library could retain the successful connection between a representation and a procedure, together with the conditions under which it was checked. A later search would have something to test and reuse. Automatic transfer between these domains remains a design goal; the experiments above have not demonstrated it.</p>
+<p class="end">The laws must hold for the implementation’s actual arithmetic, including its rounding and overflow rules. Failure behavior matters too. For saturating addition, changing the input range destroys associativity. A synthesis library needs to remember that range restriction along with the procedure.</p>
 
 <!-- MENTAL_TOOLKIT_START -->
 <section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
@@ -160,37 +157,37 @@
 <div class="toolkit-card" id="idea-monoid">
 <h3>Monoid</h3>
 <p class="toolkit-symbol" aria-label="The operation is associative">(a ⊗ b) ⊗ c = a ⊗ (b ⊗ c)</p>
-<p class="toolkit-phrase">Regroup while preserving order.</p>
+<p class="toolkit-phrase">Move the parentheses; keep the order.</p>
 <details><summary>Definition, limits, evidence</summary>
-<p><strong>Meaning.</strong> An associative operation with an identity supports reusable aggregation.</p>
-<p><strong>Boundary.</strong> Reordering requires commutativity. Efficient parallelism additionally depends on operation costs; implementation arithmetic must satisfy the stated laws.</p>
+<p><strong>Meaning.</strong> An associative operation with an identity lets us combine values in groups without changing the result.</p>
+<p><strong>Boundary.</strong> Changing the order also requires commutativity. Parallel speed depends on the cost of combining values, and the implementation must obey the stated laws.</p>
 <p class="toolkit-links"><a href="#associative-composition">Definition and example</a> · <a href="#source-1">Stepanov and McJones</a> · <a href="#source-2">Blelloch</a></p>
 </details></div>
 <div class="toolkit-card" id="idea-path-algebra">
 <h3>Algebraic path problem</h3>
 <p class="toolkit-symbol" aria-label="Combine alternatives, compose successive steps, and account for repetitions">Alternatives · composition · repetition</p>
-<p class="toolkit-phrase">Interpret the same route structure using different operations.</p>
+<p class="toolkit-phrase">Keep the routes; change how you combine them.</p>
 <details><summary>Definition, limits, evidence</summary>
-<p><strong>Meaning.</strong> Semiring operations model alternatives and successive steps; suitable closure handles repeated traversal.</p>
-<p><strong>Boundary.</strong> Closure availability, initialization, and pivot rules must match the chosen domain.</p>
+<p><strong>Meaning.</strong> Use one operation for alternative routes, another for successive steps, and a suitable closure operation for repetition.</p>
+<p><strong>Boundary.</strong> Closure, initialization, and pivot rules must be valid for the chosen domain.</p>
 <p class="toolkit-links"><a href="#algebraic-elimination">Elimination example</a> · <a href="#source-3">Rote</a></p>
 </details></div>
 <div class="toolkit-card" id="idea-reduction">
 <h3>Well-founded reduction</h3>
 <p class="toolkit-symbol" aria-label="Preserve an invariant and certify progress">Invariant + certified progress</p>
-<p class="toolkit-phrase">Preserve the answer while ruling out an infinite run.</p>
+<p class="toolkit-phrase">Preserve the answer and show why the process stops.</p>
 <details><summary>Definition, limits, evidence</summary>
-<p><strong>Meaning.</strong> Each permitted step preserves the relevant answer or algebraic relation and advances a justified termination argument.</p>
-<p><strong>Boundary.</strong> A decreasing measure must land in a well-founded order. The ascending-chain condition in Buchberger’s outer algorithm requires its own justification.</p>
+<p><strong>Meaning.</strong> Each step preserves the relevant answer or algebraic relation. A separate progress argument rules out an infinite run.</p>
+<p><strong>Boundary.</strong> A decreasing measure needs an order with no infinite descent. Buchberger’s outer algorithm instead uses the ascending-chain condition for leading-term ideals.</p>
 <p class="toolkit-links"><a href="#reduction-and-progress">Progress arguments</a> · <a href="#source-1">Euclidean remainder</a> · <a href="#source-4">Buchberger termination</a></p>
 </details></div>
 <div class="toolkit-card" id="idea-isomorphism">
 <h3>Algebra isomorphism</h3>
 <p class="toolkit-symbol" aria-label="Translate, compute, then translate back">Translate → compute → translate back</p>
-<p class="toolkit-phrase">A reversible map preserves the operations being transported.</p>
+<p class="toolkit-phrase">Change representation while preserving the operations.</p>
 <details><summary>Definition, limits, evidence</summary>
-<p><strong>Meaning.</strong> For the complex DFT, cyclic convolution maps to pointwise multiplication.</p>
-<p><strong>Boundary.</strong> General synthesis reductions need not be isomorphisms; they do need a correctness relation. Benefit depends on conversion and arithmetic costs.</p>
+<p><strong>Meaning.</strong> A reversible map preserves the operations being transported. The complex DFT, for example, maps cyclic convolution to pointwise multiplication.</p>
+<p><strong>Boundary.</strong> A general synthesis reduction need not be an isomorphism, but it must preserve the required answer. Conversion and arithmetic costs determine whether it saves work.</p>
 <p class="toolkit-links"><a href="#representation-change">Representation change</a> · <a href="#source-5">Fourier convolution</a></p>
 </details></div>
 </div>
@@ -200,7 +197,7 @@
 
 <h2 id="sources">Sources</h2>
 <ol class="sources source-list">
-<li id="source-1">Alexander Stepanov and Paul McJones, <a href="https://www.elementsofprogramming.com/eop.pdf"><em>Elements of Programming</em></a>, authors’ edition, 2019. Preface; §§1.7, 3.2–3.7, 5.1, 5.4–5.5. The organization in this essay is an editorial synthesis, not a taxonomy attributed to the authors.</li>
+<li id="source-1">Alexander Stepanov and Paul McJones, <a href="https://www.elementsofprogramming.com/eop.pdf"><em>Elements of Programming</em></a>, authors’ edition, 2019. Preface; §§1.7, 3.2–3.7, 5.1, 5.4–5.5. The grouping used in this essay is my own; it is not the authors’ taxonomy.</li>
 <li id="source-2">Guy E. Blelloch, <a href="https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf">“Prefix Sums and Their Applications”</a>, 1993 chapter version. §§1.2, 1.4: associative scans and recurrence transformations.</li>
 <li id="source-3">Günter Rote, <a href="https://page.mi.fu-berlin.de/rote/Papers/pdf/Path%2Bproblems%2Bin%2Bgraphs.pdf">“Path Problems in Graphs”</a>, 1990. §§3–4 and 6.1: semirings, closure, elimination, and inversion.</li>
 <li id="source-4">Yankı Lekili, <a href="https://lekili.duckdns.org/teaching/calg/lec07.html">“Buchberger’s Criterion and Algorithm”</a>, Commutative Algebra lecture 7. Proposition 4.13: termination through leading-term ideals.</li>
@@ -210,9 +207,9 @@
 <li id="source-8">Jeff Bilmes, <a href="https://people.ece.uw.edu/bilmes/classes/ee563/ee563_fall_2020/lecture9p.pdf">EE563 lecture 9</a>, University of Washington, 2020. Theorem 9.5.1: matroids characterize weight-ordered greedy optimization on finite independence systems.</li>
 <li id="source-9">Patrick Cousot and Radhia Cousot, <a href="https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml">“Abstract Interpretation: A Unified Lattice Model for Static Analysis of Programs by Construction or Approximation of Fixpoints”</a>, POPL 1977.</li>
 <li id="source-10">Baril, Couceiro, and Lagerkvist, <a href="https://arxiv.org/abs/2512.03916">“New Perspectives on Semiring Applications to Dynamic Programming”</a>, preprint. Separating solution structure from its semiring interpretation.</li>
-<li id="source-11">Research provenance (private repository): <a href="https://github.com/TheDarkLightX/Zeno-Crucible/pull/56">Zeno-Crucible PR #56</a>, inspected at <code>c41c561954c0f1ec2d940ca5fc8fddfcbd47949b</code>, especially <code>crucible/reduction/{difference,witness,linear,count}.py</code>. The additional scratch results were supplied in a review on November 12, 2026; they are not part of that inspected revision and were not replayed here.</li>
+<li id="source-11">Research provenance (private repository): <a href="https://github.com/TheDarkLightX/Zeno-Crucible/pull/56">Zeno-Crucible PR #56</a>, inspected at <code>c41c561954c0f1ec2d940ca5fc8fddfcbd47949b</code>, especially <code>crucible/reduction/{difference,witness,linear,count}.py</code>. The scratch results come from a review supplied on November 12, 2026. They are outside the inspected revision and have not been independently replayed here.</li>
 </ol>
-<p class="note">Published November 12, 2026. The affine composition, polynomial evaluations, and saturation counterexamples were recomputed. These checks support the illustrations; they are not a formal verification of the general algorithms. The exploratory performance figures remain attributed reports. </p>
+<p class="note">Published November 12, 2026. The affine-composition example, polynomial evaluations, and saturation counterexamples were independently recomputed. These example checks are separate from the reported Crucible benchmarks.</p>
 
 </article>
 <div class="essay-nav"><a href="navigating-the-limits-of-synthesis.html">← Previous essay</a><a href="../writing.html#essays">All essays →</a></div>
@@ -220,4 +217,5 @@
 <footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards.</p><p>Engineer, philosopher, futurist.</p></div></footer>
 <script src="../script.js"></script>
 </body></html>
+
 
