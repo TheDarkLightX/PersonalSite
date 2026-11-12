@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navigating the Limits of Synthesis | Dana Edwards</title>
+  <meta name="description" content="What the limits of program synthesis reveal about search, evidence, and the engineering choices that make restricted problems checkable." />
+  <meta name="author" content="Dana Edwards" />
+  <link rel="canonical" href="https://www.danaedwards.info/essays/navigating-the-limits-of-synthesis.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Navigating the Limits of Synthesis | Dana Edwards" />
+  <meta property="og:description" content="What the limits of program synthesis reveal about search, evidence, and the engineering choices that make restricted problems checkable." />
+  <meta property="og:url" content="https://www.danaedwards.info/essays/navigating-the-limits-of-synthesis.html" />
+  <meta property="article:published_time" content="2026-11-11" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#fafafa" id="meta-theme-color" />
+  <script>
+    (function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../assets/css/search-memory.css" />
+  <link rel="stylesheet" href="../assets/css/program-search-essay.css" />
+  <link rel="stylesheet" href="../assets/css/limits-of-synthesis.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Navigating the Limits of Synthesis","author":{"@type":"Person","name":"Dana Edwards"},"datePublished":"2026-11-11","mainEntityOfPage":"https://www.danaedwards.info/essays/navigating-the-limits-of-synthesis.html"}</script>
+</head>
+<body class="search-essay program-search-essay limits-essay">
+ <a class="skip-link" href="#main">Skip to content</a>
+ <header class="site-header" data-sticky><div class="container nav-wrap">
+   <a class="brand" href="../index.html" aria-label="Dana Edwards home"><img src="../assets/mark.svg" alt="" width="34" height="34"/><span>Dana Edwards</span></a>
+   <nav class="main-nav" id="primary-nav" aria-label="Main navigation"><a href="../index.html#arc">Arc</a><a href="../index.html#work">Work</a><a href="../writing.html" aria-current="page">Writing</a><a href="../value.html">Value</a><a href="../network.html">Network</a><a href="../ideas.html">Ideas</a></nav>
+   <div class="nav-right"><button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+   <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
+ </div></header>
+
+ <main id="main">
+ <section class="page-hero"><div class="container">
+  <a class="breadcrumb" href="../writing.html#essays">Back to Writing</a>
+  <p class="eyebrow">Essay 13 · Computation and verification</p>
+  <h1>Navigating the Limits of Synthesis</h1>
+  <p class="lede">A hardness theorem can be read as a map of the choices a practical synthesis system must make.</p>
+  <p class="search-meta">Dana Edwards · <time datetime="2026-11-11">November 11, 2026</time> · Research essay</p>
+  <details class="ps-toc"><summary>Explore sections</summary><nav class="search-toc" aria-label="Sections in this essay"><a href="#a-limit-is-a-map">A limit is a map</a><a href="#three-quantifiers">Three quantifiers</a><a href="#what-the-theorem-leaves-open">What the theorem leaves open</a><a href="#the-ways-through">The ways through</a><a href="#checked-search">The anatomy of checked search</a><a href="#documented-starting-point">ZAL and ZenoFCIS</a><a href="#proposed-paths">Proposed paths to scale</a><a href="#searching-for-better-search">Searching for better search</a><a href="#experiments">Four experiments</a><a href="#evidence-and-limits">Evidence and limits</a><a href="#references">References</a></nav></details>
+ </div></section>
+ <section class="section"><div class="container"><article class="essay-prose" aria-label="Navigating the limits of synthesis">
+
+<h2 id="a-limit-is-a-map">A limit is a map</h2>
+<p>A hardness theorem does more than label a problem hard. It identifies an obstacle a general method must confront, and helps show what a practical system can bound, supply, or check.</p>
+<p>Program synthesis makes the question explicit: find a program that meets a specification. For a bounded transfer rule, for example, the system may have to choose an expression, check every admitted balance and amount, and ensure that the expression always terminates. Each of those choices can be finite, infinite, or delegated to another source of evidence.</p>
+<p>For a basic Turing-complete imperative language, <a href="#source-140">Jinwoo Kim</a> proved that deciding this general realizability question is Σ⁰₃-complete. In the arithmetical hierarchy, that sits two quantifier alternations beyond the Σ⁰₁ halting problem. It is a result about unrestricted generality, not a measure of the practical difficulty of every synthesis task.</p>
+<p>Read as a wall, the theorem says that no universal synthesis procedure can always decide the question. Read as a map, it exposes the choices a practical system can restrict: the candidate program, the input domain, and the execution witness.</p>
+<aside class="limits-note"><p>This essay separates three kinds of claim. The theoretical claims are cited. Claims about ZAL and ZenoFCIS describe repository documentation at <a href="#source-157">commit 4160086</a> rather than a fresh source-level execution. The proposed scaling directions and experiments are proposals, not demonstrated results.</p></aside>
+<h2 id="three-quantifiers">Three quantifiers expose the unrestricted problem</h2>
+<p>In Kim&#x27;s setting, the question has the form: there is a program p such that, for every input x, there is a finite run t whose output meets the specification. The decidable predicate underneath says what the run did within t steps and whether that output is acceptable.</p>
+<div class="search-formula" role="math" aria-label="There exists a program p such that, for every input x, there exists a finite run t satisfying R of p, x, and t.">∃p ∀x ∃t : R(p, x, t)</div>
+<ul>
+<li><strong>There is a program. </strong>The candidate space is unbounded.</li>
+<li><strong>For every input. </strong>The cases to cover are unbounded.</li>
+<li><strong>There is a finite run. </strong>Whether an arbitrary run terminates cannot be decided in general.</li>
+</ul>
+<p>This form gives a useful design decomposition. In standard effective restrictions, making a candidate set finite, fixing or bounding the input domain, or requiring a total evaluator removes or collapses quantifiers in different ways. The table is a guide to those restrictions, not a claim that every bound always lowers the hierarchy by one level.</p>
+<div class="table-wrap" role="region" aria-label="Restrictions and their logical upper bounds" tabindex="0"><table><caption>Restrictions and their logical upper bounds. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Restriction</th><th scope="col">What remains unbounded</th><th scope="col">Logical classification</th></tr></thead><tbody><tr><td>None</td><td>Candidate program, inputs, and finite execution witnesses</td><td>Σ⁰₃-complete in Kim’s setting</td></tr><tr><td>A total evaluator and decidable checking</td><td>Candidate program and inputs</td><td>At most Σ⁰₂</td></tr><tr><td>The candidate program is fixed</td><td>Inputs and finite execution witnesses</td><td>At most Π⁰₂</td></tr><tr><td>A finite, explicitly listed input set</td><td>Candidate program and executions</td><td>At most Σ⁰₁</td></tr><tr><td>Finite candidates and inputs; total evaluator</td><td>A finite number of checks</td><td>Decidable by exhaustive enumeration</td></tr></tbody></table></div><p class="table-note">The upper bounds assume the remaining predicates are effectively decidable and the candidate space is effectively enumerable. Completeness for a restricted class requires a separate hardness argument.</p>
+<p>At Σ⁰₁, a positive instance can be found by search: if a witness exists, the search eventually finds it; if none exists, the search may run forever.</p>
+<figure class="idea-figure" aria-labelledby="bounds-title">
+<h3 id="bounds-title">Three choices a system can restrict</h3>
+<p class="figure-intro">In the general form, a program must work for every admitted input, with a finite execution for each one.</p>
+<div class="figure-grid">
+  <div class="figure-cell"><div class="figure-kicker">1 · CANDIDATES</div><strong>There is a program</strong><span>One option: enumerate a finite candidate set.</span></div>
+  <div class="figure-cell"><div class="figure-kicker">2 · INPUTS</div><strong>For every input</strong><span>One option: state a finite input domain.</span></div>
+  <div class="figure-cell"><div class="figure-kicker">3 · EXECUTION</div><strong>There is a finite run</strong><span>One option: require a terminating evaluator.</span></div>
+</div>
+<div class="figure-result"><strong>Together, these choices allow a finite number of checks.</strong><span>The resulting claim covers the admitted candidates and inputs.</span></div>
+<figcaption>The diagram shows one way to obtain a finite decision problem. An individual restriction does not automatically reduce complexity by one fixed level.</figcaption>
+</figure>
+<p>With a finite candidate set, an admitted finite input domain, and a total evaluator, the decision reduces to a finite count. That is the design point used by ZenoFCIS finite-profile routes.</p>
+<p>Finiteness makes a problem decidable; it does not make it cheap. The cost still depends on how compactly the instance is described and on the number of candidate-input checks.</p>
+<p>The classifications in this table are unconditional. Their implications against polynomial-time algorithms depend on familiar open separations for the first two rows. Time-hierarchy theorems give an unconditional separation of exponential-time classes from polynomial time (<a href="#source-137">Hartmanis and Stearns 1965</a>).</p>
+<div class="table-wrap" role="region" aria-label="Examples of hard finite questions" tabindex="0"><table><caption>Examples of hard finite questions. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Illustrative finite question</th><th scope="col">Complexity class</th><th scope="col">Source</th></tr></thead><tbody><tr><td>Is there an assignment u such that every assignment v makes a Boolean formula φ(u, v) true?</td><td>Σ₂ᵖ-complete</td><td>Stockmeyer 1976</td></tr><tr><td>Does a propositional STRIPS plan exist?</td><td>PSPACE-complete</td><td>Bylander 1994</td></tr><tr><td>Which player can force a win from a position in one of Stockmeyer and Chandra’s specified games?</td><td>EXPTIME-complete for those games</td><td>Stockmeyer and Chandra 1979</td></tr><tr><td>Does an LTL requirement have a reactive implementation?</td><td>2EXPTIME-complete</td><td>Pnueli and Rosner 1989</td></tr></tbody></table></div>
+<h2 id="what-the-theorem-leaves-open">What the theorem forbids and leaves open</h2>
+<p>Kim&#x27;s result rules out completeness in its stated general setting. It does not rule out systems that work well on an explicit task family, under an explicit scope, with an explicit source of help.</p>
+<p>In the unrestricted setting, four ambitions fail.</p>
+<ul>
+<li><strong>A complete decision procedure. </strong>No algorithm always decides whether the specification is realizable.</li>
+<li><strong>A complete refuter. </strong>No general procedure enumerates exactly all unrealizable requests.</li>
+<li><strong>A sample-only stopping rule. </strong>Without a specified hypothesis class or other assumption, finite examples cannot certify that a proposed rule will generalize.</li>
+<li><strong>A guaranteed counterexample loop. </strong>Guess, check, add a counterexample, and repeat can run forever in the general case.</li>
+</ul>
+<p>There is a useful existence construction. If outputs can be enumerated, acceptability is decidable, and every input has an acceptable output, a selector can try outputs at run time until one passes. This shows why unrestricted relational synthesis can be easy to satisfy while still being uselessly slow.</p>
+<p>In that qualified sense, a specification can act like a slow program. Synthesis then becomes the search for a shorter, faster, safer, or otherwise constrained program that agrees with it. Over a finite representable domain, a lookup table provides the same baseline; the work is to compress or explain it.</p>
+<p>This motivates an interpretive lens rather than a theorem: a finished program can be viewed as search whose choices have already been fixed. A deterministic program follows those choices at run time, even when the program itself performs a search.</p>
+<p>The remaining difficulty lives in constraints such as short and fast. The complexity of finding the smallest circuit for a fully specified Boolean table, the minimum circuit size problem, remains open.</p>
+<p>Hirahara (2022) proved NP-hardness, under randomized reductions, for the partial version in which a Boolean truth table may contain unspecified entries. A contract that permits several outputs for an input has a related partial-information shape, but it is not automatically an instance of that problem; an explicit reduction would be needed.</p>
+<p>Liu and Pass (2020) give a precise average-case result: one-way functions exist if and only if suitable time-bounded Kolmogorov complexity is mildly hard on average for probabilistic polynomial-time algorithms. That is narrower, and more useful, than an informal claim about every shortest fast program.</p>
+<p>What remains open is the structure of the practical problem family.</p>
+<ul>
+<li><strong>The task distribution. </strong>Real requests are not sampled uniformly from all possible specifications.</li>
+<li><strong>Restricted classes. </strong>Each explicit restriction can yield a better decision procedure or a stronger scoped claim.</li>
+<li><strong>External help. </strong>A witness, invariant, proof, or human answer can turn a search problem into a checking problem.</li>
+<li><strong>Honest scope. </strong>A claim such as “for every admitted input up to this size” is weaker than universality, but fully checkable.</li>
+</ul>
+<p>This is an engineering hypothesis, not a theorem: requirements written from small mental models often have structure that search can exploit. A serious system should measure that hypothesis on its own task population.</p>
+<h2 id="the-ways-through">The ways through and what they cost</h2>
+<p>Every practical route through a limit supplies something so that search has less to find. The following accounting is a useful design vocabulary, not a universal law of problem solving.</p>
+<p>Suppose candidates are tried in nonincreasing order of a normalized prior. If the desired candidate has positive prior mass p, its rank is at most 1/p. Writing b = −log₂ p gives the familiar bound 1/p = 2ᵇ: b is the candidate&#x27;s surprise under that prior.</p>
+<blockquote><p><strong>Work is bounded by trials times the cost of checking. </strong><em>With nonuniform checks, use total checking cost rather than one fixed cost.</em></p></blockquote>
+<p>Missing bits are the information the proposer or search order does not already supply. A technique can reduce the candidate space, make a check cheaper, provide a witness, or change the question to one with an explicit scope.</p>
+<div class="table-wrap table-wrap--wide" role="region" aria-label="Ways to reduce or redirect search" tabindex="0"><table><caption>Ways to reduce or redirect search. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Move</th><th scope="col">What it buys</th><th scope="col">What it costs</th><th scope="col">Classic form</th></tr></thead><tbody><tr><td>Bound a quantifier</td><td>Makes a space finite</td><td>Generality: the result carries a scope</td><td>Loop-free programs, finite domains, size limits</td></tr><tr><td>Supply a witness</td><td>Turns finding into checking</td><td>Effort supplied by a person, model, or prover</td><td>Sketches (Solar-Lezama et al. 2006), proof checking</td></tr><tr><td>Shorten the witness</td><td>Leaves fewer bits to find</td><td>A language to design, and more choices at each step</td><td>Libraries, macros, domain languages</td></tr><tr><td>Split the problem</td><td>Can replace a product of searches with a sum</td><td>Interfaces that must be found and checked</td><td>Contracts, composition</td></tr><tr><td>Learn from failure</td><td>Lets one check eliminate many candidates</td><td>A judge that returns a useful explanation</td><td>Counterexamples (Angluin 1987), clause learning (Marques-Silva and Sakallah 1999)</td></tr><tr><td>Use structure</td><td>Treats many cases as one</td><td>A proof that the cases are indistinguishable for the claim</td><td>Symmetry, abstraction, equality saturation (Tate et al. 2009)</td></tr><tr><td>State the scope</td><td>Replaces “always” with an explicit domain</td><td>A deliberately weaker claim</td><td>Small scope hypothesis (Jackson 2006)</td></tr></tbody></table></div>
+<p>That vocabulary highlights four sources of help: a person, a proof, prior experience, or additional search.</p>
+<p>A person pays in attention. A proof is paid for once and replayed. Experience is a bet that the next task resembles the tasks that supplied the prior.</p>
+<p>The no-free-lunch theorem gives a narrow version of this point: under a uniform average over all objective functions on a fixed finite space, non-revisiting black-box optimizers perform equally in the standard setting. Useful priors win only because practical task distributions have structure (Wolpert and Macready 1997).</p>
+<p>Levin&#x27;s universal search supplies a reference ideal for suitable enumerable search-and-verification problems: it is optimal up to a multiplicative overhead under a fixed encoding. The overhead can be astronomical, and depends on the competing method&#x27;s description, runtime, and verification cost. Practical systems improve by exploiting a better language, prior, and checker (Levin 1973).</p>
+<p>IP = PSPACE shows how much checking can accomplish inside finite complexity classes: a randomized polynomial-time verifier can interact with an unbounded prover to verify PSPACE claims with bounded error (Shamir 1992). It is a useful model for checked proposals, not a way to decide arbitrary undecidable synthesis claims.</p>
+<h2 id="checked-search">A common anatomy for checked search</h2>
+<p>Programs are one instance of a common pattern: a candidate space, a judge, and a failure report. According to the ZenoFCIS documentation, the same pattern is used for at least ten target kinds.</p>
+<div class="table-wrap" role="region" aria-label="Documented forms of checked search" tabindex="0"><table><caption>Documented forms of checked search. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">What is searched for</th><th scope="col">Who judges</th><th scope="col">What a failure returns</th></tr></thead><tbody><tr><td>A program</td><td>A transform check over each admitted input, then replay</td><td>A failing region, ranked repair sites, or a checked repair</td></tr><tr><td>A smaller equivalent program</td><td>An optimizer, accepted by the original check</td><td>A distinguishing input</td></tr><tr><td>An invariant</td><td>A contract lemma on every declared state</td><td>The violating step, or the failing genesis state</td></tr><tr><td>A law</td><td>A contract-review gap check</td><td>A counterexample input</td></tr><tr><td>A rule that summarizes the core</td><td>A teach-back loop</td><td>Exceptions, grouped by the core&#x27;s actual behavior</td></tr><tr><td>An architecture</td><td>A decomposition loop, then the composition checker</td><td>Two inputs the component cannot distinguish, plus the smallest extra observations that would distinguish them</td></tr><tr><td>A rewrite rule</td><td>A rule loop, checked on the target&#x27;s own domain</td><td>A refuting case; the rule is dropped</td></tr><tr><td>A controller or attack</td><td>A trace-game solver plus a separate certificate checker</td><td>A counter-history, or no guard in the admitted class</td></tr><tr><td>A strategy or lesson</td><td>Selection frozen on development tasks, then compared on held-out tasks</td><td>No promotion: it remains a proposal</td></tr><tr><td>The owner&#x27;s intent</td><td>The owner, through a question loop</td><td>A disagreement with responsible inputs identified</td></tr></tbody></table></div>
+<p>The table summarizes that documentation at commit 4160086. It is not a fresh source-code verification.</p>
+<p>Three distinctions matter.</p>
+<p><strong>A positive claim and a negative claim need different evidence. </strong>A positive result presents one candidate for the judge to check. A negative result claims that a space was covered, so its authority depends on the coverage argument.</p>
+<p>The documented ZenoFCIS distinction is similar: selection rests on the checker, while “no solution” also rests on complete enumeration of the admitted sketch.</p>
+<p><strong>Proposal independence needs an exact judge. </strong>When the judge is only a sample or a person, the search order can influence the answer. A fit to examples remains a proposal until a declared full-domain check accepts it.</p>
+<p><strong>Judges become more empirical as their targets become more abstract. </strong>A finite-profile program check can exhaust the admitted inputs. A representation or search-strategy assessment relies on another search or a population of tasks, so the resulting verdict needs a narrower scope.</p>
+<h2 id="documented-starting-point">What the documentation says about ZAL and ZenoFCIS</h2>
+<p>According to the documented finite-profile routes, ZenoFCIS explicitly bounds the candidate space, input domain, and evaluator. Within those bounds, exhaustive checking supports its stated notion of a proved result.</p>
+<div class="table-wrap table-wrap--wide" role="region" aria-label="Documented finite-profile bounds" tabindex="0"><table><caption>Documented finite-profile bounds. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Quantifier</th><th scope="col">Documented bound</th><th scope="col">What it buys</th><th scope="col">What it costs</th></tr></thead><tbody><tr><td>There is a finite run</td><td>A pure, total decision core</td><td>Every admitted evaluation terminates</td><td>Loops and effects stay in a separate shell</td></tr><tr><td>For every input</td><td>An admitted finite domain of at most 65,536 inputs</td><td>Every admitted case can be run</td><td>Larger ranges use a solver route with an Attested status</td></tr><tr><td>There is a program</td><td>A reviewed sketch of at most 1,000,000 candidates, or an externally supplied candidate</td><td>Complete enumeration can support a scoped “no solution” result</td><td>The answer must lie inside the admitted sketch</td></tr></tbody></table></div>
+<p>The documented limits are deliberate: one million candidates is about 20 bits, and 65,536 inputs is 16. Their product is at most 2³⁶ candidate-input evaluations before accounting for per-check cost or early termination.</p>
+<p>The documentation also describes several familiar search moves already in use.</p>
+<ul>
+<li><strong>Supply a witness. </strong>A language model or a person proposes; the checker decides within scope.</li>
+<li><strong>Search meanings, not texts. </strong>Hole search ranges over denotations, and refuted programs can be remembered by meaning.</li>
+<li><strong>Learn from failure. </strong>A refuted proposal returns a failing region and ranked repair sites.</li>
+<li><strong>Split the problem. </strong>Decomposition reports interface counterexamples, then checks the composed result.</li>
+<li><strong>Ask the person well. </strong>A version-space question can choose an input that separates surviving meanings.</li>
+<li><strong>Guard the meta level. </strong>A lesson becomes advice only after a frozen held-out comparison with and without it.</li>
+</ul>
+<p>ZAL supplies the statement against which those results are judged: it turns a person&#x27;s mental model into explicit finite-model claims, together with a record of their stated authority and scope.</p>
+<p>The documentation also describes temporal and game checks over finite models, including declared symmetries and one representative per orbit. These are documented capabilities, not claims newly tested in this essay.</p>
+<p>That is a documented starting point. The remaining question is how to extend it without weakening the evidence carried by a result.</p>
+<h2 id="proposed-paths">Proposed paths to scale checked search</h2>
+<p>The following directions are proposals, not results established here. They aim to reduce or redistribute search effort while preserving an explicit basis for checking results.</p>
+<p>Several documented mechanisms already have that shape.</p>
+<ul>
+<li><strong>Programs with the same admitted table. </strong>One checked meaning.</li>
+<li><strong>Hole values with the same effect. </strong>One candidate class.</li>
+<li><strong>States related by a declared symmetry. </strong>One orbit.</li>
+</ul>
+<p>A ZAL statement can play the same role. A person already groups cases under concepts such as an account, enough balance, or too early. If that grouping preserves the property being checked, a machine can search classes rather than individual cases.</p>
+<p>Each direction names the judge and the condition that would make the reduction safe.</p>
+<h3 id="unrealizability-certificates">1. Certificates for unrealizability beyond a fixed sketch</h3>
+<p>A negative result can sometimes cover every expression in a grammar, rather than only a fixed size bound. For example, AND and OR alone generate only monotone Boolean functions, so they cannot express NOT over ordinary Boolean inputs. The certificate is a relation preserved by every permitted terminal and operator but not by the target.</p>
+<p>For total operations on one finite carrier, the Pol–Inv correspondence says that such a finite-arity separating relation exists whenever an operation lies outside the clone generated by the vocabulary (Geiger 1968; Bodnarchuk et al. 1969). A typed language with traps or partial operations needs its own verified bridge. Unrealizability logic offers a proof system for related claims over program grammars (Kim, D&#x27;Antoni and Reps 2023).</p>
+<h3 id="restricted-fields">2. Exact abstraction for restricted fields</h3>
+<p>An equality-only identifier field may admit a finite set of representatives, but only after a data-independence argument covers the program, specification, environment, named constants, generated literals, and relevant equality patterns. Under those conditions, unused identifiers can be permuted without changing the outcome (Wolper 1986).</p>
+<p>Timed automata give an instructive analogue: Alur and Dill construct finitely many regions from permitted guards, constants, resets, integer parts, and fractional-order information. It is not a general theorem for ordinary order-only fields. The proposed ZenoFCIS route would require a syntactic usage check and a separately checked abstraction lemma.</p>
+<h3 id="checked-solver-proofs">3. Promote solver results with proof checking</h3>
+<p>A checked proof can strengthen a solver result relative to its encoding, proof checker, and bridge from encoding to contract. The documented distinction is sensible: a bare unsat response is Attested, while a proof-carrying result could support a stronger status. Solvers can emit proofs, and small independent proof checkers exist, including formally verified ones (Tan, Heule and Myreen 2021; Andreotti, Lachnitt and Barbosa 2023).</p>
+<p>Proof checking can remove the solver from the trusted base, but it does not remove the encoding or the contract-to-encoding bridge. Those remain proof obligations.</p>
+<h3 id="cost-ledger">4. Test a cost ledger</h3>
+<p>For a fixed counted candidate space, a stage that reduces the surviving set from S to S′ removes log₂(|S|/|S′|) bits. Dividing that quantity by measured checking work could become a useful local metric; it is not a universal currency until it predicts useful choices on held-out tasks.</p>
+<p>The same ledger can make assumptions visible. A binary human answer supplies at most one answer bit, but the statement may also depend on assumptions supplied by the question design and language.</p>
+<p>For ZAL, a planted edit that changes no case a reviewer confirmed may expose one such assumption. It is a candidate next question, not yet a result.</p>
+<h3 id="fixed-share-portfolio">5. A fixed-share portfolio</h3>
+<p>With explicit work accounting, several deterministic strategies can share one budget. A fixed-share dovetailing schedule gives a multiplicative overhead determined by the share assigned to the best strategy, echoing Levin&#x27;s portfolio argument (Levin 1973).</p>
+<p>Metering supplies the work bound. Determinism and replay still require deterministic sub-strategies, recorded seeds or orders, and a deterministic scheduler.</p>
+<h3 id="lemmas-as-proposals">6. Ask proposers for lemmas as well as answers</h3>
+<p>Short proposals with exact judges can be unusually valuable. An accepted invariant can exclude a region, and an accepted abstraction lemma can cover a large range only when its stated conditions have been checked.</p>
+<p>A language model can propose invariants and abstraction lemmas as candidate artifacts, just as it can propose programs. A graded failure signal may help guide proposal search, but acceptance still belongs to the exact judge (Romera-Paredes et al. 2024).</p>
+<p>That separation permits aggressive proposing without weakening the acceptance rule.</p>
+<h2 id="searching-for-better-search">Searching for better search</h2>
+<p>A faster search is itself a target for search, so it needs a judge of its own. Certified failures can safely shrink a candidate space; successful patterns can shorten later proposals.</p>
+<figure class="idea-figure" aria-labelledby="loop-title">
+<h3 id="loop-title">A search can remember what it learns</h3>
+<p class="figure-intro">Read left to right: a statement defines a search, a proposer selects a candidate, and a judge checks it.</p>
+<div class="figure-flow">
+  <div class="figure-cell"><div class="figure-kicker">01</div><strong>Statement</strong><span>What must hold.</span></div>
+  <div class="figure-cell"><div class="figure-kicker">02</div><strong>Search space</strong><span>What may be tried.</span></div>
+  <div class="figure-cell"><div class="figure-kicker">03</div><strong>Proposer</strong><span>Chooses a candidate.</span></div>
+  <div class="figure-cell"><div class="figure-kicker">04</div><strong>Judge</strong><span>Checks the stated obligation.</span></div>
+</div>
+<div class="figure-feedback">
+  <div class="figure-cell"><strong>On failure</strong><span>A checked reason can exclude the cases it actually covers.</span></div>
+  <div class="figure-cell"><strong>On success</strong><span>A useful rule can guide later proposals, which still need checking.</span></div>
+</div>
+<figcaption>These are two kinds of memory. A rejected candidate alone does not justify skipping an unexamined region, and a useful rule does not replace the judge.</figcaption>
+</figure>
+<p>The documented system already has both memories: refuted meanings on one side, and checked rules and lessons on the other.</p>
+<p>Both memories make claims about future searches. The judge required depends on what the claim could break.</p>
+<div class="table-wrap table-wrap--wide" role="region" aria-label="What a remembered result may affect" tabindex="0"><table><caption>What a remembered result may affect. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Kind</th><th scope="col">Examples</th><th scope="col">What it could affect</th><th scope="col">What it needs</th></tr></thead><tbody><tr><td>Advice</td><td>Candidate or input order, prior, schedule, question choice</td><td>Search time</td><td>A recorded receipt and measurement</td></tr><tr><td>A skip</td><td>Symmetry, usage class, invariant, pruned region</td><td>A negative or universal claim</td><td>A certificate the judge checks</td></tr><tr><td>A replacement</td><td>Specialized checker, optimized evaluator, rewritten core</td><td>Component output</td><td>Equality with the original over the admitted domain, or another proof bridge</td></tr></tbody></table></div>
+<p><strong>Advice is correctness-neutral only when every chosen candidate is rechecked. </strong>It must still be recorded: an unrecorded order cannot be replayed or assessed.</p>
+<p>Skips are where a negative claim is won or lost. Every skipped region needs a reason that a small independent judge can check. Proof-logging SAT workflows provide the relevant model: an untrusted search procedure emits an artifact checked independently.</p>
+<p>Replacements point the system at itself. For a fixed finite contract, a replacement evaluator can be checked for equality with the original across the admitted domain. Outside that domain, the equality claim needs its own proof method.</p>
+<p>Each speed-up should therefore be treated like any other candidate: a space, a judge, and a failure that teaches.</p>
+<div class="table-wrap" role="region" aria-label="Candidates and judges for better search" tabindex="0"><table><caption>Candidates and judges for better search. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">What to find</th><th scope="col">Candidate space</th><th scope="col">Required judge</th></tr></thead><tbody><tr><td>A symmetry</td><td>Value or field permutations</td><td>The contract agrees on every admitted input and its image</td></tr><tr><td>A usage class</td><td>Equality-only, order-only, difference-only, arithmetic</td><td>A usage check and a separately proved abstraction lemma</td></tr><tr><td>A vocabulary invariant</td><td>Relations on values</td><td>Terminals and operators preserve it; the goal violates it</td></tr><tr><td>A rewrite rule</td><td>Pairs of terms</td><td>Equal on the whole admitted domain</td></tr><tr><td>A macro</td><td>Definitions over existing operators</td><td>Sound by definition; admitted only after held-out comparison</td></tr><tr><td>An input order</td><td>Priority rules</td><td>No proof of correctness benefit; bound, record, and measure</td></tr><tr><td>A stage order</td><td>A small grammar of stages</td><td>Frozen selection and held-out evaluation</td></tr></tbody></table></div>
+<p>Two cautions apply.</p>
+<p><strong>More knowledge can make search slower. </strong>A macro may shorten some answers while widening each choice. Minton (1990) measured learned rules that cost more to match than they saved.</p>
+<p>The documented promotion rule is a pragmatic guard: promote a lesson only when the held-out comparison finds no task worse and at least one better. Verified macros should come before larger learned libraries.</p>
+<p><strong>The meta level can overfit. </strong>A strategy tuned on a few tasks has learned those tasks. Freezing the strategy before held-out evaluation limits that risk without eliminating it.</p>
+<p>The documented strategy grammar has five sequences. It should grow no faster than the task population that can assess it.</p>
+<h2 id="experiments">Four falsifiable experiments</h2>
+<p>These experiments are ordered by implementation cost. Each has a defined success condition and can return a useful negative result.</p>
+<ol>
+<li><strong>A bits ledger. </strong>From episode records, compute candidate shrinkage per unit of checking work for each stage and owner question. It succeeds only if the ranking predicts which lessons pass a held-out assessment. Otherwise, drop the metric.</li>
+<li><strong>An invariant for one known negative result. </strong>Take a sketch reported unrealizable by the documented loop. Search a small relation space for one preserved by the vocabulary and violated by the goal. It succeeds if the checked certificate costs much less than exhaustive enumeration.</li>
+<li><strong>A restricted-field abstraction. </strong>Take a contract with a genuinely restricted field. Compare every reduced-domain verdict with a trusted full-range route. A single disagreement refutes the proposed lemma before anyone relies on it.</li>
+<li><strong>One checked solver proof. </strong>For a pinned inductive claim, ask the solver for a proof and run an independent checker. Count accepted proofs and their cost. A low acceptance rate is still a result: it identifies fragments that need another route.</li>
+</ol>
+<p>The second experiment needs a control in the same style: a sketch known to be realizable must never receive a negative certificate. If it does, the certificate judge is wrong.</p>
+<h2 id="evidence-and-limits">Evidence and limits</h2>
+<p>The table distinguishes what is established by cited theory, what is documented in the repository, and what this essay proposes.</p>
+<div class="table-wrap" role="region" aria-label="Evidence status for this essay" tabindex="0"><table><caption>Evidence status for this essay. <span class="table-hint">Scroll horizontally to see every column.</span></caption><thead><tr><th scope="col">Status</th><th scope="col">Statements</th></tr></thead><tbody><tr><td>Established theorem</td><td>For Kim&#x27;s specified Turing-complete language, general synthesis is Σ⁰₃-complete. The finite complexity examples are standard classifications. Under a normalized prior, a candidate with mass p has rank at most 1/p.</td></tr><tr><td>Conditional theorem</td><td>Suitable time-bounded Kolmogorov complexity is mildly average-case hard exactly when one-way functions exist, with the paper&#x27;s stated time and adversary conditions.</td></tr><tr><td>Engineering hypothesis</td><td>Human-written requirements may expose reusable structure, and small cases may reveal useful faults. Both need measurement on the target task population.</td></tr><tr><td>Documented behavior not rerun</td><td>The ZenoFCIS and ZAL descriptions in this essay are drawn from repository documentation at commit 4160086.</td></tr><tr><td>Proposal not tested</td><td>The six scaling directions and four experiments have not been implemented or evaluated here.</td></tr></tbody></table></div>
+<p>This analysis has four limits.</p>
+<p><strong>Documentation boundary. </strong>The ZenoFCIS discussion reads repository documentation at commit 4160086, not the Rust source. A described omission may already be implemented.</p>
+<p><strong>No new execution. </strong>None of the proposals was run for this essay because the pinned Rust toolchain could not be installed in the writing environment.</p>
+<p><strong>Clone-theory boundary. </strong>The finite-domain guarantee concerns total operations on one finite carrier. The typed, trapping case needs a separate construction.</p>
+<p><strong>Ledger boundary. </strong>Bits are exact only after fixing a counted space and a prior or elimination measure. Using them to price stages and questions is a proposal.</p>
+<p>The limits do not tell us to stop searching. They tell us what must be paid for: an explicit bound, a witness, a proof, usable structure, or a person&#x27;s attention. A trustworthy synthesis system records which of those supports each answer, and what scope that support buys.</p>
+<!-- MENTAL_TOOLKIT_START -->
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<p class="eyebrow">Carry these ideas forward</p>
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four handles for the argument. Open a card to recover its definition, limits, and evidence.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card" id="idea-quantifiers">
+<h3>Three choices</h3>
+<p class="toolkit-symbol" aria-label="There is a program p, for every input x, there is a finite run t">∃p ∀x ∃t</p>
+<p class="toolkit-phrase">Ask what must be found, covered, and run.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> The displayed form separates a candidate program, its inputs, and a finite execution witness.</p>
+<p><strong>Boundary.</strong> The form describes Kim&#x27;s general setting. Restricting one part does not automatically lower the complexity by a fixed level.</p>
+<p class="toolkit-links"><a href="#three-quantifiers">Read the decomposition</a> · <a href="#source-140">Kim&#x27;s paper</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-finite-scope">
+<h3>Finite scope</h3>
+<p class="toolkit-symbol" aria-label="Candidates times inputs">candidates × inputs</p>
+<p class="toolkit-phrase">Count what the claim actually covers.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> A finite candidate set, finite input domain, and terminating evaluator allow exhaustive checking within that scope.</p>
+<p><strong>Boundary.</strong> A finite count can still be too large to run, and a bounded result does not establish behavior outside its domain.</p>
+<p class="toolkit-links"><a href="#three-quantifiers">Read the finite case</a> · <a href="#evidence-and-limits">Evidence and limits</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-negative-evidence">
+<h3>Evidence for no solution</h3>
+<p class="toolkit-symbol" aria-label="Checking one candidate is not the same as covering a search space">candidate check ≠ space coverage</p>
+<p class="toolkit-phrase">A negative answer needs a coverage argument.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> One accepted candidate supports a positive result; an unrealizability claim must account for every candidate it rules out.</p>
+<p><strong>Boundary.</strong> A timeout, failed proposal, or search over a narrower sketch does not establish that no solution exists outside that scope.</p>
+<p class="toolkit-links"><a href="#checked-search">Read the distinction</a> · <a href="#source-141">Unrealizability logic</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-reuse">
+<h3>Checked reuse</h3>
+<p class="toolkit-symbol" aria-label="Propose, check, then remember">propose → check → remember</p>
+<p class="toolkit-phrase">Let evidence improve the next search.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> A search can reuse checked failures and useful rules to guide later proposals.</p>
+<p><strong>Boundary.</strong> Advice must be recorded and candidates rechecked; skipping a region requires evidence that the skipped cases are irrelevant.</p>
+<p class="toolkit-links"><a href="#searching-for-better-search">Read the feedback loop</a> · <a href="#source-157">Documented starting point</a></p>
+</details></div>
+</div>
+<p class="toolkit-foot">The symbols are shorthand for the scoped definitions above. <a href="../data/essay-abstractions.json">Machine-readable cards</a>.</p>
+</section>
+<!-- MENTAL_TOOLKIT_END -->
+<h2 id="references">References</h2>
+<p>The references below support the theoretical background and the documented system description used in this essay.</p>
+<ol class="source-list">
+<li id="source-130">Alur, R. and Dill, D. (1994). <a href="https://doi.org/10.1016/0304-3975(94)90010-8">A theory of timed automata</a>. Theoretical Computer Science 126(2).</li>
+<li id="source-131">Andreotti, B., Lachnitt, H. and Barbosa, H. (2023). <a href="https://link.springer.com/chapter/10.1007/978-3-031-30823-9_19">Carcara: an efficient proof checker and elaborator for SMT proofs in the Alethe format</a>. TACAS 2023.</li>
+<li id="source-132">Angluin, D. (1987). Learning regular sets from queries and counterexamples. Information and Computation 75(2).</li>
+<li id="source-133">Bodnarchuk, V., Kaluzhnin, L., Kotov, V. and Romov, B. (1969). Galois theory for Post algebras, I and II. Kibernetika 5.</li>
+<li id="source-134">Bylander, T. (1994). The computational complexity of propositional STRIPS planning. Artificial Intelligence 69.</li>
+<li id="source-135">Chandra, A., Kozen, D. and Stockmeyer, L. (1981). Alternation. Journal of the ACM 28(1).</li>
+<li id="source-136">Geiger, D. (1968). Closed systems of functions and predicates. Pacific Journal of Mathematics 27(1).</li>
+<li id="source-137">Hartmanis, J. and Stearns, R. (1965). On the computational complexity of algorithms. Transactions of the American Mathematical Society 117.</li>
+<li id="source-138">Hirahara, S. (2022). <a href="https://eccc.weizmann.ac.il/report/2022/119/">NP-hardness of learning programs and partial MCSP</a>. FOCS 2022.</li>
+<li id="source-139">Jackson, D. (2006). Software Abstractions: Logic, Language, and Analysis. MIT Press.</li>
+<li id="source-140">Kim, J. (2024). <a href="https://arxiv.org/abs/2405.16997">Program synthesis is Σ⁰₃-complete</a>. arXiv:2405.16997.</li>
+<li id="source-141">Kim, J., D&#x27;Antoni, L. and Reps, T. (2023). <a href="https://arxiv.org/abs/2211.07117">Unrealizability logic</a>. POPL 2023.</li>
+<li id="source-142">Levin, L. (1973). Universal sequential search problems. Problems of Information Transmission 9(3).</li>
+<li id="source-143">Liu, Y. and Pass, R. (2020). <a href="https://arxiv.org/abs/2009.11514">On one-way functions and Kolmogorov complexity</a>. FOCS 2020.</li>
+<li id="source-144">Marques-Silva, J. and Sakallah, K. (1999). GRASP: a search algorithm for propositional satisfiability. IEEE Transactions on Computers 48(5).</li>
+<li id="source-145">Minton, S. (1990). Quantitative results concerning the utility of explanation-based learning. Artificial Intelligence 42.</li>
+<li id="source-146">Pnueli, A. and Rosner, R. (1989). On the synthesis of a reactive module. POPL 1989.</li>
+<li id="source-147">Post, E. (1941). The Two-Valued Iterative Systems of Mathematical Logic. Princeton University Press.</li>
+<li id="source-148">Romera-Paredes, B. et al. (2024). Mathematical discoveries from program search with large language models. Nature 625.</li>
+<li id="source-149">Shamir, A. (1992). IP = PSPACE. Journal of the ACM 39(4).</li>
+<li id="source-150">Solar-Lezama, A., Tancau, L., Bodík, R., Seshia, S. and Saraswat, V. (2006). Combinatorial sketching for finite programs. ASPLOS 2006.</li>
+<li id="source-151">Stockmeyer, L. (1976). The polynomial-time hierarchy. Theoretical Computer Science 3(1).</li>
+<li id="source-152">Stockmeyer, L. and Chandra, A. (1979). <a href="https://doi.org/10.1137/0208013">Provably difficult combinatorial games</a>. SIAM Journal on Computing 8(2).</li>
+<li id="source-153">Tan, Y. K., Heule, M. and Myreen, M. (2021). <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7984575/">cake_lpr: verified propagation redundancy checking in CakeML</a>. TACAS 2021.</li>
+<li id="source-154">Tate, R., Stepp, M., Tatlock, Z. and Lerner, S. (2009). Equality saturation: a new approach to optimization. POPL 2009.</li>
+<li id="source-155">Wolper, P. (1986). <a href="https://doi.org/10.1145/512644.512661">Expressing interesting properties of programs in propositional temporal logic</a>. POPL 1986.</li>
+<li id="source-156">Wolpert, D. and Macready, W. (1997). No free lunch theorems for optimization. IEEE Transactions on Evolutionary Computation 1(1).</li>
+<li id="source-157"><a href="https://github.com/TheDarkLightX/ZenoFCIS/tree/4160086fb9d19f3ebe25047e69b1caa467aa74fd">ZenoFCIS</a> repository documentation at commit 4160086: the README, design record 0003, and the notes on ZAL loops, knowledge, inductive claims and deterministic synthesis.</li>
+</ol>
+</article>
+<div class="essay-nav"><a href="why-cant-a-turing-machine-predict-its-own-death.html">← Previous essay</a><a href="../writing.html#essays">All essays →</a></div>
+</div></section></main>
+<footer class="site-footer"><div class="container footer-grid"><p>&copy; <span data-year></span> Dana Edwards.</p><p>Engineer, philosopher, futurist.</p></div></footer>
+<script src="../script.js"></script>
+</body></html>

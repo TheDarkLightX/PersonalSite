@@ -1,0 +1,34 @@
+.limits-essay .page-hero h1 { max-width: 17ch; }
+.limits-essay .essay-prose { max-width: 790px; margin-inline: auto; }
+.limits-essay .essay-prose h2 { scroll-margin-top: 100px; }
+.limits-essay .essay-prose p { line-height: 1.8; }
+.limits-essay .limits-note { border-left: 2px solid var(--line-strong); padding: .1rem 0 .1rem 1rem; margin: 1.7rem 0; }
+.limits-essay .limits-note p { font-size: .92rem; }
+.limits-essay .table-wrap { overflow-x: auto; max-width: 100%; margin: 1.6rem 0; }
+.limits-essay .table-wrap:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.limits-essay .table-wrap table { min-width: 560px; margin: 0; }
+.limits-essay .table-wrap--wide table { min-width: 680px; }
+.limits-essay .table-wrap caption { text-align: left; color: var(--muted); font-size: .82rem; margin-bottom: .6rem; }
+.limits-essay .table-hint { display: none; }
+.limits-essay .idea-figure { margin: 2.8rem 0; padding: 1.3rem; border: 1px solid var(--line); background: var(--bg-soft); }
+.limits-essay .idea-figure h3 { margin: 0 0 .65rem; font-size: 1rem; }
+.limits-essay .idea-figure .figure-intro { margin: 0 0 1.2rem; color: var(--muted); font-size: .9rem; }
+.limits-essay .figure-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.limits-essay .figure-cell { padding: 1rem; min-width: 0; border: 1px solid var(--line-strong); background: var(--bg); }
+.limits-essay .figure-cell strong { display: block; font-size: .91rem; line-height: 1.4; }
+.limits-essay .figure-cell span { display: block; color: var(--muted); font-size: .82rem; line-height: 1.5; margin-top: .4rem; }
+.limits-essay .figure-result { margin-top: .7rem; padding: .85rem 1rem; border-left: 3px solid var(--text); background: var(--bg); }
+.limits-essay .figure-result strong { font-size: .9rem; }
+.limits-essay .figure-result span { color: var(--muted); display: block; font-size: .82rem; line-height: 1.5; margin-top: .25rem; }
+.limits-essay .figure-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .65rem; }
+.limits-essay .figure-feedback { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-top: .65rem; }
+.limits-essay .figure-kicker { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-bottom: .5rem; }
+.limits-essay .idea-figure figcaption { text-align: left; margin-top: 1rem; font-size: .82rem; }
+.limits-essay .source-list li { font-size: .9rem; line-height: 1.7; overflow-wrap: anywhere; }
+.limits-essay .essay-prose .mental-toolkit { margin-bottom: 3rem; }
+@media (max-width: 650px) {
+  .limits-essay .figure-grid, .limits-essay .figure-flow { grid-template-columns: 1fr; }
+  .limits-essay .figure-feedback { grid-template-columns: 1fr; }
+  .limits-essay .idea-figure { padding: 1rem; }
+  .limits-essay .table-hint { display: block; color: var(--muted); font-size: .78rem; margin: 0 0 .45rem; }
+}

@@ -12,6 +12,51 @@
   ],
   "essays": [
     {
+      "path": "essays/navigating-the-limits-of-synthesis.html",
+      "cards": [
+        {
+          "id": "idea-quantifiers",
+          "label": "Three choices",
+          "symbol": "∃p ∀x ∃t",
+          "symbol_reading": "There is a program p, for every input x, there is a finite run t",
+          "phrase": "Ask what must be found, covered, and run.",
+          "meaning": "The displayed form separates a candidate program, its inputs, and a finite execution witness.",
+          "boundary": "The form describes Kim's general setting. Restricting one part does not automatically lower the complexity by a fixed level.",
+          "links": [{"label": "Read the decomposition", "href": "#three-quantifiers"}, {"label": "Kim's paper", "href": "#source-140"}]
+        },
+        {
+          "id": "idea-finite-scope",
+          "label": "Finite scope",
+          "symbol": "candidates × inputs",
+          "symbol_reading": "Candidates times inputs",
+          "phrase": "Count what the claim actually covers.",
+          "meaning": "A finite candidate set, finite input domain, and terminating evaluator allow exhaustive checking within that scope.",
+          "boundary": "A finite count can still be too large to run, and a bounded result does not establish behavior outside its domain.",
+          "links": [{"label": "Read the finite case", "href": "#three-quantifiers"}, {"label": "Evidence and limits", "href": "#evidence-and-limits"}]
+        },
+        {
+          "id": "idea-negative-evidence",
+          "label": "Evidence for no solution",
+          "symbol": "candidate check ≠ space coverage",
+          "symbol_reading": "Checking one candidate is not the same as covering a search space",
+          "phrase": "A negative answer needs a coverage argument.",
+          "meaning": "One accepted candidate supports a positive result; an unrealizability claim must account for every candidate it rules out.",
+          "boundary": "A timeout, failed proposal, or search over a narrower sketch does not establish that no solution exists outside that scope.",
+          "links": [{"label": "Read the distinction", "href": "#checked-search"}, {"label": "Unrealizability logic", "href": "#source-141"}]
+        },
+        {
+          "id": "idea-reuse",
+          "label": "Checked reuse",
+          "symbol": "propose → check → remember",
+          "symbol_reading": "Propose, check, then remember",
+          "phrase": "Let evidence improve the next search.",
+          "meaning": "A search can reuse checked failures and useful rules to guide later proposals.",
+          "boundary": "Advice must be recorded and candidates rechecked; skipping a region requires evidence that the skipped cases are irrelevant.",
+          "links": [{"label": "Read the feedback loop", "href": "#searching-for-better-search"}, {"label": "Documented starting point", "href": "#source-157"}]
+        }
+      ]
+    },
+    {
       "path": "essays/the-maze-that-remembers.html",
       "cards": [
         {
@@ -487,3 +532,4 @@
     }
   ]
 }
+
