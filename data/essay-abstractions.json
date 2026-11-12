@@ -29,11 +29,11 @@
             },
             {
               "label": "Stepanov and McJones",
-              "href": "#source-1"
+              "href": "#source-2"
             },
             {
               "label": "Blelloch",
-              "href": "#source-2"
+              "href": "#source-3"
             }
           ]
         },
@@ -52,7 +52,7 @@
             },
             {
               "label": "Rote",
-              "href": "#source-3"
+              "href": "#source-4"
             }
           ]
         },
@@ -71,11 +71,11 @@
             },
             {
               "label": "Euclidean remainder",
-              "href": "#source-1"
+              "href": "#source-2"
             },
             {
               "label": "Buchberger termination",
-              "href": "#source-4"
+              "href": "#source-5"
             }
           ]
         },
@@ -94,7 +94,7 @@
             },
             {
               "label": "Fourier convolution",
-              "href": "#source-5"
+              "href": "#source-6"
             }
           ]
         }

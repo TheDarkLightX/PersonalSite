@@ -2,6 +2,10 @@
 .algebra-essay .essay-prose { max-width: 760px; margin-inline: auto; }
 .algebra-essay .essay-prose h2 { scroll-margin-top: 100px; }
 .algebra-essay .essay-prose p { line-height: 1.8; }
+.algebra-essay .essay-epigraph { margin: 0 0 2rem; }
+.algebra-essay .essay-epigraph blockquote { margin: 0; }
+.algebra-essay .essay-epigraph blockquote p { font-size: 1.15rem; line-height: 1.65; }
+.algebra-essay .essay-epigraph figcaption { margin: .8rem 0 0 1.4rem; }
 .algebra-essay .thesis { border-left: 2px solid var(--text); padding: .2rem 0 .2rem 1.2rem; margin: 2rem 0; font-size: 1.25rem; color: var(--text); }
 .algebra-essay .equation { overflow-x: auto; max-width: 100%; padding: 1.25rem; margin: 1.8rem 0; background: var(--bg-soft); border: 1px solid var(--line); text-align: center; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; line-height: 1.8; }
 .algebra-essay .equation small { display: block; margin-top: .6rem; font: .8rem/1.6 var(--font-body); color: var(--muted); }
