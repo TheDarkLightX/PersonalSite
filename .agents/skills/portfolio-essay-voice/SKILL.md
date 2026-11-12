@@ -7,6 +7,13 @@ description: Edit long-form portfolio essays so a technically curious reader und
 
 This is an original site-specific editorial protocol. It draws on the general idea of Allen Yang's evolving voice guide, the first-read approach to plain technical English, and the stylistic audits of open-source humanizer skills. It does not copy their rule sets.
 
+
+## Standing writing preference
+
+Apply the user's chosen [humanize-writing guide](https://github.com/lguz/humanize-writing-skill/blob/main/skills/humanize-writing/SKILL.md) and its [pattern dictionary](https://github.com/lguz/humanize-writing-skill/blob/main/skills/humanize-writing/references/ai-patterns-dictionary.md) when drafting or revising essays and authored prose. Use the installed personal skill when available. Default to a clear, direct voice informed by the author's supplied writing; do not interrupt routine edits to ask for a voice already established in context. Treat vocabulary lists and rhythm rules as editorial checks. Preserve technical terms, mathematical structure, evidence limits, and factual meaning.
+
+Refer to unpublished projects as “my private research” in public writing unless the user explicitly approves identifying details. Remove private project names, repository links, PR numbers, commit IDs, and internal file paths from visible prose, source notes, metadata, and anchors. Keep reported findings clearly scoped without exposing private identifiers.
+
 ## The author's voice
 
 The author is an engineer and philosopher. Start with a concrete question or observation. State what a result establishes, then its assumptions and boundaries. Use first person when the author has supplied a personal claim, interpretation, or question. Never invent a project experience, experiment, opinion, or outcome. Explain mathematics as a process before introducing notation.
