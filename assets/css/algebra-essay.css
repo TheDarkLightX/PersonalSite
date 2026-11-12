@@ -1,0 +1,27 @@
+.algebra-essay .page-hero h1 { max-width: 19ch; }
+.algebra-essay .essay-prose { max-width: 760px; margin-inline: auto; }
+.algebra-essay .essay-prose h2 { scroll-margin-top: 100px; }
+.algebra-essay .essay-prose p { line-height: 1.8; }
+.algebra-essay .thesis { border-left: 2px solid var(--text); padding: .2rem 0 .2rem 1.2rem; margin: 2rem 0; font-size: 1.25rem; color: var(--text); }
+.algebra-essay .equation { overflow-x: auto; max-width: 100%; padding: 1.25rem; margin: 1.8rem 0; background: var(--bg-soft); border: 1px solid var(--line); text-align: center; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; line-height: 1.8; }
+.algebra-essay .equation small { display: block; margin-top: .6rem; font: .8rem/1.6 var(--font-body); color: var(--muted); }
+.algebra-essay .table-wrap { max-width: 100%; overflow-x: auto; margin: 1.7rem 0; }
+.algebra-essay .table-wrap:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.algebra-essay .table-wrap table { width: 100%; min-width: 450px; margin: 0; font-size: .9rem; }
+.algebra-essay .table-wrap th, .algebra-essay .table-wrap td { vertical-align: top; line-height: 1.65; }
+.algebra-essay figure { margin: 2.5rem 0; }
+.algebra-essay .path-diagram { width: 100%; height: auto; display: block; }
+.algebra-essay figcaption { color: var(--muted); font-size: .83rem; line-height: 1.65; margin-top: .8rem; }
+.algebra-essay a.ref { font-size: .7em; vertical-align: super; text-decoration: none; margin-left: .2em; }
+.algebra-essay .sources { padding-left: 1.4rem; }
+.algebra-essay .sources li { font-size: .9rem; line-height: 1.75; margin: .7rem 0; overflow-wrap: anywhere; }
+.algebra-essay code { overflow-wrap: anywhere; }
+.algebra-essay .note { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem; font-size: .8rem; }
+.algebra-essay .end { font-size: 1.16rem; color: var(--text); }
+.algebra-essay .toolkit-symbol { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .algebra-essay .page-hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .algebra-essay .equation { padding: 1rem .6rem; font-size: 1.05rem; }
+  .algebra-essay .thesis { font-size: 1.15rem; }
+  .algebra-essay .path-diagram { min-width: 0; }
+}

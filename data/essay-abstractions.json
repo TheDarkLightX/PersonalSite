@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-11-02",
+  "date": "2026-11-12",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -12,6 +12,95 @@
   ],
   "essays": [
     {
+      "path": "essays/the-algebra-beneath-the-algorithm.html",
+      "cards": [
+        {
+          "id": "idea-monoid",
+          "label": "Monoid",
+          "symbol": "(a ⊗ b) ⊗ c = a ⊗ (b ⊗ c)",
+          "symbol_reading": "The operation is associative",
+          "phrase": "Regroup while preserving order.",
+          "meaning": "An associative operation with an identity supports reusable aggregation.",
+          "boundary": "Reordering requires commutativity. Efficient parallelism additionally depends on operation costs; implementation arithmetic must satisfy the stated laws.",
+          "links": [
+            {
+              "label": "Definition and example",
+              "href": "#associative-composition"
+            },
+            {
+              "label": "Stepanov and McJones",
+              "href": "#source-1"
+            },
+            {
+              "label": "Blelloch",
+              "href": "#source-2"
+            }
+          ]
+        },
+        {
+          "id": "idea-path-algebra",
+          "label": "Algebraic path problem",
+          "symbol": "Alternatives · composition · repetition",
+          "symbol_reading": "Combine alternatives, compose successive steps, and account for repetitions",
+          "phrase": "Interpret the same route structure using different operations.",
+          "meaning": "Semiring operations model alternatives and successive steps; suitable closure handles repeated traversal.",
+          "boundary": "Closure availability, initialization, and pivot rules must match the chosen domain.",
+          "links": [
+            {
+              "label": "Elimination example",
+              "href": "#algebraic-elimination"
+            },
+            {
+              "label": "Rote",
+              "href": "#source-3"
+            }
+          ]
+        },
+        {
+          "id": "idea-reduction",
+          "label": "Well-founded reduction",
+          "symbol": "Invariant + certified progress",
+          "symbol_reading": "Preserve an invariant and certify progress",
+          "phrase": "Preserve the answer while ruling out an infinite run.",
+          "meaning": "Each permitted step preserves the relevant answer or algebraic relation and advances a justified termination argument.",
+          "boundary": "A decreasing measure must land in a well-founded order. The ascending-chain condition in Buchberger’s outer algorithm requires its own justification.",
+          "links": [
+            {
+              "label": "Progress arguments",
+              "href": "#reduction-and-progress"
+            },
+            {
+              "label": "Euclidean remainder",
+              "href": "#source-1"
+            },
+            {
+              "label": "Buchberger termination",
+              "href": "#source-4"
+            }
+          ]
+        },
+        {
+          "id": "idea-isomorphism",
+          "label": "Algebra isomorphism",
+          "symbol": "Translate → compute → translate back",
+          "symbol_reading": "Translate, compute, then translate back",
+          "phrase": "A reversible map preserves the operations being transported.",
+          "meaning": "For the complex DFT, cyclic convolution maps to pointwise multiplication.",
+          "boundary": "General synthesis reductions need not be isomorphisms; they do need a correctness relation. Benefit depends on conversion and arithmetic costs.",
+          "links": [
+            {
+              "label": "Representation change",
+              "href": "#representation-change"
+            },
+            {
+              "label": "Fourier convolution",
+              "href": "#source-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "essays/navigating-the-limits-of-synthesis.html",
       "cards": [
         {
@@ -22,7 +111,16 @@
           "phrase": "Ask what must be found, covered, and run.",
           "meaning": "The displayed form separates a candidate program, its inputs, and a finite execution witness.",
           "boundary": "The form describes Kim's general setting. Restricting one part does not automatically lower the complexity by a fixed level.",
-          "links": [{"label": "Read the decomposition", "href": "#three-quantifiers"}, {"label": "Kim's paper", "href": "#source-140"}]
+          "links": [
+            {
+              "label": "Read the decomposition",
+              "href": "#three-quantifiers"
+            },
+            {
+              "label": "Kim's paper",
+              "href": "#source-140"
+            }
+          ]
         },
         {
           "id": "idea-finite-scope",
@@ -32,7 +130,16 @@
           "phrase": "Count what the claim actually covers.",
           "meaning": "A finite candidate set, finite input domain, and terminating evaluator allow exhaustive checking within that scope.",
           "boundary": "A finite count can still be too large to run, and a bounded result does not establish behavior outside its domain.",
-          "links": [{"label": "Read the finite case", "href": "#three-quantifiers"}, {"label": "Evidence and limits", "href": "#evidence-and-limits"}]
+          "links": [
+            {
+              "label": "Read the finite case",
+              "href": "#three-quantifiers"
+            },
+            {
+              "label": "Evidence and limits",
+              "href": "#evidence-and-limits"
+            }
+          ]
         },
         {
           "id": "idea-negative-evidence",
@@ -42,7 +149,16 @@
           "phrase": "A negative answer needs a coverage argument.",
           "meaning": "One accepted candidate supports a positive result; an unrealizability claim must account for every candidate it rules out.",
           "boundary": "A timeout, failed proposal, or search over a narrower sketch does not establish that no solution exists outside that scope.",
-          "links": [{"label": "Read the distinction", "href": "#checked-search"}, {"label": "Unrealizability logic", "href": "#source-141"}]
+          "links": [
+            {
+              "label": "Read the distinction",
+              "href": "#checked-search"
+            },
+            {
+              "label": "Unrealizability logic",
+              "href": "#source-141"
+            }
+          ]
         },
         {
           "id": "idea-reuse",
@@ -52,7 +168,16 @@
           "phrase": "Let evidence improve the next search.",
           "meaning": "A search can reuse checked failures and useful rules to guide later proposals.",
           "boundary": "Advice must be recorded and candidates rechecked; skipping a region requires evidence that the skipped cases are irrelevant.",
-          "links": [{"label": "Read the feedback loop", "href": "#searching-for-better-search"}, {"label": "Documented starting point", "href": "#source-157"}]
+          "links": [
+            {
+              "label": "Read the feedback loop",
+              "href": "#searching-for-better-search"
+            },
+            {
+              "label": "Documented starting point",
+              "href": "#source-157"
+            }
+          ]
         }
       ]
     },
@@ -532,4 +657,3 @@
     }
   ]
 }
-
