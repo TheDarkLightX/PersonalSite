@@ -60,3 +60,63 @@
   .calculator-essay th, .calculator-essay td { padding: .5rem; font-size: .8rem; }
 }
 @media print { .site-header, .site-footer { display: none; } .calculator-example, .round-figure, .approach-figure { break-inside: avoid; } }
+
+/* The notebook illustration introduces the mechanism; the data figures carry the argument. */
+.calculator-essay figure { margin: 2rem 0; }
+.calculator-essay .story-figure img { display:block; width:100%; height:auto; border-radius:4px; }
+.calculator-essay .story-figure { margin:2.2rem 0 3rem; }
+.calculator-essay .data-figure picture { display:block; background:#fff; padding:.3rem; border-radius:4px; }
+.calculator-essay .data-figure img { display:block; width:100%; height:auto; }
+.calculator-essay figcaption { margin-top:.7rem; color:var(--muted); }
+.calculator-essay .small-note { font-size:.84rem; line-height:1.6; color:var(--muted); }
+.calculator-essay .counting-guide { border-left:2px solid var(--line-strong); padding:.3rem 1.2rem; margin:1.8rem 0; }
+.calculator-essay .counting-guide p { margin:0; }
+.calculator-essay .counting-guide ul { margin:.6rem 0; }
+.calculator-essay .counting-guide li { margin-bottom:.4rem; line-height:1.6; }
+.calculator-essay table caption { text-align:left; color:var(--muted); font-size:.84rem; line-height:1.55; margin-bottom:.65rem; }
+.calculator-essay .table-wrap { margin:1.7rem 0 2rem; }
+.calculator-essay .table-wrap td { font-variant-numeric:tabular-nums; }
+.calculator-essay .calculator-playground { border:1px solid var(--line-strong); border-radius:6px; padding:1.4rem; margin:2rem 0; background:var(--bg-soft); }
+.calculator-essay .calculator-playground h3 { margin:0 0 1rem; font-size:1.2rem; }
+.calculator-controls { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; }
+.calculator-controls label { display:flex; flex-direction:column; gap:.45rem; font-size:.88rem; }
+.calculator-controls select { min-width:0; width:100%; padding:.65rem .5rem; background:var(--bg); color:var(--text); border:1px solid var(--line-strong); border-radius:3px; font:inherit; }
+.calculator-actions { display:flex; gap:.7rem; flex-wrap:wrap; margin:1rem 0; }
+.calculator-actions button { padding:.7rem 1rem; border:1px solid var(--line-strong); border-radius:4px; background:var(--bg); color:var(--text); font:inherit; font-size:.9rem; cursor:pointer; min-height:44px; }
+.calculator-actions .run-button { background:#276c64; color:#fff; border-color:#276c64; }
+.calculator-playground :focus-visible, .essay-notes summary:focus-visible { outline:3px solid #6ba59c; outline-offset:3px; }
+.calculator-essay .calc-status { min-height:3.3em; margin:1rem 0; font-size:.9rem; line-height:1.6; }
+.calc-status[data-kind="error"] { border-left:3px solid #a24832; padding-left:.8rem; }
+.calc-tape { list-style:none; margin:0; padding:0; max-height:300px; overflow:auto; border-top:1px solid var(--line); }
+.calc-tape li { display:flex; flex-direction:column; padding:.65rem 0; margin:0; border-bottom:1px solid var(--line); gap:.25rem; overflow-wrap:anywhere; }
+.calc-tape strong { font: .95rem/1.5 var(--font-mono,monospace); color:var(--text); }
+.calc-tape span { font-size:.8rem; color:var(--muted); }
+.calculator-essay #calculator-precision { margin-bottom:0; }
+.graph-pair { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+.graph-pair > div { min-width:0; }
+.calculator-essay .graph-pair h3 { margin:0 0 .8rem; font-size:1rem; line-height:1.5; }
+.graph-pair img { display:block; width:100%; height:355px; object-fit:contain; background:#fff; border-radius:4px; }
+.calculator-essay .parity-figure h3 { margin:0 0 .5rem; font-size:1.1rem; }
+.parity-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; }
+.parity-grid > div { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:.9rem .3rem; gap:.35rem; border:1px dashed var(--line-strong); border-radius:4px; background:var(--bg); }
+.parity-grid strong { font:1.25rem/1.2 var(--font-mono,monospace); letter-spacing:.06em; }
+.parity-grid span { font-size:.73rem; text-align:center; line-height:1.3; }
+.parity-grid .reachable { background:#e4f0ec; border:1px solid #a0bdb3; color:#204f48; }
+.parity-grid .target { border:2px solid #b26049; background:#fcf0e9; color:#703521; }
+.calculator-essay .essay-notes { max-width:740px; margin:3.5rem auto 0; padding:1.1rem 0; border-top:1px solid var(--line-strong); }
+.essay-notes > details > summary { cursor:pointer; color:var(--muted); font-size:.9rem; padding:.5rem 0; }
+.calculator-essay .essay-notes .essay-prose > p { font-size:.9rem; line-height:1.75; }
+.essay-notes .mental-toolkit .eyebrow, .essay-notes .toolkit-intro { display:none; }
+@media(max-width:560px) {
+  .calculator-essay .calculator-playground { padding:1rem; }
+  .calculator-controls { grid-template-columns:minmax(0,1fr); gap:.8rem; }
+  .calculator-essay .table-wrap td { font-size:.77rem; padding:.6rem .35rem; }
+  .calculator-essay .table-wrap th { font-size:.78rem; padding:.5rem .35rem; }
+  .graph-pair { grid-template-columns:1fr; gap:1.5rem; }
+  .graph-pair img { height:360px; }
+  .parity-grid { gap:.4rem; }
+  .parity-grid strong { font-size:1.08rem; }
+  .parity-grid span { font-size:.65rem; }
+}
+@media print { .calculator-playground form { display:none; } .data-figure,.graph-figure,.parity-figure { break-inside:avoid; } }
+
