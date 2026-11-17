@@ -25,7 +25,7 @@
 <section class="section"><div class="container"><article class="essay-prose">
 <p class="lead">Imagine a puzzle with four lights and three buttons. You want only the last light on. A helper looks at the panel and tells you, correctly, “Yes, you can get there.” Then the helper covers the lights and hands you a card with one word on it: YES.</p>
 <p>You ask which button to press. The card has no answer.</p>
-<p>That missing instruction turns out to have an exact price. For this puzzle, a perfect yes-or-no summary needs only two labels. A summary that can also supply a correction, after the original panel has been hidden, needs at least nine. We can prove both numbers.</p>
+<p>That missing instruction turns out to have an exact price. For this puzzle, a perfect yes-or-no summary needs only two labels. A summary that can also supply a correction, after the original panel has been hidden, needs at least nine. A label is simply a code that several starting patterns may share. We can prove both numbers.</p>
 <p>I found this separation while extending the representation experiments in my paper, <a href="../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf"><em>Positive Seeds, Exactness, and Certificates for Operation Search</em></a>. The paper studies what a restricted set of operations can build. For this essay, I asked what happens when we replace a detailed problem with a smaller description. The answer depends on what we will ask that description to do.</p>
 
 <h2 id="four-lights">A puzzle small enough to see</h2>
@@ -38,6 +38,7 @@
 <p>Start at <code>0010</code>. Press A and you reach <code>0001</code>. Start at <code>0001</code> and you should do nothing. Both starts deserve a YES, but they need different corrections.</p>
 <p>Pressing a button twice cancels its effect. The order of the buttons does not matter either: each light only cares whether it was flipped an odd or even number of times. Any long button sequence therefore has the same effect as some choice of A, B, and C, each used at most once.</p>
 <p>There are eight such choices. They produce eight different patterns of flips. Every one flips an even number of lights.</p>
+<p>In the demonstration below, the <em>decoder</em> is the part that tries to turn the summary back into an instruction. Try giving it access to the original lights.</p>
 
 <div class="light-lab" id="light-lab" aria-labelledby="lab-title">
 <div class="lab-heading"><h3 id="lab-title">Try the information loss</h3><span>Goal: <code>0001</code></span></div>
@@ -61,7 +62,7 @@
 <p>Flipping two lights changes the count by minus two, zero, or plus two. Flipping all four changes a count of <em>k</em> to <em>4 − k</em>. Either way, odd stays odd and even stays even. Our goal has one light on, so an even starting pattern can never reach it.</p>
 <p>For these particular buttons, every odd starting pattern <em>can</em> reach the goal. Compare the start with <code>0001</code> and mark the places where they differ. There will be an even number of marks, and the eight button choices give every even pattern of flips.</p>
 <p>We can now replace sixteen starting patterns with two labels: NO for even, YES for odd. A one-bit answer settles the question for every possible start and every possible length of button sequence.</p>
-<p>The computer search recovered this shortcut. I ran an existing shift synthesizer from my private research, with ZAL checking the proposed translations. It tried 32 ways to select some of the four bits, add them, and keep only odd or even, optionally reversing the result. Paired with two possible ways to read the output, that made 64 candidates. Only two passed: count all four bits, or use the same count with the labels reversed.</p>
+<p>The computer search recovered this shortcut. I used an existing program from my private research that proposes different ways to describe a problem: a <em>shift synthesizer</em>. ZAL checked its proposed translations. It tried 32 ways to select some of the four bits, add them, and keep only odd or even, optionally reversing the result. Paired with two possible ways to read the output, that made 64 candidates. Only two passed: count all four bits, or use the same count with the labels reversed.</p>
 <p>This was a complete search of that small family. It was not a search of every imaginable way to compress a problem. The stronger minimum claims below have separate proofs.</p>
 
 <h2 id="nine-labels">Why the instructions cost more</h2>

@@ -15,6 +15,39 @@ def Task (n : ℕ) : Option (Fin n) → Fin n → Prop
   | none, _ => False
   | some a, y => y = a
 
+theorem disjoint_cases_lower_bound {n : ℕ} {X Y A B : Type*} [Fintype A]
+    {P : X → Y → Prop} {Q : A → B → Prop} {encode : X → A} {decode : B → Y}
+    (bad : X) (cases : Fin n → X)
+    (empty : ∀ y, ¬ P bad y)
+    (nonempty : ∀ i, ∃ y, P (cases i) y)
+    (separate : ∀ i j y, P (cases i) y → P (cases j) y → i = j)
+    (h : ExactReduction P Q encode decode) : n + 1 ≤ Fintype.card A := by
+  let pick : Option (Fin n) → X := fun i => i.elim bad cases
+  have inject : Function.Injective (encode ∘ pick) := by
+    intro i j same
+    cases i with
+    | none =>
+      cases j with
+      | none => rfl
+      | some b =>
+        obtain ⟨z, hz⟩ := h.2 (cases b) (nonempty b)
+        have eq : encode bad = encode (cases b) := same
+        have hz' : Q (encode bad) z := by rw [eq]; exact hz
+        exact False.elim (empty (decode z) (h.1 bad z hz'))
+    | some a =>
+      obtain ⟨z, hz⟩ := h.2 (cases a) (nonempty a)
+      cases j with
+      | none =>
+        have eq : encode (cases a) = encode bad := same
+        have hz' : Q (encode bad) z := by rw [← eq]; exact hz
+        exact False.elim (empty (decode z) (h.1 bad z hz'))
+      | some b =>
+        have eq : encode (cases a) = encode (cases b) := same
+        have hz' : Q (encode (cases b)) z := by rw [← eq]; exact hz
+        exact congrArg some (separate a b (decode z) (h.1 (cases a) z hz) (h.1 (cases b) z hz'))
+  have bound := Fintype.card_le_of_injective (encode ∘ pick) inject
+  simpa using bound
+
 theorem task_encoder_injective {n : ℕ} {A B : Type*}
     {Q : A → B → Prop} {encode : Option (Fin n) → A} {decode : B → Fin n}
     (h : ExactReduction (Task n) Q encode decode) : Function.Injective encode := by
@@ -112,6 +145,7 @@ theorem decision_two_labels_necessary {A : Type*} [Fintype A]
   simpa using bound
 
 #print axioms task_encoder_injective
+#print axioms disjoint_cases_lower_bound
 #print axioms task_labels_lower_bound
 #print axioms nine_labels_necessary
 #print axioms nine_labels_sufficient
