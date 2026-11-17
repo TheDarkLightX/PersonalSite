@@ -1,0 +1,62 @@
+.calculator-essay .page-hero { padding: 4rem 0 2.5rem; }
+.calculator-essay .page-hero .container { max-width: 800px; }
+.calculator-essay .page-hero h1 { max-width: 18ch; font-size: clamp(2.4rem, 5.5vw, 4.3rem); letter-spacing: -.04em; line-height: 1.08; }
+.calculator-essay .lede { max-width: 39em; }
+.calculator-essay .essay-byline { color: var(--muted); font-size: .85rem; margin-top: 1.7rem; }
+.calculator-essay .section { padding-top: 0; }
+.calculator-essay .essay-prose { max-width: 740px; margin: 0 auto; }
+.calculator-essay .breadcrumb { display: inline-block; font-size: .85rem; margin-bottom: 2rem; }
+.calculator-essay .essay-prose p { font-size: 1.06rem; line-height: 1.85; }
+.calculator-essay .essay-prose h2 { margin-top: 3.5rem; font-size: 1.6rem; letter-spacing: -.02em; }
+.calculator-essay .equation { margin: 1.8rem 0; padding: 1rem .4rem; text-align: center; border-block: 1px solid var(--line); font: 1.5rem/1.5 Georgia, serif; color: var(--text); }
+.calculator-essay .equation small { display: block; font: .87rem/1.6 var(--font-sans, sans-serif); color: var(--muted); margin-top: .5rem; }
+.calculator-essay .essay-prose figcaption { text-align: left; font-size: .85rem; line-height: 1.6; }
+.calculator-example { padding: 1.6rem; border: 1px solid var(--line-strong); border-radius: 4px; }
+.calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.calc-inputs > div, .calc-operation, .calc-answer { display: flex; flex-direction: column; gap: .4rem; text-align: center; padding: .8rem; }
+.calc-inputs > div { border: 1px solid var(--line); }
+.calculator-example span { font-size: .85rem; color: var(--muted); }
+.calculator-example strong { font: 1.55rem/1.5 var(--font-mono, monospace); }
+.calc-operation { margin: 1rem 0; border-block: 1px solid var(--line); }
+.calc-answer { background: var(--bg-soft); }
+.calc-answer strong { font-size: 1.9rem; }
+.round-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.round-grid > div { border-top: 2px solid var(--text); padding: .7rem .2rem; display: flex; flex-direction: column; gap: .5rem; }
+.round-grid span { font-size: .82rem; color: var(--muted); }
+.round-grid strong { font: 1.5rem/1.4 var(--font-mono, monospace); letter-spacing: -.03em; }
+.math-detail { border-left: 2px solid var(--line-strong); padding: .4rem 0 .4rem 1rem; margin: 1.7rem 0; }
+.math-detail summary { cursor: pointer; font-size: .92rem; color: var(--text); padding: .4rem 0; }
+.calculator-essay .math-detail p, .calculator-essay .math-detail li { font-size: .95rem; line-height: 1.75; }
+.approach-figure svg { display: block; width: 100%; height: auto; }
+.diagram-line { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-arrow { fill: none; stroke: var(--text); stroke-width: 2; }
+.diagram-dot { fill: var(--text); }
+.diagram-text { fill: var(--text); font: 21px sans-serif; }
+.parity-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+.parity-comparison > div { padding: 1rem; border: 1px solid var(--line-strong); display: flex; flex-direction: column; gap: .5rem; }
+.parity-comparison span { color: var(--muted); font-size: .85rem; }
+.parity-comparison strong { font-size: 1.4rem; }
+.calculator-essay .parity-comparison p { font-size: .85rem; line-height: 1.6; margin: 0; }
+.table-wrap { overflow-x: auto; }
+.calculator-essay table { table-layout: fixed; }
+.calculator-essay th { text-transform: none; font-size: .85rem; letter-spacing: normal; color: var(--text); }
+.calculator-essay td { font-size: .95rem; }
+.mental-toolkit { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.calculator-essay .mental-toolkit h2 { margin-top: .5rem; }
+.toolkit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.toolkit-card { padding: 1.1rem; border: 1px solid var(--line); border-radius: 3px; }
+.essay-prose .toolkit-card h3 { margin: 0 0 .7rem; }
+.essay-prose .toolkit-card p, .essay-prose .toolkit-foot, .essay-prose .toolkit-intro { font-size: .86rem; line-height: 1.65; }
+.essay-prose .toolkit-card .toolkit-symbol { color: var(--text); font-family: var(--font-mono, monospace); font-size: .78rem; }
+.essay-prose .toolkit-card .toolkit-phrase { font-weight: 600; color: var(--text); }
+.toolkit-card summary { cursor: pointer; font-size: .85rem; padding-block: .5rem; }
+@media (max-width: 560px) {
+  .calculator-essay .page-hero { padding-top: 2.5rem; }
+  .calculator-essay .essay-prose p { font-size: 1rem; }
+  .toolkit-grid { grid-template-columns: 1fr; }
+  .calculator-example { padding: 1rem; }
+  .round-grid strong { font-size: 1.3rem; }
+  .parity-comparison { grid-template-columns: 1fr; }
+  .calculator-essay th, .calculator-essay td { padding: .5rem; font-size: .8rem; }
+}
+@media print { .site-header, .site-footer { display: none; } .calculator-example, .round-figure, .approach-figure { break-inside: avoid; } }

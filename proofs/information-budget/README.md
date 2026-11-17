@@ -1,4 +1,4 @@
-# What a Smaller Map Forgets: evidence
+# Information budget experiment: evidence
 
 The four-light task covers all sixteen starting patterns, with target `0001`.
 Legal buttons XOR the current pattern with `0011`, `0101`, or `1111`.

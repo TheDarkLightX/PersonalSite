@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What One Operation Can Build | Dana Edwards</title>
+<meta name="description" content="A calculator with one operation and one starting number: what it can build, how it approaches 1, and how to prove that a target is impossible.">
+<meta name="author" content="Dana Edwards">
+<link rel="canonical" href="https://www.danaedwards.info/essays/what-one-operation-can-build.html">
+<meta property="og:type" content="article"><meta property="og:title" content="What One Operation Can Build">
+<meta property="og:description" content="A calculator with one operation and one starting number: what it can build, how it approaches 1, and how to prove that a target is impossible.">
+<meta property="og:url" content="https://www.danaedwards.info/essays/what-one-operation-can-build.html">
+<meta property="article:published_time" content="2026-11-16"><meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml"><meta name="theme-color" content="#fafafa" id="meta-theme-color">
+<script>(function(){try{var s=localStorage.getItem("site-theme");var d=s?s==="dark":matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");var m=document.getElementById("meta-theme-color");if(m)m.setAttribute("content",d?"#0a0a0a":"#fafafa");}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../assets/css/calculator-essay.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What One Operation Can Build","author":{"@type":"Person","name":"Dana Edwards"},"datePublished":"2026-11-16","mainEntityOfPage":"https://www.danaedwards.info/essays/what-one-operation-can-build.html"}</script>
+</head><body class="calculator-essay"><a class="skip-link" href="#main">Skip to content</a><header class="site-header" data-sticky><div class="container nav-wrap">
+   <a class="brand" href="../index.html" aria-label="Dana Edwards home"><img src="../assets/mark.svg" alt="" width="34" height="34"/><span>Dana Edwards</span></a>
+   <nav class="main-nav" id="primary-nav" aria-label="Main navigation"><a href="../index.html#arc">Arc</a><a href="../index.html#work">Work</a><a href="../writing.html" aria-current="page">Writing</a><a href="../value.html">Value</a><a href="../network.html">Network</a><a href="../ideas.html">Ideas</a></nav>
+   <div class="nav-right"><button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+   <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
+ </div></header>
+
+ 
+
+<main id="main"><section class="page-hero"><div class="container"><a class="breadcrumb" href="../writing.html#essays">Back to Writing</a><p class="eyebrow">Essay 15 · Mathematics and program search</p><h1>What One Operation Can Build</h1><p class="lede">What a calculator can do with one operation, and why getting close to an answer is different from reaching it exactly.</p><p class="essay-byline">Dana Edwards · <time datetime="2026-11-16">November 16, 2026</time></p></div></section>
+<section class="section"><div class="container"><article class="essay-prose"><p class="lead">Imagine a calculator with one operation and one starting number. You can copy that number, combine copies, and feed the answers back into the same operation. You can keep going for as long as you like, but a finished recipe must have a last step. How much can this calculator build?</p>
+<p>Suppose the starting number is 2. You can use two copies of 2 for your first calculation. Once you have an answer, you can save it and use it again. But you cannot type in a helpful 0 or 1 whenever you like. You have to make it using what you already have.</p>
+<p>This is the question behind my paper, <a href="../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf"><em>Positive Seeds, Exactness, and Certificates for Operation Search</em></a>. A very small collection of tools can sometimes build far more than we expect. To understand how much, we need to distinguish an exact answer from a close approximation.</p>
+
+<h2 id="the-calculator">What the calculator does</h2>
+<p>Our calculator has two input boxes and one operation button. Its rule uses a number called <em>e</em>, approximately 2.718. It also uses the natural logarithm, written <em>ln</em>.</p>
+<p>These two operations undo each other. Raising <em>e</em> to the power 2 gives about 7.389. Taking the natural logarithm of that exact result gives back 2. The logarithm tells us which power of <em>e</em> produced a positive number.</p>
+<p>The button raises <em>e</em> to the power of the left input, then subtracts the natural logarithm of the right input. Let <em>a</em> name the left input and <em>b</em> the right one. We call the button’s rule <em>F</em>:</p>
+<div class="equation">F(a, b) = e<sup>a</sup> − ln(b)<small>Exponentiate the left number. Subtract the logarithm of the right number.</small></div>
+<p>For two copies of 2, the first press gives about 6.696:</p>
+<figure class="calculator-example">
+<div class="calc-inputs"><div><span>Left input</span><strong>2</strong></div><div><span>Right input</span><strong>2</strong></div></div>
+<div class="calc-operation"><span>One press</span><strong>e<sup>2</sup> − ln(2)</strong></div>
+<div class="calc-answer"><span>Save the answer</span><strong>6.695909…</strong></div>
+<figcaption>The displayed decimal is rounded. The mathematics treats the result as an exact number.</figcaption>
+</figure>
+<p>The right input must always be positive. The natural logarithm of zero or a negative number is not allowed here. That rule applies to every step, including steps buried inside a long calculation.</p>
+<p>If we start with 0 or a negative number, we cannot make even the first press: the right input would be forbidden. A positive starting number opens up a much larger world. In fact, from any positive starting number, we can get as close as we want to any number on the number line.</p>
+<p>We will build up to that result. First we need to understand why the number 1 matters.</p>
+
+<h2 id="why-one">The number 1 unlocks ordinary arithmetic</h2>
+<p>The logarithm of 1 is 0. So, if we have 1 available, putting it in the right box removes the subtraction:</p>
+<div class="equation">F(a, 1) = e<sup>a</sup></div>
+<p>We can now raise <em>e</em> to any number we have made. A short combination of button presses also recovers the logarithm. Longer combinations produce addition, subtraction, multiplication and division, with division still forbidden when its denominator is zero.</p>
+<p>Those familiar operations are built out of the original button. We have not added new buttons to the calculator. Think of a recipe whose individual steps all use the same tool.</p>
+<details class="math-detail"><summary>How the button recovers a logarithm</summary>
+<p>Start with a positive number <em>u</em> and an available 1. First calculate <em>F(1, u)</em>. The answer is <em>e − ln(u)</em>. Raise <em>e</em> to that answer using the rule above. Finally, put 1 in the left box and that new answer in the right box.</p>
+<p>The final logarithm undoes the exponentiation. What remains is <em>e − (e − ln(u))</em>, which equals <em>ln(u)</em>. Every right input was positive.</p>
+</details>
+<p>The paper checks the arithmetic recipes step by step, including whether every logarithm is allowed. It gives a multiplication recipe containing 57 uses of the button. That is a recipe we know works; it is not a proof that 57 is the smallest possible number.</p>
+<p>But our starting number might be 2, or a tenth, or a million. We cannot assume that 1 is already available.</p>
+
+<h2 id="approaching-one">Getting closer to 1</h2>
+<p>The paper gives a recipe that moves toward 1 from every positive starting number.</p>
+<p>First press the button with two copies of the starting number. The paper proves that this puts the result above 2. Then apply a particular sequence of four button presses. Save the new result and repeat that same sequence.</p>
+<p>Each round brings the number down while leaving it above 1. Starting from 2 gives these values:</p>
+<figure class="round-figure">
+<div class="round-grid"><div><span>After the first press</span><strong>6.695909</strong></div><div><span>After 3 rounds</span><strong>2.055420</strong></div><div><span>After 6 rounds</span><strong>1.005171</strong></div><div><span>After 8 rounds</span><strong>1.000023</strong></div></div>
+<figcaption>Values rounded to six decimal places. Each round uses the same four-press recipe.</figcaption>
+</figure>
+<details class="math-detail"><summary>See the four-press recipe</summary>
+<p>Call the current number <em>b</em> and keep a copy of it. The letters <em>u</em>, <em>v</em> and <em>w</em> below just name answers we save along the way.</p>
+<ol><li>Put <em>b</em> in both boxes. Save the answer as <em>u</em>.</li><li>Put <em>u</em> on the left and <em>b</em> on the right. Save the answer as <em>v</em>.</li><li>Put <em>b</em> on the left and <em>v</em> on the right. Save the answer as <em>w</em>.</li><li>Put <em>w</em> on the left and <em>b</em> on the right. This is the new number for the next round.</li></ol>
+<p>The paper proves that all four presses are legal. If the old number is above 1, the new number is smaller and still above 1.</p>
+</details>
+<p>A few decimal values cannot prove that this keeps working. A decreasing sequence could approach some number above 1 and never get any closer. The paper rules that out by proving a bound on the remaining gap. For any positive distance we choose, sufficiently many rounds make the gap smaller than that distance.</p>
+<figure class="approach-figure">
+<svg viewBox="0 0 600 180" role="img" aria-labelledby="approach-title approach-desc"><title id="approach-title">Each round moves closer to 1 and stays above it</title><desc id="approach-desc">A number line places the target 1 on the left. The next answer lies between 1 and the current answer. A left-pointing arrow connects the current answer to the next answer. Distances are schematic.</desc><path class="diagram-line" d="M65 100H550M80 75V125"/><path class="diagram-arrow" d="M485 90H245M245 90L257 83M245 90L257 97"/><circle class="diagram-dot" cx="230" cy="100" r="5"/><circle class="diagram-dot" cx="500" cy="100" r="5"/><g class="diagram-text"><text x="80" y="155" text-anchor="middle">1</text><text x="230" y="62" text-anchor="middle">next answer</text><text x="500" y="62" text-anchor="middle">current answer</text></g></svg>
+<figcaption>Every finite round stays to the right of 1. This drawing shows the order of the values, not their distances to scale.</figcaption>
+</figure>
+<p><strong>This recipe never reaches 1 exactly after a finite number of rounds.</strong> It can get closer than a millionth, a billionth, or any smaller positive distance we ask for. There is still a gap.</p>
+<p>That is a limit of this particular recipe. Another recipe using the same calculator might produce exactly 1. The argument does not rule that out.</p>
+
+<h2 id="any-target">From almost 1 to almost any number</h2>
+<p>With an exact 1, our arithmetic recipes can make fractions such as 7 divided by 3. Replace each use of 1 with a sufficiently close approximation, and the final answer stays close to that fraction. Because the recipe has only finitely many steps, we can make the replacement accurate enough that every logarithm still receives a positive input.</p>
+<p>The numbers on the number line are called <em>real numbers</em>. Fractions can get as close as we want to every one of them. For example, 1.4, 1.41 and 1.414 are fractions approaching the square root of 2. So there are two small errors to control: choose a fraction near the target, then use the calculator to get near that fraction.</p>
+<p>This establishes the paper’s approximation result: <strong>choose any positive starting number, any real target and any positive error allowance. Some finite, valid recipe gets within that allowance.</strong> The recipe can depend on the target and on how accurate we want the answer to be.</p>
+<p>Mathematicians call the obtainable values <em>dense</em> in the real line. Here that means every interval, however narrow, contains a value the calculator can make. It does not mean the calculator can make every value exactly.</p>
+<p>The paper also proves a result about approximating whole functions. A function is a rule that assigns an output to each input. For a continuous rule, whose outputs change without sudden jumps, one calculator recipe can approximate it across an interval between two fixed endpoints, including the endpoints. A positive starting number, available throughout, is enough. The same recipe has to meet the error allowance everywhere in that interval.</p>
+
+<h2 id="exact-starts">Which starting numbers can make exactly 1?</h2>
+<p>Now vary the starting number. Mark it as successful if <em>some</em> finite recipe made from it produces exactly 1. Different starting numbers may need different recipes.</p>
+<p>The paper proves that every positive interval contains a successful starting number. Even inside a tiny interval around 2, there is at least one. That still does not tell us whether 2 itself succeeds.</p>
+<p>The proof uses a crossing. It builds a valid recipe whose output changes continuously as the starting number varies. At one end of the chosen interval its output is below 1; at the other end it is above 1. Somewhere between them, the output must equal 1. Think of drawing an unbroken line from below a horizontal mark to above it: the line has to cross the mark.</p>
+<p>There is a further result. Either <em>every</em> positive starting number can make exactly 1, or the successful ones can be put into a list, even though they occur in every positive interval. A set that can be listed this way is called <em>countable</em>. Fractions give a familiar example: they can be listed, and there is a fraction between any two distinct real numbers.</p>
+<p>The paper does not decide which possibility holds. It reduces the question to whether one finite recipe can give exactly 1 throughout some positive interval of starting numbers. If such a recipe exists, every positive starting number succeeds.</p>
+<details class="math-detail"><summary>Why one successful interval would be enough</summary>
+<p>We already know that any positive starting number can generate values arbitrarily close to any target. In particular, it can make a value inside the successful interval. Feed that value into the recipe that returns 1 throughout the interval. The combined recipe now makes exactly 1 from the original starting number.</p>
+<p>If the countable possibility holds instead, a further theorem shows that each fixed limit on recipe size covers only finitely many successful starting numbers. Yet every positive interval contains infinitely many successful starts. Increasing the size limit keeps revealing more. This further result has a written mathematical proof; the computer-checked proofs do not yet cover it.</p>
+</details>
+
+<h2 id="proving-impossible">When can we prove that a search will fail?</h2>
+<p>Trying thousands of recipes without success does not show that the next one will fail. We need a reason that applies to every allowed recipe.</p>
+<p>The paper explains this using a separate, smaller example. We now work only with 0 and 1. The allowed tools are XOR, which returns 1 when two bits differ and 0 when they match, and NOT, which turns 0 into 1 and 1 into 0. We may also use the constants 0 and 1.</p>
+<p>We want to build AND: a rule that returns 1 only when both inputs are 1. There are just four input pairs:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">First input</th><th scope="col">Second input</th><th scope="col">Wanted answer: AND</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table></div>
+<p>Read down each column. The first input gives <code>0011</code>, the second gives <code>0101</code>, and the wanted answer is <code>0001</code>. A four-digit pattern is simply a compact record of the four answers, in the table’s order.</p>
+<p>Both input columns contain an even number of ones. The constant columns do too: always returning 0 gives <code>0000</code>, and always returning 1 gives <code>1111</code>.</p>
+<p>Every allowed operation preserves this evenness. NOT replaces the ones with zeros and the zeros with ones; with four positions, an even count stays even. XOR combines two patterns and cancels positions where both have a 1. Combining two even counts and removing ones in pairs still leaves an even count.</p>
+<div class="parity-comparison"><div><span>Every allowed recipe</span><strong>0, 2 or 4 ones</strong><p>An even count stays even.</p></div><div><span>The wanted answer</span><strong>0001</strong><p>AND has just one 1.</p></div></div>
+<p>So no recipe built from these tools can produce AND. Making the recipe longer cannot help: every step preserves the property that excludes the target.</p>
+<p>A property that survives every allowed step is called an <em>invariant</em>. Here it lets us replace an endless search through recipes with a short proof about their answers.</p>
+<p>This is a change of representation: we describe a recipe by what it does on the four inputs, rather than by the instructions written inside it. The paper proves a general version for problems with only finitely many possible inputs and intermediate values. Collect every answer pattern the tools can make. Once the collection stops growing under all the allowed operations, any missing target is impossible for the complete set of inputs covered by the problem.</p>
+<p>The assumptions matter. Adding another operation can break the argument. A remembered failure must carry the reason it failed and the rules that made the reason valid.</p>
+
+<h2 id="recipe-size">The same calculation can look much larger on paper</h2>
+<p>Return to the calculator approaching 1. Each four-press round uses its previous result five times.</p>
+<p>We can write out the whole earlier calculation at each of those five places. Or we can save its answer once and refer to the saved value. Both descriptions mean the same exact calculation, but their sizes grow very differently:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Rounds after the first press</th><th scope="col">Button uses when every recipe is copied out</th><th scope="col">Instructions when answers are saved</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>9</td><td>5</td></tr><tr><td>3</td><td>249</td><td>13</td></tr><tr><td>6</td><td>31,249</td><td>25</td></tr></tbody></table></div>
+<p>At six rounds, saving answers reduces 31,249 written button uses to 25 stored instructions. These are exact counts for this recipe. They are not measurements of computer speed. The numbers inside a calculation can still grow enormous, and subtracting nearly equal numbers can lose accuracy on an ordinary computer.</p>
+<p>The representation matters here too. One description repeats work that the other shares. Before comparing the sizes of two solutions, we need to agree on what is being counted.</p>
+
+<h2 id="what-is-proved">What has been checked, and what remains open</h2>
+<p>Lean is software that checks mathematical proofs. In this project it checked the central arithmetic and approximation results, the claims about successful starting numbers, and the general proofs used to rule out impossible recipes. The supplement identifies the results that still have ordinary written proofs rather than Lean proofs.</p>
+<p>ZAL was also used, through actual models and executed checks. It checked the finite answer-pattern example and whether a smaller model preserved its legal moves. For the repeated calculator recipe, a small model records that a value above 1 stays above 1. The real-number proof is needed to justify that rule. The small model alone cannot show that the gap shrinks.</p>
+<p>The decimal examples and diagrams help us see the argument. They do not replace it. The mathematical results concern exact real numbers, so they also do not certify that a particular pocket calculator or numerical program will evaluate the recipes accurately.</p>
+<p>We can now return to the starting number 2 with a precise distinction. We know it can produce values as close as we want to any real target. We still do not know whether some finite recipe built from 2 produces exactly 1.</p>
+
+<!-- MENTAL_TOOLKIT_START -->
+<section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
+<p class="eyebrow">Carry these ideas forward</p>
+<h2 id="toolkit-title">Mental toolkit</h2>
+<p class="toolkit-intro">Four handles for the argument. Open a card to recover its definition, limits, and evidence.</p>
+<div class="toolkit-grid">
+<div class="toolkit-card" id="idea-approximation">
+<h3>Approximation</h3>
+<p class="toolkit-symbol" aria-label="Close enough for any chosen tolerance">Close enough for any chosen tolerance</p>
+<p class="toolkit-phrase">Choose the target and how close you need to get.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> Every positive starting number has some finite valid recipe within any positive distance of any real target.</p>
+<p><strong>Boundary.</strong> The recipe can depend on the target and tolerance. This does not establish exact equality.</p>
+<p class="toolkit-links"><a href="#any-target">The argument</a> · <a href="../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf">Paper</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-exact">
+<h3>Exact equality</h3>
+<p class="toolkit-symbol" aria-label="A finite recipe lands on the target">A finite recipe lands on the target</p>
+<p class="toolkit-phrase">Getting closer forever does not mean arriving.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> The repeated construction stays above 1 after every finite round. A different recipe may reach 1 exactly.</p>
+<p><strong>Boundary.</strong> The paper does not decide whether starting from 2 can produce exactly 1.</p>
+<p class="toolkit-links"><a href="#exact-starts">Which starts work?</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-invariant">
+<h3>Invariant</h3>
+<p class="toolkit-symbol" aria-label="A property every allowed step preserves">A property every allowed step preserves</p>
+<p class="toolkit-phrase">Find a reason every candidate must fail.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> XOR and NOT preserve an even number of ones in the four-answer patterns, excluding the AND target.</p>
+<p><strong>Boundary.</strong> The proof depends on the allowed operations, constants and complete input table.</p>
+<p class="toolkit-links"><a href="#proving-impossible">The four-row proof</a></p>
+</details></div>
+<div class="toolkit-card" id="idea-reuse">
+<h3>Saved answers</h3>
+<p class="toolkit-symbol" aria-label="Thirty-one thousand two hundred forty-nine copied uses or twenty-five stored instructions">31,249 copied uses or 25 stored instructions</p>
+<p class="toolkit-phrase">Count the work in a clearly stated form.</p>
+<details><summary>Definition, limits, evidence</summary>
+<p><strong>Meaning.</strong> After six rounds, writing every prior recipe out again is much larger than storing and reusing its answers.</p>
+<p><strong>Boundary.</strong> These are exact counts for this construction, not minimum sizes or runtime measurements.</p>
+<p class="toolkit-links"><a href="#recipe-size">The count table</a></p>
+</details></div>
+</div>
+<p class="toolkit-foot">The symbols are shorthand for the scoped definitions above. <a href="../data/essay-abstractions.json">Machine-readable cards</a>.</p>
+</section>
+<!-- MENTAL_TOOLKIT_END -->
+
+<h2 id="sources">Paper and checks</h2>
+<p>This essay explains <a href="../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf">Dana Edwards, <em>Positive Seeds, Exactness, and Certificates for Operation Search</em></a> (November 16, 2026). The paper credits the original operation, prior arithmetic constructions and the mathematical tools used in the proofs. It also contains the finite matrix experiments and other extensions not developed here.</p>
+<p>The <a href="../proofs/positive-seeds/lean-sources.zip">Lean sources and build records</a> cover the paper’s 15 mathematical modules, using Lean 4.24.0 and a pinned version of its mathematics library. The recorded build found no admitted proofs or custom axioms. The included coverage table states the limits. The <a href="../proofs/positive-seeds/convergence-values.json">decimal values used above</a> were independently recomputed at high precision from the paper’s transformed formula.</p>
+</article></div></section></main>
+<footer class="site-footer"><div class="container"><p>© <span data-year>2026</span> Dana Edwards</p><a href="../writing.html">More essays</a></div></footer><script src="../script.js" defer></script></body></html>

@@ -656,73 +656,69 @@
       ]
     },
     {
-      "path": "essays/what-a-smaller-map-forgets.html",
+      "path": "essays/what-one-operation-can-build.html",
       "cards": [
         {
-          "id": "idea-parity",
-          "label": "Odd or even",
-          "symbol": "16 patterns → 2 labels",
-          "symbol_reading": "Sixteen patterns become two labels",
-          "phrase": "Keep the distinction the question needs.",
-          "meaning": "Odd versus even completely decides whether these three buttons can reach 0001.",
-          "boundary": "This is a result for these buttons and this target. A button that flips one light changes the answer.",
+          "id": "idea-approximation",
+          "label": "Approximation",
+          "symbol": "Close enough for any chosen tolerance",
+          "symbol_reading": "Close enough for any chosen tolerance",
+          "phrase": "Choose the target and how close you need to get.",
+          "meaning": "Every positive starting number has some finite valid recipe within any positive distance of any real target.",
+          "boundary": "The recipe can depend on the target and tolerance. This does not establish exact equality.",
           "links": [
             {
-              "label": "The one-bit shortcut",
-              "href": "#one-bit"
-            }
-          ]
-        },
-        {
-          "id": "idea-correction",
-          "label": "Enough to act",
-          "symbol": "8 corrections + 1 impossible case",
-          "symbol_reading": "Eight distinct corrections plus one impossible case",
-          "phrase": "Different required actions need different labels.",
-          "meaning": "With no access to the starting pattern, a correct decoder needs nine labels for this puzzle.",
-          "boundary": "The claim covers all sixteen starts, preserves existence of answers, and allows no hidden copy of the original input.",
-          "links": [
-            {
-              "label": "The counting proof",
-              "href": "#nine-labels"
+              "label": "The argument",
+              "href": "#any-target"
             },
             {
-              "label": "Lean source",
-              "href": "../proofs/information-budget/InformationBudget.lean"
+              "label": "Paper",
+              "href": "../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf"
             }
           ]
         },
         {
-          "id": "idea-access",
-          "label": "Original input",
-          "symbol": "correction = start ⊕ goal",
-          "symbol_reading": "Correction equals start XOR goal",
-          "phrase": "Count what the next stage can still see.",
-          "meaning": "A decoder that can reread the original pattern can recover the correction after a YES decision.",
-          "boundary": "The original four bits remain available; this is not a one-bit encoding of the correction.",
+          "id": "idea-exact",
+          "label": "Exact equality",
+          "symbol": "A finite recipe lands on the target",
+          "symbol_reading": "A finite recipe lands on the target",
+          "phrase": "Getting closer forever does not mean arriving.",
+          "meaning": "The repeated construction stays above 1 after every finite round. A different recipe may reach 1 exactly.",
+          "boundary": "The paper does not decide whether starting from 2 can produce exactly 1.",
           "links": [
             {
-              "label": "Open the cover",
-              "href": "#original-input"
+              "label": "Which starts work?",
+              "href": "#exact-starts"
             }
           ]
         },
         {
-          "id": "idea-memory",
-          "label": "A reusable failure",
-          "symbol": "reason + assumptions",
-          "symbol_reading": "A reason together with its assumptions",
-          "phrase": "Remember why the whole family fails.",
-          "meaning": "Even starting patterns cannot reach an odd target under moves that preserve parity.",
-          "boundary": "Changing the allowed moves or target requires checking the argument again. A timeout alone does not establish impossibility.",
+          "id": "idea-invariant",
+          "label": "Invariant",
+          "symbol": "A property every allowed step preserves",
+          "symbol_reading": "A property every allowed step preserves",
+          "phrase": "Find a reason every candidate must fail.",
+          "meaning": "XOR and NOT preserve an even number of ones in the four-answer patterns, excluding the AND target.",
+          "boundary": "The proof depends on the allowed operations, constants and complete input table.",
           "links": [
             {
-              "label": "What to remember",
-              "href": "#remembering"
-            },
+              "label": "The four-row proof",
+              "href": "#proving-impossible"
+            }
+          ]
+        },
+        {
+          "id": "idea-reuse",
+          "label": "Saved answers",
+          "symbol": "31,249 copied uses or 25 stored instructions",
+          "symbol_reading": "Thirty-one thousand two hundred forty-nine copied uses or twenty-five stored instructions",
+          "phrase": "Count the work in a clearly stated form.",
+          "meaning": "After six rounds, writing every prior recipe out again is much larger than storing and reusing its answers.",
+          "boundary": "These are exact counts for this construction, not minimum sizes or runtime measurements.",
+          "links": [
             {
-              "label": "Independent replay",
-              "href": "../proofs/information-budget/replay.py"
+              "label": "The count table",
+              "href": "#recipe-size"
             }
           ]
         }
