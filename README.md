@@ -37,6 +37,11 @@ essays/neural-networks-as-fuzzy-lookup-tables.html  Programmable weights, finite
 essays/the-maze-that-remembers.html  Finite search, scientific memory, and AI scaling essay
 essays/research-taste-and-scientific-memory.html  TasteVal and the conditional value of research memory
 essays/abstraction-is-compression.html  Human-readable abstractions, containment synthesis, and linked evidence
+essays/what-one-operation-can-build.html  One-button calculator essay with interactive figures (progressive enhancement)
+assets/js/calculator-visuals.mjs     Zoom, recipe-size, crossing and AND-puzzle figures; calculator-visuals-core.mjs holds the pure helpers
+tools/build_calculator_figures.py    Static charts and 100-digit data for the calculator essay
+tools/build_reachable_figure.py      Reachable-numbers strips (every notebook up to eight presses from 2)
+tools/check_calculator.mjs           Calculator and figure-helper checks (node tools/check_calculator.mjs)
 data/essay-abstractions.json          Standard mental toolkits for the three research essays
 data/abstraction-reading-map.json     Claims, assumptions, source pins, and open proof obligations
 proofs/finite-search/                Scoped Lean proofs, replay instructions, and receipt

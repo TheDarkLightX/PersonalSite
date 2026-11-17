@@ -184,6 +184,7 @@
     });
 
     figures.forEach(function (fig) {
+      if (fig.hasAttribute("data-no-zoom")) return; // interactive figures handle their own clicks
       var obj = fig.querySelector("object[data]");
       var sourceImg = fig.querySelector("img[src]");
       var srcUrl = obj ? obj.getAttribute("data") : sourceImg ? sourceImg.getAttribute("src") : null;
