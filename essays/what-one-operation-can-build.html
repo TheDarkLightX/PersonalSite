@@ -81,7 +81,8 @@
 <p>The numbers on the number line are called <em>real numbers</em>. Fractions can get as close as we want to every one of them. For example, 1.4, 1.41 and 1.414 are fractions approaching the square root of 2. So there are two small errors to control: choose a fraction near the target, then use the calculator to get near that fraction.</p>
 <p>This establishes the paper’s approximation result: <strong>choose any positive starting number, any real target and any positive error allowance. Some finite, valid recipe gets within that allowance.</strong> The recipe can depend on the target and on how accurate we want the answer to be.</p>
 <p>Mathematicians call the obtainable values <em>dense</em> in the real line. Here that means every interval, however narrow, contains a value the calculator can make. It does not mean the calculator can make every value exactly.</p>
-<p>The paper also proves a result about approximating whole functions. A function is a rule that assigns an output to each input. For a continuous rule, whose outputs change without sudden jumps, one calculator recipe can approximate it across an interval between two fixed endpoints, including the endpoints. A positive starting number, available throughout, is enough. The same recipe has to meet the error allowance everywhere in that interval.</p>
+<p>The paper also asks what happens if the calculator receives an input that varies, alongside its fixed positive starting number. We want it to imitate a <em>function</em>: a rule that assigns an output to each input.</p>
+<p>For a continuous rule, whose outputs change without sudden jumps, one calculator recipe can approximate it across an interval between two fixed endpoints, including the endpoints. The same recipe has to meet the error allowance everywhere in that interval. Our fixed positive starting number is enough to make this possible.</p>
 
 <h2 id="exact-starts">Which starting numbers can make exactly 1?</h2>
 <p>Now vary the starting number. Mark it as successful if <em>some</em> finite recipe made from it produces exactly 1. Different starting numbers may need different recipes.</p>
@@ -117,7 +118,7 @@
 
 <h2 id="what-is-proved">What has been checked, and what remains open</h2>
 <p>Lean is software that checks mathematical proofs. In this project it checked the central arithmetic and approximation results, the claims about successful starting numbers, and the general proofs used to rule out impossible recipes. The supplement identifies the results that still have ordinary written proofs rather than Lean proofs.</p>
-<p>ZAL was also used, through actual models and executed checks. It checked the finite answer-pattern example and whether a smaller model preserved its legal moves. For the repeated calculator recipe, a small model records that a value above 1 stays above 1. The real-number proof is needed to justify that rule. The small model alone cannot show that the gap shrinks.</p>
+<p>ZAL is a tool for describing states and checking the rules for moving between them. It was used here through actual models and executed checks. It checked the four-answer example and whether a smaller model preserved its legal moves. For the repeated calculator recipe, a small model records that a value above 1 stays above 1. The real-number proof is needed to justify that rule. The small model alone cannot show that the gap shrinks.</p>
 <p>The decimal examples and diagrams help us see the argument. They do not replace it. The mathematical results concern exact real numbers, so they also do not certify that a particular pocket calculator or numerical program will evaluate the recipes accurately.</p>
 <p>We can now return to the starting number 2 with a precise distinction. We know it can produce values as close as we want to any real target. We still do not know whether some finite recipe built from 2 produces exactly 1.</p>
 
@@ -148,7 +149,7 @@
 <div class="toolkit-card" id="idea-invariant">
 <h3>Invariant</h3>
 <p class="toolkit-symbol" aria-label="A property every allowed step preserves">A property every allowed step preserves</p>
-<p class="toolkit-phrase">Find a reason every candidate must fail.</p>
+<p class="toolkit-phrase">Find a reason every recipe must fail.</p>
 <details><summary>Definition, limits, evidence</summary>
 <p><strong>Meaning.</strong> XOR and NOT preserve an even number of ones in the four-answer patterns, excluding the AND target.</p>
 <p><strong>Boundary.</strong> The proof depends on the allowed operations, constants and complete input table.</p>
@@ -170,6 +171,6 @@
 
 <h2 id="sources">Paper and checks</h2>
 <p>This essay explains <a href="../proofs/information-budget/Positive_Seeds_and_Certified_Synthesis.pdf">Dana Edwards, <em>Positive Seeds, Exactness, and Certificates for Operation Search</em></a> (November 16, 2026). The paper credits the original operation, prior arithmetic constructions and the mathematical tools used in the proofs. It also contains the finite matrix experiments and other extensions not developed here.</p>
-<p>The <a href="../proofs/positive-seeds/lean-sources.zip">Lean sources and build records</a> cover the paper’s 15 mathematical modules, using Lean 4.24.0 and a pinned version of its mathematics library. The recorded build found no admitted proofs or custom axioms. The included coverage table states the limits. The <a href="../proofs/positive-seeds/convergence-values.json">decimal values used above</a> were independently recomputed at high precision from the paper’s transformed formula.</p>
+<p>The <a href="../proofs/positive-seeds/lean-sources.zip">Lean proof files and checking records</a> cover the paper’s 15 mathematical modules, using Lean 4.24.0 and a fixed version of its mathematics library. The check found no missing proof steps or new claims simply assumed to be true. The included coverage table states the limits. The <a href="../proofs/positive-seeds/convergence-values.json">decimal values used above</a> were independently recomputed using an equivalent formula from the paper that is easier to evaluate accurately.</p>
 </article></div></section></main>
 <footer class="site-footer"><div class="container"><p>© <span data-year>2026</span> Dana Edwards</p><a href="../writing.html">More essays</a></div></footer><script src="../script.js" defer></script></body></html>

@@ -697,7 +697,7 @@
           "label": "Invariant",
           "symbol": "A property every allowed step preserves",
           "symbol_reading": "A property every allowed step preserves",
-          "phrase": "Find a reason every candidate must fail.",
+          "phrase": "Find a reason every recipe must fail.",
           "meaning": "XOR and NOT preserve an even number of ones in the four-answer patterns, excluding the AND target.",
           "boundary": "The proof depends on the allowed operations, constants and complete input table.",
           "links": [
