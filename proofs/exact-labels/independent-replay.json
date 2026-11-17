@@ -1,0 +1,162 @@
+{
+  "all_label_maps_examined": 16,
+  "extension_configurations_examined": 2048,
+  "extension_equations": [
+    "2-1=1",
+    "1-1=0",
+    "2*(1/2)=1",
+    "0*(1/2)=0"
+  ],
+  "extension_survivors": 0,
+  "extension_values": [
+    "0",
+    "1",
+    "2",
+    "1/2"
+  ],
+  "finite_source": "integers modulo 4",
+  "first_failed_equation_counts": [
+    1024,
+    768,
+    128,
+    128
+  ],
+  "nonconstant_exact_representations": [
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "tables": {
+        "multiply": [
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "subtract": [
+          [
+            0,
+            1,
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "labels": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "tables": {
+        "multiply": [
+          [
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        "subtract": [
+          [
+            1,
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    }
+  ],
+  "remove_one_equation_controls": [
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "mul": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "sub": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "mul": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "sub": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "mul": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sub": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "mul": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "sub": [
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "schema": "exact-color-replay/1",
+  "scope": "Finite exhaustive verification; the unrestricted real statement requires the separate proof."
+}

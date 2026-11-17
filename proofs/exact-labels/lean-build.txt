@@ -1,0 +1,3 @@
+'StrictEML.exact_scalar_injective_or_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'StrictEML.finite_exact_scalar_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'StrictEML.no_two_color_half_extension' depends on axioms: [propext]
