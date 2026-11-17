@@ -53,6 +53,34 @@
 <p>Making 1 would give us a way to remove the logarithm from the button’s rule. The logarithm of 1 is zero, so putting 1 in the right box leaves just the exponential:</p>
 <div class="equation">F(a, 1) = e<sup>a</sup></div>
 <p>With that available, a short recipe recovers the logarithm too. Longer recipes give addition, subtraction, multiplication and division, with division by zero still forbidden. Each recipe uses only the original button.</p>
+<figure class="graph-figure approach-figure" id="one-operation-trees">
+<div class="graph-pair">
+<div><h3>Exponential · one press</h3>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 370" role="img" aria-labelledby="exp-tree-title exp-tree-desc">
+<title id="exp-tree-title">Build an exponential with one F operation</title>
+<desc id="exp-tree-desc">The input a goes on the left and the available constant 1 on the right. F returns e to the power a. Arrows point from inputs to the result.</desc>
+<defs><marker id="exp-tree-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="#6b8f88"/></marker></defs>
+<g fill="none" stroke="#6b8f88" stroke-width="2" marker-end="url(#exp-tree-arrow)"><path d="M95 123 L154 219"/><path d="M245 123 L186 219"/><path d="M170 267 L170 306"/></g>
+<g fill="var(--bg, #fafafa)" stroke="var(--line-strong, #a0bdb3)" stroke-width="1.5"><rect x="71" y="75" width="48" height="48" rx="4"/><rect x="221" y="75" width="48" height="48" rx="4"/></g>
+<circle cx="170" cy="243" r="24" fill="#276c64"/>
+<g font-family="sans-serif" font-size="21" text-anchor="middle" fill="var(--text, #252927)"><text x="95" y="106">a</text><text x="245" y="106">1</text><text x="170" y="251" fill="#fff">F</text><text x="170" y="340">e<tspan baseline-shift="super" font-size="14">a</tspan></text></g>
+<g font-family="sans-serif" font-size="14" text-anchor="middle" fill="var(--muted, #58645f)"><text x="95" y="58">input</text><text x="245" y="58">constant</text><text x="119" y="188">L</text><text x="221" y="188">R</text></g>
+</svg></div>
+<div><h3>Logarithm · three presses</h3>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 370" role="img" aria-labelledby="log-tree-title log-tree-desc">
+<title id="log-tree-title">Build a logarithm with three F operations</title>
+<desc id="log-tree-desc">For u positive, first calculate F of 1 and u. Feed that result into the left of a second F, with 1 on the right. Feed the second result into the right of a third F, with 1 on the left. The output is the natural logarithm of u.</desc>
+<defs><marker id="log-tree-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="#6b8f88"/></marker></defs>
+<g fill="none" stroke="#6b8f88" stroke-width="2" marker-end="url(#log-tree-arrow)"><path d="M120 55 L145 79"/><path d="M200 55 L175 79"/><path d="M160 119 L208 166"/><path d="M280 145 L240 167"/><path d="M224 204 L181 257"/><path d="M85 242 L143 261"/><path d="M165 292 L165 318"/></g>
+<g fill="var(--bg, #fafafa)" stroke="var(--line-strong, #a0bdb3)" stroke-width="1.5"><rect x="99" y="13" width="42" height="42" rx="4"/><rect x="179" y="13" width="42" height="42" rx="4"/><rect x="259" y="103" width="42" height="42" rx="4"/><rect x="64" y="200" width="42" height="42" rx="4"/></g>
+<g fill="#276c64"><circle cx="160" cy="98" r="21"/><circle cx="224" cy="183" r="21"/><circle cx="165" cy="271" r="21"/></g>
+<g font-family="sans-serif" font-size="20" text-anchor="middle" fill="var(--text, #252927)"><text x="120" y="41">1</text><text x="200" y="41">u</text><text x="280" y="131">1</text><text x="85" y="228">1</text><text x="160" y="105" fill="#fff">F</text><text x="224" y="190" fill="#fff">F</text><text x="165" y="278" fill="#fff">F</text><text x="165" y="345">ln(u)</text></g>
+<g font-family="sans-serif" font-size="14" fill="var(--muted, #58645f)"><text x="233" y="39">u &gt; 0</text><text x="119" y="79">L</text><text x="189" y="79">R</text><text x="175" y="155">L</text><text x="261" y="169">R</text><text x="111" y="265">L</text><text x="204" y="244">R</text></g>
+</svg></div>
+</div>
+<figcaption>Follow the arrows from the inputs to the answer. Every circle applies the same rule F(a, b) = e<sup>a</sup> − ln(b); L and R mark its left and right inputs. The constant 1 is assumed available in both recipes. The logarithm recipe requires u &gt; 0.</figcaption>
+</figure>
+
 <details class="math-detail"><summary>How the button recovers a logarithm</summary>
 <p>Start with a positive number <em>u</em> and an available 1. Calculate <em>F(1, u)</em>, which gives <em>e − ln(u)</em>. Raise <em>e</em> to that answer using the rule above. Finally, put 1 in the left box and this new answer in the right box.</p>
 <p>The final logarithm undoes the exponentiation. The result is <em>e − (e − ln(u))</em>, which equals <em>ln(u)</em>. Every right input was positive.</p>
