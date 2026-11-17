@@ -1,0 +1,147 @@
+{
+  "inputs": 16,
+  "allowed_net_corrections": 8,
+  "candidate_pairs": 64,
+  "accepted": [
+    {
+      "coefficients": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "offset": 0,
+      "reverse": 0
+    },
+    {
+      "coefficients": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "offset": 1,
+      "reverse": 1
+    }
+  ],
+  "decision_labels": 2,
+  "correction_labels_without_original_input": 9,
+  "incompatible_pairs": 36,
+  "rows": [
+    {
+      "pattern": "0000",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "0001",
+      "reachable": true,
+      "correction": "0000",
+      "buttons": []
+    },
+    {
+      "pattern": "0010",
+      "reachable": true,
+      "correction": "0011",
+      "buttons": [
+        0
+      ]
+    },
+    {
+      "pattern": "0011",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "0100",
+      "reachable": true,
+      "correction": "0101",
+      "buttons": [
+        1
+      ]
+    },
+    {
+      "pattern": "0101",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "0110",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "0111",
+      "reachable": true,
+      "correction": "0110",
+      "buttons": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": "1000",
+      "reachable": true,
+      "correction": "1001",
+      "buttons": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "pattern": "1001",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "1010",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "1011",
+      "reachable": true,
+      "correction": "1010",
+      "buttons": [
+        1,
+        2
+      ]
+    },
+    {
+      "pattern": "1100",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    },
+    {
+      "pattern": "1101",
+      "reachable": true,
+      "correction": "1100",
+      "buttons": [
+        0,
+        2
+      ]
+    },
+    {
+      "pattern": "1110",
+      "reachable": true,
+      "correction": "1111",
+      "buttons": [
+        2
+      ]
+    },
+    {
+      "pattern": "1111",
+      "reachable": false,
+      "correction": null,
+      "buttons": null
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+'InformationBudget.task_encoder_injective' does not depend on any axioms
+'InformationBudget.task_labels_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InformationBudget.nine_labels_necessary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InformationBudget.nine_labels_sufficient' depends on axioms: [propext]
+'InformationBudget.decision_correct' depends on axioms: [propext, Quot.sound]
+'InformationBudget.decision_two_labels_necessary' depends on axioms: [propext, Classical.choice, Quot.sound]

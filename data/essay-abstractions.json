@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-11-12",
+  "date": "2026-11-16",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -650,6 +650,79 @@
             {
               "label": "Companion essay and manuscript scope",
               "href": "https://thedarklightx.github.io/Formal_Methods_Philosophy/tutorials/fuzzy-lookup-tables-or-neural-networks/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "essays/what-a-smaller-map-forgets.html",
+      "cards": [
+        {
+          "id": "idea-parity",
+          "label": "Odd or even",
+          "symbol": "16 patterns → 2 labels",
+          "symbol_reading": "Sixteen patterns become two labels",
+          "phrase": "Keep the distinction the question needs.",
+          "meaning": "Odd versus even completely decides whether these three buttons can reach 0001.",
+          "boundary": "This is a result for these buttons and this target. A button that flips one light changes the answer.",
+          "links": [
+            {
+              "label": "The one-bit shortcut",
+              "href": "#one-bit"
+            }
+          ]
+        },
+        {
+          "id": "idea-correction",
+          "label": "Enough to act",
+          "symbol": "8 corrections + 1 impossible case",
+          "symbol_reading": "Eight distinct corrections plus one impossible case",
+          "phrase": "Different required actions need different labels.",
+          "meaning": "With no access to the starting pattern, a correct decoder needs nine labels for this puzzle.",
+          "boundary": "The claim covers all sixteen starts, preserves existence of answers, and allows no hidden copy of the original input.",
+          "links": [
+            {
+              "label": "The counting proof",
+              "href": "#nine-labels"
+            },
+            {
+              "label": "Lean source",
+              "href": "../proofs/information-budget/InformationBudget.lean"
+            }
+          ]
+        },
+        {
+          "id": "idea-access",
+          "label": "Original input",
+          "symbol": "correction = start ⊕ goal",
+          "symbol_reading": "Correction equals start XOR goal",
+          "phrase": "Count what the next stage can still see.",
+          "meaning": "A decoder that can reread the original pattern can recover the correction after a YES decision.",
+          "boundary": "The original four bits remain available; this is not a one-bit encoding of the correction.",
+          "links": [
+            {
+              "label": "Open the cover",
+              "href": "#original-input"
+            }
+          ]
+        },
+        {
+          "id": "idea-memory",
+          "label": "A reusable failure",
+          "symbol": "reason + assumptions",
+          "symbol_reading": "A reason together with its assumptions",
+          "phrase": "Remember why the whole family fails.",
+          "meaning": "Even starting patterns cannot reach an odd target under moves that preserve parity.",
+          "boundary": "Changing the allowed moves or target requires checking the argument again. A timeout alone does not establish impossibility.",
+          "links": [
+            {
+              "label": "What to remember",
+              "href": "#remembering"
+            },
+            {
+              "label": "Independent replay",
+              "href": "../proofs/information-budget/replay.py"
             }
           ]
         }
