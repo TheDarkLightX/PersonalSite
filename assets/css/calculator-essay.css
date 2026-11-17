@@ -100,9 +100,13 @@
 .parity-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; }
 .parity-grid > div { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:.9rem .3rem; gap:.35rem; border:1px dashed var(--line-strong); border-radius:4px; background:var(--bg); }
 .parity-grid strong { font:1.25rem/1.2 var(--font-mono,monospace); letter-spacing:.06em; }
+.calculator-essay .parity-grid strong { color:inherit; }
 .parity-grid span { font-size:.73rem; text-align:center; line-height:1.3; }
 .parity-grid .reachable { background:#e4f0ec; border:1px solid #a0bdb3; color:#204f48; }
 .parity-grid .target { border:2px solid #b26049; background:#fcf0e9; color:#703521; }
+[data-theme="dark"] .calculator-essay .parity-grid .reachable { background:#17352f; border-color:#4c7c6d; color:#d7eee5; }
+[data-theme="dark"] .calculator-essay .parity-grid .excluded { background:#111111; border-color:#555c58; color:#c8cecb; }
+[data-theme="dark"] .calculator-essay .parity-grid .target { background:#35251f; border-color:#b57e64; color:#ffdbca; }
 .calculator-essay .essay-notes { max-width:740px; margin:3.5rem auto 0; padding:1.1rem 0; border-top:1px solid var(--line-strong); }
 .essay-notes > details > summary { cursor:pointer; color:var(--muted); font-size:.9rem; padding:.5rem 0; }
 .calculator-essay .essay-notes .essay-prose > p { font-size:.9rem; line-height:1.75; }
