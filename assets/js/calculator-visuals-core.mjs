@@ -19,7 +19,7 @@ export const ROUND_GAPS = [5.695908918370705, 3.7944121876699053, 2.226961075447
 
 // Width of the visible stretch of number line: the smallest power of ten that holds the gap with room to spare.
 export function zoomWidth(gap) {
-  return Number(`1e${Math.ceil(Math.log10(gap / 0.9))}`); // exact decimal power; 10 ** -4 is not
+  return Number(`1e${Math.ceil(Math.log10(gap / 0.9))}`); // parse the decimal power consistently for tick formatting
 }
 
 // Decimal places needed to label ticks one tenth of the width apart.

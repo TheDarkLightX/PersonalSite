@@ -7,6 +7,7 @@ const figure = root && root.closest('.calculator-playground');
 if (root) {
   try {
     initCalculator();
+    figure.classList.add('viz-ready');
   } catch (error) {
     figure.classList.add('viz-failed');
     console.error(error);

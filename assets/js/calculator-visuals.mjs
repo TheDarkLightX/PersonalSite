@@ -3,7 +3,7 @@ import {
   ones, notPattern, xorPattern, parityClosure,
 } from './calculator-visuals-core.mjs';
 
-// Interactive figures. Each one enhances a static fallback; on any error the fallback returns.
+// Keep each static figure visible until its interactive replacement initializes.
 const NS = 'http://www.w3.org/2000/svg';
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const commas = n => n.toLocaleString('en-US');
@@ -22,7 +22,10 @@ function svgEl(tag, attrs = {}, parent, text) {
 function setup(id, init) {
   const figure = document.getElementById(id);
   if (!figure) return;
-  try { init(figure); } catch (error) { figure.classList.add('viz-failed'); console.error(error); }
+  try {
+    init(figure);
+    figure.classList.add('viz-ready');
+  } catch (error) { figure.classList.add('viz-failed'); console.error(error); }
 }
 
 function onWidthChange(element, callback) {
@@ -346,7 +349,7 @@ setup('crossing-figure', figure => {
     const d = v - 1;
     const start = `Starting at <strong>${c.toFixed(4)}</strong>, four presses give <strong>${v.toFixed(6)}</strong>`;
     if (Math.abs(d) < 5e-7) {
-      readout.innerHTML = `${start}. The rounded display reads 1, but the exact crossing number is not this rounded decimal; it lies somewhere very close.`;
+      readout.innerHTML = `${start}. The rounded display reads 1. This does not establish exact equality.`;
     } else {
       const side = d > 0 ? '<span class="is-above">above 1</span>' : '<span class="is-below">below 1</span>';
       const near = Math.abs(d) < 1e-5 ? ' Very close: the answer is above 1 at 0.8656 and below 1 at 0.8657, so the exact crossing lies between them.' : '';
@@ -488,7 +491,7 @@ setup('parity-lab-figure', figure => {
   nav.className = 'essay-rail';
   nav.setAttribute('aria-hidden', 'true');
   const title = document.createElement('p');
-  title.textContent = 'Eight questions';
+  title.textContent = 'In this essay';
   const list = document.createElement('ol');
   const links = [...map.querySelectorAll('a')].map(source => {
     const li = document.createElement('li');

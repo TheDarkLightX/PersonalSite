@@ -98,12 +98,12 @@
 }
 
 .viz-live, .cap-live { display: none; }
-html.js-modules .viz-live { display: block; }
-html.js-modules .cap-live { display: inline; }
-html.js-modules .viz-fallback, html.js-modules .cap-static { display: none !important; }
-html.js-modules .viz-failed .viz-live, html.js-modules .viz-failed .cap-live { display: none !important; }
-html.js-modules .viz-failed .viz-fallback { display: block !important; }
-html.js-modules .viz-failed .cap-static { display: inline !important; }
+.viz-ready .viz-live { display: block; }
+.viz-ready .cap-live { display: inline; }
+.viz-ready .viz-fallback, .viz-ready .cap-static { display: none !important; }
+.viz-failed .viz-live, .viz-failed .cap-live { display: none !important; }
+.viz-failed .viz-fallback { display: block !important; }
+.viz-failed .cap-static { display: inline !important; }
 .calculator-essay .viz :focus-visible, .essay-notes summary:focus-visible, .essay-map a:focus-visible { outline: 3px solid var(--ce-teal-line); outline-offset: 3px; }
 
 .calculator-essay .takeaway { margin: 2rem 0; padding: .2rem 0 .2rem 1.2rem; border-left: 3px solid var(--ce-teal); }
