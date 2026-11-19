@@ -12,6 +12,71 @@
   ],
   "essays": [
     {
+      "path": "essays/why-every-serious-computer-scientist-should-have-their-own-pls.html",
+      "cards": [
+        {
+          "id": "idea-crossing-pairs",
+          "label": "Crossing pairs",
+          "symbol": "1–5, 2–6",
+          "symbol_reading": "Positions one and five pair, as do positions two and six.",
+          "phrase": "Draw the arcs above the strand.",
+          "meaning": "The endpoints alternate along the strand. A grammar that requires nesting or disjoint pairs excludes this fold.",
+          "boundary": "The paper gives an example on the six-base strand AGCGUU using a simplified scoring rule.",
+          "links": [
+            {
+              "label": "Worked RNA folds, Appendix A",
+              "href": "https://www.bioinf.uni-leipzig.de/~choener/pdfs/rie-hoe-2016.pdf#page=34"
+            }
+          ]
+        },
+        {
+          "id": "idea-optimal-folds",
+          "label": "Tied folds",
+          "symbol": "4 folds, 3 pairs each",
+          "symbol_reading": "Four optimal folds with three base pairs each.",
+          "phrase": "Ask which folds earned the score.",
+          "meaning": "Two winning folds contain crossings. Finding the maximum pair count alone cannot tell you whether the search included those folds.",
+          "boundary": "The four-way tie holds for this strand under the paper’s base-pair score.",
+          "links": [
+            {
+              "label": "Optimal structures, Appendix A",
+              "href": "https://www.bioinf.uni-leipzig.de/~choener/pdfs/rie-hoe-2016.pdf#page=34"
+            }
+          ]
+        },
+        {
+          "id": "idea-named-results",
+          "label": "Named results",
+          "symbol": "781,249 → 33",
+          "symbol_reading": "781,249 instructions copied out or 33 instructions with saved results.",
+          "phrase": "Give an intermediate answer a name.",
+          "meaning": "Storing a result lets later steps reuse it. The eight-round recipe then fits a budget of 40 instructions.",
+          "boundary": "These are instruction counts for two spellings of one recipe.",
+          "links": [
+            {
+              "label": "The eight-round recipe",
+              "href": "/essays/what-one-operation-can-build.html#recipe-size"
+            }
+          ]
+        },
+        {
+          "id": "idea-choice-owner",
+          "label": "Who chooses?",
+          "symbol": "caller or exchange",
+          "symbol_reading": "The caller or the exchange chooses the price.",
+          "phrase": "Read the promise from the caller’s side.",
+          "meaning": "The same range of prices can describe two different permissions. The identity of the chooser determines whether the caller can insist on 12.",
+          "boundary": "The example covers only the declared range and who controls the choice.",
+          "links": [
+            {
+              "label": "Saying “any” on purpose",
+              "href": "https://zenodo.org/records/24361538"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "essays/a-direct-mathematical-answer-to-djinnlangs-open-question.html",
       "cards": [
         {
