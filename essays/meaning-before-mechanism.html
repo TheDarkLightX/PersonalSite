@@ -23,8 +23,6 @@
   </script>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../assets/css/search-memory.css" />
-  <link rel="stylesheet" href="../assets/essay-films/player.css">
-  <script defer src="../assets/essay-films/player.js"></script>
 </head>
 <body class="search-essay">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -72,16 +70,6 @@
         <h2 id="case">A small app with a rule we can hold in our heads</h2>
         <p>Consider a release request that needs two different approvers. Alice approves. Alice tries again: rejected. Bob approves: one release intent is recorded. The request is now closed. Any later approval is rejected. A recognized approver can also cancel while it is pending.</p>
         <p>Call this <strong>two keys, one release</strong>. Here, a “key” is an approval by an ID. Establishing who controls that ID belongs to authentication.</p>
-        <figure class="search-figure essay-film" id="film-two-keys" aria-label="Two keys, one release" data-no-zoom>
-  <div class="film-media">
-    <a class="film-cover film-light" href="../assets/essay-films/two-keys-light.mp4" aria-label="Play Two keys, one release"><img src="../assets/essay-films/two-keys-light.webp" width="1280" height="720" decoding="async" loading="lazy" alt="Two keys, one release"><span class="film-action">Play animation <small>15 s</small></span></a>
-    <a class="film-cover film-dark" href="../assets/essay-films/two-keys-dark.mp4" aria-label="Play Two keys, one release"><img src="../assets/essay-films/two-keys-dark.webp" width="1280" height="720" decoding="async" loading="lazy" alt="Two keys, one release"><span class="film-action">Play animation <small>15 s</small></span></a>
-    <video controls playsinline preload="none" hidden aria-label="Two keys, one release"><track kind="captions" srclang="en" label="English" src="../assets/essay-films/two-keys.vtt"></video>
-  </div>
-  <figcaption>Alice’s second approval leaves the request pending. Bob’s approval records one release intent.</figcaption>
-  <p class="film-error" role="status" hidden>The embedded player could not load this clip. Open the <a href="../assets/essay-films/two-keys-light.mp4">light</a> or <a href="../assets/essay-films/two-keys-dark.mp4">dark</a> video.</p>
-  <details class="film-evidence"><summary>Evidence and scope</summary><p>The diagram follows recorded approval decisions for Alice and Bob. Authentication and external delivery are outside this model.</p><a href="../assets/essay-films/two-keys.json">Model and checks</a> · <a href="../examples/two-key-release/evidence/finite-check.json">Release desk evidence</a></details>
-</figure>
         <div class="search-formula search-equations" role="math" aria-label="An approved request has two recognized, distinct approver IDs. Every history from genesis contains at most one release intent."><span>Approved ⇒ A ≠ Nobody ∧ B ≠ Nobody ∧ A ≠ B</span><span>Every history from genesis: release intents ≤ 1</span></div>
         <p>For this case study, an agent wrote the declarations and rules, then ran the actual ZenoFCIS factory to produce the Rust app. The generated app binds the library’s Authority; it contains no handwritten application callback that gets to overrule the decision.<sup><a href="#source-case">2</a></sup></p>
         <figure class="search-figure"><img src="../assets/essays/two-key-state.svg" width="720" height="450" loading="lazy" decoding="async" alt="Four phases: pending with no approvals, pending with a first ID, approved with one release intent, and cancelled with none. A different second ID is required to approve. Either pending phase can cancel. Rejection loops preserve the current state." /><figcaption>Four phases compress 14 reachable states. The underlying model keeps the approver IDs that make “different” precise.</figcaption></figure>
@@ -102,17 +90,7 @@
 
         <h2 id="zal">One meaning, two views</h2>
         <p>ZAL, the <strong>Zeno Abstraction Language</strong>, is the next authoring layer I want for this conversation. A person should be able to read controlled English while an agent works with the corresponding symbolic model. Both should refer to the same behavior.</p>
-        <p>Plain conversation helps me discover what I mean. The formal model makes that meaning explicit enough to check. The shortcut is <strong>one meaning, two views</strong>: changing the notation should preserve the model. An agent should show me where its interpretation changes a decision, so I can correct it before code is adopted. <a class="film-clock-link" href="../assets/essay-films/clock-light.mp4" aria-controls="film-clock" aria-expanded="false"><span class="film-clock-text">Watch the clock example</span> <small>(16 s)</small></a></p>
-        <figure class="search-figure essay-film" id="film-clock" aria-label="What should the clock do at 59?" data-no-zoom hidden>
-  <div class="film-media">
-    <a class="film-cover film-light" href="../assets/essay-films/clock-light.mp4" aria-label="Play What should the clock do at 59?"><img src="../assets/essay-films/clock-light.webp" width="1280" height="720" decoding="async" loading="lazy" alt="What should the clock do at 59?"><span class="film-action">Play animation <small>16 s</small></span></a>
-    <a class="film-cover film-dark" href="../assets/essay-films/clock-dark.mp4" aria-label="Play What should the clock do at 59?"><img src="../assets/essay-films/clock-dark.webp" width="1280" height="720" decoding="async" loading="lazy" alt="What should the clock do at 59?"><span class="film-action">Play animation <small>16 s</small></span></a>
-    <video controls playsinline preload="none" hidden aria-label="What should the clock do at 59?"><track kind="captions" srclang="en" label="English" src="../assets/essay-films/clock.vtt"></video>
-  </div>
-  <figcaption>A tick at 59 exposes two meanings of “make a clock.” The author chooses which rule to put into the shared model.</figcaption>
-  <p class="film-error" role="status" hidden>The embedded player could not load this clip. Open the <a href="../assets/essay-films/clock-light.mp4">light</a> or <a href="../assets/essay-films/clock-dark.mp4">dark</a> video.</p>
-  <details class="film-evidence"><summary>Evidence and scope</summary><p>The conversation is illustrative. The two clock models record what happens on a supplied tick.</p><a href="../assets/essay-films/clock-wrap-results.json">Wrap checks</a> · <a href="../assets/essay-films/clock-stop-results.json">Stop checks</a></details>
-</figure>
+        <p>Plain conversation helps me discover what I mean. The formal model makes that meaning explicit enough to check. The shortcut is <strong>one meaning, two views</strong>: changing the notation should preserve the model. An agent should show me where its interpretation changes a decision, so I can correct it before code is adopted.</p>
         <p>The current ZAL work is an experimental 2.3/2.4 authoring layer, separate from this 2.1 case. Its parser and finite checker have tests; they are not themselves proved. Its local review record also does not authenticate a human. Those are concrete boundaries to improve as the language develops.<sup><a href="#source-zal">3</a></sup></p>
         <details class="essay-depth"><summary>The exact target behind “one meaning, two views”</summary>
           <div class="search-formula search-equations" role="math" aria-label="Parsing the symbolic rendering of model M returns M, and parsing its controlled English rendering also returns M."><span>parse<sub>symbols</sub>(render<sub>symbols</sub>(M)) = M</span><span>parse<sub>English</sub>(render<sub>English</sub>(M)) = M</span></div>
