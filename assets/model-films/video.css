@@ -1,0 +1,10 @@
+video[data-zal-model] {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 48 / 29;
+  margin: 1.6rem auto;
+  background: var(--bg);
+  color-scheme: light;
+}
+[data-theme="dark"] video[data-zal-model] { color-scheme: dark; }

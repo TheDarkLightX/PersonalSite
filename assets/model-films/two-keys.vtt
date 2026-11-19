@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+Alice approves. The request records her ID and zero release intents.
+
+00:00:03.300 --> 00:00:06.600
+Alice approves again. The self-loop rejects the duplicate.
+
+00:00:06.600 --> 00:00:09.900
+Bob approves. The request records one release intent.
+
+00:00:09.900 --> 00:00:13.200
+Alice tries again. The closed state rejects the approval.

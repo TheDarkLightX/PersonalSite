@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.400
+All 35 cells are reachable from S, including goal G.
+
+00:00:04.400 --> 00:00:08.800
+Removing the four branch cells leaves 31 cells reachable, including G.
+
+00:00:08.800 --> 00:00:13.200
+Restoring the branch and removing its junction leaves eight cells reachable. G is outside that set.

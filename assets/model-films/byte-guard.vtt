@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+47 is below 48. The guard returns false.
+
+00:00:03.200 --> 00:00:06.400
+48 is the included lower bound. The guard returns true.
+
+00:00:06.400 --> 00:00:09.600
+159 is below 160. The guard returns true.
+
+00:00:09.600 --> 00:00:12.800
+160 is the excluded upper bound. The guard returns false.

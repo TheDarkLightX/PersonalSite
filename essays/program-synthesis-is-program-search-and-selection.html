@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="../assets/css/search-memory.css" />
   <link rel="stylesheet" href="../assets/css/program-search-essay.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Program Synthesis Is Program Search and Selection","author":{"@type":"Person","name":"Dana Edwards"},"datePublished":"2026-11-08","mainEntityOfPage":"https://www.danaedwards.info/essays/program-synthesis-is-program-search-and-selection.html"}</script>
+  <link rel="stylesheet" href="../assets/model-films/video.css">
+  <script defer src="../assets/model-films/theme.js"></script>
 </head>
 <body class="search-essay program-search-essay">
  <a class="skip-link" href="#main">Skip to content</a>
@@ -107,6 +109,12 @@
 <p>We can also rank correct programs by size, execution time, memory use, readability, or some other cost. The synthesis problem is therefore both a <strong>search problem</strong> and a <strong>selection problem</strong>. Generating candidates is only part of it. We also need to know which candidates are correct, and then which correct candidate we prefer.</p>
 <p>A small example can be generated and checked directly in ZAL. Suppose the specification is a byte classifier that returns true exactly when <strong>48 ≤ b &lt; 160</strong>, for byte values from 0 through 255. In one bounded synthesis run, the checker explored nine nearby interval programs, tested each over all 256 byte inputs, and selected the single zero-mismatch candidate. That is <strong>2,304 candidate-input checks</strong> in a deliberately narrow search space.</p>
 <figure class="search-figure"><img src="../assets/essays/program-search/zal-candidates.svg" alt="Nine byte classifier candidate intervals, with the exact matching candidate selected." width="1100" height="610" loading="lazy" decoding="async"/><figcaption>Figure 5. ZAL-generated evidence, rendered for this essay. Nine interval candidates were evaluated across the complete 256-byte input domain. The central program was selected with zero mismatches. This is exhaustive finite checking <em>within the specified neighborhood</em>, not unrestricted program synthesis or a compiled-Rust proof.</figcaption></figure>
+<video id="film-nine-programs" data-zal-model controls playsinline preload="none" width="1152" height="696" aria-label="ZAL byte classifier. The guard sends each boundary input to true or false.">
+  <source media="(prefers-color-scheme: dark)" src="../assets/model-films/byte-guard-dark.mp4" data-poster="../assets/model-films/byte-guard-dark.webp" type="video/mp4">
+  <source src="../assets/model-films/byte-guard-light.mp4" data-poster="../assets/model-films/byte-guard-light.webp" type="video/mp4">
+  <track kind="captions" srclang="en" label="English" src="../assets/model-films/byte-guard.vtt">
+  <a href="../assets/model-films/byte-guard-light.mp4">Play the model video</a>
+</video>
 <p>The interesting part is not that nine candidates are difficult to search. They are not. The point is that this example makes the mechanism visible: <strong>define the solution condition; generate candidates; check them; select a satisfactory program.</strong> As the candidate language expands, the hard part becomes avoiding a combinatorial explosion while preserving confidence in the result.</p>
 <p>Abstraction is one way to do that. A second ZAL finite-model example starts from six concrete states, projects them to a three-state lifecycle model, and then to coarser two-state and one-state views. The six-to-three mapping is checked as exact for the modeled observations; the coarser mappings are sound abstractions that may admit behaviors the concrete model cannot perform.</p>
 <figure class="search-figure"><img src="../assets/essays/program-search/zal-abstraction.svg" alt="Six-state ZAL machine compressed into three, then two, then one abstract states." width="1100" height="610" loading="lazy" decoding="async"/><figcaption>Figure 6. ZAL-derived abstraction graph, rendered for this essay. The coarse occupancy view merges unseen and released into idle. That can make an invalid second reservation appear possible, illustrating why abstract success must sometimes be checked or refined.</figcaption></figure>
