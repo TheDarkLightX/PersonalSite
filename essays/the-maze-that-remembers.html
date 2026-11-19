@@ -23,6 +23,8 @@
   </script>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../assets/css/search-memory.css" />
+  <link rel="stylesheet" href="../assets/essay-films/player.css">
+  <script defer src="../assets/essay-films/player.js"></script>
 </head>
 <body class="search-essay">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -149,6 +151,16 @@
 
           <h2 id="memory">What a dead end is allowed to mean</h2>
           <p>I think of negative memory as a digital trail left for the next agent. The trail needs to say exactly what failed. An agent that finds one dead end has learned something about that route; it has not necessarily ruled out every route through the same junction.</p>
+          <figure class="search-figure essay-film" id="film-one-junction" aria-label="One junction, two pruning decisions" data-no-zoom>
+  <div class="film-media">
+    <a class="film-cover film-light" href="../assets/essay-films/one-junction-light.mp4" aria-label="Play One junction, two pruning decisions"><img src="../assets/essay-films/one-junction-light.webp" width="1280" height="720" decoding="async" loading="lazy" alt="One junction, two pruning decisions"><span class="film-action">Play animation <small>15 s</small></span></a>
+    <a class="film-cover film-dark" href="../assets/essay-films/one-junction-dark.mp4" aria-label="Play One junction, two pruning decisions"><img src="../assets/essay-films/one-junction-dark.webp" width="1280" height="720" decoding="async" loading="lazy" alt="One junction, two pruning decisions"><span class="film-action">Play animation <small>15 s</small></span></a>
+    <video controls playsinline preload="none" hidden aria-label="One junction, two pruning decisions"><track kind="captions" srclang="en" label="English" src="../assets/essay-films/one-junction.vtt"></video>
+  </div>
+  <figcaption>The flag remains reachable after pruning the four branch cells. Removing their shared junction cuts the only route to it.</figcaption>
+  <p class="film-error" role="status" hidden>The embedded player could not load this clip. Open the <a href="../assets/essay-films/one-junction-light.mp4">light</a> or <a href="../assets/essay-films/one-junction-dark.mp4">dark</a> video.</p>
+  <details class="film-evidence"><summary>Evidence and scope</summary><p>The camera follows the published maze. A separate breadth-first traversal checks which cells remain reachable after each removal.</p><a href="../assets/essay-films/one-junction.json">Model and checks</a> · <a href="../assets/essays/maze-validation.json">Maze validation</a></details>
+</figure>
           <div class="search-table"><table><thead><tr><th scope="col">Record</th><th scope="col">What it justifies</th></tr></thead><tbody>
             <tr><td>A rejected proof script</td><td>That exact artifact failed that check in that environment. Another proof of the same theorem may work.</td></tr>
             <tr><td>A verified counterexample</td><td>The precise conjecture is false under the recorded assumptions. A narrower or revised conjecture may survive.</td></tr>

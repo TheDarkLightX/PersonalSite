@@ -1,0 +1,26 @@
+/* Typography, borders and surfaces follow the essay's own theme tokens. */
+.essay-prose .essay-film {margin:2rem 0 2.5rem}
+.essay-film [hidden], .essay-film[hidden] {display:none !important}
+.essay-film .film-media {border:1px solid var(--line-strong);background:var(--bg);color-scheme:light}
+[data-theme="dark"] .essay-film .film-media {color-scheme:dark}
+.essay-film .film-cover {display:block;color:var(--text);text-decoration:none}
+.essay-film[data-started] .film-cover {display:none}
+.essay-prose .essay-film .film-cover img {display:block;width:100%;height:auto;max-width:none;margin:0;border:0;border-radius:0;background:var(--bg);box-shadow:none}
+.essay-film .film-cover.film-dark {display:none}
+[data-theme="dark"] .essay-film .film-cover.film-light {display:none}
+[data-theme="dark"] .essay-film:not([data-started]) .film-cover.film-dark {display:block}
+.essay-film .film-action {display:flex;align-items:center;gap:.65rem;min-height:42px;padding:.45rem .9rem;border-top:1px solid var(--line);color:var(--text);background:var(--surface);font:600 .85rem/1.3 var(--font-body)}
+.essay-film .film-action:before,.film-clock-link:before {content:"";display:inline-block;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:7px solid currentColor}
+.essay-film .film-action small,.film-clock-link small {font:normal .75rem var(--font-mono);color:var(--muted)}
+.essay-film .film-action small {margin-left:auto}
+.essay-film .film-cover:hover .film-action {background:var(--bg-soft)}
+.essay-film .film-cover:focus-visible,.film-clock-link:focus-visible,.film-evidence summary:focus-visible {outline:2px solid var(--text);outline-offset:3px}
+.essay-film video {display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--bg)}
+.essay-film .film-evidence {font-size:.8rem;color:var(--muted);margin-top:.5rem}
+.essay-film .film-evidence summary {cursor:pointer;width:fit-content;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+.essay-prose .film-evidence p,.essay-prose .film-error {margin:.55rem 0;font-size:.85rem}
+.essay-prose .film-clock-link {font-size:.92em;font-weight:600;white-space:normal}
+.film-clock-link:before {margin-right:.4em}
+.film-clock-link[aria-expanded="true"]:before {transform:rotate(90deg)}
+/* Keep the existing sticky theme control reachable while a figure plays. */
+@supports (overflow-x:clip) {html,body.search-essay {overflow-x:clip}}

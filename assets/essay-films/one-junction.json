@@ -1,0 +1,1684 @@
+{
+  "essay": "https://www.danaedwards.info/essays/the-maze-that-remembers.html#memory",
+  "scope": "The full 35-cell movement graph replays the published routes. Reachability after blocking cells was checked by a separate breadth-first search. Only this connected tree and this choice of goal are covered.",
+  "notation_commit": "4160086fb9d19f3ebe25047e69b1caa467aa74fd",
+  "grammar": {
+    "schema": "zal.grammar/1",
+    "id": "zal/state-machine",
+    "version": 1,
+    "kind": "graph",
+    "nodes": {
+      "start": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      },
+      "state": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      },
+      "accepting": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      }
+    },
+    "edges": {
+      "transition": {
+        "fields": {
+          "event": "str",
+          "outcome": "str"
+        },
+        "sort": "Control"
+      }
+    }
+  },
+  "model": {
+    "schema": "zal.model/1",
+    "grammar": {
+      "id": "zal/state-machine",
+      "version": 1
+    },
+    "kind": "graph",
+    "body": {
+      "nodes": [
+        {
+          "id": "c0_0",
+          "tag": "start",
+          "fields": {
+            "name": "(0, 0)"
+          }
+        },
+        {
+          "id": "c0_1",
+          "tag": "state",
+          "fields": {
+            "name": "(0, 1)"
+          }
+        },
+        {
+          "id": "c0_2",
+          "tag": "state",
+          "fields": {
+            "name": "(0, 2)"
+          }
+        },
+        {
+          "id": "c0_3",
+          "tag": "state",
+          "fields": {
+            "name": "(0, 3)"
+          }
+        },
+        {
+          "id": "c0_4",
+          "tag": "state",
+          "fields": {
+            "name": "(0, 4)"
+          }
+        },
+        {
+          "id": "c1_0",
+          "tag": "state",
+          "fields": {
+            "name": "(1, 0)"
+          }
+        },
+        {
+          "id": "c1_1",
+          "tag": "state",
+          "fields": {
+            "name": "(1, 1)"
+          }
+        },
+        {
+          "id": "c1_2",
+          "tag": "state",
+          "fields": {
+            "name": "(1, 2)"
+          }
+        },
+        {
+          "id": "c1_3",
+          "tag": "state",
+          "fields": {
+            "name": "(1, 3)"
+          }
+        },
+        {
+          "id": "c1_4",
+          "tag": "state",
+          "fields": {
+            "name": "(1, 4)"
+          }
+        },
+        {
+          "id": "c2_0",
+          "tag": "state",
+          "fields": {
+            "name": "(2, 0)"
+          }
+        },
+        {
+          "id": "c2_1",
+          "tag": "state",
+          "fields": {
+            "name": "(2, 1)"
+          }
+        },
+        {
+          "id": "c2_2",
+          "tag": "state",
+          "fields": {
+            "name": "(2, 2)"
+          }
+        },
+        {
+          "id": "c2_3",
+          "tag": "state",
+          "fields": {
+            "name": "(2, 3)"
+          }
+        },
+        {
+          "id": "c2_4",
+          "tag": "state",
+          "fields": {
+            "name": "(2, 4)"
+          }
+        },
+        {
+          "id": "c3_0",
+          "tag": "state",
+          "fields": {
+            "name": "(3, 0)"
+          }
+        },
+        {
+          "id": "c3_1",
+          "tag": "state",
+          "fields": {
+            "name": "(3, 1)"
+          }
+        },
+        {
+          "id": "c3_2",
+          "tag": "state",
+          "fields": {
+            "name": "(3, 2)"
+          }
+        },
+        {
+          "id": "c3_3",
+          "tag": "state",
+          "fields": {
+            "name": "(3, 3)"
+          }
+        },
+        {
+          "id": "c3_4",
+          "tag": "state",
+          "fields": {
+            "name": "(3, 4)"
+          }
+        },
+        {
+          "id": "c4_0",
+          "tag": "state",
+          "fields": {
+            "name": "(4, 0)"
+          }
+        },
+        {
+          "id": "c4_1",
+          "tag": "state",
+          "fields": {
+            "name": "(4, 1)"
+          }
+        },
+        {
+          "id": "c4_2",
+          "tag": "state",
+          "fields": {
+            "name": "(4, 2)"
+          }
+        },
+        {
+          "id": "c4_3",
+          "tag": "state",
+          "fields": {
+            "name": "(4, 3)"
+          }
+        },
+        {
+          "id": "c4_4",
+          "tag": "state",
+          "fields": {
+            "name": "(4, 4)"
+          }
+        },
+        {
+          "id": "c5_0",
+          "tag": "state",
+          "fields": {
+            "name": "(5, 0)"
+          }
+        },
+        {
+          "id": "c5_1",
+          "tag": "state",
+          "fields": {
+            "name": "(5, 1)"
+          }
+        },
+        {
+          "id": "c5_2",
+          "tag": "state",
+          "fields": {
+            "name": "(5, 2)"
+          }
+        },
+        {
+          "id": "c5_3",
+          "tag": "state",
+          "fields": {
+            "name": "(5, 3)"
+          }
+        },
+        {
+          "id": "c5_4",
+          "tag": "state",
+          "fields": {
+            "name": "(5, 4)"
+          }
+        },
+        {
+          "id": "c6_0",
+          "tag": "state",
+          "fields": {
+            "name": "(6, 0)"
+          }
+        },
+        {
+          "id": "c6_1",
+          "tag": "state",
+          "fields": {
+            "name": "(6, 1)"
+          }
+        },
+        {
+          "id": "c6_2",
+          "tag": "state",
+          "fields": {
+            "name": "(6, 2)"
+          }
+        },
+        {
+          "id": "c6_3",
+          "tag": "state",
+          "fields": {
+            "name": "(6, 3)"
+          }
+        },
+        {
+          "id": "c6_4",
+          "tag": "state",
+          "fields": {
+            "name": "(6, 4)"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "tag": "transition",
+          "source": [
+            "c0_0",
+            "out"
+          ],
+          "target": [
+            "c1_0",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e1",
+          "tag": "transition",
+          "source": [
+            "c0_1",
+            "out"
+          ],
+          "target": [
+            "c0_2",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e2",
+          "tag": "transition",
+          "source": [
+            "c0_2",
+            "out"
+          ],
+          "target": [
+            "c0_1",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e3",
+          "tag": "transition",
+          "source": [
+            "c0_2",
+            "out"
+          ],
+          "target": [
+            "c0_3",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e4",
+          "tag": "transition",
+          "source": [
+            "c0_3",
+            "out"
+          ],
+          "target": [
+            "c0_2",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e5",
+          "tag": "transition",
+          "source": [
+            "c0_3",
+            "out"
+          ],
+          "target": [
+            "c1_3",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e6",
+          "tag": "transition",
+          "source": [
+            "c0_3",
+            "out"
+          ],
+          "target": [
+            "c0_4",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e7",
+          "tag": "transition",
+          "source": [
+            "c0_4",
+            "out"
+          ],
+          "target": [
+            "c0_3",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e8",
+          "tag": "transition",
+          "source": [
+            "c0_4",
+            "out"
+          ],
+          "target": [
+            "c1_4",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e9",
+          "tag": "transition",
+          "source": [
+            "c1_0",
+            "out"
+          ],
+          "target": [
+            "c0_0",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e10",
+          "tag": "transition",
+          "source": [
+            "c1_0",
+            "out"
+          ],
+          "target": [
+            "c1_1",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e11",
+          "tag": "transition",
+          "source": [
+            "c1_1",
+            "out"
+          ],
+          "target": [
+            "c1_0",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e12",
+          "tag": "transition",
+          "source": [
+            "c1_1",
+            "out"
+          ],
+          "target": [
+            "c1_2",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e13",
+          "tag": "transition",
+          "source": [
+            "c1_2",
+            "out"
+          ],
+          "target": [
+            "c1_1",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e14",
+          "tag": "transition",
+          "source": [
+            "c1_2",
+            "out"
+          ],
+          "target": [
+            "c2_2",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e15",
+          "tag": "transition",
+          "source": [
+            "c1_3",
+            "out"
+          ],
+          "target": [
+            "c0_3",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e16",
+          "tag": "transition",
+          "source": [
+            "c1_3",
+            "out"
+          ],
+          "target": [
+            "c2_3",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e17",
+          "tag": "transition",
+          "source": [
+            "c1_4",
+            "out"
+          ],
+          "target": [
+            "c0_4",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e18",
+          "tag": "transition",
+          "source": [
+            "c1_4",
+            "out"
+          ],
+          "target": [
+            "c2_4",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e19",
+          "tag": "transition",
+          "source": [
+            "c2_0",
+            "out"
+          ],
+          "target": [
+            "c3_0",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e20",
+          "tag": "transition",
+          "source": [
+            "c2_0",
+            "out"
+          ],
+          "target": [
+            "c2_1",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e21",
+          "tag": "transition",
+          "source": [
+            "c2_1",
+            "out"
+          ],
+          "target": [
+            "c2_0",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e22",
+          "tag": "transition",
+          "source": [
+            "c2_1",
+            "out"
+          ],
+          "target": [
+            "c3_1",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e23",
+          "tag": "transition",
+          "source": [
+            "c2_2",
+            "out"
+          ],
+          "target": [
+            "c1_2",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e24",
+          "tag": "transition",
+          "source": [
+            "c2_2",
+            "out"
+          ],
+          "target": [
+            "c3_2",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e25",
+          "tag": "transition",
+          "source": [
+            "c2_3",
+            "out"
+          ],
+          "target": [
+            "c1_3",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e26",
+          "tag": "transition",
+          "source": [
+            "c2_3",
+            "out"
+          ],
+          "target": [
+            "c3_3",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e27",
+          "tag": "transition",
+          "source": [
+            "c2_4",
+            "out"
+          ],
+          "target": [
+            "c1_4",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e28",
+          "tag": "transition",
+          "source": [
+            "c2_4",
+            "out"
+          ],
+          "target": [
+            "c3_4",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e29",
+          "tag": "transition",
+          "source": [
+            "c3_0",
+            "out"
+          ],
+          "target": [
+            "c2_0",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e30",
+          "tag": "transition",
+          "source": [
+            "c3_0",
+            "out"
+          ],
+          "target": [
+            "c4_0",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e31",
+          "tag": "transition",
+          "source": [
+            "c3_1",
+            "out"
+          ],
+          "target": [
+            "c2_1",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e32",
+          "tag": "transition",
+          "source": [
+            "c3_2",
+            "out"
+          ],
+          "target": [
+            "c2_2",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e33",
+          "tag": "transition",
+          "source": [
+            "c3_2",
+            "out"
+          ],
+          "target": [
+            "c4_2",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e34",
+          "tag": "transition",
+          "source": [
+            "c3_3",
+            "out"
+          ],
+          "target": [
+            "c2_3",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e35",
+          "tag": "transition",
+          "source": [
+            "c3_3",
+            "out"
+          ],
+          "target": [
+            "c4_3",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e36",
+          "tag": "transition",
+          "source": [
+            "c3_4",
+            "out"
+          ],
+          "target": [
+            "c2_4",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e37",
+          "tag": "transition",
+          "source": [
+            "c4_0",
+            "out"
+          ],
+          "target": [
+            "c3_0",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e38",
+          "tag": "transition",
+          "source": [
+            "c4_0",
+            "out"
+          ],
+          "target": [
+            "c5_0",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e39",
+          "tag": "transition",
+          "source": [
+            "c4_0",
+            "out"
+          ],
+          "target": [
+            "c4_1",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e40",
+          "tag": "transition",
+          "source": [
+            "c4_1",
+            "out"
+          ],
+          "target": [
+            "c4_0",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e41",
+          "tag": "transition",
+          "source": [
+            "c4_1",
+            "out"
+          ],
+          "target": [
+            "c4_2",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e42",
+          "tag": "transition",
+          "source": [
+            "c4_2",
+            "out"
+          ],
+          "target": [
+            "c3_2",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e43",
+          "tag": "transition",
+          "source": [
+            "c4_2",
+            "out"
+          ],
+          "target": [
+            "c4_1",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e44",
+          "tag": "transition",
+          "source": [
+            "c4_3",
+            "out"
+          ],
+          "target": [
+            "c3_3",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e45",
+          "tag": "transition",
+          "source": [
+            "c4_3",
+            "out"
+          ],
+          "target": [
+            "c4_4",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e46",
+          "tag": "transition",
+          "source": [
+            "c4_4",
+            "out"
+          ],
+          "target": [
+            "c4_3",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e47",
+          "tag": "transition",
+          "source": [
+            "c4_4",
+            "out"
+          ],
+          "target": [
+            "c5_4",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e48",
+          "tag": "transition",
+          "source": [
+            "c5_0",
+            "out"
+          ],
+          "target": [
+            "c4_0",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e49",
+          "tag": "transition",
+          "source": [
+            "c5_0",
+            "out"
+          ],
+          "target": [
+            "c5_1",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e50",
+          "tag": "transition",
+          "source": [
+            "c5_1",
+            "out"
+          ],
+          "target": [
+            "c5_0",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e51",
+          "tag": "transition",
+          "source": [
+            "c5_1",
+            "out"
+          ],
+          "target": [
+            "c6_1",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e52",
+          "tag": "transition",
+          "source": [
+            "c5_2",
+            "out"
+          ],
+          "target": [
+            "c5_3",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e53",
+          "tag": "transition",
+          "source": [
+            "c5_3",
+            "out"
+          ],
+          "target": [
+            "c5_2",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e54",
+          "tag": "transition",
+          "source": [
+            "c5_3",
+            "out"
+          ],
+          "target": [
+            "c6_3",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e55",
+          "tag": "transition",
+          "source": [
+            "c5_3",
+            "out"
+          ],
+          "target": [
+            "c5_4",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e56",
+          "tag": "transition",
+          "source": [
+            "c5_4",
+            "out"
+          ],
+          "target": [
+            "c4_4",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e57",
+          "tag": "transition",
+          "source": [
+            "c5_4",
+            "out"
+          ],
+          "target": [
+            "c5_3",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e58",
+          "tag": "transition",
+          "source": [
+            "c5_4",
+            "out"
+          ],
+          "target": [
+            "c6_4",
+            "in"
+          ],
+          "fields": {
+            "event": "east",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e59",
+          "tag": "transition",
+          "source": [
+            "c6_0",
+            "out"
+          ],
+          "target": [
+            "c6_1",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e60",
+          "tag": "transition",
+          "source": [
+            "c6_1",
+            "out"
+          ],
+          "target": [
+            "c5_1",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e61",
+          "tag": "transition",
+          "source": [
+            "c6_1",
+            "out"
+          ],
+          "target": [
+            "c6_0",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e62",
+          "tag": "transition",
+          "source": [
+            "c6_1",
+            "out"
+          ],
+          "target": [
+            "c6_2",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e63",
+          "tag": "transition",
+          "source": [
+            "c6_2",
+            "out"
+          ],
+          "target": [
+            "c6_1",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e64",
+          "tag": "transition",
+          "source": [
+            "c6_2",
+            "out"
+          ],
+          "target": [
+            "c6_3",
+            "in"
+          ],
+          "fields": {
+            "event": "south",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e65",
+          "tag": "transition",
+          "source": [
+            "c6_3",
+            "out"
+          ],
+          "target": [
+            "c5_3",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e66",
+          "tag": "transition",
+          "source": [
+            "c6_3",
+            "out"
+          ],
+          "target": [
+            "c6_2",
+            "in"
+          ],
+          "fields": {
+            "event": "north",
+            "outcome": "Move"
+          }
+        },
+        {
+          "id": "e67",
+          "tag": "transition",
+          "source": [
+            "c6_4",
+            "out"
+          ],
+          "target": [
+            "c5_4",
+            "in"
+          ],
+          "fields": {
+            "event": "west",
+            "outcome": "Move"
+          }
+        }
+      ]
+    }
+  },
+  "model_digest": "03ea03f0fe08d87a5ca785c578af1529b7e30d7e579a54d750ea548907ab7466",
+  "diagram_model_digest": "4d4c385647f4f7f5959b3a593f309904b8b8d94d32178eed7c00610328330988",
+  "checks": {
+    "all": {
+      "reachable": 35,
+      "goal_reachable": true,
+      "blocked": []
+    },
+    "branch": {
+      "reachable": 31,
+      "goal_reachable": true,
+      "blocked": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    "junction": {
+      "reachable": 8,
+      "goal_reachable": false,
+      "blocked": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    "goal_trace": {
+      "schema": "zal.semantic-report/1",
+      "adapter": "zal/fsm-trace/1",
+      "grammar_digest": "22a296624cc6beabcf644deef2b1c5894799068d4125e423264387423b1f4338",
+      "source_model_digest": "43b8a67f4068fb8db390d2dbb8739ebb8d87b37cea854a67983331fb286ee3df",
+      "evidence": "checked-in-this-run",
+      "scope": "supplied event sequence; exact edge labels",
+      "authority": "none",
+      "status": "completed",
+      "trace": [
+        {
+          "state": "c0_0",
+          "event": "east",
+          "next": "c1_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_0",
+          "event": "south",
+          "next": "c1_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_1",
+          "event": "south",
+          "next": "c1_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_2",
+          "event": "east",
+          "next": "c2_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c2_2",
+          "event": "east",
+          "next": "c3_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c3_2",
+          "event": "east",
+          "next": "c4_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_2",
+          "event": "north",
+          "next": "c4_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_1",
+          "event": "north",
+          "next": "c4_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_0",
+          "event": "east",
+          "next": "c5_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c5_0",
+          "event": "south",
+          "next": "c5_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c5_1",
+          "event": "east",
+          "next": "c6_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c6_1",
+          "event": "south",
+          "next": "c6_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c6_2",
+          "event": "south",
+          "next": "c6_3",
+          "outcome": "Move"
+        },
+        {
+          "state": "c6_3",
+          "event": "west",
+          "next": "c5_3",
+          "outcome": "Move"
+        },
+        {
+          "state": "c5_3",
+          "event": "south",
+          "next": "c5_4",
+          "outcome": "Move"
+        },
+        {
+          "state": "c5_4",
+          "event": "east",
+          "next": "c6_4",
+          "outcome": "Move"
+        }
+      ],
+      "steps": 16,
+      "events": [
+        "east",
+        "south",
+        "south",
+        "east",
+        "east",
+        "east",
+        "north",
+        "north",
+        "east",
+        "south",
+        "east",
+        "south",
+        "south",
+        "west",
+        "south",
+        "east"
+      ],
+      "final_state": "c6_4"
+    },
+    "dead_end_trace": {
+      "schema": "zal.semantic-report/1",
+      "adapter": "zal/fsm-trace/1",
+      "grammar_digest": "22a296624cc6beabcf644deef2b1c5894799068d4125e423264387423b1f4338",
+      "source_model_digest": "43b8a67f4068fb8db390d2dbb8739ebb8d87b37cea854a67983331fb286ee3df",
+      "evidence": "checked-in-this-run",
+      "scope": "supplied event sequence; exact edge labels",
+      "authority": "none",
+      "status": "completed",
+      "trace": [
+        {
+          "state": "c0_0",
+          "event": "east",
+          "next": "c1_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_0",
+          "event": "south",
+          "next": "c1_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_1",
+          "event": "south",
+          "next": "c1_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c1_2",
+          "event": "east",
+          "next": "c2_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c2_2",
+          "event": "east",
+          "next": "c3_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c3_2",
+          "event": "east",
+          "next": "c4_2",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_2",
+          "event": "north",
+          "next": "c4_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_1",
+          "event": "north",
+          "next": "c4_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c4_0",
+          "event": "west",
+          "next": "c3_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c3_0",
+          "event": "west",
+          "next": "c2_0",
+          "outcome": "Move"
+        },
+        {
+          "state": "c2_0",
+          "event": "south",
+          "next": "c2_1",
+          "outcome": "Move"
+        },
+        {
+          "state": "c2_1",
+          "event": "east",
+          "next": "c3_1",
+          "outcome": "Move"
+        }
+      ],
+      "steps": 12,
+      "events": [
+        "east",
+        "south",
+        "south",
+        "east",
+        "east",
+        "east",
+        "north",
+        "north",
+        "west",
+        "west",
+        "south",
+        "east"
+      ],
+      "final_state": "c3_1"
+    }
+  },
+  "display_scope": "Source-retaining conceptual view of the worked example; executable graph supplied separately."
+}

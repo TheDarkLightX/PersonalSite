@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+The lower bound includes 48. The upper bound excludes 160.
+
+00:00:05.000 --> 00:00:10.000
+A candidate with upper bound 161 accepts 160. That byte refutes it.
+
+00:00:10.000 --> 00:00:15.000
+Only [48, 160) agrees on every byte in the nine-program search.

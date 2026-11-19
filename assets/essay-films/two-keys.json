@@ -1,0 +1,341 @@
+{
+  "essay": "https://www.danaedwards.info/essays/meaning-before-mechanism.html#case",
+  "scope": "Approval-only projection with Alice and Bob. Outcomes and release-intent counts match the essay’s recorded edges. Authentication, cancellation and external release execution are outside this figure.",
+  "notation_commit": "4160086fb9d19f3ebe25047e69b1caa467aa74fd",
+  "grammar": {
+    "schema": "zal.grammar/1",
+    "id": "zal/state-machine",
+    "version": 1,
+    "kind": "graph",
+    "nodes": {
+      "start": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      },
+      "state": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      },
+      "accepting": {
+        "fields": {
+          "name": "str"
+        },
+        "ports": {
+          "in": {
+            "direction": "in",
+            "sort": "Control"
+          },
+          "out": {
+            "direction": "out",
+            "sort": "Control"
+          }
+        }
+      }
+    },
+    "edges": {
+      "transition": {
+        "fields": {
+          "event": "str",
+          "outcome": "str"
+        },
+        "sort": "Control"
+      }
+    }
+  },
+  "model": {
+    "schema": "zal.model/1",
+    "grammar": {
+      "id": "zal/state-machine",
+      "version": 1
+    },
+    "kind": "graph",
+    "body": {
+      "nodes": [
+        {
+          "id": "pending",
+          "tag": "start",
+          "fields": {
+            "name": "Pending"
+          }
+        },
+        {
+          "id": "alice",
+          "tag": "state",
+          "fields": {
+            "name": "Alice first"
+          }
+        },
+        {
+          "id": "bob",
+          "tag": "state",
+          "fields": {
+            "name": "Bob first"
+          }
+        },
+        {
+          "id": "alice_bob",
+          "tag": "state",
+          "fields": {
+            "name": "Alice then Bob"
+          }
+        },
+        {
+          "id": "bob_alice",
+          "tag": "state",
+          "fields": {
+            "name": "Bob then Alice"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "tag": "transition",
+          "source": [
+            "pending",
+            "out"
+          ],
+          "target": [
+            "alice",
+            "in"
+          ],
+          "fields": {
+            "event": "Alice",
+            "outcome": "Accept / 0"
+          }
+        },
+        {
+          "id": "e1",
+          "tag": "transition",
+          "source": [
+            "pending",
+            "out"
+          ],
+          "target": [
+            "bob",
+            "in"
+          ],
+          "fields": {
+            "event": "Bob",
+            "outcome": "Accept / 0"
+          }
+        },
+        {
+          "id": "e2",
+          "tag": "transition",
+          "source": [
+            "alice",
+            "out"
+          ],
+          "target": [
+            "alice",
+            "in"
+          ],
+          "fields": {
+            "event": "Alice",
+            "outcome": "Reject / 0"
+          }
+        },
+        {
+          "id": "e3",
+          "tag": "transition",
+          "source": [
+            "alice",
+            "out"
+          ],
+          "target": [
+            "alice_bob",
+            "in"
+          ],
+          "fields": {
+            "event": "Bob",
+            "outcome": "Accept / 1"
+          }
+        },
+        {
+          "id": "e4",
+          "tag": "transition",
+          "source": [
+            "bob",
+            "out"
+          ],
+          "target": [
+            "bob_alice",
+            "in"
+          ],
+          "fields": {
+            "event": "Alice",
+            "outcome": "Accept / 1"
+          }
+        },
+        {
+          "id": "e5",
+          "tag": "transition",
+          "source": [
+            "bob",
+            "out"
+          ],
+          "target": [
+            "bob",
+            "in"
+          ],
+          "fields": {
+            "event": "Bob",
+            "outcome": "Reject / 0"
+          }
+        },
+        {
+          "id": "e6",
+          "tag": "transition",
+          "source": [
+            "alice_bob",
+            "out"
+          ],
+          "target": [
+            "alice_bob",
+            "in"
+          ],
+          "fields": {
+            "event": "Alice",
+            "outcome": "Reject / 0"
+          }
+        },
+        {
+          "id": "e7",
+          "tag": "transition",
+          "source": [
+            "alice_bob",
+            "out"
+          ],
+          "target": [
+            "alice_bob",
+            "in"
+          ],
+          "fields": {
+            "event": "Bob",
+            "outcome": "Reject / 0"
+          }
+        },
+        {
+          "id": "e8",
+          "tag": "transition",
+          "source": [
+            "bob_alice",
+            "out"
+          ],
+          "target": [
+            "bob_alice",
+            "in"
+          ],
+          "fields": {
+            "event": "Alice",
+            "outcome": "Reject / 0"
+          }
+        },
+        {
+          "id": "e9",
+          "tag": "transition",
+          "source": [
+            "bob_alice",
+            "out"
+          ],
+          "target": [
+            "bob_alice",
+            "in"
+          ],
+          "fields": {
+            "event": "Bob",
+            "outcome": "Reject / 0"
+          }
+        }
+      ]
+    }
+  },
+  "model_digest": "43a9576fde28648cdad2cb884fcb861fa5b43d43aefebb61e7a9f9540cdf1085",
+  "diagram_model_digest": "43a9576fde28648cdad2cb884fcb861fa5b43d43aefebb61e7a9f9540cdf1085",
+  "checks": {
+    "source": "https://www.danaedwards.info/examples/two-key-release/evidence/finite-check.json",
+    "edges_matched": 10,
+    "traces": {
+      "first": [
+        {
+          "state": "pending",
+          "event": "Alice",
+          "next": "alice",
+          "outcome": "Accept / 0"
+        }
+      ],
+      "duplicate": [
+        {
+          "state": "pending",
+          "event": "Alice",
+          "next": "alice",
+          "outcome": "Accept / 0"
+        },
+        {
+          "state": "alice",
+          "event": "Alice",
+          "next": "alice",
+          "outcome": "Reject / 0"
+        }
+      ],
+      "distinct": [
+        {
+          "state": "pending",
+          "event": "Alice",
+          "next": "alice",
+          "outcome": "Accept / 0"
+        },
+        {
+          "state": "alice",
+          "event": "Bob",
+          "next": "alice_bob",
+          "outcome": "Accept / 1"
+        }
+      ],
+      "closed": [
+        {
+          "state": "pending",
+          "event": "Alice",
+          "next": "alice",
+          "outcome": "Accept / 0"
+        },
+        {
+          "state": "alice",
+          "event": "Bob",
+          "next": "alice_bob",
+          "outcome": "Accept / 1"
+        },
+        {
+          "state": "alice_bob",
+          "event": "Alice",
+          "next": "alice_bob",
+          "outcome": "Reject / 0"
+        }
+      ]
+    }
+  },
+  "display_scope": "Full model"
+}
