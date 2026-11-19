@@ -66,6 +66,12 @@
 <div class="search-formula search-equations" role="math" aria-label="S(x) = { y ∈ Y : R(x, y) }"><span>S(x) = { y ∈ Y : R(x, y) }</span></div>
 <p>The search space <strong>Y</strong> contains the candidates we might consider; the solution set <strong>S(x)</strong> is the subset of valid solutions. Solving the problem means finding some <strong>y</strong> in <strong>S(x)</strong>, perhaps the best one by some criterion, or determining that the set is empty. The relation may itself be difficult or even impossible to decide mechanically. Writing down the search formulation does not magically give us an algorithm.</p>
 <p>Take a maze: the candidates are possible routes, and the condition is whether a route reaches the exit without violating the rules. Take a mathematical conjecture: candidates may be proofs, and checking a valid proof can be far easier than discovering it. Take software: candidates are programs, and the condition is whether a program has the required behavior.</p>
+<video id="film-problem-solving-as-search" data-zal-model controls playsinline preload="none" width="1600" height="900" style="aspect-ratio: 16 / 9" aria-label="Problem solving as search. An 83-second animation from possible routes to checked programs.">
+  <source media="(prefers-color-scheme: dark)" src="../assets/model-films/problem-solving-as-search-dark.mp4" data-poster="../assets/model-films/problem-solving-as-search-dark.webp" type="video/mp4">
+  <source src="../assets/model-films/problem-solving-as-search-light.mp4" data-poster="../assets/model-films/problem-solving-as-search-light.webp" type="video/mp4">
+  <track kind="captions" srclang="en" label="English" src="../assets/model-films/problem-solving-as-search.vtt">
+  <a href="../assets/model-films/problem-solving-as-search-light.mp4">Watch Problem Solving as Search</a>
+</video>
 <p>This is the direct connection to program synthesis. <strong>Program synthesis is program search and selection.</strong> We describe what a program must do, generate or construct candidate programs, reject those that fail, and select a program that meets the specification. The remaining questions are how we represent the candidates, how we search among them, how we check them, and what we mean by “best.”</p>
 <h2 id="from-babbage-to-church-and-turing-computation-becomes-mechanical">From Babbage to Church and Turing: computation becomes mechanical</h2>
 <p>Before asking whether a search can be efficient, we need to understand what it means to compute at all.</p>
