@@ -1,6 +1,6 @@
 {
   "schema": "essay-abstractions/v1",
-  "date": "2026-11-16",
+  "date": "2026-11-19",
   "purpose": "Shared human and machine reading cards, not a Research Kernel import contract.",
   "format": [
     "label",
@@ -11,6 +11,71 @@
     "links"
   ],
   "essays": [
+    {
+      "path": "essays/a-direct-mathematical-answer-to-djinnlangs-open-question.html",
+      "cards": [
+        {
+          "id": "idea-declared-choice",
+          "label": "Declared choice",
+          "symbol": "A(x)",
+          "symbol_reading": "The permitted outputs on input x",
+          "phrase": "Name who gets to choose.",
+          "meaning": "The rule defines the allowed set and whether a new choice is available at each activation.",
+          "boundary": "The report checks choices on declared finite domains.",
+          "links": [
+            {
+              "label": "Choice syntax and lifetime, §§4–5",
+              "href": "https://zenodo.org/records/24361538"
+            }
+          ]
+        },
+        {
+          "id": "idea-legal-policy",
+          "label": "Legal policy",
+          "symbol": "f(x) ∈ A(x)",
+          "symbol_reading": "The selected output belongs to the allowed set",
+          "phrase": "A policy picks one allowed answer.",
+          "meaning": "A condition true for every allowed output holds for the output selected by a legal policy.",
+          "boundary": "A property observed under one policy can fail under another allowed choice.",
+          "links": [
+            {
+              "label": "Auction counterexample, §6.4",
+              "href": "https://zenodo.org/records/24361538"
+            }
+          ]
+        },
+        {
+          "id": "idea-two-run-law",
+          "label": "Two-run privacy",
+          "symbol": "A(0) = A(1)",
+          "symbol_reading": "Both secrets permit the same public outputs",
+          "phrase": "Compare what an observer could see under each secret.",
+          "meaning": "With public inputs fixed, the observable output sets agree for the two secret values.",
+          "boundary": "A deterministic tie-break can change those sets. This comparison says nothing about output probabilities.",
+          "links": [
+            {
+              "label": "Policy checks, §§6.7–6.8",
+              "href": "https://zenodo.org/records/24361538"
+            }
+          ]
+        },
+        {
+          "id": "idea-joining-forks",
+          "label": "Joining a fork",
+          "symbol": "ux = vy",
+          "symbol_reading": "The two branches emit equal sequences through their common state",
+          "phrase": "Keep the order of the observations.",
+          "meaning": "Two branches may rejoin after different numbers of steps. The concatenated observations along them must match through the join.",
+          "boundary": "The stated equivalence assumes deterministic moves and a decreasing natural-number rank.",
+          "links": [
+            {
+              "label": "Exact criterion and proof, §5",
+              "href": "https://zenodo.org/records/24362754"
+            }
+          ]
+        }
+      ]
+    },
     {
       "path": "essays/the-algebra-beneath-the-algorithm.html",
       "cards": [
