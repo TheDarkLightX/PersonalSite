@@ -24,6 +24,8 @@
   </script>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../assets/css/search-memory.css" />
+  <link rel="stylesheet" href="../assets/model-films/video.css" />
+  <script defer src="../assets/model-films/theme.js"></script>
 </head>
 <body class="search-essay">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -86,7 +88,34 @@
 
           <p>There’s a reasonable bet in the other direction. An AI writing for another AI might prefer a dense encoding. An engineering team might keep a familiar language for its libraries alone. My prediction concerns the high-level languages humans still have to read, review, and think in. When two languages can do the same job, I expect people to keep the one in which they can spot a costly mistake, or whose rules let a checker catch it for them. Over time, that pressure favors safer, more readable languages.</p>
 
-          <p>I expect personal programming languages to become an ordinary part of a computer scientist’s working life. And I mean <em>languages</em>, plural. Controlled English suits me when I’m assigning a permission. When I’m working out which states are reachable, I’d sooner have the diagram. ZAL gives me room for both. Your language might look quite different. I’d like to see it.</p>
+          <h2 id="a-style-of-my-own">A style of my own</h2>
+
+          <p>Bruce Lee’s Jeet Kune Do shaped my view of computational thinking as a martial art. In Lee’s words, “Man, the living creature, the creating individual, is always more important than any established style or system.”</p>
+
+          <p>Lee also had advice for the student trying to find that fit. “Research your own experience. Absorb what is useful. Reject what is useless. Add what is essentially your own.” Two students can learn the same movement from the same teacher. The teacher’s reach and reflexes don’t come with the lesson. Each student has to discover what suits their own body and what they can do on instinct.</p>
+
+          <p>My own hunch is that each of us has one style that fits us best at a given point in our practice. To find mine, I’d start with a mistake and try writing the same rule two ways. In the auction, I might catch a missing chooser the moment I have to give the verb <em>choose</em> a subject. You might spot it sooner in a table, looking at an empty cell under <em>Who decides?</em> Once I know which question helps me catch the bug, I can give it a place in the grammar. That’s the part I get to add.</p>
+
+          <figure class="search-figure" id="computational-thinking-as-a-martial-art">
+            <video data-zal-model controls playsinline preload="none" width="1280" height="720" style="aspect-ratio: 16 / 9" poster="../assets/model-films/change-the-grammar-light.webp" aria-label="Computational thinking as a martial art" aria-describedby="grammar-film-caption">
+              <source media="(prefers-color-scheme: dark)" src="../assets/model-films/change-the-grammar-dark.mp4" data-poster="../assets/model-films/change-the-grammar-dark.webp" type="video/mp4">
+              <source src="../assets/model-films/change-the-grammar-light.mp4" data-poster="../assets/model-films/change-the-grammar-light.webp" type="video/mp4">
+              <track kind="captions" srclang="en" label="English" src="../assets/model-films/change-the-grammar.vtt">
+              <a href="../assets/model-films/change-the-grammar-light.mp4">Watch the film</a>
+            </video>
+            <figcaption id="grammar-film-caption"><strong>Computational thinking as a martial art.</strong> A 69-second ZAL film. Follow the dashed arc. When the grammar admits it, two more folds can earn the same three points.</figcaption>
+          </figure>
+          <details>
+            <summary>Read the film transcript</summary>
+            <p>Two practitioners trace the same movement with different reaches. Bruce Lee’s Jeet Kune Do shaped how I think about computation. Each of us has to learn what fits.</p>
+            <p>Six letters spell <code>AGCGUU</code>. Pair 1 with 6, 2 with 5, and 3 with 4. That gives us three nested arcs and three points. Now try 1–5 and 2–6. Their endpoints alternate, so the second arc crosses the first. A grammar that requires nesting or disjoint pairs refuses that step. Searching longer won’t change the rule.</p>
+            <p>Allow the crossing and replay the proposal. The third pair, 3–4, completes the fold. Of the four winning drawings in this six-letter example, two are nested and two contain crossings. The score stayed the same. What changed was which answers the language could express.</p>
+            <p>In the auction, both rules permit a price from 10 to 12. Can the exchange insist on 10 when the caller asks for 12? Only if the exchange gets to choose. One reader sees that difference in the subject of a sentence. Another sees it in the chooser column of a table. I can keep the question and change the form. <a href="../proofs/grammar-film/model.json">Checked ZAL models and fold replays (JSON)</a>.</p>
+          </details>
+
+          <p>“Be water, my friend.” Pour water from a cup into a bottle and it gives up the shape of the cup. I want that freedom even from a language I designed myself. Controlled English suits me when I’m assigning a permission. When I want to know whether a canceled bid can still win, I’d sooner trace the arrows on a state diagram. ZAL gives me room for both.</p>
+
+          <p>I expect personal programming languages to become an ordinary part of a computer scientist’s working life. And I mean <em>languages</em>, plural. Your language might look quite different. I’d like to see it.</p>
         <!-- MENTAL_TOOLKIT_START -->
 <section class="mental-toolkit" id="mental-toolkit" aria-labelledby="toolkit-title">
 <p class="eyebrow">Carry these ideas forward</p>
@@ -138,6 +167,9 @@
             <ul>
               <li>Kiran Gopinathan. <a href="https://kirancodes.me/posts/log-end-of-pl.html">PL research is dead, the age of PL exploration is just beginning!</a> <time datetime="2026-10-02">October 2, 2026</time>.</li>
               <li>Matthias Felleisen et al. <a href="https://cs.brown.edu/people/sk/Publications/Papers/Published/fffkbmt-racket-manifesto/">The Racket Manifesto</a> Summit on Advances in Programming Languages, 2015.</li>
+              <li>Bruce Lee. Quoted in <a href="https://brucelee.com/podcast-blog/2016/11/9/18-the-individual-over-any-established-system">The Individual Over Any Established System</a>, <em>The Bruce Lee Podcast</em>, episode 18.</li>
+              <li>Bruce Lee. <a href="https://brucelee.com/jeet-kune-do">Jeet Kune Do</a>.</li>
+              <li>Bruce Lee. “Be Water, My Friend.” <a href="https://brucelee.com/philosophies">The Philosophies</a>.</li>
             </ul>
           </section>
         </article>
